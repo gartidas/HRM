@@ -59,6 +59,7 @@ namespace WebApi.Services
             var newUser = new ApplicationUser
             {
                 Title = model.Title,
+                UserName = model.EmailAddress,
                 Name = model.Name,
                 Surname = model.Surname,
                 Email = model.EmailAddress,

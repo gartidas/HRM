@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using WebApi.Options;
-using WebApi.Services;
 
 namespace WebApi
 {
@@ -19,7 +18,7 @@ namespace WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.InstallServicesInAssembly(Configuration);
+            InstallServices(services, Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
@@ -51,6 +50,16 @@ namespace WebApi
             });
 
             serviceProvider.CreateUserRoles().GetAwaiter().GetResult();
+        }
+        public void InstallServices(IServiceCollection services, IConfiguration configuration)
+        {
+            var installers = new Installers();
+
+            installers.AuthenticationInstaller(services, Configuration);
+            installers.DbInstaller(services, Configuration);
+            installers.MediatorInstaller(services, Configuration);
+            installers.MvcInstaller(services, Configuration);
+            installers.SwaggerInstaller(services, Configuration);
         }
     }
 }
