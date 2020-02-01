@@ -2,12 +2,12 @@
 {
     public class Specialty
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Name { get; set; }
         public int NumberOfEmployees { get; set; }
         public Type Type { get; set; }
         public WorkPlace Workplace { get; set; }
-        public int WorkplaceID { get; set; }
+        public string WorkplaceID { get; set; }
     }
     public enum Type
     {

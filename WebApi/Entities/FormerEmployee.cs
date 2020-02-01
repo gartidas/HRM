@@ -5,7 +5,7 @@ namespace WebApi.Entities
 {
     public class FormerEmployee
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Title { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -17,14 +17,15 @@ namespace WebApi.Entities
         public string Email { get; set; }
         public string AddressOfPermanentResidence { get; set; }
         public string Citizenship { get; set; }
-        public Gender Gender { get; set; }
+        public bool Gender { get; set; }
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
         public int NumberOfWorkedOffDays { get; set; }
         public List<Document> Documentation { get; set; }
+        public HR_Worker HR_Worker { get; set; }
+        public string HR_WorkerID { get; set; }
         public string TerminationReason { get; set; }
         public DateTime TerminationDate { get; set; }
-        public int TerminatedByID { get; set; }
 
     }
 }

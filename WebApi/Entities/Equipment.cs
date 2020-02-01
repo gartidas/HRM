@@ -2,9 +2,9 @@
 {
     public class Equipment
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string Label { get; set; }
         public Employee Employee { get; set; }
-        public int EmployeeID { get; set; }
+        public string EmployeeID { get; set; }
     }
 }
