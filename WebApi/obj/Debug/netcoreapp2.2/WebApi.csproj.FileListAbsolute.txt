@@ -1,0 +1,16 @@
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.csprojAssemblyReference.cache
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cache
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorAssemblyInfo.cs
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.AssemblyInfoInputs.cache
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.AssemblyInfo.cs
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.deps.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeconfig.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.runtimeconfig.dev.json
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.dll
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.pdb
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.dll
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.pdb

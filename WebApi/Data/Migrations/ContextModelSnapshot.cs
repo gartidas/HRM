@@ -15,84 +15,251 @@ namespace WebApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebApi.Entities.Bonus", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("ClaimType");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("ClaimValue");
 
-                    b.Property<int>("GrantedByID")
-                        .HasColumnType("int");
+                    b.Property<string>("RoleId")
+                        .IsRequired();
 
-                    b.Property<DateTime>("GrantedDate")
-                        .HasColumnType("datetime2");
+                    b.HasKey("Id");
 
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider");
+
+                    b.Property<string>("ProviderKey");
+
+                    b.Property<string>("ProviderDisplayName");
+
+                    b.Property<string>("UserId")
+                        .IsRequired();
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("RoleId");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("LoginProvider");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Value");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.ApplicationRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("AddressOfPermanentResidence");
+
+                    b.Property<string>("BirthCertificateNumber");
+
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<string>("BirthPlace");
+
+                    b.Property<string>("Citizenship");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<int>("EquipmentStatus");
+
+                    b.Property<bool>("Gender");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256);
+
+                    b.Property<int>("NumberOfVacationDays");
+
+                    b.Property<int>("NumberOfWorkedOffDays");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<double>("Salary");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<string>("Specialty");
+
+                    b.Property<string>("Surname");
+
+                    b.Property<string>("Title");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.Bonus", b =>
+                {
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("EmployeeID");
+
+                    b.Property<DateTime>("GrantedDate");
+
+                    b.Property<string>("HR_WorkerID");
+
+                    b.Property<int>("Value");
 
                     b.HasKey("ID");
 
                     b.HasIndex("EmployeeID");
+
+                    b.HasIndex("HR_WorkerID");
 
                     b.ToTable("Bonuses");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Candidate", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AdditionalInfo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("AdditionalInfo");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Address");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Education");
 
-                    b.Property<int>("Evaluation")
-                        .HasColumnType("int");
+                    b.Property<string>("Email");
 
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("int");
+                    b.Property<int>("Evaluation");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("PhoneNumber");
 
-                    b.Property<double>("RequestedSalary")
-                        .HasColumnType("float");
+                    b.Property<double>("RequestedSalary");
 
-                    b.Property<string>("Specialty")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Specialty");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<int>("Status");
 
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Surname");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Vzdelanie")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Title");
 
                     b.HasKey("ID");
 
@@ -101,25 +268,16 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Entities.CorporateEvent", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("DateAndTime")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("DateAndTime");
 
-                    b.Property<int>("GrantedByID")
-                        .HasColumnType("int");
+                    b.Property<string>("Location");
 
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RequestDescription")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("RequestDescription");
 
                     b.HasKey("ID");
 
@@ -128,92 +286,44 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Entities.Document", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CandidateID")
-                        .HasColumnType("int");
+                    b.Property<string>("CandidateID");
 
-                    b.Property<byte[]>("Content")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<byte[]>("Content");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeID");
 
-                    b.Property<int>("FormerEmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("FormerEmployeeID");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name");
 
                     b.HasKey("ID");
 
+                    b.HasIndex("CandidateID");
+
                     b.HasIndex("EmployeeID");
+
+                    b.HasIndex("FormerEmployeeID");
 
                     b.ToTable("Documents");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Employee", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AddressOfPermanentResidence")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("HasChangedRole");
 
-                    b.Property<string>("BirthCertificateNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("IdentityUserId");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("BirthPlace")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Citizenship")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EquipmentStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NumberOfVacationDays")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberOfWorkedOffDays")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Salary")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Specialty")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WorkPlaceID")
-                        .HasColumnType("int");
+                    b.Property<string>("WorkPlaceID");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("IdentityUserId");
 
                     b.HasIndex("WorkPlaceID");
 
@@ -222,16 +332,12 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Entities.Equipment", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeID");
 
-                    b.Property<string>("Label")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Label");
 
                     b.HasKey("ID");
 
@@ -242,106 +348,97 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Entities.Evaluation", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Description");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeID");
 
-                    b.Property<int>("GrantedByID")
-                        .HasColumnType("int");
+                    b.Property<string>("HR_WorkerID");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<bool>("Type");
 
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
+                    b.Property<int>("Weight");
 
                     b.HasKey("ID");
 
                     b.HasIndex("EmployeeID");
+
+                    b.HasIndex("HR_WorkerID");
 
                     b.ToTable("Evaluations");
                 });
 
             modelBuilder.Entity("WebApi.Entities.FormerEmployee", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AddressOfPermanentResidence")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("AddressOfPermanentResidence");
 
-                    b.Property<string>("BirthCertificateNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("BirthCertificateNumber");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("BirthDate");
 
-                    b.Property<string>("BirthPlace")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("BirthPlace");
 
-                    b.Property<string>("Citizenship")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Citizenship");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Email");
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
+                    b.Property<bool>("Gender");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("HR_WorkerID");
 
-                    b.Property<int>("NumberOfVacationDays")
-                        .HasColumnType("int");
+                    b.Property<string>("Name");
 
-                    b.Property<int>("NumberOfWorkedOffDays")
-                        .HasColumnType("int");
+                    b.Property<int>("NumberOfVacationDays");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NumberOfWorkedOffDays");
 
-                    b.Property<double>("Salary")
-                        .HasColumnType("float");
+                    b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("Specialty")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Salary");
 
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Specialty");
 
-                    b.Property<int>("TerminatedByID")
-                        .HasColumnType("int");
+                    b.Property<string>("Surname");
 
-                    b.Property<DateTime>("TerminationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("TerminationDate");
 
-                    b.Property<string>("TerminationReason")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("TerminationReason");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Title");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("HR_WorkerID");
 
                     b.ToTable("FormerEmployees");
                 });
 
+            modelBuilder.Entity("WebApi.Entities.HR_Worker", b =>
+                {
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("HasChangedRole");
+
+                    b.Property<string>("IdentityUserId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("HR_Workers");
+                });
+
             modelBuilder.Entity("WebApi.Entities.Joins.EmployeeCorporateEvent", b =>
                 {
-                    b.Property<int>("CorporateEventID")
-                        .HasColumnType("int");
+                    b.Property<string>("CorporateEventID");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EmployeeID");
 
                     b.HasKey("CorporateEventID", "EmployeeID");
 
@@ -350,24 +447,31 @@ namespace WebApi.Migrations
                     b.ToTable("EmployeeCorporateEvent");
                 });
 
+            modelBuilder.Entity("WebApi.Entities.Joins.WorkPlaceLeaderCorporateEvent", b =>
+                {
+                    b.Property<string>("CorporateEventID");
+
+                    b.Property<string>("WorkPlaceLeaderID");
+
+                    b.HasKey("CorporateEventID", "WorkPlaceLeaderID");
+
+                    b.HasIndex("WorkPlaceLeaderID");
+
+                    b.ToTable("WorkPlaceLeaderCorporateEvent");
+                });
+
             modelBuilder.Entity("WebApi.Entities.Specialty", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Name");
 
-                    b.Property<int>("NumberOfEmployees")
-                        .HasColumnType("int");
+                    b.Property<int>("NumberOfEmployees");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<int>("Type");
 
-                    b.Property<int>("WorkplaceID")
-                        .HasColumnType("int");
+                    b.Property<string>("WorkplaceID");
 
                     b.HasKey("ID");
 
@@ -376,54 +480,18 @@ namespace WebApi.Migrations
                     b.ToTable("Specialties");
                 });
 
-            modelBuilder.Entity("WebApi.Entities.UserAccount", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("EmployeeID")
-                        .IsUnique();
-
-                    b.ToTable("UserAccounts");
-                });
-
             modelBuilder.Entity("WebApi.Entities.Vacation", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Approved")
-                        .HasColumnType("bit");
+                    b.Property<bool>("Approved");
 
-                    b.Property<int>("ApprovedBy")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DateAndTime");
 
-                    b.Property<DateTime>("DateAndTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("EmployeeID");
 
-                    b.Property<int>("EmployeeID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Reason")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Reason");
 
                     b.HasKey("ID");
 
@@ -434,80 +502,152 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Entities.WorkPlace", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Label")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Label");
 
-                    b.Property<int>("LeadByID")
-                        .HasColumnType("int");
+                    b.Property<string>("Location");
 
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("WorkPlaceLeaderID");
 
                     b.HasKey("ID");
 
+                    b.HasIndex("WorkPlaceLeaderID")
+                        .IsUnique()
+                        .HasFilter("[WorkPlaceLeaderID] IS NOT NULL");
+
                     b.ToTable("Workplaces");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.WorkPlaceLeader", b =>
+                {
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("HasChangedRole");
+
+                    b.Property<string>("IdentityUserId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("WorkPlaceLeaders");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationRole")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationRole")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApi.Entities.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Bonus", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Bonuses")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
+
+                    b.HasOne("WebApi.Entities.HR_Worker", "HR_Worker")
+                        .WithMany("Bonuses")
+                        .HasForeignKey("HR_WorkerID");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Document", b =>
                 {
                     b.HasOne("WebApi.Entities.Candidate", "Candidate")
                         .WithMany("Documentation")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CandidateID");
 
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Documentation")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
 
                     b.HasOne("WebApi.Entities.FormerEmployee", "FormerEmployee")
                         .WithMany("Documentation")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FormerEmployeeID");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Employee", b =>
                 {
+                    b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+
                     b.HasOne("WebApi.Entities.WorkPlace", "WorkPlace")
                         .WithMany("Employees")
-                        .HasForeignKey("WorkPlaceID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WorkPlaceID");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Equipment", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Equipment")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Evaluation", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Evaluations")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
+
+                    b.HasOne("WebApi.Entities.HR_Worker", "HR_Worker")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("HR_WorkerID");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.FormerEmployee", b =>
+                {
+                    b.HasOne("WebApi.Entities.HR_Worker", "HR_Worker")
+                        .WithMany("FormerEmployees")
+                        .HasForeignKey("HR_WorkerID");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.HR_Worker", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Joins.EmployeeCorporateEvent", b =>
@@ -515,41 +655,53 @@ namespace WebApi.Migrations
                     b.HasOne("WebApi.Entities.CorporateEvent", "CorporateEvent")
                         .WithMany("EmployeeCorporateEvent")
                         .HasForeignKey("CorporateEventID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("EmployeeCorporateEvent")
                         .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WebApi.Entities.Joins.WorkPlaceLeaderCorporateEvent", b =>
+                {
+                    b.HasOne("WebApi.Entities.CorporateEvent", "CorporateEvent")
+                        .WithMany("WorkPlaceLeaderCorporateEvent")
+                        .HasForeignKey("CorporateEventID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("WebApi.Entities.WorkPlaceLeader", "WorkPlaceLeader")
+                        .WithMany("WorkPlaceLeaderCorporateEvent")
+                        .HasForeignKey("WorkPlaceLeaderID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Specialty", b =>
                 {
                     b.HasOne("WebApi.Entities.WorkPlace", "Workplace")
                         .WithMany("Specialties")
-                        .HasForeignKey("WorkplaceID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApi.Entities.UserAccount", b =>
-                {
-                    b.HasOne("WebApi.Entities.Employee", "Employee")
-                        .WithOne("Account")
-                        .HasForeignKey("WebApi.Entities.UserAccount", "EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WorkplaceID");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Vacation", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Vacations")
-                        .HasForeignKey("EmployeeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeID");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.WorkPlace", b =>
+                {
+                    b.HasOne("WebApi.Entities.WorkPlaceLeader", "WorkPlaceLeader")
+                        .WithOne("WorkPlace")
+                        .HasForeignKey("WebApi.Entities.WorkPlace", "WorkPlaceLeaderID");
+                });
+
+            modelBuilder.Entity("WebApi.Entities.WorkPlaceLeader", b =>
+                {
+                    b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 #pragma warning restore 612, 618
         }

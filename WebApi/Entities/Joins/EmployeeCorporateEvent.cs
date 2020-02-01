@@ -2,8 +2,8 @@
 {
     public class EmployeeCorporateEvent
     {
-        public int EmployeeID { get; set; }
-        public int CorporateEventID { get; set; }
+        public string EmployeeID { get; set; }
+        public string CorporateEventID { get; set; }
         public Employee Employee { get; set; }
         public CorporateEvent CorporateEvent { get; set; }
     }

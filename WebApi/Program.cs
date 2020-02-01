@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,23 +10,22 @@ namespace WebApi
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public async static Task Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-            using (var scope = host.Services.CreateScope())
+            var host = CreateWebHostBuilder(args).Build();
+
+            using (var serviceScope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
-                var db = services.GetRequiredService<Context>();
-                await db.Database.MigrateAsync();
+                //using DI to get registered DbContext
+                var dbContext = serviceScope.ServiceProvider.GetRequiredService<Context>();
+                await dbContext.Database.MigrateAsync();
             }
-            host.Run();
+
+            await host.RunAsync();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
     }
 }
