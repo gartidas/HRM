@@ -29,6 +29,7 @@ namespace WebApi
             var user = new ApplicationUser
             {
                 Email = "admin@test.com",
+                UserName = "admin@test.com",
                 Specialty = "SysAdmin",
                 Name = "ADMIN",
                 Surname = "ADMIN",
