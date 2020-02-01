@@ -26,7 +26,7 @@ namespace WebApi
 {
     public class Installers
     {
-        public void AuthenticationInstaller(IServiceCollection services, IConfiguration configuration)
+        public static void AuthenticationInstaller(IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = new JwtSettings();
             configuration.Bind("JwtSettings", jwtSettings);
@@ -64,7 +64,7 @@ namespace WebApi
                 x.TokenValidationParameters = tokenValidationParams;
             });
         }
-        public void DbInstaller(IServiceCollection services, IConfiguration configuration)
+        public static void DbInstaller(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<Context>(options =>
                options.UseSqlServer(
@@ -82,7 +82,7 @@ namespace WebApi
                 .AddEntityFrameworkStores<Context>()
                 .AddDefaultTokenProviders();
         }
-        public void MediatorInstaller(IServiceCollection services, IConfiguration configuration)
+        public static void MediatorInstaller(IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(typeof(Startup).Assembly);
 
@@ -98,7 +98,7 @@ namespace WebApi
                     services.AddTransient(handlerType.AsType(), type.AsType());
             }
         }
-        public void MvcInstaller(IServiceCollection services, IConfiguration configuration)
+        public static void MvcInstaller(IServiceCollection services, IConfiguration configuration)
         {
             services.AddMvc()
                .AddMvcOptions(opt => opt.Filters.Add(typeof(ValidationFilter)))
@@ -112,7 +112,7 @@ namespace WebApi
                 options.SuppressModelStateInvalidFilter = true;
             });
         }
-        public void SwaggerInstaller(IServiceCollection services, IConfiguration configuration)
+        public static void SwaggerInstaller(IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(x =>
             {

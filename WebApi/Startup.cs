@@ -53,13 +53,11 @@ namespace WebApi
         }
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-            var installers = new Installers();
-
-            installers.AuthenticationInstaller(services, Configuration);
-            installers.DbInstaller(services, Configuration);
-            installers.MediatorInstaller(services, Configuration);
-            installers.MvcInstaller(services, Configuration);
-            installers.SwaggerInstaller(services, Configuration);
+            Installers.AuthenticationInstaller(services, Configuration);
+            Installers.DbInstaller(services, Configuration);
+            Installers.MediatorInstaller(services, Configuration);
+            Installers.MvcInstaller(services, Configuration);
+            Installers.SwaggerInstaller(services, Configuration);
         }
     }
 }
