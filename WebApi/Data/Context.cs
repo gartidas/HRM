@@ -7,7 +7,7 @@ namespace WebApi.Data
 {
     public class Context : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
-        public Context(DbContextOptions<Context> options) : base(options) { ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; }
+        public Context(DbContextOptions<Context> options) : base(options) { }
 
         public DbSet<Bonus> Bonuses { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
