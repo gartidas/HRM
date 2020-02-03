@@ -2,6 +2,12 @@
 {
     public class PagingReferences
     {
+        public PagingReferences()
+        {
+            PageSize = 10;
+            PageNumber = 1;
+        }
+
         private int _pageSize;
         private int _pageNumber;
 
@@ -23,12 +29,6 @@
                 if (value < 1) value = 1;
                 _pageNumber = value;
             }
-        }
-
-        public PagingReferences()
-        {
-            PageSize = 10;
-            PageNumber = 1;
         }
     }
 }

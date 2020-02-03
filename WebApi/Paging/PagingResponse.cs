@@ -6,12 +6,12 @@ namespace WebApi.Paging
     {
         public PagingResponse() { }
 
-        public PagingResponse(IList<T> data)
+        public PagingResponse(IEnumerable<T> content)
         {
-            Data = data;
+            Content = content;
         }
 
-        public IList<T> Data { get; set; }
+        public IEnumerable<T> Content { get; set; }
         public int? PageNumber { get; set; }
         public int? PageSize { get; set; }
         public int Pages { get; set; }
