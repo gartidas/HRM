@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
 using WebApi.Domain.IdentityModels;
 using WebApi.Features.Candidates;
+using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
@@ -19,6 +20,7 @@ namespace WebApi.Controllers
         {
             _mediator = mediator;
         }
+
         [Authorize(Roles = Roles.SysAdmin)]
         [HttpPost(ApiRoutes.Candidates.CreateCandidate)]
         public async Task<ActionResult<GenericResponse>> CreateCandidate([FromBody]CreateCandidate.Command request)
@@ -27,6 +29,7 @@ namespace WebApi.Controllers
             if (!result.Success) return BadRequest(result);
             return Ok(result);
         }
+
         [Authorize(Roles = Roles.SysAdmin)]
         [HttpGet(ApiRoutes.Candidates.GetCandidate)]
         public async Task<ActionResult<GetCandidate.Query>> GetCandidate([FromRoute]string candidateId)
@@ -35,12 +38,13 @@ namespace WebApi.Controllers
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 
-        //[HttpGet(ApiRoutes.Candidates.GetAllCandidates)]
-        //public async Task<ActionResult<PagedResponse<GetAllCandidates.CandidateDto>>> GetAllCandidates([FromQuery]GetAllCandidates.Filter filter, [FromQuery]PaginationQuery paginationQuery)
-        //{
-        //    var result = await _mediator.Send(new GetAllCandidates.Query { Filter = filter, PaginationQuery = paginationQuery });
-        //    return Ok(result);
-        //}
+        [Authorize(Roles = Roles.SysAdmin)]
+        [HttpGet(ApiRoutes.Candidates.GetAllCandidates)]
+        public async Task<ActionResult<PagingResponse<GetCandidate.CandidateDto>>> GetAllCandidates([FromQuery]GetAllCandidates.Filter filter, [FromQuery]PagingReferences pagingReferences)
+        {
+            var result = await _mediator.Send(new GetAllCandidates.Query { Filter = filter, PagingReferences = pagingReferences });
+            return Ok(result);
+        }
 
         [Authorize(Roles = Roles.SysAdmin)]
         [HttpPut(ApiRoutes.Candidates.EditCandidate)]
