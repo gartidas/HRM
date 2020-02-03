@@ -9,7 +9,7 @@ using WebApi.Features.Candidates;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class CandidatesController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace WebApi.Controllers
         {
             _mediator = mediator;
         }
-
+        [Authorize(Roles = Roles.SysAdmin)]
         [HttpPost(ApiRoutes.Candidates.CreateCandidate)]
         public async Task<ActionResult<GenericResponse>> CreateCandidate([FromBody]CreateCandidate.Command request)
         {
@@ -27,7 +27,7 @@ namespace WebApi.Controllers
             if (!result.Success) return BadRequest(result);
             return Ok(result);
         }
-
+        [Authorize(Roles = Roles.SysAdmin)]
         [HttpGet(ApiRoutes.Candidates.GetCandidate)]
         public async Task<ActionResult<GetCandidate.Query>> GetCandidate([FromRoute]string candidateId)
         {
@@ -57,7 +57,7 @@ namespace WebApi.Controllers
         {
             return await _mediator.Send(new DeleteCandidate.Command { CandidateId = candidateId })
                 ? Ok()
-                : BadRequest("Machine not found or was already deleted") as ActionResult;
+                : BadRequest("Candidate not found or was already deleted") as ActionResult;
         }
     }
 }
