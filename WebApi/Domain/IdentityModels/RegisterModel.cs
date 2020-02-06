@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using WebApi.Entities;
 
 namespace WebApi.Domain.IdentityModels
 {
@@ -19,7 +21,9 @@ namespace WebApi.Domain.IdentityModels
         public bool Gender { get; set; }
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
+        public string WorkPlaceID { get; set; }
         public Role Role { get; set; }
+        public List<Document> Documentation { get; set; }
     }
     public enum Role
     {

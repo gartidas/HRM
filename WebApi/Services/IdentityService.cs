@@ -73,7 +73,6 @@ namespace WebApi.Services
                 Gender = model.Gender,
                 Salary = model.Salary,
                 NumberOfVacationDays = model.NumberOfVacationDays
-
             };
 
             var identityResult = await _userManager.CreateAsync(newUser, model.Password);
@@ -88,17 +87,18 @@ namespace WebApi.Services
 
             var createdUser = await _userManager.FindByEmailAsync(model.EmailAddress);
 
+            var workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
             switch (model.Role)
             {
                 case Role.Employee:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
                     break;
                 case Role.WorkPlaceLeader:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser });
-                    _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
+                    _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser, WorkPlace = workPlace });
                     break;
                 case Role.HR_Worker:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
                     _context.HR_Workers.Add(new HR_Worker { IdentityUser = createdUser });
                     break;
                 default:

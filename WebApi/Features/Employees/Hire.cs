@@ -27,6 +27,7 @@ namespace WebApi.Features.Employees
             public bool Gender { get; set; }
             public double Salary { get; set; }
             public int NumberOfVacationDays { get; set; }
+            public string WorkPlaceID { get; set; }
             public Role Role { get; set; }
         }
 
@@ -66,7 +67,9 @@ namespace WebApi.Features.Employees
                     Gender = request.Gender,
                     Salary = request.Salary,
                     NumberOfVacationDays = request.NumberOfVacationDays,
-                    Role = request.Role
+                    WorkPlaceID = request.WorkPlaceID,
+                    Role = request.Role,
+                    Documentation = candidate.Documentation
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
                 await _context.SaveChangesAsync();
