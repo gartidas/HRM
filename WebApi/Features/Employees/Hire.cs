@@ -80,7 +80,7 @@ namespace WebApi.Features.Employees
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role.");
+                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 3).WithMessage("Invalid role.");
                 RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");

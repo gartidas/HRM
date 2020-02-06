@@ -17,7 +17,7 @@ namespace WebApi.Entities
         public bool Gender { get; set; }
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
-        public int NumberOfWorkedOffDays { get; set; } //↓
+        public int NumberOfWorkedOffDays { get; set; }
         public EquipmentStatus EquipmentStatus { get; set; }
     }
     public enum EquipmentStatus

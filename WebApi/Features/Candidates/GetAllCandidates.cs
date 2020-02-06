@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,9 +33,6 @@ namespace WebApi.Features.Candidates
             {
                 var candidates = _context.Candidates.AsQueryable();
                 candidates = ApplyFiltering(request.Filter, candidates);
-
-                var pageCount = (int)Math.Ceiling((double)candidates.Count() / request.PagingReferences.PageSize);
-                var skip = (request.PagingReferences.PageNumber - 1) * request.PagingReferences.PageSize;
 
                 var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, _mapper.Map<CandidateDto>, cancellationToken);
                 pagedContent.Content = pagedContent.Content.OrderByDescending(x => x.Evaluation).ThenBy(x => x.RequestedSalary).ThenBy(x => x.Name);
