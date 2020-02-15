@@ -35,7 +35,7 @@ namespace WebApi.Features.Candidates
                 candidates = ApplyFiltering(request.Filter, candidates);
 
                 var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, _mapper.Map<CandidateDto>, cancellationToken);
-                pagedContent.Content = pagedContent.Content.OrderByDescending(x => x.Evaluation).ThenBy(x => x.RequestedSalary).ThenBy(x => x.Name);
+                pagedContent.Content = pagedContent.Content.OrderByDescending(x => x.Evaluation).ThenBy(x => x.RequestedSalary).ThenBy(x => x.Surname);
                 return pagedContent;
             }
 

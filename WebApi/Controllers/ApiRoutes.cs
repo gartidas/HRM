@@ -6,7 +6,9 @@
 
         public static class Employees
         {
-            public const string Hire = _base + "employees/hire/{candidateId}";
+            public const string Hire = _base + "employees/{candidateId}";
+            public const string GetEmployee = _base + "employees/{employeeId}";
+            public const string GetAllEmployees = _base + "employees";
         }
 
         public static class Users

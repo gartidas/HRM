@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\garam\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\garam\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_HumanResourcesModule.-1869762491.00" t="ExcludeRecursive" />
+    <e p="C:\Users\garam\source\repos\HumanResourcesModule" t="IncludeFlat">
+      <e p="HumanResourcesModule.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="WebApi" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="ApiRoutes.cs" t="Include" />
+          <e p="CandidatesController.cs" t="Include" />
+          <e p="EmployeesController.cs" t="Include" />
+          <e p="Responses" t="Include">
+            <e p="GenericResponse.cs" t="Include" />
+          </e>
+          <e p="UsersController.cs" t="Include" />
+        </e>
+        <e p="Data" t="Include">
+          <e p="Context.cs" t="Include" />
+          <e p="Migrations" t="Include">
+            <e p="20200201154806_identityrework.cs" t="Include" />
+            <e p="20200201154806_identityrework.Designer.cs" t="Include" />
+            <e p="ContextModelSnapshot.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Domain" t="Include">
+          <e p="IdentityModels" t="Include">
+            <e p="AuthenticationResult.cs" t="Include" />
+            <e p="RegisterModel.cs" t="Include" />
+            <e p="Roles.cs" t="Include" />
+          </e>
+          <e p="OperationResult.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="ApplicationRole.cs" t="Include" />
+          <e p="ApplicationUser.cs" t="Include" />
+          <e p="Bonus.cs" t="Include" />
+          <e p="Candidate.cs" t="Include" />
+          <e p="CorporateEvent.cs" t="Include" />
+          <e p="Document.cs" t="Include" />
+          <e p="Employee.cs" t="Include" />
+          <e p="Equipment.cs" t="Include" />
+          <e p="Evaluation.cs" t="Include" />
+          <e p="FormerEmployee.cs" t="Include" />
+          <e p="HR_Worker.cs" t="Include" />
+          <e p="Joins" t="Include">
+            <e p="EmployeeCorporateEvent.cs" t="Include" />
+            <e p="WorkPlaceLeaderCorporateEvent.cs" t="Include" />
+          </e>
+          <e p="Specialty.cs" t="Include" />
+          <e p="Vacation.cs" t="Include" />
+          <e p="WorkPlace.cs" t="Include" />
+          <e p="WorkPlaceLeader.cs" t="Include" />
+        </e>
+        <e p="Features" t="Include">
+          <e p="Candidates" t="Include">
+            <e p="CreateCandidate.cs" t="Include" />
+            <e p="DeleteCandidate.cs" t="Include" />
+            <e p="EditCandidate.cs" t="Include" />
+            <e p="GetAllCandidates.cs" t="Include" />
+            <e p="GetCandidate.cs" t="Include" />
+          </e>
+          <e p="Employees" t="Include">
+            <e p="Hire.cs" t="Include" />
+          </e>
+          <e p="Users" t="Include">
+            <e p="Login.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Filters" t="Include">
+          <e p="ValidationFilter.cs" t="Include" />
+        </e>
+        <e p="Installers.cs" t="Include" />
+        <e p="MappingProfiles" t="Include">
+          <e p="CandidateProfile.cs" t="Include" />
+          <e p="IdentityProfile.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="WebApi.AssemblyInfo.cs" t="Include" />
+              <e p="WebApi.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Options" t="Include">
+          <e p="JwtSettings.cs" t="Include" />
+          <e p="SwaggerOptions.cs" t="Include" />
+        </e>
+        <e p="Paging" t="Include">
+          <e p="PagingLogic.cs" t="Include" />
+          <e p="PagingReferences.cs" t="Include" />
+          <e p="PagingResponse.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="IdentityService.cs" t="Include" />
+          <e p="IIdentityService.cs" t="Include" />
+          <e p="IRequestTokenInfo.cs" t="Include" />
+          <e p="RequestTokenInfo.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="StartupHelpers.cs" t="Include" />
+        <e p="WebApi.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
