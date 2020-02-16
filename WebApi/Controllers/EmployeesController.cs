@@ -21,8 +21,8 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost(ApiRoutes.Employees.Hire)]
-        public async Task<ActionResult<GenericResponse>> Hire([FromRoute]string candidateId, [FromBody]Hire.Command request)
+        [HttpPost(ApiRoutes.Employees.HireEmployee)]
+        public async Task<ActionResult<GenericResponse>> HireEmployee([FromRoute]string candidateId, [FromBody]HireEmployee.Command request)
         {
             request.CandidateId = candidateId;
             var result = await _mediator.Send(request);
@@ -42,6 +42,14 @@ namespace WebApi.Controllers
         {
             var result = await _mediator.Send(new GetAllEmployees.Query { Filter = filter, PagingReferences = pagingReferences });
             return Ok(result);
+        }
+
+        [HttpPut(ApiRoutes.Employees.EditEmployee)]
+        public async Task<ActionResult<GenericResponse>> EditEmployee([FromRoute]string employeeId, [FromBody]EditEmployee.Command command)
+        {
+            command.EmployeeId = employeeId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
     }
 }

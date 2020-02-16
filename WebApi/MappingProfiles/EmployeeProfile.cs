@@ -9,7 +9,7 @@ namespace WebApi.MappingProfiles
     {
         public EmployeeProfile()
         {
-            CreateMap<Hire.Command, RegisterModel>();
+            CreateMap<HireEmployee.Command, RegisterModel>();
 
             CreateMap<ApplicationUser, GetEmployee.EmployeeDto>()
                 .ForMember(to => to.EmailAddress, from => from.MapFrom(x => x.Email))
