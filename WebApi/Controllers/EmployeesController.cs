@@ -10,7 +10,7 @@ using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
@@ -50,6 +50,15 @@ namespace WebApi.Controllers
             command.EmployeeId = employeeId;
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
+        [HttpDelete(ApiRoutes.Employees.FireEmployee)]
+        public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromBody]FireEmployee.Command command)
+        {
+            command.EmployeeId = employeeId;
+            var result = await _mediator.Send(command);
+            if (!result.Success) return BadRequest(result);
+            return Ok(result);
         }
     }
 }

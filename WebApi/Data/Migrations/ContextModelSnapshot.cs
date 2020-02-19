@@ -317,7 +317,8 @@ namespace WebApi.Migrations
 
                     b.Property<bool>("HasChangedRole");
 
-                    b.Property<string>("IdentityUserId");
+                    b.Property<string>("IdentityUserId")
+                        .IsRequired();
 
                     b.Property<string>("WorkPlaceID");
 
@@ -425,7 +426,8 @@ namespace WebApi.Migrations
 
                     b.Property<bool>("HasChangedRole");
 
-                    b.Property<string>("IdentityUserId");
+                    b.Property<string>("IdentityUserId")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -527,7 +529,8 @@ namespace WebApi.Migrations
 
                     b.Property<bool>("HasChangedRole");
 
-                    b.Property<string>("IdentityUserId");
+                    b.Property<string>("IdentityUserId")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -611,7 +614,8 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
                         .WithMany()
-                        .HasForeignKey("IdentityUserId");
+                        .HasForeignKey("IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebApi.Entities.WorkPlace", "WorkPlace")
                         .WithMany("Employees")
@@ -647,7 +651,8 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
                         .WithMany()
-                        .HasForeignKey("IdentityUserId");
+                        .HasForeignKey("IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Joins.EmployeeCorporateEvent", b =>
@@ -701,7 +706,8 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.ApplicationUser", "IdentityUser")
                         .WithMany()
-                        .HasForeignKey("IdentityUserId");
+                        .HasForeignKey("IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

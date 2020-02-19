@@ -30,6 +30,12 @@ namespace WebApi.Data
             modelBuilder.Entity<ApplicationUser>().ToTable("Users");
             modelBuilder.Entity<ApplicationRole>().ToTable("Roles");
 
+            modelBuilder.Entity<Employee>().HasOne(x => x.IdentityUser).WithMany().IsRequired().OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<WorkPlaceLeader>().HasOne(x => x.IdentityUser).WithMany().IsRequired().OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<HR_Worker>().HasOne(x => x.IdentityUser).WithMany().IsRequired().OnDelete(DeleteBehavior.Cascade);
+
+
+
             modelBuilder.Entity<Employee>().HasMany(b => b.Bonuses).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID);
             modelBuilder.Entity<HR_Worker>().HasMany(b => b.Bonuses).WithOne(h => h.HR_Worker).HasForeignKey(k => k.HR_WorkerID);
             modelBuilder.Entity<Candidate>().HasMany(d => d.Documentation).WithOne(c => c.Candidate).HasForeignKey(k => k.CandidateID);

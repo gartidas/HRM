@@ -48,7 +48,7 @@ namespace WebApi.Features.Employees
             {
                 var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
                 if (candidate is null) return new GenericResponse { Errors = new[] { "Candidate does not exist." } };
-                candidate.Status = Entities.Status.Hired;
+
 
                 var employee = new RegisterModel
                 {
@@ -73,6 +73,7 @@ namespace WebApi.Features.Employees
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
                 await _context.SaveChangesAsync();
+                candidate.Status = Entities.Status.Hired;
                 return _mapper.Map<GenericResponse>(result);
             }
         }

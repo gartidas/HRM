@@ -54,7 +54,7 @@ namespace WebApi.Services
             var existingUser = await _userManager.FindByEmailAsync(model.EmailAddress);
 
             if (existingUser != null)
-                return new OperationResult { Errors = new[] { "User with this email address already exists." } };
+                return new OperationResult { Errors = new[] { "Employee with this email address already exists." } };
 
             var newUser = new ApplicationUser
             {
@@ -89,7 +89,7 @@ namespace WebApi.Services
 
             var workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
 
-            _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
+            _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation, HasChangedRole = true });
 
             switch (model.Role)
             {
