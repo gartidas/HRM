@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
@@ -51,6 +52,7 @@ namespace WebApi.Features.Candidates
             public int Evaluation { get; set; }
             public Status Status { get; set; }
             public string AdditionalInfo { get; set; }
+            public List<Document> Documentation { get; set; }
         }
     }
 }

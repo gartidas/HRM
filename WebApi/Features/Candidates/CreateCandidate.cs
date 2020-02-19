@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace WebApi.Features.Candidates
             public int Evaluation { get; set; }
             public Status Status { get; set; }
             public string AdditionalInfo { get; set; }
-
+            public List<Document> Documentation { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, GenericResponse>
@@ -56,7 +57,8 @@ namespace WebApi.Features.Candidates
                     RequestedSalary = request.RequestedSalary,
                     Evaluation = request.Evaluation,
                     Status = request.Status,
-                    AdditionalInfo = request.AdditionalInfo
+                    AdditionalInfo = request.AdditionalInfo,
+                    Documentation = request.Documentation
                 };
 
                 await _context.Candidates.AddAsync(candidate);

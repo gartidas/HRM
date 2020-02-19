@@ -13,7 +13,7 @@ using WebApi.Services;
 
 namespace WebApi.Features.Employees
 {
-    public class Hire
+    public class HireEmployee
     {
         public class Command : IRequest<GenericResponse>
         {
@@ -27,6 +27,7 @@ namespace WebApi.Features.Employees
             public bool Gender { get; set; }
             public double Salary { get; set; }
             public int NumberOfVacationDays { get; set; }
+            public string WorkPlaceID { get; set; }
             public Role Role { get; set; }
         }
 
@@ -47,7 +48,7 @@ namespace WebApi.Features.Employees
             {
                 var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
                 if (candidate is null) return new GenericResponse { Errors = new[] { "Candidate does not exist." } };
-                candidate.Status = Entities.Status.Hired;
+
 
                 var employee = new RegisterModel
                 {
@@ -66,10 +67,13 @@ namespace WebApi.Features.Employees
                     Gender = request.Gender,
                     Salary = request.Salary,
                     NumberOfVacationDays = request.NumberOfVacationDays,
-                    Role = request.Role
+                    WorkPlaceID = request.WorkPlaceID,
+                    Role = request.Role,
+                    Documentation = candidate.Documentation
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
                 await _context.SaveChangesAsync();
+                candidate.Status = Entities.Status.Hired;
                 return _mapper.Map<GenericResponse>(result);
             }
         }
@@ -80,7 +84,7 @@ namespace WebApi.Features.Employees
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 3).WithMessage("Invalid role.");
+                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role.");
                 RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");

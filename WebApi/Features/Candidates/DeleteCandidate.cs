@@ -25,9 +25,15 @@ namespace WebApi.Features.Candidates
             public async Task<bool> Handle(Command request, CancellationToken cancellationToken)
             {
                 var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
-
+                var documentation = candidate.Documentation;
                 if (candidate is null) return false;
-
+                if (documentation != null)
+                {
+                    foreach (var item in documentation)
+                    {
+                        _context.Remove(item);
+                    }
+                }
                 _context.Remove(candidate);
                 await _context.SaveChangesAsync();
 
