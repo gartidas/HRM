@@ -89,14 +89,17 @@ namespace WebApi.Services
 
             var workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
 
-            _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation, HasChangedRole = true });
-
             switch (model.Role)
             {
+                case Role.Employee:
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation, HasChangedRole = true });
+                    break;
                 case Role.WorkPlaceLeader:
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
                     _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser, WorkPlace = workPlace });
                     break;
                 case Role.HR_Worker:
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
                     _context.HR_Workers.Add(new HR_Worker { IdentityUser = createdUser });
                     break;
                 default:

@@ -97,6 +97,7 @@ namespace WebApi.Features.Employees
                 employee.Salary = request.Salary;
                 employee.NumberOfVacationDays = request.NumberOfVacationDays;
 
+
                 await _context.SaveChangesAsync(cancellationToken);
 
                 return new GenericResponse { Success = true };

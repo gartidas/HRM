@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
-using WebApi.Entities;
 using WebApi.Paging;
 using static WebApi.Features.Candidates.GetCandidate;
 
@@ -31,15 +31,15 @@ namespace WebApi.Features.Candidates
 
             public async Task<PagingResponse<CandidateDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var candidates = _context.Candidates.AsQueryable();
+                var candidates = _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider);
                 candidates = ApplyFiltering(request.Filter, candidates);
 
-                var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, _mapper.Map<CandidateDto>, cancellationToken);
+                var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, x => x, cancellationToken);
                 pagedContent.Content = pagedContent.Content.OrderByDescending(x => x.Evaluation).ThenBy(x => x.RequestedSalary).ThenBy(x => x.Surname);
                 return pagedContent;
             }
 
-            private IQueryable<Candidate> ApplyFiltering(Filter filter, IQueryable<Candidate> query)
+            private IQueryable<CandidateDto> ApplyFiltering(Filter filter, IQueryable<CandidateDto> query)
             {
                 if (!string.IsNullOrEmpty(filter.Email))
                     query = query.Where(x => x.Email.Contains(filter.Email));

@@ -15,9 +15,6 @@ namespace WebApi.MappingProfiles
                 .ForMember(to => to.EmailAddress, from => from.MapFrom(x => x.Email))
                 .ForMember(to => to.Id, from => from.MapFrom(x => x.Id));
 
-            CreateMap<ApplicationUser, GetEmployee.EmployeeDto>()
-                .ForMember(to => to.EmailAddress, from => from.MapFrom(x => x.Email))
-                .ForMember(to => to.Id, from => from.MapFrom(x => x.Id));
         }
     }
 }

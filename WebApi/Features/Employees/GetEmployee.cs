@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
 using WebApi.Entities;
+using static WebApi.Features.FormerEmployees.GetFormerEmployee;
 
 namespace WebApi.Features.Employees
 {
@@ -66,7 +67,13 @@ namespace WebApi.Features.Employees
             public int NumberOfVacationDays { get; set; }
             public string WorkPlaceID { get; set; }
             public string Role { get; set; }
-            public List<Document> Documentation { get; set; }
+            public IEnumerable<DocumentationDto> Documentation { get; set; }
+            public IEnumerable<EquipmentDto> Equipment { get; set; }
+        }
+        public class EquipmentDto
+        {
+            public string ID { get; set; }
+            public string Label { get; set; }
         }
     }
 }

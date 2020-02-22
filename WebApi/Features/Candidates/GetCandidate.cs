@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
 using WebApi.Entities;
+using static WebApi.Features.FormerEmployees.GetFormerEmployee;
 
 namespace WebApi.Features.Candidates
 {
@@ -31,7 +32,7 @@ namespace WebApi.Features.Candidates
 
             public async Task<CandidateDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
+                var candidate = await _context.Candidates.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.CandidateId);
                 if (candidate is null) return null;
                 return _mapper.Map<CandidateDto>(candidate);
             }
@@ -52,7 +53,7 @@ namespace WebApi.Features.Candidates
             public int Evaluation { get; set; }
             public Status Status { get; set; }
             public string AdditionalInfo { get; set; }
-            public List<Document> Documentation { get; set; }
+            public IEnumerable<DocumentationDto> Documentation { get; set; }
         }
     }
 }

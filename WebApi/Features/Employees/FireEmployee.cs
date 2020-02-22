@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
@@ -38,7 +39,8 @@ namespace WebApi.Features.Employees
                 var employee = await _userManager.FindByIdAsync(request.EmployeeId);
                 var hr_worker = await _context.HR_Workers.FindAsync(request.HR_WorkerID);
                 var roleString = (await _userManager.GetRolesAsync(employee)).Single();
-                var documentation = (await _context.Employees.FindAsync(request.EmployeeId)).Documentation;
+                var emp = await _context.Employees.FindAsync(request.EmployeeId);
+                var documentation = emp.Documentation;
 
 
                 var formerEmployee = new FormerEmployee
