@@ -37,24 +37,23 @@ namespace WebApi.Features.Employees
 
             public async Task<EmployeeDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var employee = await _context.Users.SingleOrDefaultAsync(x => x.Id == request.EmployeeId);
+                var employee = await _context.Employees.Include(x => x.IdentityUser).Include(x => x.Documentation).Include(x => x.Equipment).Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
                 if (employee is null) return null;
 
                 var employeeDto = _mapper.Map<EmployeeDto>(employee);
-                employeeDto.Role = (await _userManager.GetRolesAsync(employee)).Single();
+                employeeDto.Data = _mapper.Map<EmployeeData>(employee.IdentityUser);
+                employeeDto.Data.Role = (await _userManager.GetRolesAsync(employee.IdentityUser)).Single();
 
                 return employeeDto;
             }
         }
 
-        public class EmployeeDto
+        public class EmployeeData
         {
-            public string Id { get; set; }
             public string Title { get; set; }
             public string Name { get; set; }
             public string Surname { get; set; }
             public string EmailAddress { get; set; }
-            public string Password { get; set; }
             public string PhoneNumber { get; set; }
             public string BirthCertificateNumber { get; set; }
             public DateTime BirthDate { get; set; }
@@ -65,15 +64,27 @@ namespace WebApi.Features.Employees
             public bool Gender { get; set; }
             public double Salary { get; set; }
             public int NumberOfVacationDays { get; set; }
-            public string WorkPlaceID { get; set; }
             public string Role { get; set; }
+
+        }
+        public class EmployeeDto
+        {
+            public string ID { get; set; }
+            public EmployeeData Data { get; set; }
             public IEnumerable<DocumentationDto> Documentation { get; set; }
             public IEnumerable<EquipmentDto> Equipment { get; set; }
+            public EmployeeWorkPlaceDto WorkPlace { get; set; }
         }
         public class EquipmentDto
         {
             public string ID { get; set; }
             public string Label { get; set; }
+        }
+        public class EmployeeWorkPlaceDto
+        {
+            public string ID { get; set; }
+            public string Label { get; set; }
+            public string Location { get; set; }
         }
     }
 }

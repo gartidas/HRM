@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
@@ -31,16 +32,22 @@ namespace WebApi.Features.WorkPlaces
             {
                 if (await _context.Workplaces.AnyAsync(x => x.Label == request.Label && x.Location == request.Location))
                     return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}." } };
-                var workPlaceLeader = await _context.WorkPlaceLeaders.FindAsync(request.WorkPlaceLeaderID);
+
+                var workPlaceLeader = await _context.WorkPlaceLeaders.Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceLeaderID);
                 if (workPlaceLeader == null)
-                    return new GenericResponse { Errors = new[] { $"Work place leader not found." } };
+                    return new GenericResponse { Errors = new[] { "Work place leader not found." } };
+                if (workPlaceLeader.WorkPlace != null)
+                    return new GenericResponse { Errors = new[] { "Work place leader already assigned to another work place." } };
+
+                List<Employee> employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
 
                 var workPlace = new WorkPlace
                 {
                     Label = request.Label,
                     Location = request.Location,
                     WorkPlaceLeaderID = request.WorkPlaceLeaderID,
-                    WorkPlaceLeader = workPlaceLeader
+                    WorkPlaceLeader = workPlaceLeader,
+                    Employees = employees
                 };
 
                 await _context.Workplaces.AddAsync(workPlace);

@@ -59,6 +59,7 @@ namespace WebApi.Features.Employees
                 var employee = await _userManager.FindByIdAsync(request.EmployeeId);
 
                 if (employee is null) return new GenericResponse { Errors = new[] { "User doesn't exist" } };
+                var employeeConnections = await _context.Employees.FindAsync(request.EmployeeId);
 
                 if (employee.Email != request.EmailAddress)
                 {
@@ -96,7 +97,9 @@ namespace WebApi.Features.Employees
                 employee.Gender = request.Gender;
                 employee.Salary = request.Salary;
                 employee.NumberOfVacationDays = request.NumberOfVacationDays;
-
+                employeeConnections.Documentation = request.Documentation;
+                employeeConnections.WorkPlaceID = request.WorkPlaceID;
+                employeeConnections.WorkPlace = await _context.Workplaces.FindAsync(request.WorkPlaceID);
 
                 await _context.SaveChangesAsync(cancellationToken);
 

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,14 +37,15 @@ namespace WebApi.Features.Employees
 
             public async Task<PagingResponse<EmployeeDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var employees = await _context.Users.ToListAsync();
-                var employeeDtos = employees.Select(_mapper.Map<EmployeeDto>).ToList();
+                var employeeDtos = _context.Employees.ProjectTo<EmployeeDto>(_mapper.ConfigurationProvider).ToList();
 
                 for (int i = 0; i < employeeDtos.Count(); i++)
                 {
-                    employeeDtos[i].Role = (await _userManager.GetRolesAsync(employees[i])).Single();
+                    var employee = await _userManager.FindByIdAsync(employeeDtos[i].ID);
+                    employeeDtos[i].Data = _mapper.Map<EmployeeData>(employee);
+                    employeeDtos[i].Data.Role = (await _userManager.GetRolesAsync(employee)).Single();
                 }
-                employeeDtos = ApplyFiltering(request.Filter, employeeDtos).OrderBy(x => x.Surname).ThenBy(x => x.Name).ThenBy(x => x.Specialty).ToList();
+                employeeDtos = ApplyFiltering(request.Filter, employeeDtos).OrderBy(x => x.Data.Surname).ThenBy(x => x.Data.Name).ThenBy(x => x.Data.Specialty).ToList();
 
                 return PagingLogic.GetPagedContent(employeeDtos, request.PagingReferences);
             }
@@ -52,13 +53,13 @@ namespace WebApi.Features.Employees
             private IEnumerable<EmployeeDto> ApplyFiltering(Filter filter, IEnumerable<EmployeeDto> employeeDtos)
             {
                 if (!string.IsNullOrEmpty(filter.Email))
-                    employeeDtos = employeeDtos.Where(x => x.EmailAddress.Contains(filter.Email));
+                    employeeDtos = employeeDtos.Where(x => x.Data.EmailAddress.Contains(filter.Email));
                 if (!string.IsNullOrEmpty(filter.Role))
-                    employeeDtos = employeeDtos.Where(x => x.Role.Contains(filter.Role, StringComparison.OrdinalIgnoreCase));
+                    employeeDtos = employeeDtos.Where(x => x.Data.Role.Contains(filter.Role, StringComparison.OrdinalIgnoreCase));
                 if (!string.IsNullOrEmpty(filter.Specialty))
-                    employeeDtos = employeeDtos.Where(x => x.Specialty.Contains(filter.Specialty));
+                    employeeDtos = employeeDtos.Where(x => x.Data.Specialty.Contains(filter.Specialty));
                 if (!string.IsNullOrEmpty(filter.Surname))
-                    employeeDtos = employeeDtos.Where(x => x.Surname.Contains(filter.Surname));
+                    employeeDtos = employeeDtos.Where(x => x.Data.Surname.Contains(filter.Surname));
 
                 return employeeDtos;
             }
