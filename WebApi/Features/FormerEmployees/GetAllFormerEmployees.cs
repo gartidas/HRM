@@ -34,7 +34,7 @@ namespace WebApi.Features.FormerEmployees
                 var formerEmployees = _context.FormerEmployees.ProjectTo<FormerEmployeeDto>(_mapper.ConfigurationProvider);
                 formerEmployees = ApplyFiltering(request.Filter, formerEmployees);
 
-                var pagedContent = await PagingLogic.GetPagedContent(formerEmployees, request.PagingReferences, x => x, cancellationToken);
+                var pagedContent = await PagingLogic.GetPagedContent(formerEmployees, request.PagingReferences, cancellationToken);
                 pagedContent.Content = pagedContent.Content.OrderBy(x => x.Surname).ThenBy(x => x.Name).ThenBy(x => x.Specialty);
                 return pagedContent;
             }

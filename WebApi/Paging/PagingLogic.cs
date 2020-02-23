@@ -9,14 +9,14 @@ namespace WebApi.Paging
 {
     public class PagingLogic
     {
-        public static async Task<PagingResponse<TResponseDto>> GetPagedContent<TResponseDto, TEntity>
-            (IQueryable<TEntity> content, PagingReferences references, Func<TEntity, TResponseDto> mapper, CancellationToken cancellationToken)
+        public static async Task<PagingResponse<T>> GetPagedContent<T>
+            (IQueryable<T> content, PagingReferences references, CancellationToken cancellationToken)
         {
             var skipSize = (references.PageNumber - 1) * references.PageSize;
 
-            var pagedContent = (await content.Skip(skipSize).Take(references.PageSize).ToListAsync(cancellationToken)).Select(mapper);
+            var pagedContent = (await content.Skip(skipSize).Take(references.PageSize).ToListAsync(cancellationToken));
 
-            return new PagingResponse<TResponseDto>(pagedContent)
+            return new PagingResponse<T>(pagedContent)
             {
                 PageNumber = references.PageNumber,
                 Pages = (int)Math.Ceiling((decimal)content.Count() / references.PageSize),
