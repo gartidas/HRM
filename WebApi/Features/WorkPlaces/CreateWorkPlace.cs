@@ -39,7 +39,7 @@ namespace WebApi.Features.WorkPlaces
                 if (workPlaceLeader.WorkPlace != null)
                     return new GenericResponse { Errors = new[] { "Work place leader already assigned to another work place." } };
 
-                List<Employee> employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
+                var employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
 
                 var workPlace = new WorkPlace
                 {

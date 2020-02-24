@@ -52,9 +52,13 @@ namespace WebApi.Services
         public async Task<OperationResult> RegisterAsync(RegisterModel model)
         {
             var existingUser = await _userManager.FindByEmailAsync(model.EmailAddress);
+            var workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
 
             if (existingUser != null)
-                return new OperationResult { Errors = new[] { "Employee with this email address already exists." } };
+                return new OperationResult { Errors = new[] { $"Employee with email address {model.EmailAddress} already exists." } };
+
+            if (workPlace == null)
+                return new OperationResult { Errors = new[] { "Work place does not exist." } };
 
             var newUser = new ApplicationUser
             {
@@ -86,8 +90,6 @@ namespace WebApi.Services
                 return new OperationResult { Errors = identityResult.Errors.Select(x => x.Description) };
 
             var createdUser = await _userManager.FindByEmailAsync(model.EmailAddress);
-
-            var workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
 
             switch (model.Role)
             {

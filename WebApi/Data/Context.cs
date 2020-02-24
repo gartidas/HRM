@@ -42,14 +42,14 @@ namespace WebApi.Data
             modelBuilder.Entity<EmployeeCorporateEvent>().HasKey(s => new { s.CorporateEventID, s.EmployeeID });
             modelBuilder.Entity<WorkPlaceLeaderCorporateEvent>().HasKey(s => new { s.CorporateEventID, s.WorkPlaceLeaderID });
             modelBuilder.Entity<Employee>().HasMany(d => d.Documentation).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID);
-            modelBuilder.Entity<FormerEmployee>().HasMany(d => d.Documentation).WithOne(f => f.FormerEmployee).HasForeignKey(k => k.FormerEmployeeID);
+            modelBuilder.Entity<FormerEmployee>().HasMany(d => d.Documentation).WithOne(f => f.FormerEmployee).HasForeignKey(k => k.FormerEmployeeID).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Employee>().HasOne(w => w.WorkPlace).WithMany(e => e.Employees).HasForeignKey(k => k.WorkPlaceID);
-            modelBuilder.Entity<Employee>().HasMany(ev => ev.Evaluations).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID);
-            modelBuilder.Entity<Employee>().HasMany(v => v.Vacations).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID);
-            modelBuilder.Entity<Employee>().HasMany(eq => eq.Equipment).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID);
+            modelBuilder.Entity<Employee>().HasMany(ev => ev.Evaluations).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Employee>().HasMany(v => v.Vacations).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Employee>().HasMany(eq => eq.Equipment).WithOne(e => e.Employee).HasForeignKey(k => k.EmployeeID).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<HR_Worker>().HasMany(ev => ev.Evaluations).WithOne(h => h.HR_Worker).HasForeignKey(k => k.HR_WorkerID);
             modelBuilder.Entity<HR_Worker>().HasMany(f => f.FormerEmployees).WithOne(h => h.HR_Worker).HasForeignKey(k => k.HR_WorkerID);
-            modelBuilder.Entity<WorkPlace>().HasMany(s => s.Specialties).WithOne(w => w.Workplace).HasForeignKey(k => k.WorkplaceID);
+            modelBuilder.Entity<WorkPlace>().HasMany(s => s.Specialties).WithOne(w => w.Workplace).HasForeignKey(k => k.WorkplaceID).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<WorkPlace>().HasOne(wpl => wpl.WorkPlaceLeader).WithOne(w => w.WorkPlace).HasForeignKey<WorkPlace>(k => k.WorkPlaceLeaderID);
         }
     }

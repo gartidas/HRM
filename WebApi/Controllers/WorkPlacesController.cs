@@ -32,5 +32,12 @@ namespace WebApi.Controllers
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 
+        [HttpPut(ApiRoutes.WorkPlaces.EditWorkPlace)]
+        public async Task<ActionResult<GenericResponse>> EditWorkPlace([FromRoute]string workPlaceId, [FromBody]EditWorkPlace.Command command)
+        {
+            command.WorkPlaceId = workPlaceId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
     }
 }
