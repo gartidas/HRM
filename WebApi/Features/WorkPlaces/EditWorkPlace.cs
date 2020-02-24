@@ -31,12 +31,16 @@ namespace WebApi.Features.WorkPlaces
 
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var workPlace = await _context.Workplaces.SingleOrDefaultAsync(x => x.ID == request.WorkPlaceId, cancellationToken);
+                var workPlace = await _context.Workplaces.Include(x => x.Employees).ThenInclude(x => x.IdentityUser).Include(x => x.Specialties).Include(x => x.WorkPlaceLeader).ThenInclude(x => x.IdentityUser).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceId, cancellationToken);
 
                 if (workPlace is null)
                     return new GenericResponse { Errors = new[] { "Work place does not exist." } };
-                if (await _context.Workplaces.AnyAsync(x => x.Label == request.Label && x.Location == request.Location))
-                    return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}." } };
+
+                if (workPlace.Label != request.Label || workPlace.Location != request.Location)
+                {
+                    if (await _context.Workplaces.AnyAsync(x => x.Label == request.Label && x.Location == request.Location))
+                        return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}." } };
+                }
 
                 if (request.WorkPlaceLeaderID != null)
                 {
@@ -52,6 +56,7 @@ namespace WebApi.Features.WorkPlaces
                         var leaderEmployee = await _context.Employees.FindAsync(workPlace.WorkPlaceLeaderID);
                         workPlace.Employees.Remove(leaderEmployee);
                     }
+
                     workPlace.WorkPlaceLeader = workPlaceLeader;
                     workPlace.WorkPlaceLeaderID = request.WorkPlaceLeaderID;
                     var newLeaderEmployee = await _context.Employees.FindAsync(request.WorkPlaceLeaderID);

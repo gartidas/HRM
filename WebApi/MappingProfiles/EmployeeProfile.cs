@@ -37,7 +37,7 @@ namespace WebApi.MappingProfiles
                    .MapFrom(source => new GetEmployee.EmployeeWorkPlaceDto
                    {
                        ID = source.WorkPlace.ID,
-                       Label = source.WorkPlace.Location,
+                       Label = source.WorkPlace.Label,
                        Location = source.WorkPlace.Location
                    }));
 

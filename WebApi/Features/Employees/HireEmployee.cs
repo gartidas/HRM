@@ -72,13 +72,11 @@ namespace WebApi.Features.Employees
                     Documentation = candidate.Documentation
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
-                await _context.SaveChangesAsync();
                 candidate.Status = Entities.Status.Hired;
+                await _context.SaveChangesAsync();
                 return _mapper.Map<GenericResponse>(result);
             }
         }
-
-
 
         public class CommandValidator : AbstractValidator<Command>
         {
