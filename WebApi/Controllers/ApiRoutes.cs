@@ -39,6 +39,7 @@
         {
             public const string CreateWorkPlace = _base + "workPlaces";
             public const string GetWorkPlace = _base + "workPlaces/{workPlaceId}";
+            public const string GetAllWorkPlaces = _base + "workPlaces";
             public const string EditWorkPlace = _base + "workPlaces/{workPlaceId}";
             public const string DeleteWorkPlace = _base + "workPlaces/{workPlaceId}";
         }

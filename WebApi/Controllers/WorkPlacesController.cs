@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
 using WebApi.Features.WorkPlaces;
+using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
@@ -38,6 +39,21 @@ namespace WebApi.Controllers
             command.WorkPlaceId = workPlaceId;
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
+        [HttpDelete(ApiRoutes.WorkPlaces.DeleteWorkPlace)]
+        public async Task<ActionResult> DeleteWorkPlace([FromRoute]string workPlaceId)
+        {
+            return await _mediator.Send(new DeleteWorkPlace.Command { WorkPlaceId = workPlaceId })
+                ? Ok()
+                : BadRequest("Work place not found or was already deleted") as ActionResult;
+        }
+
+        [HttpGet(ApiRoutes.WorkPlaces.GetAllWorkPlaces)]
+        public async Task<ActionResult<PagingResponse<GetWorkPlace.WorkPlaceDto>>> GetAllWorkPlaces([FromQuery]GetAllWorkPlaces.Filter filter, [FromQuery]PagingReferences pagingReferences)
+        {
+            var result = await _mediator.Send(new GetAllWorkPlaces.Query { Filter = filter, PagingReferences = pagingReferences });
+            return Ok(result);
         }
     }
 }
