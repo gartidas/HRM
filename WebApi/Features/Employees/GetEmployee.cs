@@ -64,6 +64,13 @@ namespace WebApi.Features.Employees
             public bool Gender { get; set; }
             public double Salary { get; set; }
             public int NumberOfVacationDays { get; set; }
+            public string IdCardNumber { get; set; }
+            public string DrivingLicenceNumber { get; set; }
+            public string HealthInsuranceCompany { get; set; }
+            public int NumberOfChildren { get; set; }
+            public string FamilyStatus { get; set; }
+            public string NameOfTheBank { get; set; }
+            public string AccountNumber { get; set; }
             public string Role { get; set; }
 
         }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
 using WebApi.Data;
 using WebApi.Domain.IdentityModels;
+using WebApi.Entities;
 using WebApi.Services;
 
 namespace WebApi.Features.Employees
@@ -29,6 +30,13 @@ namespace WebApi.Features.Employees
             public int NumberOfVacationDays { get; set; }
             public string WorkPlaceID { get; set; }
             public Role Role { get; set; }
+            public string IdCardNumber { get; set; }
+            public string DrivingLicenceNumber { get; set; }
+            public string HealthInsuranceCompany { get; set; }
+            public int NumberOfChildren { get; set; }
+            public FamilyStatus FamilyStatus { get; set; }
+            public string NameOfTheBank { get; set; }
+            public string AccountNumber { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, GenericResponse>
@@ -69,6 +77,13 @@ namespace WebApi.Features.Employees
                     NumberOfVacationDays = request.NumberOfVacationDays,
                     WorkPlaceID = request.WorkPlaceID,
                     Role = request.Role,
+                    IdCardNumber = request.IdCardNumber,
+                    DrivingLicenceNumber = request.DrivingLicenceNumber,
+                    HealthInsuranceCompany = request.HealthInsuranceCompany,
+                    NumberOfChildren = request.NumberOfChildren,
+                    FamilyStatus = request.FamilyStatus,
+                    NameOfTheBank = request.NameOfTheBank,
+                    AccountNumber = request.AccountNumber,
                     Documentation = candidate.Documentation
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
@@ -83,10 +98,12 @@ namespace WebApi.Features.Employees
             public CommandValidator()
             {
                 RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role.");
+                RuleFor(x => x.FamilyStatus).Must(x => x >= 0 && (int)x < 4).WithMessage("Invalid family status.");
                 RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
                 RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number.");
+                RuleFor(x => x.NumberOfChildren).Must(x => x > 0).WithMessage("Must be positive number.");
                 RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number.");
             }
         }

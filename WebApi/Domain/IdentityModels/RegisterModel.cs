@@ -23,6 +23,13 @@ namespace WebApi.Domain.IdentityModels
         public int NumberOfVacationDays { get; set; }
         public string WorkPlaceID { get; set; }
         public Role Role { get; set; }
+        public string IdCardNumber { get; set; }
+        public string DrivingLicenceNumber { get; set; }
+        public string HealthInsuranceCompany { get; set; }
+        public int NumberOfChildren { get; set; }
+        public FamilyStatus FamilyStatus { get; set; }
+        public string NameOfTheBank { get; set; }
+        public string AccountNumber { get; set; }
         public List<Document> Documentation { get; set; }
     }
     public enum Role

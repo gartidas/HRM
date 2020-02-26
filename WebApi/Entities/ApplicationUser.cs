@@ -18,12 +18,27 @@ namespace WebApi.Entities
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
         public int NumberOfWorkedOffDays { get; set; }
+        public string IdCardNumber { get; set; }
+        public string DrivingLicenceNumber { get; set; }
+        public string HealthInsuranceCompany { get; set; }
+        public int NumberOfChildren { get; set; }
+        public FamilyStatus FamilyStatus { get; set; }
+        public string NameOfTheBank { get; set; }
+        public string AccountNumber { get; set; }
         public EquipmentStatus EquipmentStatus { get; set; }
     }
     public enum EquipmentStatus
     {
-        Received = 0,
-        RequestedReturn = 1,
-        Returned = 2
+        NotReceived = 0,
+        Received = 1,
+        RequestedReturn = 2,
+        Returned = 3
+    }
+    public enum FamilyStatus
+    {
+        Single = 0,
+        Married = 1,
+        Divorced = 2,
+        Widowed = 3
     }
 }

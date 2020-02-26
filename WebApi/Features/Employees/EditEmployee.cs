@@ -40,6 +40,13 @@ namespace WebApi.Features.Employees
             public int NumberOfVacationDays { get; set; }
             public string WorkPlaceID { get; set; }
             public Role Role { get; set; }
+            public string IdCardNumber { get; set; }
+            public string DrivingLicenceNumber { get; set; }
+            public string HealthInsuranceCompany { get; set; }
+            public int NumberOfChildren { get; set; }
+            public FamilyStatus FamilyStatus { get; set; }
+            public string NameOfTheBank { get; set; }
+            public string AccountNumber { get; set; }
             public List<Document> Documentation { get; set; }
         }
 
@@ -97,6 +104,13 @@ namespace WebApi.Features.Employees
                 employee.Gender = request.Gender;
                 employee.Salary = request.Salary;
                 employee.NumberOfVacationDays = request.NumberOfVacationDays;
+                employee.IdCardNumber = request.IdCardNumber;
+                employee.DrivingLicenceNumber = request.DrivingLicenceNumber;
+                employee.HealthInsuranceCompany = request.HealthInsuranceCompany;
+                employee.NumberOfChildren = request.NumberOfChildren;
+                employee.FamilyStatus = request.FamilyStatus;
+                employee.NameOfTheBank = request.NameOfTheBank;
+                employee.AccountNumber = request.AccountNumber;
                 employeeConnections.Documentation = request.Documentation;
                 employeeConnections.WorkPlaceID = request.WorkPlaceID;
                 employeeConnections.WorkPlace = await _context.Workplaces.FindAsync(request.WorkPlaceID);

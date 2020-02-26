@@ -79,7 +79,14 @@ namespace WebApi.Services
                 Citizenship = model.Citizenship,
                 Gender = model.Gender,
                 Salary = model.Salary,
-                NumberOfVacationDays = model.NumberOfVacationDays
+                NumberOfVacationDays = model.NumberOfVacationDays,
+                IdCardNumber = model.IdCardNumber,
+                DrivingLicenceNumber = model.DrivingLicenceNumber,
+                HealthInsuranceCompany = model.HealthInsuranceCompany,
+                NumberOfChildren = model.NumberOfChildren,
+                FamilyStatus = model.FamilyStatus,
+                NameOfTheBank = model.NameOfTheBank,
+                AccountNumber = model.AccountNumber
             };
 
             var identityResult = await _userManager.CreateAsync(newUser, model.Password);

@@ -136,6 +136,8 @@ namespace WebApi.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("AccountNumber");
+
                     b.Property<string>("AddressOfPermanentResidence");
 
                     b.Property<string>("BirthCertificateNumber");
@@ -149,6 +151,8 @@ namespace WebApi.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("DrivingLicenceNumber");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -156,7 +160,13 @@ namespace WebApi.Migrations
 
                     b.Property<int>("EquipmentStatus");
 
+                    b.Property<int>("FamilyStatus");
+
                     b.Property<bool>("Gender");
+
+                    b.Property<string>("HealthInsuranceCompany");
+
+                    b.Property<string>("IdCardNumber");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -164,11 +174,15 @@ namespace WebApi.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("NameOfTheBank");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
+
+                    b.Property<int>("NumberOfChildren");
 
                     b.Property<int>("NumberOfVacationDays");
 
@@ -471,7 +485,7 @@ namespace WebApi.Migrations
 
                     b.Property<int>("NumberOfEmployees");
 
-                    b.Property<int>("Type");
+                    b.Property<bool>("Type");
 
                     b.Property<string>("WorkplaceID");
 
@@ -588,7 +602,8 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Bonuses")
-                        .HasForeignKey("EmployeeID");
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebApi.Entities.HR_Worker", "HR_Worker")
                         .WithMany("Bonuses")
@@ -599,7 +614,8 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.Candidate", "Candidate")
                         .WithMany("Documentation")
-                        .HasForeignKey("CandidateID");
+                        .HasForeignKey("CandidateID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Documentation")
@@ -607,7 +623,8 @@ namespace WebApi.Migrations
 
                     b.HasOne("WebApi.Entities.FormerEmployee", "FormerEmployee")
                         .WithMany("Documentation")
-                        .HasForeignKey("FormerEmployeeID");
+                        .HasForeignKey("FormerEmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Employee", b =>
@@ -626,14 +643,16 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Equipment")
-                        .HasForeignKey("EmployeeID");
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Evaluation", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Evaluations")
-                        .HasForeignKey("EmployeeID");
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WebApi.Entities.HR_Worker", "HR_Worker")
                         .WithMany("Evaluations")
@@ -685,14 +704,16 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Entities.WorkPlace", "Workplace")
                         .WithMany("Specialties")
-                        .HasForeignKey("WorkplaceID");
+                        .HasForeignKey("WorkplaceID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.Vacation", b =>
                 {
                     b.HasOne("WebApi.Entities.Employee", "Employee")
                         .WithMany("Vacations")
-                        .HasForeignKey("EmployeeID");
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("WebApi.Entities.WorkPlace", b =>
