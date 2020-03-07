@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -47,7 +46,6 @@ namespace WebApi.Features.Employees
             public FamilyStatus FamilyStatus { get; set; }
             public string NameOfTheBank { get; set; }
             public string AccountNumber { get; set; }
-            public List<Document> Documentation { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, GenericResponse>
@@ -111,7 +109,7 @@ namespace WebApi.Features.Employees
                 employee.FamilyStatus = request.FamilyStatus;
                 employee.NameOfTheBank = request.NameOfTheBank;
                 employee.AccountNumber = request.AccountNumber;
-                employeeConnections.Documentation = request.Documentation;
+                employeeConnections.Documentation = await _context.Documents.Where(x => x.EmployeeID == employee.Id).ToListAsync();
                 employeeConnections.WorkPlaceID = request.WorkPlaceID;
                 employeeConnections.WorkPlace = await _context.Workplaces.FindAsync(request.WorkPlaceID);
 

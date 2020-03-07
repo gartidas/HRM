@@ -22,9 +22,9 @@ namespace WebApi.Controllers
         }
 
         [HttpPost(ApiRoutes.Candidates.CreateCandidate)]
-        public async Task<ActionResult<GenericResponse>> CreateCandidate([FromBody]CreateCandidate.Command request)
+        public async Task<ActionResult<GenericResponse>> CreateCandidate([FromBody]CreateCandidate.Command command)
         {
-            var result = await _mediator.Send(request);
+            var result = await _mediator.Send(command);
             if (!result.Success) return BadRequest(result);
             return Ok(result);
         }

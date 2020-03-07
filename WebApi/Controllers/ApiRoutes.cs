@@ -43,5 +43,14 @@
             public const string EditWorkPlace = _base + "workPlaces/{workPlaceId}";
             public const string DeleteWorkPlace = _base + "workPlaces/{workPlaceId}";
         }
+
+        public static class Documentation
+        {
+            public const string CreateDocumentForEmployee = _base + "documentation/{employeeId}";
+            public const string CreateDocumentForCandidate = _base + "documentation/{candidateId}";
+            public const string DeleteDocument = _base + "documentation/{documentId}";
+            public const string GetAllDocumentsOfEmployee = _base + "documentation/{employeeId}";
+            public const string GetAllDocumentsOfCandidate = _base + "documentation/{candidateId}";
+        }
     }
 }
