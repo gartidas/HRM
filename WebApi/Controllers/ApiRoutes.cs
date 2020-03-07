@@ -51,6 +51,14 @@
             public const string DeleteDocument = _base + "documentation/{documentId}";
             public const string GetAllDocumentsOfEmployee = _base + "documentation/{employeeId}";
             public const string GetAllDocumentsOfCandidate = _base + "documentation/{candidateId}";
+            public const string GetAllDocumentsOfFormerEmployee = _base + "documentation/{formerEmployeeId}";
+        }
+
+        public static class Equipment
+        {
+            public const string CreateEquipment = _base + "equipment/{employeeId}";
+            public const string DeleteEquipment = _base + "equipment/{equipmentId}";
+            public const string GetAllEquipmentOfEmployee = _base + "equipment/{employeeId}";
         }
     }
 }

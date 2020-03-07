@@ -4,13 +4,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
 using WebApi.Entities;
-using static WebApi.Features.FormerEmployees.GetFormerEmployee;
 
 namespace WebApi.Features.Employees
 {
@@ -37,7 +35,7 @@ namespace WebApi.Features.Employees
 
             public async Task<EmployeeDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var employee = await _context.Employees.Include(x => x.IdentityUser).Include(x => x.Documentation).Include(x => x.Equipment).Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
+                var employee = await _context.Employees.Include(x => x.IdentityUser).Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
                 if (employee is null) return null;
 
                 var employeeDto = _mapper.Map<EmployeeDto>(employee);
@@ -78,14 +76,7 @@ namespace WebApi.Features.Employees
         {
             public string ID { get; set; }
             public EmployeeData Data { get; set; }
-            public IEnumerable<DocumentationDto> Documentation { get; set; }
-            public IEnumerable<EquipmentDto> Equipment { get; set; }
             public EmployeeWorkPlaceDto WorkPlace { get; set; }
-        }
-        public class EquipmentDto
-        {
-            public string ID { get; set; }
-            public string Label { get; set; }
         }
         public class EmployeeWorkPlaceDto
         {

@@ -109,7 +109,6 @@ namespace WebApi.Features.Employees
                 employee.FamilyStatus = request.FamilyStatus;
                 employee.NameOfTheBank = request.NameOfTheBank;
                 employee.AccountNumber = request.AccountNumber;
-                employeeConnections.Documentation = await _context.Documents.Where(x => x.EmployeeID == employee.Id).ToListAsync();
                 employeeConnections.WorkPlaceID = request.WorkPlaceID;
                 employeeConnections.WorkPlace = await _context.Workplaces.FindAsync(request.WorkPlaceID);
 

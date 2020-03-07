@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
@@ -31,7 +30,7 @@ namespace WebApi.Features.FormerEmployees
 
             public async Task<FormerEmployeeDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var formerEmployee = await _context.FormerEmployees.Include(x => x.HR_Worker).ThenInclude(x => x.IdentityUser).Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.FormerEmployeeId);
+                var formerEmployee = await _context.FormerEmployees.Include(x => x.HR_Worker).ThenInclude(x => x.IdentityUser).SingleOrDefaultAsync(x => x.ID == request.FormerEmployeeId);
                 if (formerEmployee is null) return null;
                 return _mapper.Map<FormerEmployeeDto>(formerEmployee);
             }
@@ -58,7 +57,6 @@ namespace WebApi.Features.FormerEmployees
             public HR_WorkerDto HR_Worker { get; set; }
             public string TerminationReason { get; set; }
             public DateTime TerminationDate { get; set; }
-            public IEnumerable<DocumentationDto> Documentation { get; set; }
         }
 
         public class HR_WorkerDto
@@ -66,13 +64,6 @@ namespace WebApi.Features.FormerEmployees
             public string ID { get; set; }
             public string Email { get; set; }
             public string Name { get; set; }
-        }
-
-        public class DocumentationDto
-        {
-            public string ID { get; set; }
-            public string Name { get; set; }
-            public byte[] Content { get; set; }
         }
     }
 }

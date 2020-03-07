@@ -6,6 +6,8 @@ using WebApi.Features.Documentation;
 
 namespace WebApi.Controllers
 {
+    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [ApiController]
     public class DocumentationController : ControllerBase
     {
         private IMediator _mediator;
@@ -52,6 +54,13 @@ namespace WebApi.Controllers
         public async Task<ActionResult<GetAllDocumentsOfEmployee.DocumentDto>> GetAllDocumentsOfCandidate([FromRoute]string candidateId)
         {
             var result = await _mediator.Send(new GetAllDocumentsOfCandidate.Query { CandidateId = candidateId });
+            return Ok(result);
+        }
+
+        [HttpGet(ApiRoutes.Documentation.GetAllDocumentsOfFormerEmployee)]
+        public async Task<ActionResult<GetAllDocumentsOfEmployee.DocumentDto>> GetAllDocumentsOfFormerEmployee([FromRoute]string formerEmployeeId)
+        {
+            var result = await _mediator.Send(new GetAllDocumentsOfFormerEmployee.Query { FormerEmployeeId = formerEmployeeId });
             return Ok(result);
         }
     }
