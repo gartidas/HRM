@@ -2,7 +2,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,7 +29,6 @@ namespace WebApi.Features.Candidates
             public int Evaluation { get; set; }
             public Status Status { get; set; }
             public string AdditionalInfo { get; set; }
-            public List<Document> Documentation { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, GenericResponse>
@@ -64,7 +62,6 @@ namespace WebApi.Features.Candidates
                 candidate.Evaluation = request.Evaluation;
                 candidate.Status = request.Status;
                 candidate.AdditionalInfo = request.AdditionalInfo;
-                candidate.Documentation = request.Documentation;
 
                 await _context.SaveChangesAsync();
 
