@@ -3,6 +3,8 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using WebApi.Data;
 
 namespace WebApi.Features.EquipmentItems
@@ -15,7 +17,7 @@ namespace WebApi.Features.EquipmentItems
             public string EmployeeId { get; set; }
         }
 
-        public class QueryHandler
+        public class QueryHandler : IRequestHandler<Query, IQueryable<EquipmentDto>>
         {
             private Context _context;
             private IMapper _mapper;
@@ -26,7 +28,7 @@ namespace WebApi.Features.EquipmentItems
                 _mapper = mapper;
             }
 
-            public IQueryable<EquipmentDto> Handle(Query request)
+            public async Task<IQueryable<EquipmentDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var equipment = _context.Equipment.Where(x => x.EmployeeID == request.EmployeeId).ProjectTo<EquipmentDto>(_mapper.ConfigurationProvider);
                 return equipment;

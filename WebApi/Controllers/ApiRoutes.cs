@@ -49,9 +49,10 @@
             public const string CreateDocumentForEmployee = _base + "documentation/{employeeId}";
             public const string CreateDocumentForCandidate = _base + "documentation/{candidateId}";
             public const string DeleteDocument = _base + "documentation/{documentId}";
-            public const string GetAllDocumentsOfEmployee = _base + "documentation/{employeeId}";
-            public const string GetAllDocumentsOfCandidate = _base + "documentation/{candidateId}";
-            public const string GetAllDocumentsOfFormerEmployee = _base + "documentation/{formerEmployeeId}";
+            public const string GetAllDocumentsOfEmployee = _base + "documentation/employee/{employeeId}";
+            public const string GetAllDocumentsOfCandidate = _base + "documentation/candidate/{candidateId}";
+            public const string GetAllDocumentsOfFormerEmployee = _base + "documentation/formerEmployee/{formerEmployeeId}";
+            public const string GetDocument = _base + "documentation/{documentId}";
         }
 
         public static class Equipment
@@ -59,6 +60,13 @@
             public const string CreateEquipment = _base + "equipment/{employeeId}";
             public const string DeleteEquipment = _base + "equipment/{equipmentId}";
             public const string GetAllEquipmentOfEmployee = _base + "equipment/{employeeId}";
+        }
+
+        public static class Specialties
+        {
+            public const string CreateSpecialty = _base + "specialty/{workPlaceId}";
+            public const string DeleteSpecialty = _base + "specialty/{specialtyId}";
+            public const string GetAllSpecialtesOfWorkPlace = _base + "specialty/{workPlaceId}";
         }
     }
 }

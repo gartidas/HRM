@@ -8,7 +8,7 @@ namespace WebApi.MappingProfiles
     {
         public DocumentProfile()
         {
-            CreateMap<Document, GetAllDocumentsOfEmployee.DocumentDto>();
+            CreateMap<Document, GetDocument.DocumentDto>();
         }
     }
 }

@@ -44,24 +44,31 @@ namespace WebApi.Controllers
         }
 
         [HttpGet(ApiRoutes.Documentation.GetAllDocumentsOfEmployee)]
-        public async Task<ActionResult<GetAllDocumentsOfEmployee.DocumentDto>> GetAllDocumentsOfEmployee([FromRoute]string employeeId)
+        public async Task<ActionResult<GetDocument.DocumentDto>> GetAllDocumentsOfEmployee([FromRoute]string employeeId)
         {
             var result = await _mediator.Send(new GetAllDocumentsOfEmployee.Query { EmployeeId = employeeId });
             return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Documentation.GetAllDocumentsOfCandidate)]
-        public async Task<ActionResult<GetAllDocumentsOfEmployee.DocumentDto>> GetAllDocumentsOfCandidate([FromRoute]string candidateId)
+        public async Task<ActionResult<GetDocument.DocumentDto>> GetAllDocumentsOfCandidate([FromRoute]string candidateId)
         {
             var result = await _mediator.Send(new GetAllDocumentsOfCandidate.Query { CandidateId = candidateId });
             return Ok(result);
         }
 
         [HttpGet(ApiRoutes.Documentation.GetAllDocumentsOfFormerEmployee)]
-        public async Task<ActionResult<GetAllDocumentsOfEmployee.DocumentDto>> GetAllDocumentsOfFormerEmployee([FromRoute]string formerEmployeeId)
+        public async Task<ActionResult<GetDocument.DocumentDto>> GetAllDocumentsOfFormerEmployee([FromRoute]string formerEmployeeId)
         {
             var result = await _mediator.Send(new GetAllDocumentsOfFormerEmployee.Query { FormerEmployeeId = formerEmployeeId });
             return Ok(result);
+        }
+
+        [HttpGet(ApiRoutes.Documentation.GetDocument)]
+        public async Task<ActionResult<GetDocument.Query>> GetDocument([FromRoute]string documentId)
+        {
+            var result = await _mediator.Send(new GetDocument.Query { DocumentId = documentId });
+            return result is null ? NotFound() : Ok(result) as ActionResult;
         }
     }
 }

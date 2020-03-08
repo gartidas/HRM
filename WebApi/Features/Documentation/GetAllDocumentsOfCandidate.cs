@@ -3,19 +3,21 @@ using AutoMapper.QueryableExtensions;
 using MediatR;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using WebApi.Data;
 
 namespace WebApi.Features.Documentation
 {
     public class GetAllDocumentsOfCandidate
     {
-        public class Query : IRequest<IQueryable<GetAllDocumentsOfEmployee.DocumentDto>>
+        public class Query : IRequest<IQueryable<GetDocument.DocumentDto>>
         {
             [JsonIgnore]
             public string CandidateId { get; set; }
         }
 
-        public class QueryHandler
+        public class QueryHandler : IRequestHandler<Query, IQueryable<GetDocument.DocumentDto>>
         {
             private Context _context;
             private IMapper _mapper;
@@ -26,9 +28,9 @@ namespace WebApi.Features.Documentation
                 _mapper = mapper;
             }
 
-            public IQueryable<GetAllDocumentsOfEmployee.DocumentDto> Handle(Query request)
+            public async Task<IQueryable<GetDocument.DocumentDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var documents = _context.Documents.Where(x => x.CandidateID == request.CandidateId).ProjectTo<GetAllDocumentsOfEmployee.DocumentDto>(_mapper.ConfigurationProvider);
+                var documents = _context.Documents.Where(x => x.CandidateID == request.CandidateId).ProjectTo<GetDocument.DocumentDto>(_mapper.ConfigurationProvider);
                 return documents;
             }
         }

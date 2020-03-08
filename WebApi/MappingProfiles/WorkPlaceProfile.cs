@@ -29,15 +29,6 @@ namespace WebApi.MappingProfiles
                         Specialty = source.IdentityUser.Specialty,
                         NumberOfWorkedOffDays = source.IdentityUser.NumberOfWorkedOffDays
                     }));
-                })
-                .ForMember(dest => dest.Specialties, opt =>
-                {
-                    opt.MapFrom(x => x.Specialties.Select(source => new GetWorkPlace.SpecialtyDto
-                    {
-                        Name = source.Name,
-                        NumberOfEmployees = source.NumberOfEmployees,
-                        Type = source.Type
-                    }));
                 });
         }
     }
