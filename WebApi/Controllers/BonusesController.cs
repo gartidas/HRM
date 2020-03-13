@@ -6,6 +6,8 @@ using WebApi.Features.Bonuses;
 
 namespace WebApi.Controllers
 {
+    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [ApiController]
     public class BonusesController : ControllerBase
     {
         private IMediator _mediator;

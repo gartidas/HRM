@@ -64,23 +64,31 @@
 
         public static class Specialties
         {
-            public const string CreateSpecialty = _base + "specialty/{workPlaceId}";
-            public const string DeleteSpecialty = _base + "specialty/{specialtyId}";
-            public const string GetAllSpecialtesOfWorkPlace = _base + "specialty/{workPlaceId}";
+            public const string CreateSpecialty = _base + "specialties/{workPlaceId}";
+            public const string DeleteSpecialty = _base + "specialties/{specialtyId}";
+            public const string GetAllSpecialtesOfWorkPlace = _base + "specialties/{workPlaceId}";
         }
 
         public static class Evaluations
         {
-            public const string CreateEvaluation = _base + "evaluation/{employeeId}/{hR_WorkerId}";
-            public const string DeleteEvaluation = _base + "evaluation/{evaluationId}";
-            public const string GetAllEvaluationsOfEmployee = _base + "evaluation/{employeeId}";
+            public const string CreateEvaluation = _base + "evaluations/{employeeId}/{hR_WorkerId}";
+            public const string DeleteEvaluation = _base + "evaluations/{evaluationId}";
+            public const string GetAllEvaluationsOfEmployee = _base + "evaluations/{employeeId}";
         }
 
         public static class Bonuses
         {
-            public const string CreateBonus = _base + "bonus/{employeeId}/{hR_WorkerId}";
-            public const string DeleteBonus = _base + "bonus/{bonusId}";
-            public const string GetAllBonusesOfEmployee = _base + "bonus/{employeeId}";
+            public const string CreateBonus = _base + "bonuses/{employeeId}/{hR_WorkerId}";
+            public const string DeleteBonus = _base + "bonuses/{bonusId}";
+            public const string GetAllBonusesOfEmployee = _base + "bonuses/{employeeId}";
+        }
+
+        public static class Vacations
+        {
+            public const string CreateVacation = _base + "vacations/{employeeId}";
+            public const string DeleteVacation = _base + "vacations/{vacationId}";
+            public const string GetAllVacationsOfEmployee = _base + "vacations/{employeeId}";
+            public const string SetApprovedStateOfVacation = _base + "vacations/{vacationId}";
         }
     }
 }
