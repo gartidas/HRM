@@ -1,10 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
-using WebApi.Domain.IdentityModels;
 using WebApi.Features.Employees;
 using WebApi.Paging;
 
@@ -53,9 +50,10 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete(ApiRoutes.Employees.FireEmployee)]
-        public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromBody]FireEmployee.Command command)
+        public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromRoute]string hR_WorkerId, [FromBody]FireEmployee.Command command)
         {
             command.EmployeeId = employeeId;
+            command.HR_WorkerID = hR_WorkerId;
             var result = await _mediator.Send(command);
             if (!result.Success) return BadRequest(result);
             return Ok(result);

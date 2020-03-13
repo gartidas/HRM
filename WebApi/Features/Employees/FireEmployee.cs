@@ -17,6 +17,7 @@ namespace WebApi.Features.Employees
         {
             [JsonIgnore]
             public string EmployeeId { get; set; }
+            [JsonIgnore]
             public string HR_WorkerID { get; set; }
             public string TerminationReason { get; set; }
             public DateTime TerminationDate { get; set; }
@@ -40,7 +41,6 @@ namespace WebApi.Features.Employees
                 var roleString = (await _userManager.GetRolesAsync(employee)).Single();
                 var emp = await _context.Employees.FindAsync(request.EmployeeId);
                 var documentation = emp.Documentation;
-
 
                 var formerEmployee = new FormerEmployee
                 {

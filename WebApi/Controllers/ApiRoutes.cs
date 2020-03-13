@@ -68,5 +68,19 @@
             public const string DeleteSpecialty = _base + "specialty/{specialtyId}";
             public const string GetAllSpecialtesOfWorkPlace = _base + "specialty/{workPlaceId}";
         }
+
+        public static class Evaluations
+        {
+            public const string CreateEvaluation = _base + "evaluation/{employeeId}/{hR_WorkerId}";
+            public const string DeleteEvaluation = _base + "evaluation/{evaluationId}";
+            public const string GetAllEvaluationsOfEmployee = _base + "evaluation/{employeeId}";
+        }
+
+        public static class Bonuses
+        {
+            public const string CreateBonus = _base + "bonus/{employeeId}/{hR_WorkerId}";
+            public const string DeleteBonus = _base + "bonus/{bonusId}";
+            public const string GetAllBonusesOfEmployee = _base + "bonus/{employeeId}";
+        }
     }
 }
