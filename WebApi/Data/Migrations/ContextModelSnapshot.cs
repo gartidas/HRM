@@ -460,7 +460,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("EmployeeID");
 
-                    b.ToTable("EmployeeCorporateEvent");
+                    b.ToTable("EmployeeCorporateEvents");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Joins.WorkPlaceLeaderCorporateEvent", b =>
@@ -473,7 +473,7 @@ namespace WebApi.Migrations
 
                     b.HasIndex("WorkPlaceLeaderID");
 
-                    b.ToTable("WorkPlaceLeaderCorporateEvent");
+                    b.ToTable("WorkPlaceLeaderCorporateEvents");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Specialty", b =>
