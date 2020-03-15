@@ -22,6 +22,9 @@ namespace WebApi.Data
         public DbSet<Specialty> Specialties { get; set; }
         public DbSet<Vacation> Vacations { get; set; }
         public DbSet<WorkPlace> Workplaces { get; set; }
+        public DbSet<WorkPlaceLeaderCorporateEvent> WorkPlaceLeaderCorporateEvents { get; set; }
+        public DbSet<EmployeeCorporateEvent> EmployeeCorporateEvents { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

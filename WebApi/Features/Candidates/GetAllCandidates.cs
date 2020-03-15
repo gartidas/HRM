@@ -52,8 +52,6 @@ namespace WebApi.Features.Candidates
             }
         }
 
-
-
         public class Filter
         {
             public string Email { get; set; }
