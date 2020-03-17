@@ -55,5 +55,21 @@ namespace WebApi.Controllers
             var result = await _mediator.Send(new GetAllCorporateEvents.Query { Filter = filter, PagingReferences = pagingReferences });
             return Ok(result);
         }
+
+        [HttpPut(ApiRoutes.CorporateEvents.AssignEmployeesToCorporateEvent)]
+        public async Task<ActionResult<GenericResponse>> AssignEmployeesToCorporateEvent([FromRoute]string corporateEventId, [FromBody]AssignEmployeesToCorporateEvent.Command command)
+        {
+            command.CorporateEventId = corporateEventId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
+        [HttpPut(ApiRoutes.CorporateEvents.AssignWorkPlaceLeadersToCorporateEvent)]
+        public async Task<ActionResult<GenericResponse>> AssignWorkPlaceLeadersToCorporateEvent([FromRoute]string corporateEventId, [FromBody]AssignWorkPlaceLeadersToCorporateEvent.Command command)
+        {
+            command.CorporateEventId = corporateEventId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
     }
 }

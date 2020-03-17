@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -30,9 +31,9 @@ namespace WebApi.Features.Candidates
 
             public async Task<CandidateDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
+                var candidate = await _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(x => x.Id == request.CandidateId);
                 if (candidate is null) return null;
-                return _mapper.Map<CandidateDto>(candidate);
+                return candidate;
             }
         }
 

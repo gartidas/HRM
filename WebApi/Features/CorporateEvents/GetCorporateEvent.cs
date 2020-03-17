@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -31,10 +32,11 @@ namespace WebApi.Features.CorporateEvents
 
             public async Task<CorporateEventDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var corporateEvent = await _context.CorporateEvents.Include(x => x.EmployeeCorporateEvent).ThenInclude(x => x.Employee).ThenInclude(x => x.IdentityUser).Include(x => x.WorkPlaceLeaderCorporateEvent).ThenInclude(x => x.WorkPlaceLeader).ThenInclude(x => x.IdentityUser).SingleOrDefaultAsync(x => x.ID == request.CorporateEventId);
+                var corporateEvent = await _context.CorporateEvents.ProjectTo<CorporateEventDto>(_mapper.ConfigurationProvider).SingleOrDefaultAsync(x => x.ID == request.CorporateEventId);
+
                 if (corporateEvent is null) return null;
 
-                return _mapper.Map<CorporateEventDto>(corporateEvent);
+                return corporateEvent;
             }
         }
 

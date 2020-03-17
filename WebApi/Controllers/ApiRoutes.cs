@@ -99,6 +99,8 @@
             public const string EditCorporateEvent = _base + "corporateEvents/{corporateEventId}";
             public const string GetAllCorporateEvents = _base + "corporateEvents";
             public const string GetCorporateEvent = _base + "corporateEvents/{corporateEventId}";
+            public const string AssignEmployeesToCorporateEvent = _base + "corporateEvents/employees/{corporateEventId}";
+            public const string AssignWorkPlaceLeadersToCorporateEvent = _base + "corporateEvents/workPlaceLeaders/{corporateEventId}";
         }
     }
 }
