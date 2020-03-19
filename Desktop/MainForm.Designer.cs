@@ -30,16 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.topPanel = new System.Windows.Forms.Panel();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.minimizeButton = new System.Windows.Forms.Label();
-            this.maximizeButton = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.loginPictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
-            this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -49,7 +48,6 @@
             this.topPanel.Controls.Add(this.loginPictureBox);
             this.topPanel.Controls.Add(this.label3);
             this.topPanel.Controls.Add(this.minimizeButton);
-            this.topPanel.Controls.Add(this.maximizeButton);
             this.topPanel.Controls.Add(this.closeButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
@@ -57,6 +55,27 @@
             this.topPanel.Size = new System.Drawing.Size(1602, 63);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
+            // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
+            this.loginPictureBox.Location = new System.Drawing.Point(11, 8);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loginPictureBox.TabIndex = 9;
+            this.loginPictureBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(753, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 39);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "HRM";
             // 
             // minimizeButton
             // 
@@ -66,29 +85,13 @@
             this.minimizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.minimizeButton.ForeColor = System.Drawing.Color.White;
-            this.minimizeButton.Location = new System.Drawing.Point(1448, 8);
+            this.minimizeButton.Location = new System.Drawing.Point(1481, 8);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(39, 41);
             this.minimizeButton.TabIndex = 2;
             this.minimizeButton.Text = "—";
             this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
-            // maximizeButton
-            // 
-            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizeButton.AutoSize = true;
-            this.maximizeButton.BackColor = System.Drawing.Color.Gray;
-            this.maximizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.maximizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.maximizeButton.ForeColor = System.Drawing.Color.Silver;
-            this.maximizeButton.Location = new System.Drawing.Point(1493, 8);
-            this.maximizeButton.Name = "maximizeButton";
-            this.maximizeButton.Size = new System.Drawing.Size(47, 41);
-            this.maximizeButton.TabIndex = 1;
-            this.maximizeButton.Text = "🗖";
-            this.maximizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
             // 
             // closeButton
             // 
@@ -98,7 +101,7 @@
             this.closeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(1546, 8);
+            this.closeButton.Location = new System.Drawing.Point(1536, 8);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(42, 41);
             this.closeButton.TabIndex = 0;
@@ -126,27 +129,6 @@
             this.menuPanel.Size = new System.Drawing.Size(359, 845);
             this.menuPanel.TabIndex = 0;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(753, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 39);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "HRM";
-            // 
-            // loginPictureBox
-            // 
-            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
-            this.loginPictureBox.Location = new System.Drawing.Point(11, 8);
-            this.loginPictureBox.Name = "loginPictureBox";
-            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
-            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.loginPictureBox.TabIndex = 9;
-            this.loginPictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -163,8 +145,8 @@
             this.Text = "MainForm";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
-            this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -175,7 +157,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Label closeButton;
         private System.Windows.Forms.Label minimizeButton;
-        private System.Windows.Forms.Label maximizeButton;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox loginPictureBox;

@@ -36,11 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.minimizeButton = new System.Windows.Forms.Label();
-            this.maximizeButton = new System.Windows.Forms.Label();
-            this.closeButton = new System.Windows.Forms.Label();
-            this.loginPictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.minimizeButton = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Label();
+            this.showCheckBox = new System.Windows.Forms.CheckBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -118,7 +118,6 @@
             this.topPanel.Controls.Add(this.label3);
             this.topPanel.Controls.Add(this.loginPictureBox);
             this.topPanel.Controls.Add(this.minimizeButton);
-            this.topPanel.Controls.Add(this.maximizeButton);
             this.topPanel.Controls.Add(this.closeButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
@@ -126,64 +125,6 @@
             this.topPanel.Size = new System.Drawing.Size(779, 58);
             this.topPanel.TabIndex = 6;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
-            // 
-            // minimizeButton
-            // 
-            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizeButton.AutoSize = true;
-            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.minimizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.minimizeButton.ForeColor = System.Drawing.Color.White;
-            this.minimizeButton.Location = new System.Drawing.Point(626, 8);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(39, 41);
-            this.minimizeButton.TabIndex = 5;
-            this.minimizeButton.Text = "—";
-            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
-            // maximizeButton
-            // 
-            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizeButton.AutoSize = true;
-            this.maximizeButton.BackColor = System.Drawing.Color.Gray;
-            this.maximizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.maximizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.maximizeButton.ForeColor = System.Drawing.Color.Silver;
-            this.maximizeButton.Location = new System.Drawing.Point(671, 8);
-            this.maximizeButton.Name = "maximizeButton";
-            this.maximizeButton.Size = new System.Drawing.Size(47, 41);
-            this.maximizeButton.TabIndex = 4;
-            this.maximizeButton.Text = "🗖";
-            this.maximizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
-            // 
-            // closeButton
-            // 
-            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeButton.AutoSize = true;
-            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.closeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(724, 8);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(42, 41);
-            this.closeButton.TabIndex = 3;
-            this.closeButton.Text = "X";
-            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // loginPictureBox
-            // 
-            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
-            this.loginPictureBox.Location = new System.Drawing.Point(3, 7);
-            this.loginPictureBox.Name = "loginPictureBox";
-            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
-            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.loginPictureBox.TabIndex = 6;
-            this.loginPictureBox.TabStop = false;
             // 
             // label3
             // 
@@ -196,12 +137,68 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "HRM";
             // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
+            this.loginPictureBox.Location = new System.Drawing.Point(3, 7);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loginPictureBox.TabIndex = 6;
+            this.loginPictureBox.TabStop = false;
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeButton.AutoSize = true;
+            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.minimizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.minimizeButton.ForeColor = System.Drawing.Color.White;
+            this.minimizeButton.Location = new System.Drawing.Point(660, 7);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(39, 41);
+            this.minimizeButton.TabIndex = 5;
+            this.minimizeButton.Text = "—";
+            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.AutoSize = true;
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.closeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(715, 7);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(42, 41);
+            this.closeButton.TabIndex = 3;
+            this.closeButton.Text = "X";
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // showCheckBox
+            // 
+            this.showCheckBox.AutoSize = true;
+            this.showCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.showCheckBox.ForeColor = System.Drawing.Color.White;
+            this.showCheckBox.Location = new System.Drawing.Point(592, 345);
+            this.showCheckBox.Name = "showCheckBox";
+            this.showCheckBox.Size = new System.Drawing.Size(72, 24);
+            this.showCheckBox.TabIndex = 7;
+            this.showCheckBox.Text = "Show";
+            this.showCheckBox.UseVisualStyleBackColor = true;
+            this.showCheckBox.CheckedChanged += new System.EventHandler(this.showCheckBox_CheckedChanged);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(779, 567);
+            this.Controls.Add(this.showCheckBox);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -233,10 +230,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label minimizeButton;
-        private System.Windows.Forms.Label maximizeButton;
         private System.Windows.Forms.Label closeButton;
         private System.Windows.Forms.PictureBox loginPictureBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox showCheckBox;
     }
 }
 

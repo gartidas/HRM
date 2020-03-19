@@ -45,11 +45,6 @@ namespace Desktop
             this.Close();
         }
 
-        private void maximizeButton_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
         private void logInButton_Click(object sender, System.EventArgs e)
         {
 
@@ -62,6 +57,14 @@ namespace Desktop
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void showCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showCheckBox.Checked == true)
+                passwordTextBox.PasswordChar = '\0';
+            else
+                passwordTextBox.PasswordChar = '*';
         }
     }
 }

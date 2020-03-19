@@ -45,11 +45,6 @@ namespace Desktop
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void maximizeButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void topPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
