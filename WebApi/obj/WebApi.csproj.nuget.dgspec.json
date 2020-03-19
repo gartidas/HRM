@@ -49,10 +49,6 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.0, )"
-            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[8.5.1, )"
