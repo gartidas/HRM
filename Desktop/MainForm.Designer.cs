@@ -28,51 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.minimizeButton = new System.Windows.Forms.Label();
+            this.maximizeButton = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.topPanel.SuspendLayout();
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // topPanel
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1602, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topPanel.Controls.Add(this.loginPictureBox);
+            this.topPanel.Controls.Add(this.label3);
+            this.topPanel.Controls.Add(this.minimizeButton);
+            this.topPanel.Controls.Add(this.maximizeButton);
+            this.topPanel.Controls.Add(this.closeButton);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1602, 63);
+            this.topPanel.TabIndex = 0;
+            this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
             // 
-            // toolStripMenuItem1
+            // minimizeButton
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(156, 24);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
+            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeButton.AutoSize = true;
+            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.minimizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.minimizeButton.ForeColor = System.Drawing.Color.White;
+            this.minimizeButton.Location = new System.Drawing.Point(1448, 8);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(39, 41);
+            this.minimizeButton.TabIndex = 2;
+            this.minimizeButton.Text = "—";
+            this.minimizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // maximizeButton
+            // 
+            this.maximizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximizeButton.AutoSize = true;
+            this.maximizeButton.BackColor = System.Drawing.Color.Gray;
+            this.maximizeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.maximizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.maximizeButton.ForeColor = System.Drawing.Color.Silver;
+            this.maximizeButton.Location = new System.Drawing.Point(1493, 8);
+            this.maximizeButton.Name = "maximizeButton";
+            this.maximizeButton.Size = new System.Drawing.Size(47, 41);
+            this.maximizeButton.TabIndex = 1;
+            this.maximizeButton.Text = "🗖";
+            this.maximizeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.AutoSize = true;
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.closeButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(1546, 8);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(42, 41);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.Text = "X";
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.BackColor = System.Drawing.Color.DimGray;
+            this.mainPanel.Controls.Add(this.menuPanel);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(0, 63);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1602, 845);
+            this.mainPanel.TabIndex = 1;
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.menuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuPanel.Location = new System.Drawing.Point(0, 0);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(359, 845);
+            this.menuPanel.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(753, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 39);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "HRM";
+            // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
+            this.loginPictureBox.Location = new System.Drawing.Point(11, 8);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loginPictureBox.TabIndex = 9;
+            this.loginPictureBox.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1602, 908);
-            this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.topPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
+            this.mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Label closeButton;
+        private System.Windows.Forms.Label minimizeButton;
+        private System.Windows.Forms.Label maximizeButton;
+        private System.Windows.Forms.Panel menuPanel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox loginPictureBox;
     }
 }

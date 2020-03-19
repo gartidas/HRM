@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Desktop
@@ -8,31 +9,54 @@ namespace Desktop
         public MainForm()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
-        protected override void WndProc(ref Message m) //legacy of "ismail"
+        #region DragForm
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam); //Drag form by top panel
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
+        #endregion
+
+        #region CreateRoundCorner
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+        #endregion
+
+        private void closeButton_Click(object sender, EventArgs e)
         {
-            const int WM_SYSCOMMAND = 0x0112;
-            const int SC_MOVE = 0xF010;
-            const int WM_NCLBUTTONDBLCLK = 0x00A3; //double click on a title bar a.k.a. non-client area of the form
+            this.Close();
+        }
 
-            switch (m.Msg)
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
-                case WM_SYSCOMMAND: //preventing the form from being moved by the mouse.
-                    int command = m.WParam.ToInt32() & 0xfff0;
-                    if (command == SC_MOVE)
-                        return;
-                    break;
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-
-            if (m.Msg == WM_NCLBUTTONDBLCLK) //preventing the form being resized by the mouse double click on the title bar.
-            {
-                m.Result = IntPtr.Zero;
-                return;
-            }
-
-            base.WndProc(ref m);
         }
     }
 }
