@@ -9,6 +9,7 @@ namespace Desktop
     {
         private bool _loggingIn = false;
         private MainForm _mainForm;
+        private ToolTip _toolTip = new ToolTip();
 
         public LoginForm()
         {
@@ -16,6 +17,10 @@ namespace Desktop
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             loginTextBox.Text = "admin@test.com";
             passwordTextBox.Text = "Baklazan666";
+            _toolTip.SetToolTip(logInButton, "Log in");
+            _toolTip.SetToolTip(minimizeButton, "Minimize");
+            _toolTip.SetToolTip(closeButton, "Close");
+            _toolTip.SetToolTip(showCheckBox, "Show password");
         }
 
         #region DragForm
@@ -81,29 +86,12 @@ namespace Desktop
                 CurrentUser.User.Email = loginTextBox.Text;
                 CurrentUser.User.Role = response.UserRole;
 
-                // Switch form
-                // Mainform loads components current user should see
                 this.Hide();
                 _mainForm = new MainForm();
                 _mainForm.ShowDialog();
+                _mainForm.FilterOutUnauthorizedMenus();
                 this.Close();
 
-                if (CurrentUser.User.Role == Role.SysAdmin)
-                {
-                    // Mainform Gets (load data)
-                }
-                if (CurrentUser.User.Role == Role.Employee)
-                {
-                    // Mainform Gets (load data)
-                }
-                if (CurrentUser.User.Role == Role.HR_Worker)
-                {
-                    // Mainform Gets (load data)
-                }
-                if (CurrentUser.User.Role == Role.WorkPlaceLeader)
-                {
-                    // Mainform Gets (load data)
-                }
                 return;
             }
 
