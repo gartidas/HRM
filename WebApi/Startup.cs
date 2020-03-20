@@ -53,6 +53,7 @@ namespace WebApi
 
             serviceProvider.CreateUserRoles().GetAwaiter().GetResult();
         }
+
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             Installers.AuthenticationInstaller(services, Configuration);

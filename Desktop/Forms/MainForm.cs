@@ -1,0 +1,69 @@
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
+namespace Desktop
+{
+    public partial class MainForm : Form
+    {
+        private LoginForm _loginForm;
+
+        public MainForm()
+        {
+            InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            //this.WindowState = FormWindowState.Minimized;
+        }
+
+        #region DragForm
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam); //Drag form by top panel
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
+        #endregion
+
+        #region CreateRoundCorner
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+        #endregion
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ApiHelper.Instance.LogoutUser();
+            _loginForm = new LoginForm();
+            _loginForm.ShowDialog();
+            this.Close();
+        }
+    }
+}
