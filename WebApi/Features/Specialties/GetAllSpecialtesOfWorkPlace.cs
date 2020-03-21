@@ -31,7 +31,7 @@ namespace WebApi.Features.Specialties
             public async Task<IQueryable<SpecialtyDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var specialties = _context.Specialties.Where(x => x.WorkplaceID == request.WorkPlaceId).ProjectTo<SpecialtyDto>(_mapper.ConfigurationProvider);
-                return specialties;
+                return await Task.FromResult(specialties);
             }
         }
 

@@ -32,7 +32,7 @@ namespace WebApi.Features.Bonuses
             public async Task<IQueryable<BonusDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var bonuses = _context.Bonuses.Where(x => x.EmployeeID == request.EmployeeId).ProjectTo<BonusDto>(_mapper.ConfigurationProvider);
-                return bonuses;
+                return await Task.FromResult(bonuses);
             }
         }
 

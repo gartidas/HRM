@@ -31,7 +31,7 @@ namespace WebApi.Features.Documentation
             public async Task<IQueryable<GetDocument.DocumentDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var documents = _context.Documents.Where(x => x.CandidateID == request.CandidateId).ProjectTo<GetDocument.DocumentDto>(_mapper.ConfigurationProvider);
-                return documents;
+                return await Task.FromResult(documents); ;
             }
         }
     }

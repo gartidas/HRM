@@ -31,7 +31,7 @@ namespace WebApi.Features.EquipmentItems
             public async Task<IQueryable<EquipmentDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var equipment = _context.Equipment.Where(x => x.EmployeeID == request.EmployeeId).ProjectTo<EquipmentDto>(_mapper.ConfigurationProvider);
-                return equipment;
+                return await Task.FromResult(equipment); ;
             }
         }
 

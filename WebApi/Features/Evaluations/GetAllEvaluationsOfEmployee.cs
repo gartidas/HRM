@@ -32,7 +32,7 @@ namespace WebApi.Features.Evaluations
             public async Task<IQueryable<EvaluationDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var evaluations = _context.Evaluations.Where(x => x.EmployeeID == request.EmployeeId).ProjectTo<EvaluationDto>(_mapper.ConfigurationProvider);
-                return evaluations;
+                return await Task.FromResult(evaluations);
             }
         }
 

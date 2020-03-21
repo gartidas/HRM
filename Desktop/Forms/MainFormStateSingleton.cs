@@ -20,104 +20,113 @@ namespace Desktop.Forms
         }
 
         #region ScreenState
-        public Timer screenTimer = new Timer();
-        public bool screensChanging = false;
-        public bool screenHidden = true;
-        public bool screenMoving = false;
-        public int screenOpened;
-        public int screenWidth;
-        public Panel screenPanel;
-        public PersonalDataScreen personalDataScreen;
-        public ChangePasswordScreen changePasswordScreen;
+        public Timer ScreenTimer { get; set; }
+        public bool ScreensChanging { get; set; }
+        public bool ScreenHidden { get; set; }
+        public bool ScreenMoving { get; set; }
+        public int ScreenOpened { get; set; }
+        public int ScreenWidth { get; set; }
+        public Panel ScreenPanel { get; set; }
+        public PersonalDataScreen PersonalDataScreen { get; set; }
+        public ChangePasswordScreen ChangePasswordScreen { get; set; }
         #endregion
 
         #region MenuState
-        public Timer menuTimer = new Timer();
-        public bool menusChanging = false;
-        public bool menuHidden = true;
-        public bool menuMoving = false;
-        public int menuOpened;
-        public int menuWidth;
-        public bool menuClosing = false;
-        public Panel menuPanel;
-        public PersonalMenu personalMenu;
-        public WorkPlaceMenu workPlaceMenu;
-        public StaffMenu staffMenu;
+        public Timer MenuTimer { get; set; }
+        public bool MenusChanging { get; set; }
+        public bool MenuHidden { get; set; }
+        public bool MenuMoving { get; set; }
+        public int MenuOpened { get; set; }
+        public int MenuWidth { get; set; }
+        public bool MenuClosing { get; set; }
+        public Panel MenuPanel { get; set; }
+        public PersonalMenu PersonalMenu { get; set; }
+        public WorkPlaceMenu WorkPlaceMenu { get; set; }
+        public StaffMenu StaffMenu { get; set; }
         #endregion
 
         public MainFormStateSingleton()
         {
-            menuTimer.Interval = 30;
-            screenTimer.Interval = 10;
-            menuTimer.Tick += new EventHandler(menuTimer_Tick);
-            screenTimer.Tick += new EventHandler(screenTimer_Tick);
+            ScreenTimer = new Timer();
+            MenuTimer = new Timer();
+            MenuTimer.Interval = 30;
+            ScreenTimer.Interval = 10;
+            MenuTimer.Tick += new EventHandler(menuTimer_Tick);
+            ScreenTimer.Tick += new EventHandler(screenTimer_Tick);
+            ScreensChanging = false;
+            ScreenHidden = true;
+            ScreenMoving = false;
+            MenusChanging = false;
+            MenuHidden = true;
+            MenuMoving = false;
+            MenuClosing = false;
         }
 
         private void menuTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
-            menuMoving = true;
+            MenuMoving = true;
 
-            if (menuHidden)
+            if (MenuHidden)
             {
-                switch (menuOpened)
+                switch (MenuOpened)
                 {
                     case 1:
-                        menuPanel.Controls.Add(personalMenu);
+                        MenuPanel.Controls.Add(PersonalMenu);
                         break;
                     case 2:
-                        menuPanel.Controls.Add(workPlaceMenu);
+                        MenuPanel.Controls.Add(WorkPlaceMenu);
                         break;
                     case 3:
-                        menuPanel.Controls.Add(staffMenu);
+                        MenuPanel.Controls.Add(StaffMenu);
                         break;
                     default:
                         break;
                 }
 
-                if (menuPanel.Width >= menuWidth)
+                if (MenuPanel.Width >= MenuWidth)
                 {
-                    menuTimer.Stop();
-                    menuHidden = false;
-                    menuMoving = false;
+                    MenuTimer.Stop();
+                    MenuHidden = false;
+                    MenuMoving = false;
                     return;
                 }
 
-                menuPanel.Width += 10;
+                MenuPanel.Width += 10;
             }
             else
             {
-                if (menuPanel.Width <= 0)
+                if (MenuPanel.Width <= 0)
                 {
-                    menuTimer.Stop();
-                    menuHidden = true;
-                    menuMoving = false;
-                    menuPanel.Controls.Clear();
+                    MenuTimer.Stop();
+                    MenuHidden = true;
+                    MenuMoving = false;
+                    MenuPanel.Controls.Clear();
 
-                    if (menusChanging)
+                    if (MenusChanging)
                     {
-                        menusChanging = false;
-                        menuTimer.Start();
+                        MenusChanging = false;
+                        MenuTimer.Start();
                     }
                     return;
                 }
 
-                menuPanel.Width -= 10;
+                MenuPanel.Width -= 10;
             }
         }
 
         private void screenTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
-            screenMoving = true;
+            ScreenMoving = true;
 
-            if (screenHidden)
+            if (ScreenHidden)
             {
-                switch (screenOpened)
+                switch (ScreenOpened)
                 {
                     case 1:
-                        screenPanel.Controls.Add(personalDataScreen);
+                        ScreenPanel.Controls.Add(PersonalDataScreen);
                         break;
                     case 2:
-                        screenPanel.Controls.Add(changePasswordScreen);
+                        ScreenPanel.Controls.Add(ChangePasswordScreen);
                         break;
                     case 3:
                         //_mainPanel.Controls.Add(_changePasswordScreen);
@@ -137,36 +146,36 @@ namespace Desktop.Forms
                     default:
                         break;
                 }
-                screenPanel.Width += 10;
+                ScreenPanel.Width += 10;
 
-                if (screenPanel.Width >= screenWidth)
+                if (ScreenPanel.Width >= ScreenWidth)
                 {
-                    screenTimer.Stop();
-                    screensChanging = false;
-                    screenHidden = false;
-                    screenMoving = false;
+                    ScreenTimer.Stop();
+                    ScreensChanging = false;
+                    ScreenHidden = false;
+                    ScreenMoving = false;
                     return;
                 }
             }
             else
             {
-                screenPanel.Width -= 10;
+                ScreenPanel.Width -= 10;
 
-                if (screenPanel.Width <= 0)
+                if (ScreenPanel.Width <= 0)
                 {
-                    screenTimer.Stop();
-                    screenHidden = true;
-                    screenMoving = false;
-                    screenPanel.Controls.Clear();
+                    ScreenTimer.Stop();
+                    ScreenHidden = true;
+                    ScreenMoving = false;
+                    ScreenPanel.Controls.Clear();
 
-                    if (screensChanging)
+                    if (ScreensChanging)
                     {
-                        screenTimer.Start();
+                        ScreenTimer.Start();
                     }
-                    if (menuClosing)
+                    if (MenuClosing)
                     {
-                        menuClosing = false;
-                        menuTimer.Start();
+                        MenuClosing = false;
+                        MenuTimer.Start();
                     }
                     return;
                 }

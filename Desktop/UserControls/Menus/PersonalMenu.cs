@@ -14,8 +14,8 @@ namespace Desktop.UserControls.Menus
             InitializeComponent();
             emailLabel.Text = email;
             roleLabel.Text = role;
-            MainFormStateSingleton.Instance.changePasswordScreen = _changePasswordScreen;
-            MainFormStateSingleton.Instance.personalDataScreen = _personalDataScreen;
+            MainFormStateSingleton.Instance.ChangePasswordScreen = _changePasswordScreen;
+            MainFormStateSingleton.Instance.PersonalDataScreen = _personalDataScreen;
         }
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
@@ -55,18 +55,18 @@ namespace Desktop.UserControls.Menus
 
         private void LoadScreen(int screenNumber)
         {
-            if (!MainFormStateSingleton.Instance.screenMoving && !MainFormStateSingleton.Instance.menuMoving)
+            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
             {
-                if (MainFormStateSingleton.Instance.screenHidden)
-                    MainFormStateSingleton.Instance.screenOpened = screenNumber;
+                if (MainFormStateSingleton.Instance.ScreenHidden)
+                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
 
-                if (MainFormStateSingleton.Instance.screenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.screenTimer.Start();
+                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
+                    MainFormStateSingleton.Instance.ScreenTimer.Start();
                 else
                 {
-                    MainFormStateSingleton.Instance.screenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.screensChanging = true;
-                    MainFormStateSingleton.Instance.screenTimer.Start();
+                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
+                    MainFormStateSingleton.Instance.ScreensChanging = true;
+                    MainFormStateSingleton.Instance.ScreenTimer.Start();
                 }
             }
         }

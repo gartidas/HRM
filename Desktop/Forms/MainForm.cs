@@ -27,16 +27,16 @@ namespace Desktop
             _toolTip.SetToolTip(closeButton, "Close");
             timeTimer.Start();
             timeLabel.Visible = true;
-            MainFormStateSingleton.Instance.menuPanel = subMenuPanel;
-            MainFormStateSingleton.Instance.screenPanel = mainPanel;
-            MainFormStateSingleton.Instance.menuWidth = subMenuPanel.Width;
+            MainFormStateSingleton.Instance.MenuPanel = subMenuPanel;
+            MainFormStateSingleton.Instance.ScreenPanel = mainPanel;
+            MainFormStateSingleton.Instance.MenuWidth = subMenuPanel.Width;
             subMenuPanel.Width = 0;
-            MainFormStateSingleton.Instance.screenWidth = mainPanel.Width;
+            MainFormStateSingleton.Instance.ScreenWidth = mainPanel.Width;
             mainPanel.Width = 0;
             _personalMenu = new PersonalMenu(CurrentUser.User.Email, CurrentUser.User.Role.ToString());
-            MainFormStateSingleton.Instance.personalMenu = _personalMenu;
-            MainFormStateSingleton.Instance.staffMenu = _staffMenu;
-            MainFormStateSingleton.Instance.workPlaceMenu = _workPlaceMenu;
+            MainFormStateSingleton.Instance.PersonalMenu = _personalMenu;
+            MainFormStateSingleton.Instance.StaffMenu = _staffMenu;
+            MainFormStateSingleton.Instance.WorkPlaceMenu = _workPlaceMenu;
         }
 
         #region DragForm
@@ -64,7 +64,7 @@ namespace Desktop
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            if (!MainFormStateSingleton.Instance.screenMoving && !MainFormStateSingleton.Instance.menuMoving)
+            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
             {
                 DisposeResources();
                 this.Close();
@@ -87,7 +87,7 @@ namespace Desktop
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            if (!MainFormStateSingleton.Instance.screenMoving && !MainFormStateSingleton.Instance.menuMoving)
+            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
             {
                 subMenuPanel.Controls.Clear();
                 mainPanel.Controls.Clear();
@@ -128,35 +128,35 @@ namespace Desktop
 
         private void LoadMenu(int menuNumber)
         {
-            if (!MainFormStateSingleton.Instance.screenMoving && !MainFormStateSingleton.Instance.menuMoving)
+            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
             {
-                if (MainFormStateSingleton.Instance.screenHidden == true)
+                if (MainFormStateSingleton.Instance.ScreenHidden == true)
                 {
-                    if (MainFormStateSingleton.Instance.menuHidden)
-                        MainFormStateSingleton.Instance.menuOpened = menuNumber;
+                    if (MainFormStateSingleton.Instance.MenuHidden)
+                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
 
-                    if (MainFormStateSingleton.Instance.menuOpened == menuNumber)
-                        MainFormStateSingleton.Instance.menuTimer.Start();
+                    if (MainFormStateSingleton.Instance.MenuOpened == menuNumber)
+                        MainFormStateSingleton.Instance.MenuTimer.Start();
                     else
                     {
-                        MainFormStateSingleton.Instance.menuOpened = menuNumber;
-                        MainFormStateSingleton.Instance.menusChanging = true;
-                        MainFormStateSingleton.Instance.menuTimer.Start();
+                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
+                        MainFormStateSingleton.Instance.MenusChanging = true;
+                        MainFormStateSingleton.Instance.MenuTimer.Start();
                     }
                 }
                 else
                 {
-                    if (MainFormStateSingleton.Instance.menuOpened == menuNumber)
+                    if (MainFormStateSingleton.Instance.MenuOpened == menuNumber)
                     {
-                        MainFormStateSingleton.Instance.menuClosing = true;
-                        MainFormStateSingleton.Instance.screenTimer.Start();
+                        MainFormStateSingleton.Instance.MenuClosing = true;
+                        MainFormStateSingleton.Instance.ScreenTimer.Start();
                     }
                     else
                     {
-                        MainFormStateSingleton.Instance.menuClosing = true;
-                        MainFormStateSingleton.Instance.menuOpened = menuNumber;
-                        MainFormStateSingleton.Instance.menusChanging = true;
-                        MainFormStateSingleton.Instance.screenTimer.Start();
+                        MainFormStateSingleton.Instance.MenuClosing = true;
+                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
+                        MainFormStateSingleton.Instance.MenusChanging = true;
+                        MainFormStateSingleton.Instance.ScreenTimer.Start();
                     }
                 }
             }
@@ -169,10 +169,10 @@ namespace Desktop
 
         private void DisposeResources()
         {
-            MainFormStateSingleton.Instance.menuTimer.Dispose();
-            MainFormStateSingleton.Instance.menuTimer = null;
-            MainFormStateSingleton.Instance.screenTimer.Dispose();
-            MainFormStateSingleton.Instance.screenTimer = null;
+            MainFormStateSingleton.Instance.MenuTimer.Dispose();
+            MainFormStateSingleton.Instance.MenuTimer = null;
+            MainFormStateSingleton.Instance.ScreenTimer.Dispose();
+            MainFormStateSingleton.Instance.ScreenTimer = null;
             timeTimer.Stop();
             timeTimer.Dispose();
             timeTimer = null;
