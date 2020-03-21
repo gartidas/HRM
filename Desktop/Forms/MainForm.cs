@@ -1,4 +1,5 @@
-﻿using Desktop.Models;
+﻿using Desktop.Forms;
+using Desktop.Models;
 using Desktop.UserControls.Menus;
 using System;
 using System.Runtime.InteropServices;
@@ -10,13 +11,10 @@ namespace Desktop
     {
         private LoginForm _loginForm;
         private ToolTip _toolTip = new ToolTip();
-        private int _menuWidth;
-        private bool _menuHidden;
-        private int _menuOpened;
-        private bool _menusChanging = false;
-        private PersonalMenu _personalMenu = new PersonalMenu();
+        private PersonalMenu _personalMenu;
         private StaffMenu _staffMenu = new StaffMenu();
         private WorkPlaceMenu _workPlaceMenu = new WorkPlaceMenu();
+        private MainFormStateSingleton _mainFormStateSingleton = new MainFormStateSingleton();
 
         public MainForm()
         {
@@ -28,9 +26,18 @@ namespace Desktop
             _toolTip.SetToolTip(logOutButton, "Log out");
             _toolTip.SetToolTip(minimizeButton, "Minimize");
             _toolTip.SetToolTip(closeButton, "Close");
-            _menuWidth = subMenuPanel.Width;
+            timeTimer.Start();
+            timeLabel.Visible = true;
+            MainFormStateSingleton.menuPanel = subMenuPanel;
+            MainFormStateSingleton.screenPanel = mainPanel;
+            MainFormStateSingleton.menuWidth = subMenuPanel.Width;
             subMenuPanel.Width = 0;
-            _menuHidden = true;
+            MainFormStateSingleton.screenWidth = mainPanel.Width;
+            mainPanel.Width = 0;
+            _personalMenu = new PersonalMenu(CurrentUser.User.Email, CurrentUser.User.Role.ToString());
+            MainFormStateSingleton.personalMenu = _personalMenu;
+            MainFormStateSingleton.staffMenu = _staffMenu;
+            MainFormStateSingleton.workPlaceMenu = _workPlaceMenu;
         }
 
         #region DragForm
@@ -98,94 +105,57 @@ namespace Desktop
 
         private void personalMenuButton_Click(object sender, EventArgs e)
         {
-            if (_menuHidden)
-                _menuOpened = 1;
+            if (MainFormStateSingleton.menuHidden)
+                MainFormStateSingleton.menuOpened = 1;
 
-            if (_menuOpened == 1)
-                loadMenuTimer.Start();
+            if (MainFormStateSingleton.menuOpened == 1)
+                MainFormStateSingleton.menuTimer.Start();
             else
             {
-                _menuOpened = 1;
-                _menusChanging = true;
-                loadMenuTimer.Start();
+                MainFormStateSingleton.menuOpened = 1;
+                MainFormStateSingleton.menusChanging = true;
+                MainFormStateSingleton.menuTimer.Start();
             }
         }
 
         private void workPlaceMenuButton_Click(object sender, EventArgs e)
         {
-            if (_menuHidden)
-                _menuOpened = 2;
+            if (MainFormStateSingleton.menuHidden)
+                MainFormStateSingleton.menuOpened = 2;
 
-            if (_menuOpened == 2)
-                loadMenuTimer.Start();
+            if (MainFormStateSingleton.menuOpened == 2)
+                MainFormStateSingleton.menuTimer.Start();
             else
             {
-                _menuOpened = 2;
-                _menusChanging = true;
-                loadMenuTimer.Start();
+                MainFormStateSingleton.menuOpened = 2;
+                MainFormStateSingleton.menusChanging = true;
+                MainFormStateSingleton.menuTimer.Start();
             }
         }
 
         private void staffMenuButton_Click(object sender, EventArgs e)
         {
-            if (_menuHidden)
-                _menuOpened = 3;
+            if (MainFormStateSingleton.menuHidden)
+                MainFormStateSingleton.menuOpened = 3;
 
-            if (_menuOpened == 3)
-                loadMenuTimer.Start();
+            if (MainFormStateSingleton.menuOpened == 3)
+                MainFormStateSingleton.menuTimer.Start();
             else
             {
-                _menuOpened = 3;
-                _menusChanging = true;
-                loadMenuTimer.Start();
+                MainFormStateSingleton.menuOpened = 3;
+                MainFormStateSingleton.menusChanging = true;
+                MainFormStateSingleton.menuTimer.Start();
             }
         }
 
-        private void loadMenuTimer_Tick(object sender, EventArgs e)
+        private void timeTimer_Tick(object sender, EventArgs e)
         {
-            if (_menuHidden)
-            {
-                switch (_menuOpened)
-                {
-                    case 1:
-                        subMenuPanel.Controls.Add(_personalMenu);
-                        break;
-                    case 2:
-                        subMenuPanel.Controls.Add(_workPlaceMenu);
-                        break;
-                    case 3:
-                        subMenuPanel.Controls.Add(_staffMenu);
-                        break;
-                    default:
-                        break;
-                }
-                subMenuPanel.Width = subMenuPanel.Width + 10;
+            timeLabel.Text = (DateTime.Now).ToString("dd.MM.yyyy HH:mm:ss");
+        }
 
-                if (subMenuPanel.Width >= _menuWidth)
-                {
-                    loadMenuTimer.Stop();
-                    _menuHidden = false;
-                    this.Refresh();
-                }
-            }
-            else
-            {
-                subMenuPanel.Width = subMenuPanel.Width - 10;
-
-                if (subMenuPanel.Width <= 0)
-                {
-                    loadMenuTimer.Stop();
-                    _menuHidden = true;
-                    subMenuPanel.Controls.Clear();
-                    this.Refresh();
-
-                    if (_menusChanging)
-                    {
-                        _menusChanging = false;
-                        loadMenuTimer.Start();
-                    }
-                }
-            }
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timeTimer.Stop();
         }
     }
 }

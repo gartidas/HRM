@@ -31,31 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.topPanel = new System.Windows.Forms.Panel();
-            this.minimizeButton = new System.Windows.Forms.Button();
-            this.loginPictureBox = new System.Windows.Forms.PictureBox();
-            this.closeButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.logOutButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.subMenuPanel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.logOutButton = new System.Windows.Forms.Button();
             this.personalMenuButton = new System.Windows.Forms.Button();
             this.workPlaceMenuButton = new System.Windows.Forms.Button();
             this.staffMenuButton = new System.Windows.Forms.Button();
-            this.loadMenuTimer = new System.Windows.Forms.Timer(this.components);
-            this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
+            this.timeTimer = new System.Windows.Forms.Timer(this.components);
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.closeButton = new System.Windows.Forms.Button();
             this.menuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.topPanel.Controls.Add(this.minimizeButton);
-            this.topPanel.Controls.Add(this.loginPictureBox);
-            this.topPanel.Controls.Add(this.closeButton);
-            this.topPanel.Controls.Add(this.label3);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
@@ -63,73 +59,23 @@
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
             // 
-            // minimizeButton
-            // 
-            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.minimizeButton.ForeColor = System.Drawing.Color.White;
-            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-            this.minimizeButton.Location = new System.Drawing.Point(1461, 5);
-            this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(50, 50);
-            this.minimizeButton.TabIndex = 2;
-            this.minimizeButton.UseVisualStyleBackColor = false;
-            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
-            // loginPictureBox
-            // 
-            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
-            this.loginPictureBox.Location = new System.Drawing.Point(11, 8);
-            this.loginPictureBox.Name = "loginPictureBox";
-            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
-            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.loginPictureBox.TabIndex = 9;
-            this.loginPictureBox.TabStop = false;
-            // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Image = global::Desktop.Properties.Resources.Close;
-            this.closeButton.Location = new System.Drawing.Point(1527, 5);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(50, 50);
-            this.closeButton.TabIndex = 1;
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(753, 11);
+            this.label3.Location = new System.Drawing.Point(754, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 39);
             this.label3.TabIndex = 8;
             this.label3.Text = "HRM";
             // 
-            // logOutButton
-            // 
-            this.logOutButton.BackColor = System.Drawing.Color.White;
-            this.logOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logOutButton.BackgroundImage")));
-            this.logOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logOutButton.ForeColor = System.Drawing.Color.White;
-            this.logOutButton.Location = new System.Drawing.Point(-1, 779);
-            this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(200, 60);
-            this.logOutButton.TabIndex = 10;
-            this.logOutButton.UseVisualStyleBackColor = false;
-            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
-            // 
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.DimGray;
-            this.mainPanel.Location = new System.Drawing.Point(400, 63);
+            this.mainPanel.Location = new System.Drawing.Point(400, 60);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1200, 845);
+            this.mainPanel.Size = new System.Drawing.Size(1200, 840);
             this.mainPanel.TabIndex = 1;
             // 
             // subMenuPanel
@@ -146,6 +92,7 @@
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.menuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menuPanel.Controls.Add(this.timeLabel);
             this.menuPanel.Controls.Add(this.logOutButton);
             this.menuPanel.Controls.Add(this.personalMenuButton);
             this.menuPanel.Controls.Add(this.workPlaceMenuButton);
@@ -155,6 +102,32 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(200, 840);
             this.menuPanel.TabIndex = 2;
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.timeLabel.ForeColor = System.Drawing.Color.White;
+            this.timeLabel.Location = new System.Drawing.Point(7, 756);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(41, 20);
+            this.timeLabel.TabIndex = 11;
+            this.timeLabel.Text = "time";
+            this.timeLabel.Visible = false;
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.BackColor = System.Drawing.Color.White;
+            this.logOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logOutButton.BackgroundImage")));
+            this.logOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.logOutButton.ForeColor = System.Drawing.Color.White;
+            this.logOutButton.Location = new System.Drawing.Point(-1, 779);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(200, 60);
+            this.logOutButton.TabIndex = 10;
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
             // personalMenuButton
             // 
@@ -192,32 +165,73 @@
             this.staffMenuButton.UseVisualStyleBackColor = false;
             this.staffMenuButton.Click += new System.EventHandler(this.staffMenuButton_Click);
             // 
-            // loadMenuTimer
+            // timeTimer
             // 
-            this.loadMenuTimer.Interval = 30;
-            this.loadMenuTimer.Tick += new System.EventHandler(this.loadMenuTimer_Tick);
+            this.timeTimer.Interval = 1000;
+            this.timeTimer.Tick += new System.EventHandler(this.timeTimer_Tick);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.minimizeButton.ForeColor = System.Drawing.Color.White;
+            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
+            this.minimizeButton.Location = new System.Drawing.Point(1462, 6);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(50, 50);
+            this.minimizeButton.TabIndex = 2;
+            this.minimizeButton.UseVisualStyleBackColor = false;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
+            this.loginPictureBox.Location = new System.Drawing.Point(12, 9);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loginPictureBox.TabIndex = 9;
+            this.loginPictureBox.TabStop = false;
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Image = global::Desktop.Properties.Resources.Close;
+            this.closeButton.Location = new System.Drawing.Point(1528, 6);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(50, 50);
+            this.closeButton.TabIndex = 1;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1600, 900);
+            this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.subMenuPanel);
+            this.Controls.Add(this.loginPictureBox);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.topPanel.ResumeLayout(false);
-            this.topPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuPanel.ResumeLayout(false);
+            this.menuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,11 +244,12 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button logOutButton;
-        private System.Windows.Forms.Panel subMenuPanel;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Button personalMenuButton;
         private System.Windows.Forms.Button workPlaceMenuButton;
         private System.Windows.Forms.Button staffMenuButton;
-        private System.Windows.Forms.Timer loadMenuTimer;
+        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Timer timeTimer;
+        public System.Windows.Forms.Panel subMenuPanel;
     }
 }
