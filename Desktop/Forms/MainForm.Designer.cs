@@ -110,9 +110,9 @@
             this.timeLabel.ForeColor = System.Drawing.Color.White;
             this.timeLabel.Location = new System.Drawing.Point(7, 756);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(41, 20);
+            this.timeLabel.Size = new System.Drawing.Size(182, 20);
             this.timeLabel.TabIndex = 11;
-            this.timeLabel.Text = "time";
+            this.timeLabel.Text = "dd.MM.yyyy HH:mm:ss";
             this.timeLabel.Visible = false;
             // 
             // logOutButton
@@ -134,7 +134,7 @@
             this.personalMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.personalMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("personalMenuButton.BackgroundImage")));
             this.personalMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.personalMenuButton.Location = new System.Drawing.Point(-1, 131);
+            this.personalMenuButton.Location = new System.Drawing.Point(-1, 0);
             this.personalMenuButton.Name = "personalMenuButton";
             this.personalMenuButton.Size = new System.Drawing.Size(200, 60);
             this.personalMenuButton.TabIndex = 2;
@@ -146,7 +146,7 @@
             this.workPlaceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.workPlaceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("workPlaceMenuButton.BackgroundImage")));
             this.workPlaceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.workPlaceMenuButton.Location = new System.Drawing.Point(-1, 65);
+            this.workPlaceMenuButton.Location = new System.Drawing.Point(-1, 66);
             this.workPlaceMenuButton.Name = "workPlaceMenuButton";
             this.workPlaceMenuButton.Size = new System.Drawing.Size(200, 60);
             this.workPlaceMenuButton.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.staffMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.staffMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("staffMenuButton.BackgroundImage")));
             this.staffMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.staffMenuButton.Location = new System.Drawing.Point(-1, -1);
+            this.staffMenuButton.Location = new System.Drawing.Point(-1, 132);
             this.staffMenuButton.Name = "staffMenuButton";
             this.staffMenuButton.Size = new System.Drawing.Size(200, 60);
             this.staffMenuButton.TabIndex = 0;

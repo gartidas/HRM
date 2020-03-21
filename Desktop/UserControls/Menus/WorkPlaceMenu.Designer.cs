@@ -37,37 +37,41 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button4.Location = new System.Drawing.Point(0, 198);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 60);
+            this.button4.Size = new System.Drawing.Size(197, 60);
             this.button4.TabIndex = 8;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button3.Location = new System.Drawing.Point(0, 132);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 60);
+            this.button3.Size = new System.Drawing.Size(197, 60);
             this.button3.TabIndex = 7;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button2.Location = new System.Drawing.Point(0, 66);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 60);
+            this.button2.Size = new System.Drawing.Size(197, 60);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 60);
+            this.button1.Size = new System.Drawing.Size(197, 60);
             this.button1.TabIndex = 5;
             this.button1.Text = "Workplace menu";
             this.button1.UseVisualStyleBackColor = false;
@@ -77,12 +81,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "WorkPlaceMenu";
-            this.Size = new System.Drawing.Size(200, 840);
+            this.Size = new System.Drawing.Size(198, 838);
             this.ResumeLayout(false);
 
         }
