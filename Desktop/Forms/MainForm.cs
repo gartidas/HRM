@@ -105,44 +105,29 @@ namespace Desktop
 
         private void personalMenuButton_Click(object sender, EventArgs e)
         {
-            if (MainFormStateSingleton.menuHidden)
-                MainFormStateSingleton.menuOpened = 1;
-
-            if (MainFormStateSingleton.menuOpened == 1)
-                MainFormStateSingleton.menuTimer.Start();
-            else
-            {
-                MainFormStateSingleton.menuOpened = 1;
-                MainFormStateSingleton.menusChanging = true;
-                MainFormStateSingleton.menuTimer.Start();
-            }
+            LoadMenu(1);
         }
 
         private void workPlaceMenuButton_Click(object sender, EventArgs e)
         {
-            if (MainFormStateSingleton.menuHidden)
-                MainFormStateSingleton.menuOpened = 2;
-
-            if (MainFormStateSingleton.menuOpened == 2)
-                MainFormStateSingleton.menuTimer.Start();
-            else
-            {
-                MainFormStateSingleton.menuOpened = 2;
-                MainFormStateSingleton.menusChanging = true;
-                MainFormStateSingleton.menuTimer.Start();
-            }
+            LoadMenu(2);
         }
 
         private void staffMenuButton_Click(object sender, EventArgs e)
         {
-            if (MainFormStateSingleton.menuHidden)
-                MainFormStateSingleton.menuOpened = 3;
+            LoadMenu(3);
+        }
 
-            if (MainFormStateSingleton.menuOpened == 3)
+        private void LoadMenu(int menuNumber)
+        {
+            if (MainFormStateSingleton.menuHidden)
+                MainFormStateSingleton.menuOpened = menuNumber;
+
+            if (MainFormStateSingleton.menuOpened == menuNumber)
                 MainFormStateSingleton.menuTimer.Start();
             else
             {
-                MainFormStateSingleton.menuOpened = 3;
+                MainFormStateSingleton.menuOpened = menuNumber;
                 MainFormStateSingleton.menusChanging = true;
                 MainFormStateSingleton.menuTimer.Start();
             }

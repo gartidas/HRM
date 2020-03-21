@@ -27,7 +27,7 @@ namespace Desktop.Forms
 
         #region ScreenState
         public static Timer screenTimer = new Timer();
-        public static bool screenChanging = false;
+        public static bool screensChanging = false;
         public static bool screenHidden = true;
         public static int screenOpened;
         public static int screenWidth;
@@ -50,7 +50,7 @@ namespace Desktop.Forms
 
         public MainFormStateSingleton()
         {
-            menuTimer.Interval = 10;
+            menuTimer.Interval = 30;
             screenTimer.Interval = 10;
             menuTimer.Tick += new EventHandler(menuTimer_Tick);
             screenTimer.Tick += new EventHandler(screenTimer_Tick);
@@ -82,7 +82,7 @@ namespace Desktop.Forms
                     return;
                 }
 
-                menuPanel.Width = menuPanel.Width + 10;
+                menuPanel.Width = menuPanel.Width + 10; //TU
             }
             else
             {
@@ -100,7 +100,7 @@ namespace Desktop.Forms
                     return;
                 }
 
-                menuPanel.Width = menuPanel.Width - 10;
+                menuPanel.Width = menuPanel.Width - 10; //TU
             }
         }
 
@@ -134,26 +134,27 @@ namespace Desktop.Forms
                     default:
                         break;
                 }
+                screenPanel.Width = screenPanel.Width + 10;
 
                 if (screenPanel.Width >= screenWidth)
                 {
                     screenTimer.Stop();
-                    screenChanging = false;
+                    screensChanging = false;
                     screenHidden = false;
                     return;
                 }
-
-                screenPanel.Width = screenPanel.Width + 10;
             }
             else
             {
+                screenPanel.Width = screenPanel.Width - 10;
+
                 if (screenPanel.Width <= 0)
                 {
                     screenTimer.Stop();
                     screenHidden = true;
                     screenPanel.Controls.Clear();
 
-                    if (screenChanging)
+                    if (screensChanging)
                     {
                         screenTimer.Start();
                     }
@@ -161,8 +162,6 @@ namespace Desktop.Forms
 
                     return;
                 }
-
-                screenPanel.Width = screenPanel.Width - 10;
             }
         }
     }

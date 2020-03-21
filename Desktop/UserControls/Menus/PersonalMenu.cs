@@ -21,107 +21,52 @@ namespace Desktop.UserControls.Menus
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 1;
-
-            //if (_panelOpened == 1)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 1;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(1);
         }
 
         private void changePasswordButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 2;
-
-            //if (_panelOpened == 2)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 2;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(2);
         }
 
         private void vacationsButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 3;
-
-            //if (_panelOpened == 3)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 3;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(3);
         }
 
         private void corporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 4;
-
-            //if (_panelOpened == 4)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 4;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(4);
         }
 
         private void evaluationsButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 5;
-
-            //if (_panelOpened == 5)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 5;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(5);
         }
 
         private void bonusesButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 6;
-
-            //if (_panelOpened == 6)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 6;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+            LoadScreen(6);
         }
 
         private void equipmentButton_Click(object sender, System.EventArgs e)
         {
-            //if (_panelHidden)
-            //    _panelOpened = 7;
+            LoadScreen(7);
+        }
 
-            //if (_panelOpened == 7)
-            //    loadPanelTimer.Start();
-            //else
-            //{
-            //    _panelOpened = 7;
-            //    _panelsChanging = true;
-            //    loadPanelTimer.Start();
-            //}
+        private void LoadScreen(int screenNumber)
+        {
+            if (MainFormStateSingleton.screenHidden)
+                MainFormStateSingleton.screenOpened = screenNumber;
+
+            if (MainFormStateSingleton.screenOpened == screenNumber)
+                MainFormStateSingleton.screenTimer.Start();
+            else
+            {
+                MainFormStateSingleton.screenOpened = screenNumber;
+                MainFormStateSingleton.screensChanging = true;
+                MainFormStateSingleton.screenTimer.Start();
+            }
         }
     }
 }
