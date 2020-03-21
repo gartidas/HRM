@@ -12,8 +12,9 @@ namespace Desktop
         private LoginForm _loginForm;
         private ToolTip _toolTip = new ToolTip();
         private PersonalMenu _personalMenu;
-        private StaffMenu _staffMenu = new StaffMenu();
         private WorkPlaceMenu _workPlaceMenu = new WorkPlaceMenu();
+        private StaffMenu _staffMenu = new StaffMenu();
+        private MaintenanceMenu _maintenanceMenu = new MaintenanceMenu();
 
         public MainForm()
         {
@@ -22,6 +23,7 @@ namespace Desktop
             _toolTip.SetToolTip(staffMenuButton, "Staff menu");
             _toolTip.SetToolTip(personalMenuButton, "Personal menu");
             _toolTip.SetToolTip(workPlaceMenuButton, "Workplace menu");
+            _toolTip.SetToolTip(maintenanceMenuButton, "Maintenance menu");
             _toolTip.SetToolTip(logOutButton, "Log out");
             _toolTip.SetToolTip(minimizeButton, "Minimize");
             _toolTip.SetToolTip(closeButton, "Close");
@@ -35,8 +37,9 @@ namespace Desktop
             mainPanel.Width = 0;
             _personalMenu = new PersonalMenu(CurrentUser.User.Email, CurrentUser.User.Role.ToString());
             MainFormStateSingleton.Instance.PersonalMenu = _personalMenu;
-            MainFormStateSingleton.Instance.StaffMenu = _staffMenu;
             MainFormStateSingleton.Instance.WorkPlaceMenu = _workPlaceMenu;
+            MainFormStateSingleton.Instance.StaffMenu = _staffMenu;
+            MainFormStateSingleton.Instance.MaintenanceMenu = _maintenanceMenu;
         }
 
         #region DragForm
@@ -101,11 +104,18 @@ namespace Desktop
 
         public void FilterOutUnauthorizedMenus()
         {
+            if (CurrentUser.User.Role == Role.HR_Worker)
+                maintenanceMenuButton.Visible = false;
+
             if (CurrentUser.User.Role == Role.WorkPlaceLeader)
+            {
+                maintenanceMenuButton.Visible = false;
                 staffMenuButton.Visible = false;
+            }
 
             if (CurrentUser.User.Role == Role.Employee)
             {
+                maintenanceMenuButton.Visible = false;
                 staffMenuButton.Visible = false;
                 workPlaceMenuButton.Visible = false;
             }
@@ -124,6 +134,11 @@ namespace Desktop
         private void staffMenuButton_Click(object sender, EventArgs e)
         {
             LoadMenu(3);
+        }
+
+        private void maintenanceMenuButton_Click(object sender, EventArgs e)
+        {
+            LoadMenu(4);
         }
 
         private void LoadMenu(int menuNumber)

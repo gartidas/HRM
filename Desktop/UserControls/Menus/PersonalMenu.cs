@@ -8,12 +8,20 @@ namespace Desktop.UserControls.Menus
     {
         private ChangePasswordScreen _changePasswordScreen = new ChangePasswordScreen();
         private PersonalDataScreen _personalDataScreen = new PersonalDataScreen();
+        private ToolTip _toolTip = new ToolTip();
 
         public PersonalMenu(string email, string role)
         {
             InitializeComponent();
             emailLabel.Text = email;
             roleLabel.Text = role;
+            _toolTip.SetToolTip(personalDataButton, "Personal data");
+            _toolTip.SetToolTip(changePasswordButton, "Change password");
+            _toolTip.SetToolTip(vacationsButton, "Vacations");
+            _toolTip.SetToolTip(corporateEventsButton, "Corporate Events");
+            _toolTip.SetToolTip(evaluationsButton, "Evaluations");
+            _toolTip.SetToolTip(bonusesButton, "Bonuses");
+            _toolTip.SetToolTip(equipmentButton, "Equipment");
             MainFormStateSingleton.Instance.ChangePasswordScreen = _changePasswordScreen;
             MainFormStateSingleton.Instance.PersonalDataScreen = _personalDataScreen;
         }

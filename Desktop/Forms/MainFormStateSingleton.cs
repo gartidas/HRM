@@ -43,13 +43,14 @@ namespace Desktop.Forms
         public PersonalMenu PersonalMenu { get; set; }
         public WorkPlaceMenu WorkPlaceMenu { get; set; }
         public StaffMenu StaffMenu { get; set; }
+        public MaintenanceMenu MaintenanceMenu { get; set; }
         #endregion
 
         public MainFormStateSingleton()
         {
             ScreenTimer = new Timer();
             MenuTimer = new Timer();
-            MenuTimer.Interval = 30;
+            MenuTimer.Interval = 10;
             ScreenTimer.Interval = 10;
             MenuTimer.Tick += new EventHandler(menuTimer_Tick);
             ScreenTimer.Tick += new EventHandler(screenTimer_Tick);
@@ -78,6 +79,9 @@ namespace Desktop.Forms
                         break;
                     case 3:
                         MenuPanel.Controls.Add(StaffMenu);
+                        break;
+                    case 4:
+                        MenuPanel.Controls.Add(MaintenanceMenu);
                         break;
                     default:
                         break;
@@ -146,7 +150,7 @@ namespace Desktop.Forms
                     default:
                         break;
                 }
-                ScreenPanel.Width += 10;
+                ScreenPanel.Width += 20;
 
                 if (ScreenPanel.Width >= ScreenWidth)
                 {
@@ -159,7 +163,7 @@ namespace Desktop.Forms
             }
             else
             {
-                ScreenPanel.Width -= 10;
+                ScreenPanel.Width -= 20;
 
                 if (ScreenPanel.Width <= 0)
                 {

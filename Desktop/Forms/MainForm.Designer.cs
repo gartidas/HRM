@@ -31,10 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.topPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.subMenuPanel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.maintenanceMenuButton = new System.Windows.Forms.Button();
             this.timeLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
             this.personalMenuButton = new System.Windows.Forms.Button();
@@ -44,6 +46,7 @@
             this.minimizeButton = new System.Windows.Forms.Button();
             this.loginPictureBox = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.Button();
+            this.topPanel.SuspendLayout();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -52,12 +55,24 @@
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topPanel.Controls.Add(this.label1);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1600, 60);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(752, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 39);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "HRM";
             // 
             // label3
             // 
@@ -92,6 +107,7 @@
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.menuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.menuPanel.Controls.Add(this.maintenanceMenuButton);
             this.menuPanel.Controls.Add(this.timeLabel);
             this.menuPanel.Controls.Add(this.logOutButton);
             this.menuPanel.Controls.Add(this.personalMenuButton);
@@ -102,6 +118,18 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(200, 840);
             this.menuPanel.TabIndex = 2;
+            // 
+            // maintenanceMenuButton
+            // 
+            this.maintenanceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.maintenanceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("maintenanceMenuButton.BackgroundImage")));
+            this.maintenanceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.maintenanceMenuButton.Location = new System.Drawing.Point(-1, 198);
+            this.maintenanceMenuButton.Name = "maintenanceMenuButton";
+            this.maintenanceMenuButton.Size = new System.Drawing.Size(200, 60);
+            this.maintenanceMenuButton.TabIndex = 12;
+            this.maintenanceMenuButton.UseVisualStyleBackColor = false;
+            this.maintenanceMenuButton.Click += new System.EventHandler(this.maintenanceMenuButton_Click);
             // 
             // timeLabel
             // 
@@ -212,6 +240,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1600, 900);
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.subMenuPanel);
@@ -221,12 +251,15 @@
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.label3);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
@@ -251,5 +284,7 @@
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Timer timeTimer;
         public System.Windows.Forms.Panel subMenuPanel;
+        private System.Windows.Forms.Button maintenanceMenuButton;
+        private System.Windows.Forms.Label label1;
     }
 }

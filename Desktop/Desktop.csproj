@@ -84,6 +84,12 @@
     <Compile Include="UserControls\FeatureScreens\PersonalDataScreen.Designer.cs">
       <DependentUpon>PersonalDataScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Menus\MaintenanceMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Menus\MaintenanceMenu.Designer.cs">
+      <DependentUpon>MaintenanceMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Menus\PersonalMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalDataScreen.resx">
       <DependentUpon>PersonalDataScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Menus\MaintenanceMenu.resx">
+      <DependentUpon>MaintenanceMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Menus\PersonalMenu.resx">
       <DependentUpon>PersonalMenu.cs</DependentUpon>
