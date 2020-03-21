@@ -8,15 +8,14 @@ namespace Desktop.UserControls.Menus
     {
         private ChangePasswordScreen _changePasswordScreen = new ChangePasswordScreen();
         private PersonalDataScreen _personalDataScreen = new PersonalDataScreen();
-        private MainFormStateSingleton _mainFormStateSingleton = new MainFormStateSingleton();
 
         public PersonalMenu(string email, string role)
         {
             InitializeComponent();
             emailLabel.Text = email;
             roleLabel.Text = role;
-            MainFormStateSingleton.changePasswordScreen = _changePasswordScreen;
-            MainFormStateSingleton.personalDataScreen = _personalDataScreen;
+            MainFormStateSingleton.Instance.changePasswordScreen = _changePasswordScreen;
+            MainFormStateSingleton.Instance.personalDataScreen = _personalDataScreen;
         }
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
@@ -56,18 +55,18 @@ namespace Desktop.UserControls.Menus
 
         private void LoadScreen(int screenNumber)
         {
-            if (!MainFormStateSingleton.screenMoving && !MainFormStateSingleton.menuMoving)
+            if (!MainFormStateSingleton.Instance.screenMoving && !MainFormStateSingleton.Instance.menuMoving)
             {
-                if (MainFormStateSingleton.screenHidden)
-                    MainFormStateSingleton.screenOpened = screenNumber;
+                if (MainFormStateSingleton.Instance.screenHidden)
+                    MainFormStateSingleton.Instance.screenOpened = screenNumber;
 
-                if (MainFormStateSingleton.screenOpened == screenNumber)
-                    MainFormStateSingleton.screenTimer.Start();
+                if (MainFormStateSingleton.Instance.screenOpened == screenNumber)
+                    MainFormStateSingleton.Instance.screenTimer.Start();
                 else
                 {
-                    MainFormStateSingleton.screenOpened = screenNumber;
-                    MainFormStateSingleton.screensChanging = true;
-                    MainFormStateSingleton.screenTimer.Start();
+                    MainFormStateSingleton.Instance.screenOpened = screenNumber;
+                    MainFormStateSingleton.Instance.screensChanging = true;
+                    MainFormStateSingleton.Instance.screenTimer.Start();
                 }
             }
         }

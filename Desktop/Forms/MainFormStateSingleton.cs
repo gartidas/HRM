@@ -5,50 +5,44 @@ using System.Windows.Forms;
 
 namespace Desktop.Forms
 {
-    public sealed class MainFormStateSingleton
+    public class MainFormStateSingleton
     {
-        private static MainFormStateSingleton instance = null;
-        private static readonly object padlock = new object();
+        private static MainFormStateSingleton _instance;
 
         public static MainFormStateSingleton Instance
         {
             get
             {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new MainFormStateSingleton();
-                    }
-                    return instance;
-                }
+                if (_instance == null)
+                    _instance = new MainFormStateSingleton();
+                return _instance;
             }
         }
 
         #region ScreenState
-        public static Timer screenTimer = new Timer();
-        public static bool screensChanging = false;
-        public static bool screenHidden = true;
-        public static bool screenMoving = false;
-        public static int screenOpened;
-        public static int screenWidth;
-        public static Panel screenPanel;
-        public static PersonalDataScreen personalDataScreen;
-        public static ChangePasswordScreen changePasswordScreen;
+        public Timer screenTimer = new Timer();
+        public bool screensChanging = false;
+        public bool screenHidden = true;
+        public bool screenMoving = false;
+        public int screenOpened;
+        public int screenWidth;
+        public Panel screenPanel;
+        public PersonalDataScreen personalDataScreen;
+        public ChangePasswordScreen changePasswordScreen;
         #endregion
 
         #region MenuState
-        public static Timer menuTimer = new Timer();
-        public static bool menusChanging = false;
-        public static bool menuHidden = true;
-        public static bool menuMoving = false;
-        public static int menuOpened;
-        public static int menuWidth;
-        public static bool menuClosing = false;
-        public static Panel menuPanel;
-        public static PersonalMenu personalMenu;
-        public static WorkPlaceMenu workPlaceMenu;
-        public static StaffMenu staffMenu;
+        public Timer menuTimer = new Timer();
+        public bool menusChanging = false;
+        public bool menuHidden = true;
+        public bool menuMoving = false;
+        public int menuOpened;
+        public int menuWidth;
+        public bool menuClosing = false;
+        public Panel menuPanel;
+        public PersonalMenu personalMenu;
+        public WorkPlaceMenu workPlaceMenu;
+        public StaffMenu staffMenu;
         #endregion
 
         public MainFormStateSingleton()
@@ -59,7 +53,7 @@ namespace Desktop.Forms
             screenTimer.Tick += new EventHandler(screenTimer_Tick);
         }
 
-        private static void menuTimer_Tick(Object myObject, EventArgs myEventArgs)
+        private void menuTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
             menuMoving = true;
 
@@ -111,7 +105,7 @@ namespace Desktop.Forms
             }
         }
 
-        private static void screenTimer_Tick(Object myObject, EventArgs myEventArgs)
+        private void screenTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
             screenMoving = true;
 
