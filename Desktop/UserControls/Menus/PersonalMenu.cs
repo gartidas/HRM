@@ -56,16 +56,19 @@ namespace Desktop.UserControls.Menus
 
         private void LoadScreen(int screenNumber)
         {
-            if (MainFormStateSingleton.screenHidden)
-                MainFormStateSingleton.screenOpened = screenNumber;
-
-            if (MainFormStateSingleton.screenOpened == screenNumber)
-                MainFormStateSingleton.screenTimer.Start();
-            else
+            if (!MainFormStateSingleton.screenMoving && !MainFormStateSingleton.menuMoving)
             {
-                MainFormStateSingleton.screenOpened = screenNumber;
-                MainFormStateSingleton.screensChanging = true;
-                MainFormStateSingleton.screenTimer.Start();
+                if (MainFormStateSingleton.screenHidden)
+                    MainFormStateSingleton.screenOpened = screenNumber;
+
+                if (MainFormStateSingleton.screenOpened == screenNumber)
+                    MainFormStateSingleton.screenTimer.Start();
+                else
+                {
+                    MainFormStateSingleton.screenOpened = screenNumber;
+                    MainFormStateSingleton.screensChanging = true;
+                    MainFormStateSingleton.screenTimer.Start();
+                }
             }
         }
     }

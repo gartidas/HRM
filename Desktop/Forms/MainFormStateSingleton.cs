@@ -29,6 +29,7 @@ namespace Desktop.Forms
         public static Timer screenTimer = new Timer();
         public static bool screensChanging = false;
         public static bool screenHidden = true;
+        public static bool screenMoving = false;
         public static int screenOpened;
         public static int screenWidth;
         public static Panel screenPanel;
@@ -40,8 +41,10 @@ namespace Desktop.Forms
         public static Timer menuTimer = new Timer();
         public static bool menusChanging = false;
         public static bool menuHidden = true;
+        public static bool menuMoving = false;
         public static int menuOpened;
         public static int menuWidth;
+        public static bool menuClosing = false;
         public static Panel menuPanel;
         public static PersonalMenu personalMenu;
         public static WorkPlaceMenu workPlaceMenu;
@@ -58,6 +61,8 @@ namespace Desktop.Forms
 
         private static void menuTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
+            menuMoving = true;
+
             if (menuHidden)
             {
                 switch (menuOpened)
@@ -79,10 +84,11 @@ namespace Desktop.Forms
                 {
                     menuTimer.Stop();
                     menuHidden = false;
+                    menuMoving = false;
                     return;
                 }
 
-                menuPanel.Width = menuPanel.Width + 10; //TU
+                menuPanel.Width += 10;
             }
             else
             {
@@ -90,6 +96,7 @@ namespace Desktop.Forms
                 {
                     menuTimer.Stop();
                     menuHidden = true;
+                    menuMoving = false;
                     menuPanel.Controls.Clear();
 
                     if (menusChanging)
@@ -100,12 +107,14 @@ namespace Desktop.Forms
                     return;
                 }
 
-                menuPanel.Width = menuPanel.Width - 10; //TU
+                menuPanel.Width -= 10;
             }
         }
 
         private static void screenTimer_Tick(Object myObject, EventArgs myEventArgs)
         {
+            screenMoving = true;
+
             if (screenHidden)
             {
                 switch (screenOpened)
@@ -134,32 +143,37 @@ namespace Desktop.Forms
                     default:
                         break;
                 }
-                screenPanel.Width = screenPanel.Width + 10;
+                screenPanel.Width += 10;
 
                 if (screenPanel.Width >= screenWidth)
                 {
                     screenTimer.Stop();
                     screensChanging = false;
                     screenHidden = false;
+                    screenMoving = false;
                     return;
                 }
             }
             else
             {
-                screenPanel.Width = screenPanel.Width - 10;
+                screenPanel.Width -= 10;
 
                 if (screenPanel.Width <= 0)
                 {
                     screenTimer.Stop();
                     screenHidden = true;
+                    screenMoving = false;
                     screenPanel.Controls.Clear();
 
                     if (screensChanging)
                     {
                         screenTimer.Start();
                     }
-
-
+                    if (menuClosing)
+                    {
+                        menuClosing = false;
+                        menuTimer.Start();
+                    }
                     return;
                 }
             }

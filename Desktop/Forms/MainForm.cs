@@ -65,7 +65,11 @@ namespace Desktop
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (!MainFormStateSingleton.screenMoving && !MainFormStateSingleton.menuMoving)
+            {
+                DisposeResources();
+                this.Close();
+            }
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -84,11 +88,16 @@ namespace Desktop
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ApiHelper.Instance.LogoutUser();
-            _loginForm = new LoginForm();
-            _loginForm.ShowDialog();
-            this.Close();
+            if (!MainFormStateSingleton.screenMoving && !MainFormStateSingleton.menuMoving)
+            {
+                subMenuPanel.Controls.Clear();
+                mainPanel.Controls.Clear();
+                this.Hide();
+                ApiHelper.Instance.LogoutUser();
+                _loginForm = new LoginForm();
+                _loginForm.ShowDialog();
+                this.Close();
+            }
         }
 
         public void FilterOutUnauthorizedMenus()
@@ -120,16 +129,37 @@ namespace Desktop
 
         private void LoadMenu(int menuNumber)
         {
-            if (MainFormStateSingleton.menuHidden)
-                MainFormStateSingleton.menuOpened = menuNumber;
-
-            if (MainFormStateSingleton.menuOpened == menuNumber)
-                MainFormStateSingleton.menuTimer.Start();
-            else
+            if (!MainFormStateSingleton.screenMoving && !MainFormStateSingleton.menuMoving)
             {
-                MainFormStateSingleton.menuOpened = menuNumber;
-                MainFormStateSingleton.menusChanging = true;
-                MainFormStateSingleton.menuTimer.Start();
+                if (MainFormStateSingleton.screenHidden == true)
+                {
+                    if (MainFormStateSingleton.menuHidden)
+                        MainFormStateSingleton.menuOpened = menuNumber;
+
+                    if (MainFormStateSingleton.menuOpened == menuNumber)
+                        MainFormStateSingleton.menuTimer.Start();
+                    else
+                    {
+                        MainFormStateSingleton.menuOpened = menuNumber;
+                        MainFormStateSingleton.menusChanging = true;
+                        MainFormStateSingleton.menuTimer.Start();
+                    }
+                }
+                else
+                {
+                    if (MainFormStateSingleton.menuOpened == menuNumber)
+                    {
+                        MainFormStateSingleton.menuClosing = true;
+                        MainFormStateSingleton.screenTimer.Start();
+                    }
+                    else
+                    {
+                        MainFormStateSingleton.menuClosing = true;
+                        MainFormStateSingleton.menuOpened = menuNumber;
+                        MainFormStateSingleton.menusChanging = true;
+                        MainFormStateSingleton.screenTimer.Start();
+                    }
+                }
             }
         }
 
@@ -138,9 +168,15 @@ namespace Desktop
             timeLabel.Text = (DateTime.Now).ToString("dd.MM.yyyy HH:mm:ss");
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void DisposeResources()
         {
+            MainFormStateSingleton.menuTimer.Dispose();
+            MainFormStateSingleton.menuTimer = null;
+            MainFormStateSingleton.screenTimer.Dispose();
+            MainFormStateSingleton.screenTimer = null;
             timeTimer.Stop();
+            timeTimer.Dispose();
+            timeTimer = null;
         }
     }
 }
