@@ -28,93 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.newPasswordTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.logInButton = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.changePasswordButton = new System.Windows.Forms.Button();
+            this.showCheckBox = new System.Windows.Forms.CheckBox();
+            this.errorLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.currentPasswordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // loginTextBox
+            // confirmPasswordTextBox
             // 
-            this.loginTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.loginTextBox.ForeColor = System.Drawing.Color.White;
-            this.loginTextBox.Location = new System.Drawing.Point(391, 398);
-            this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.PasswordChar = '*';
-            this.loginTextBox.Size = new System.Drawing.Size(418, 45);
-            this.loginTextBox.TabIndex = 1;
+            this.confirmPasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.confirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.confirmPasswordTextBox.ForeColor = System.Drawing.Color.White;
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(313, 409);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.PasswordChar = '*';
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(418, 45);
+            this.confirmPasswordTextBox.TabIndex = 1;
             // 
-            // textBox1
+            // newPasswordTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(391, 246);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(418, 45);
-            this.textBox1.TabIndex = 2;
+            this.newPasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.newPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.newPasswordTextBox.ForeColor = System.Drawing.Color.White;
+            this.newPasswordTextBox.Location = new System.Drawing.Point(313, 287);
+            this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.PasswordChar = '*';
+            this.newPasswordTextBox.Size = new System.Drawing.Size(418, 45);
+            this.newPasswordTextBox.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(391, 204);
+            this.label1.Location = new System.Drawing.Point(313, 245);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 39);
+            this.label1.Size = new System.Drawing.Size(250, 39);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Password:";
+            this.label1.Text = "New password:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(391, 356);
+            this.label2.Location = new System.Drawing.Point(313, 367);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(300, 39);
             this.label2.TabIndex = 4;
             this.label2.Text = "Confirm password:";
             // 
-            // logInButton
+            // changePasswordButton
             // 
-            this.logInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.logInButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.logInButton.ForeColor = System.Drawing.Color.White;
-            this.logInButton.Location = new System.Drawing.Point(840, 503);
-            this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(187, 76);
-            this.logInButton.TabIndex = 5;
-            this.logInButton.Text = "Change password";
-            this.logInButton.UseVisualStyleBackColor = false;
+            this.changePasswordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.changePasswordButton.ForeColor = System.Drawing.Color.White;
+            this.changePasswordButton.Location = new System.Drawing.Point(762, 514);
+            this.changePasswordButton.Name = "changePasswordButton";
+            this.changePasswordButton.Size = new System.Drawing.Size(187, 76);
+            this.changePasswordButton.TabIndex = 5;
+            this.changePasswordButton.Text = "Change password";
+            this.changePasswordButton.UseVisualStyleBackColor = false;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_ClickAsync);
             // 
-            // checkBox1
+            // showCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(840, 373);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(149, 24);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Show password";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.showCheckBox.AutoSize = true;
+            this.showCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.showCheckBox.ForeColor = System.Drawing.Color.White;
+            this.showCheckBox.Location = new System.Drawing.Point(762, 384);
+            this.showCheckBox.Name = "showCheckBox";
+            this.showCheckBox.Size = new System.Drawing.Size(149, 24);
+            this.showCheckBox.TabIndex = 6;
+            this.showCheckBox.Text = "Show password";
+            this.showCheckBox.UseVisualStyleBackColor = true;
+            this.showCheckBox.CheckedChanged += new System.EventHandler(this.showCheckBox_CheckedChanged);
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLabel.Location = new System.Drawing.Point(18, 677);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(88, 39);
+            this.errorLabel.TabIndex = 7;
+            this.errorLabel.Text = "error";
+            this.errorLabel.Visible = false;
+            this.errorLabel.TextChanged += new System.EventHandler(this.errorLabel_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(313, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(294, 39);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Current password:";
+            // 
+            // currentPasswordTextBox
+            // 
+            this.currentPasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.currentPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.currentPasswordTextBox.ForeColor = System.Drawing.Color.White;
+            this.currentPasswordTextBox.Location = new System.Drawing.Point(313, 172);
+            this.currentPasswordTextBox.Name = "currentPasswordTextBox";
+            this.currentPasswordTextBox.PasswordChar = '*';
+            this.currentPasswordTextBox.Size = new System.Drawing.Size(418, 45);
+            this.currentPasswordTextBox.TabIndex = 8;
             // 
             // ChangePasswordScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.logInButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.currentPasswordTextBox);
+            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.showCheckBox);
+            this.Controls.Add(this.changePasswordButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.newPasswordTextBox);
+            this.Controls.Add(this.confirmPasswordTextBox);
             this.Name = "ChangePasswordScreen";
             this.Size = new System.Drawing.Size(1200, 840);
             this.ResumeLayout(false);
@@ -124,11 +167,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox loginTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
+        private System.Windows.Forms.TextBox newPasswordTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button logInButton;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button changePasswordButton;
+        private System.Windows.Forms.CheckBox showCheckBox;
+        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox currentPasswordTextBox;
     }
 }

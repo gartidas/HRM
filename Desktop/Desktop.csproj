@@ -71,6 +71,7 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\GenericResponse.cs" />
     <Compile Include="Responses\LoginResponse.cs" />
     <Compile Include="UserControls\FeatureScreens\ChangePasswordScreen.cs">
       <SubType>UserControl</SubType>

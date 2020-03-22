@@ -58,5 +58,17 @@ namespace Desktop
             _client.DefaultRequestHeaders.Remove("Authorization");
             CurrentUser.User.ClearUser();
         }
+
+        public async Task<GenericResponse> ChangePasswordAsync(string currentPassword, string newPassword)
+        {
+            var data = new
+            {
+                currentPassword,
+                newPassword
+            };
+
+            var response = await _client.PostAsJsonAsync("users/password", data);
+            return await response.Content.ReadAsAsync<GenericResponse>();
+        }
     }
 }

@@ -104,8 +104,6 @@ namespace Desktop
                 errorLabel.Text += error + Environment.NewLine;
                 errorLabel.Visible = true;
             }
-
-            errorLabel.Visible = false;
         }
 
         private void topPanel_MouseMove(object sender, MouseEventArgs e)
