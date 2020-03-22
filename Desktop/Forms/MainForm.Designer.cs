@@ -55,11 +55,14 @@
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.topPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.topPanel.Controls.Add(this.minimizeButton);
             this.topPanel.Controls.Add(this.label1);
+            this.topPanel.Controls.Add(this.closeButton);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1600, 60);
+            this.topPanel.Size = new System.Drawing.Size(1167, 49);
             this.topPanel.TabIndex = 0;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
             // 
@@ -68,9 +71,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(752, 10);
+            this.label1.Location = new System.Drawing.Point(564, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 39);
+            this.label1.Size = new System.Drawing.Size(76, 31);
             this.label1.TabIndex = 8;
             this.label1.Text = "HRM";
             // 
@@ -79,18 +83,20 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(754, 12);
+            this.label3.Location = new System.Drawing.Point(566, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 39);
+            this.label3.Size = new System.Drawing.Size(76, 31);
             this.label3.TabIndex = 8;
             this.label3.Text = "HRM";
             // 
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.DimGray;
-            this.mainPanel.Location = new System.Drawing.Point(400, 60);
+            this.mainPanel.Location = new System.Drawing.Point(300, 49);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1200, 840);
+            this.mainPanel.Size = new System.Drawing.Size(900, 682);
             this.mainPanel.TabIndex = 1;
             // 
             // subMenuPanel
@@ -98,9 +104,10 @@
             this.subMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.subMenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.subMenuPanel.Location = new System.Drawing.Point(200, 60);
+            this.subMenuPanel.Location = new System.Drawing.Point(150, 49);
+            this.subMenuPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.subMenuPanel.Name = "subMenuPanel";
-            this.subMenuPanel.Size = new System.Drawing.Size(200, 840);
+            this.subMenuPanel.Size = new System.Drawing.Size(150, 669);
             this.subMenuPanel.TabIndex = 3;
             // 
             // menuPanel
@@ -114,9 +121,10 @@
             this.menuPanel.Controls.Add(this.workPlaceMenuButton);
             this.menuPanel.Controls.Add(this.staffMenuButton);
             this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuPanel.Location = new System.Drawing.Point(0, 60);
+            this.menuPanel.Location = new System.Drawing.Point(0, 49);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(200, 840);
+            this.menuPanel.Size = new System.Drawing.Size(150, 669);
             this.menuPanel.TabIndex = 2;
             // 
             // maintenanceMenuButton
@@ -124,9 +132,10 @@
             this.maintenanceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.maintenanceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("maintenanceMenuButton.BackgroundImage")));
             this.maintenanceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.maintenanceMenuButton.Location = new System.Drawing.Point(-1, 198);
+            this.maintenanceMenuButton.Location = new System.Drawing.Point(-1, 161);
+            this.maintenanceMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maintenanceMenuButton.Name = "maintenanceMenuButton";
-            this.maintenanceMenuButton.Size = new System.Drawing.Size(200, 60);
+            this.maintenanceMenuButton.Size = new System.Drawing.Size(150, 49);
             this.maintenanceMenuButton.TabIndex = 12;
             this.maintenanceMenuButton.UseVisualStyleBackColor = false;
             this.maintenanceMenuButton.Click += new System.EventHandler(this.maintenanceMenuButton_Click);
@@ -136,9 +145,10 @@
             this.timeLabel.AutoSize = true;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.timeLabel.ForeColor = System.Drawing.Color.White;
-            this.timeLabel.Location = new System.Drawing.Point(7, 756);
+            this.timeLabel.Location = new System.Drawing.Point(5, 600);
+            this.timeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(182, 20);
+            this.timeLabel.Size = new System.Drawing.Size(150, 17);
             this.timeLabel.TabIndex = 11;
             this.timeLabel.Text = "dd.MM.yyyy HH:mm:ss";
             this.timeLabel.Visible = false;
@@ -150,9 +160,10 @@
             this.logOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.logOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.logOutButton.ForeColor = System.Drawing.Color.White;
-            this.logOutButton.Location = new System.Drawing.Point(-1, 779);
+            this.logOutButton.Location = new System.Drawing.Point(-1, 619);
+            this.logOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Size = new System.Drawing.Size(200, 60);
+            this.logOutButton.Size = new System.Drawing.Size(150, 49);
             this.logOutButton.TabIndex = 10;
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
@@ -163,8 +174,9 @@
             this.personalMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("personalMenuButton.BackgroundImage")));
             this.personalMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.personalMenuButton.Location = new System.Drawing.Point(-1, 0);
+            this.personalMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.personalMenuButton.Name = "personalMenuButton";
-            this.personalMenuButton.Size = new System.Drawing.Size(200, 60);
+            this.personalMenuButton.Size = new System.Drawing.Size(150, 49);
             this.personalMenuButton.TabIndex = 2;
             this.personalMenuButton.UseVisualStyleBackColor = false;
             this.personalMenuButton.Click += new System.EventHandler(this.personalMenuButton_Click);
@@ -174,9 +186,10 @@
             this.workPlaceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.workPlaceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("workPlaceMenuButton.BackgroundImage")));
             this.workPlaceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.workPlaceMenuButton.Location = new System.Drawing.Point(-1, 66);
+            this.workPlaceMenuButton.Location = new System.Drawing.Point(-1, 54);
+            this.workPlaceMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.workPlaceMenuButton.Name = "workPlaceMenuButton";
-            this.workPlaceMenuButton.Size = new System.Drawing.Size(200, 60);
+            this.workPlaceMenuButton.Size = new System.Drawing.Size(150, 49);
             this.workPlaceMenuButton.TabIndex = 1;
             this.workPlaceMenuButton.UseVisualStyleBackColor = false;
             this.workPlaceMenuButton.Click += new System.EventHandler(this.workPlaceMenuButton_Click);
@@ -186,9 +199,10 @@
             this.staffMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.staffMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("staffMenuButton.BackgroundImage")));
             this.staffMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.staffMenuButton.Location = new System.Drawing.Point(-1, 132);
+            this.staffMenuButton.Location = new System.Drawing.Point(-1, 107);
+            this.staffMenuButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.staffMenuButton.Name = "staffMenuButton";
-            this.staffMenuButton.Size = new System.Drawing.Size(200, 60);
+            this.staffMenuButton.Size = new System.Drawing.Size(150, 49);
             this.staffMenuButton.TabIndex = 0;
             this.staffMenuButton.UseVisualStyleBackColor = false;
             this.staffMenuButton.Click += new System.EventHandler(this.staffMenuButton_Click);
@@ -204,9 +218,10 @@
             this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.minimizeButton.ForeColor = System.Drawing.Color.White;
             this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-            this.minimizeButton.Location = new System.Drawing.Point(1462, 6);
+            this.minimizeButton.Location = new System.Drawing.Point(1058, 4);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(50, 50);
+            this.minimizeButton.Size = new System.Drawing.Size(38, 41);
             this.minimizeButton.TabIndex = 2;
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
@@ -215,9 +230,10 @@
             // 
             this.loginPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.loginPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loginPictureBox.Image")));
-            this.loginPictureBox.Location = new System.Drawing.Point(12, 9);
+            this.loginPictureBox.Location = new System.Drawing.Point(9, 7);
+            this.loginPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginPictureBox.Name = "loginPictureBox";
-            this.loginPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loginPictureBox.Size = new System.Drawing.Size(39, 37);
             this.loginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.loginPictureBox.TabIndex = 9;
             this.loginPictureBox.TabStop = false;
@@ -228,32 +244,32 @@
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.Image = global::Desktop.Properties.Resources.Close;
-            this.closeButton.Location = new System.Drawing.Point(1528, 6);
+            this.closeButton.Location = new System.Drawing.Point(1108, 4);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(50, 50);
+            this.closeButton.Size = new System.Drawing.Size(38, 41);
             this.closeButton.TabIndex = 1;
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Controls.Add(this.minimizeButton);
+            this.ClientSize = new System.Drawing.Size(1167, 718);
             this.Controls.Add(this.subMenuPanel);
             this.Controls.Add(this.loginPictureBox);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.label3);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
