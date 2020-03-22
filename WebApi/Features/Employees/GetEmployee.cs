@@ -66,7 +66,7 @@ namespace WebApi.Features.Employees
             public string DrivingLicenceNumber { get; set; }
             public string HealthInsuranceCompany { get; set; }
             public int NumberOfChildren { get; set; }
-            public string FamilyStatus { get; set; }
+            public int FamilyStatus { get; set; }
             public string NameOfTheBank { get; set; }
             public string AccountNumber { get; set; }
             public string Role { get; set; }

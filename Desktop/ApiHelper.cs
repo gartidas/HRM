@@ -1,10 +1,12 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
+using Desktop.Responses.ModelResponses;
 using System;
 using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Desktop
 {
@@ -22,6 +24,26 @@ namespace Desktop
 
         private static ApiHelper _instance = new ApiHelper();
         private HttpClient _client = new HttpClient();
+        private bool _doingStuff;
+
+        public bool DoingStuff
+        {
+            get { return _doingStuff; }
+            set
+            {
+                _doingStuff = value;
+                if (_doingStuff == true)
+                {
+                    LoadingPictureBox.Visible = true;
+                }
+                else
+                {
+                    LoadingPictureBox.Visible = false;
+                }
+            }
+        }
+
+        public PictureBox LoadingPictureBox { get; set; }
 
         private ApiHelper()
         {
@@ -61,6 +83,7 @@ namespace Desktop
 
         public async Task<GenericResponse> ChangePasswordAsync(string currentPassword, string newPassword)
         {
+            DoingStuff = true;
             var data = new
             {
                 currentPassword,
@@ -68,7 +91,26 @@ namespace Desktop
             };
 
             var response = await _client.PostAsJsonAsync("users/password", data);
-            return await response.Content.ReadAsAsync<GenericResponse>();
+            var content = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return content;
+        }
+
+        public async Task<GetEmployeeResponse> GetEmployeeAsync()
+        {
+            DoingStuff = true;
+            GetEmployeeResponse employee = null;
+
+            var response = await _client.GetAsync("employee/");
+
+            if (response.IsSuccessStatusCode)
+            {
+                employee = await response.Content.ReadAsAsync<GetEmployeeResponse>();
+            }
+
+            DoingStuff = false;
+            return employee;
         }
     }
 }

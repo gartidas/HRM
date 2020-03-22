@@ -1,13 +1,11 @@
 ﻿using Desktop.Forms;
-using Desktop.UserControls.FeatureScreens;
+using Desktop.Models;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.Menus
 {
     public partial class PersonalMenu : UserControl
     {
-        private ChangePasswordScreen _changePasswordScreen = new ChangePasswordScreen();
-        private PersonalDataScreen _personalDataScreen = new PersonalDataScreen();
         private ToolTip _toolTip = new ToolTip();
 
         public PersonalMenu(string email, string role)
@@ -22,8 +20,16 @@ namespace Desktop.UserControls.Menus
             _toolTip.SetToolTip(evaluationsButton, "Evaluations");
             _toolTip.SetToolTip(bonusesButton, "Bonuses");
             _toolTip.SetToolTip(equipmentButton, "Equipment");
-            MainFormStateSingleton.Instance.ChangePasswordScreen = _changePasswordScreen;
-            MainFormStateSingleton.Instance.PersonalDataScreen = _personalDataScreen;
+
+            if (CurrentUser.User.Role == Role.SysAdmin)
+            {
+                personalDataButton.Enabled = false;
+                vacationsButton.Enabled = false;
+                corporateEventsButton.Enabled = false;
+                evaluationsButton.Enabled = false;
+                bonusesButton.Enabled = false;
+                equipmentButton.Enabled = false;
+            }
         }
 
         private void personalDataButton_Click(object sender, System.EventArgs e)

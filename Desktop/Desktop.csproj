@@ -73,6 +73,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\GenericResponse.cs" />
     <Compile Include="Responses\LoginResponse.cs" />
+    <Compile Include="Responses\ModelResponses\GetEmployeeResponse.cs" />
+    <Compile Include="Responses\ModelResponses\Models\EmployeeData.cs" />
+    <Compile Include="Responses\ModelResponses\Models\EmployeeWorkPlaceData.cs" />
     <Compile Include="UserControls\FeatureScreens\ChangePasswordScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>

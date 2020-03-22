@@ -40,6 +40,7 @@ namespace Desktop
             MainFormStateSingleton.Instance.WorkPlaceMenu = _workPlaceMenu;
             MainFormStateSingleton.Instance.StaffMenu = _staffMenu;
             MainFormStateSingleton.Instance.MaintenanceMenu = _maintenanceMenu;
+            ApiHelper.Instance.LoadingPictureBox = loadingPictureBox;
         }
 
         #region DragForm

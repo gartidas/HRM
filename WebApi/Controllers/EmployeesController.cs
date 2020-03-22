@@ -1,13 +1,17 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.Employees;
 using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
@@ -27,10 +31,12 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [AllowAnonymous]
         [HttpGet(ApiRoutes.Employees.GetEmployee)]
-        public async Task<ActionResult<GetEmployee.Query>> GetEmployee([FromRoute]string employeeId)
+        public async Task<ActionResult<GetEmployee.Query>> GetEmployee()
         {
-            var result = await _mediator.Send(new GetEmployee.Query { EmployeeId = employeeId });
+            var userId = User.Claims.Single(x => x.Type == "id").Value;
+            var result = await _mediator.Send(new GetEmployee.Query { EmployeeId = userId });
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 

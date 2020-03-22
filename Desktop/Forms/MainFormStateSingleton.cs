@@ -27,8 +27,7 @@ namespace Desktop.Forms
         public int ScreenOpened { get; set; }
         public int ScreenWidth { get; set; }
         public Panel ScreenPanel { get; set; }
-        public PersonalDataScreen PersonalDataScreen { get; set; }
-        public ChangePasswordScreen ChangePasswordScreen { get; set; }
+        private bool _screenLoaded;
         #endregion
 
         #region MenuState
@@ -124,31 +123,35 @@ namespace Desktop.Forms
 
             if (ScreenHidden)
             {
-                switch (ScreenOpened)
+                if (!_screenLoaded)
                 {
-                    case 1:
-                        ScreenPanel.Controls.Add(PersonalDataScreen);
-                        break;
-                    case 2:
-                        ScreenPanel.Controls.Add(ChangePasswordScreen);
-                        break;
-                    case 3:
-                        //_mainPanel.Controls.Add(_changePasswordScreen);
-                        break;
-                    case 4:
-                        //_mainPanel.Controls.Add(_changePasswordScreen);
-                        break;
-                    case 5:
-                        //_mainPanel.Controls.Add(_changePasswordScreen);
-                        break;
-                    case 6:
-                        //_mainPanel.Controls.Add(_changePasswordScreen);
-                        break;
-                    case 7:
-                        //_mainPanel.Controls.Add(_changePasswordScreen);
-                        break;
-                    default:
-                        break;
+                    switch (ScreenOpened)
+                    {
+                        case 1:
+                            ScreenPanel.Controls.Add(new PersonalDataScreen());
+                            break;
+                        case 2:
+                            ScreenPanel.Controls.Add(new ChangePasswordScreen());
+                            break;
+                        case 3:
+                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            break;
+                        case 4:
+                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            break;
+                        case 5:
+                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            break;
+                        case 6:
+                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            break;
+                        case 7:
+                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            break;
+                        default:
+                            break;
+                    }
+                    _screenLoaded = true;
                 }
                 ScreenPanel.Width += 20;
 
@@ -181,6 +184,7 @@ namespace Desktop.Forms
                         MenuClosing = false;
                         MenuTimer.Start();
                     }
+                    _screenLoaded = false;
                     return;
                 }
             }
