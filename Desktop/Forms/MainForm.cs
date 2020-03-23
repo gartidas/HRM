@@ -15,11 +15,27 @@ namespace Desktop
         private WorkPlaceMenu _workPlaceMenu = new WorkPlaceMenu();
         private StaffMenu _staffMenu = new StaffMenu();
         private MaintenanceMenu _maintenanceMenu = new MaintenanceMenu();
+        private int _timeLoaded = 0;
+
+        public int TimeLoaded
+        {
+            get { return _timeLoaded; }
+            set
+            {
+                _timeLoaded = value;
+
+                if (_timeLoaded == 1)
+                {
+                    timeLabel.Visible = true;
+                }
+            }
+        }
 
         public MainForm()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            timeTimer.Start();
             _toolTip.SetToolTip(staffMenuButton, "Staff menu");
             _toolTip.SetToolTip(personalMenuButton, "Personal menu");
             _toolTip.SetToolTip(workPlaceMenuButton, "Workplace menu");
@@ -27,8 +43,6 @@ namespace Desktop
             _toolTip.SetToolTip(logOutButton, "Log out");
             _toolTip.SetToolTip(minimizeButton, "Minimize");
             _toolTip.SetToolTip(closeButton, "Close");
-            timeTimer.Start();
-            timeLabel.Visible = true;
             MainFormStateSingleton.Instance.MenuPanel = subMenuPanel;
             MainFormStateSingleton.Instance.ScreenPanel = mainPanel;
             MainFormStateSingleton.Instance.MenuWidth = subMenuPanel.Width;
@@ -181,6 +195,7 @@ namespace Desktop
         private void timeTimer_Tick(object sender, EventArgs e)
         {
             timeLabel.Text = (DateTime.Now).ToString("dd.MM.yyyy HH:mm:ss");
+            TimeLoaded++;
         }
 
         private void DisposeResources()
