@@ -133,6 +133,7 @@ namespace Desktop
 
         public async Task<GenericResponse> AddVacationAsync(DateTime dateAndTime, string reason)
         {
+            DoingStuff = true;
             var data = new
             {
                 dateAndTime,
@@ -140,16 +141,24 @@ namespace Desktop
             };
 
             var response = await _client.PostAsJsonAsync("vacations/", data);
-            return await response.Content.ReadAsAsync<GenericResponse>();
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
         }
 
         public async Task<AlternativeGenericResponse> DeleteVacationAsync(DateTime dateAndTime)
         {
+            DoingStuff = true;
             var response = await _client.DeleteAsync("vacations/" + dateAndTime.ToString());
+
             if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
 
             var message = await response.Content.ReadAsAsync<string>();
-            return new AlternativeGenericResponse { ErrorMessage = message };
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
         }
     }
 }
