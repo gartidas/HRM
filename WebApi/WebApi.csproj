@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <UserSecretsId>4efb832a-ad05-4a63-b504-20a0090821ce</UserSecretsId>
+    <ApplicationIcon>HRM.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
