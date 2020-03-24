@@ -12,7 +12,7 @@ namespace Desktop.UserControls.FeatureScreens
 
         public async void LoadData()
         {
-            var response = await ApiHelper.Instance.GetEmployeeAsync();
+            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
 
             if (response != null)
             {

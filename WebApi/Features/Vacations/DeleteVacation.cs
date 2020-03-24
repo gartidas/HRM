@@ -1,8 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
+using WebApi.Entities;
 
 namespace WebApi.Features.Vacations
 {
@@ -10,7 +13,10 @@ namespace WebApi.Features.Vacations
     {
         public class Command : IRequest<bool>
         {
-            public string VacationId { get; set; }
+            [JsonIgnore]
+            public string EmployeeId { get; set; }
+            [JsonIgnore]
+            public string DateAndTime { get; set; }
         }
 
         public class CommandHandler : IRequestHandler<Command, bool>
@@ -24,7 +30,7 @@ namespace WebApi.Features.Vacations
 
             public async Task<bool> Handle(Command request, CancellationToken cancellationToken)
             {
-                var vacation = await _context.Vacations.SingleOrDefaultAsync(x => x.ID == request.VacationId);
+                Vacation vacation = await _context.Vacations.SingleOrDefaultAsync(x => x.DateAndTime == DateTime.Parse(request.DateAndTime) && x.EmployeeID == request.EmployeeId);
 
                 if (vacation is null) return false;
 

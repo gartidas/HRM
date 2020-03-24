@@ -85,9 +85,9 @@
 
         public static class Vacations
         {
-            public const string CreateVacation = _base + "vacations/{employeeId}";
-            public const string DeleteVacation = _base + "vacations/{vacationId}";
-            public const string GetAllVacationsOfEmployee = _base + "vacations/{employeeId}";
+            public const string CreateVacation = _base + "vacations/";
+            public const string DeleteVacation = _base + "vacations/{dateAndTime}";
+            public const string GetAllVacationsOfEmployee = _base + "vacations/";
             public const string SetApprovedStateOfVacation = _base + "vacations/{vacationId}";
         }
 

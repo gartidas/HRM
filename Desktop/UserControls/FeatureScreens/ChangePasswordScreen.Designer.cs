@@ -37,6 +37,7 @@
             this.errorLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.currentPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // confirmPasswordTextBox
@@ -144,11 +145,25 @@
             this.currentPasswordTextBox.Size = new System.Drawing.Size(418, 45);
             this.currentPasswordTextBox.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(294, 41);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Change password";
+            // 
             // ChangePasswordScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.currentPasswordTextBox);
             this.Controls.Add(this.errorLabel);
@@ -176,5 +191,6 @@
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox currentPasswordTextBox;
+        private System.Windows.Forms.Label label4;
     }
 }

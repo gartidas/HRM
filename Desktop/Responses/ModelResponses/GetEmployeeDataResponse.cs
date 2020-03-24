@@ -2,7 +2,7 @@
 
 namespace Desktop.Responses.ModelResponses
 {
-    class GetEmployeeResponse
+    class GetEmployeeDataResponse
     {
         public string ID { get; set; }
         public EmployeeData Data { get; set; }

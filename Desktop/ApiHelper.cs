@@ -1,7 +1,9 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
 using Desktop.Responses.ModelResponses;
+using Desktop.Responses.ModelResponses.Models;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -97,20 +99,57 @@ namespace Desktop
             return content;
         }
 
-        public async Task<GetEmployeeResponse> GetEmployeeAsync()
+        public async Task<GetEmployeeDataResponse> GetEmployeeDataAsync()
         {
             DoingStuff = true;
-            GetEmployeeResponse employee = null;
+            GetEmployeeDataResponse employee = null;
 
             var response = await _client.GetAsync("employee/");
 
             if (response.IsSuccessStatusCode)
             {
-                employee = await response.Content.ReadAsAsync<GetEmployeeResponse>();
+                employee = await response.Content.ReadAsAsync<GetEmployeeDataResponse>();
             }
 
             DoingStuff = false;
             return employee;
+        }
+
+        public async Task<IEnumerable<Vacation>> GetEmployeeVacationsAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<Vacation> vacations = null;
+
+            var response = await _client.GetAsync("vacations/");
+
+            if (response.IsSuccessStatusCode)
+            {
+                vacations = await response.Content.ReadAsAsync<IEnumerable<Vacation>>();
+            }
+
+            DoingStuff = false;
+            return vacations;
+        }
+
+        public async Task<GenericResponse> AddVacationAsync(DateTime dateAndTime, string reason)
+        {
+            var data = new
+            {
+                dateAndTime,
+                reason
+            };
+
+            var response = await _client.PostAsJsonAsync("vacations/", data);
+            return await response.Content.ReadAsAsync<GenericResponse>();
+        }
+
+        public async Task<AlternativeGenericResponse> DeleteVacationAsync(DateTime dateAndTime)
+        {
+            var response = await _client.DeleteAsync("vacations/" + dateAndTime.ToString());
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            return new AlternativeGenericResponse { ErrorMessage = message };
         }
     }
 }

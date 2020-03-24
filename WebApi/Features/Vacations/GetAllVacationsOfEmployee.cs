@@ -32,7 +32,11 @@ namespace WebApi.Features.Vacations
             public async Task<IQueryable<VacationDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var vacations = _context.Vacations.Where(x => x.EmployeeID == request.EmployeeId).ProjectTo<VacationDto>(_mapper.ConfigurationProvider);
-                return await Task.FromResult(vacations); ;
+
+                if (vacations.Count() == 0)
+                    return null;
+
+                return await Task.FromResult(vacations);
             }
         }
 

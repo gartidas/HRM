@@ -134,19 +134,19 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new ChangePasswordScreen());
                             break;
                         case 3:
-                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            ScreenPanel.Controls.Add(new VacationsScreen());
                             break;
                         case 4:
-                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            //ScreenPanel.Controls.Add(_changePasswordScreen);
                             break;
                         case 5:
-                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            //ScreenPanel.Controls.Add(_changePasswordScreen);
                             break;
                         case 6:
-                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            //ScreenPanel.Controls.Add(_changePasswordScreen);
                             break;
                         case 7:
-                            //_mainPanel.Controls.Add(_changePasswordScreen);
+                            //ScreenPanel.Controls.Add(_changePasswordScreen);
                             break;
                         default:
                             break;
