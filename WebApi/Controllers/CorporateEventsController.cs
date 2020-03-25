@@ -1,13 +1,17 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.CorporateEvents;
 using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class CorporateEventsController : ControllerBase
     {
@@ -70,6 +74,16 @@ namespace WebApi.Controllers
             command.CorporateEventId = corporateEventId;
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
+        [AllowAnonymous]
+        [HttpGet(ApiRoutes.CorporateEvents.GetAllCorporateEventsOfEmployee)]
+        public async Task<ActionResult<GetAllCorporateEventsOfEmployee.CorporateEventDto>> GetAllCorporateEventsOfEmployee()
+        {
+            var employeeId = User.Claims.Single(x => x.Type == "id").Value;
+            var result = await _mediator.Send(new GetAllCorporateEventsOfEmployee.Query { EmployeeId = employeeId });
+
+            return result is null ? NotFound() : Ok(result) as ActionResult;
         }
     }
 }

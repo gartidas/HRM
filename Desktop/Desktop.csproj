@@ -83,12 +83,19 @@
     <Compile Include="Responses\ModelResponses\GetEmployeeDataResponse.cs" />
     <Compile Include="Responses\ModelResponses\Models\EmployeeData.cs" />
     <Compile Include="Responses\ModelResponses\Models\EmployeeWorkPlaceData.cs" />
+    <Compile Include="Responses\ModelResponses\Models\Event.cs" />
     <Compile Include="Responses\ModelResponses\Models\Vacation.cs" />
     <Compile Include="UserControls\FeatureScreens\ChangePasswordScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\ChangePasswordScreen.Designer.cs">
       <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\CorporateEventsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\CorporateEventsScreen.Designer.cs">
+      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\PersonalDataScreen.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\FeatureScreens\ChangePasswordScreen.resx">
       <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\CorporateEventsScreen.resx">
+      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalDataScreen.resx">
       <DependentUpon>PersonalDataScreen.cs</DependentUpon>

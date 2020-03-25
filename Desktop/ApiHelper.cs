@@ -160,5 +160,21 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<IEnumerable<Event>> GetEmployeeCorporateEventsAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<Event> events = null;
+
+            var response = await _client.GetAsync("corporateEvents/employee");
+
+            if (response.IsSuccessStatusCode)
+            {
+                events = await response.Content.ReadAsAsync<IEnumerable<Event>>();
+            }
+
+            DoingStuff = false;
+            return events;
+        }
     }
 }

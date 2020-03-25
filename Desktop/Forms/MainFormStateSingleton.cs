@@ -137,7 +137,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new VacationsScreen());
                             break;
                         case 4:
-                            //ScreenPanel.Controls.Add(_changePasswordScreen);
+                            ScreenPanel.Controls.Add(new CorporateEventsScreen());
                             break;
                         case 5:
                             //ScreenPanel.Controls.Add(_changePasswordScreen);

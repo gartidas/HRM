@@ -38,6 +38,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.subMenuPanel = new System.Windows.Forms.Panel();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.maintenanceMenuButton = new System.Windows.Forms.Button();
             this.timeLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
@@ -46,11 +47,10 @@
             this.staffMenuButton = new System.Windows.Forms.Button();
             this.timeTimer = new System.Windows.Forms.Timer(this.components);
             this.loginPictureBox = new System.Windows.Forms.PictureBox();
-            this.loadingPictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             this.menuPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -156,6 +156,19 @@
             this.menuPanel.Size = new System.Drawing.Size(199, 824);
             this.menuPanel.TabIndex = 2;
             // 
+            // loadingPictureBox
+            // 
+            this.loadingPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
+            this.loadingPictureBox.Location = new System.Drawing.Point(75, 652);
+            this.loadingPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.loadingPictureBox.Name = "loadingPictureBox";
+            this.loadingPictureBox.Size = new System.Drawing.Size(52, 46);
+            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.loadingPictureBox.TabIndex = 13;
+            this.loadingPictureBox.TabStop = false;
+            this.loadingPictureBox.Visible = false;
+            // 
             // maintenanceMenuButton
             // 
             this.maintenanceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
@@ -167,6 +180,7 @@
             this.maintenanceMenuButton.Size = new System.Drawing.Size(200, 60);
             this.maintenanceMenuButton.TabIndex = 12;
             this.maintenanceMenuButton.UseVisualStyleBackColor = false;
+            this.maintenanceMenuButton.Visible = false;
             this.maintenanceMenuButton.Click += new System.EventHandler(this.maintenanceMenuButton_Click);
             // 
             // timeLabel
@@ -252,19 +266,6 @@
             this.loginPictureBox.TabIndex = 9;
             this.loginPictureBox.TabStop = false;
             // 
-            // loadingPictureBox
-            // 
-            this.loadingPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.loadingPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("loadingPictureBox.Image")));
-            this.loadingPictureBox.Location = new System.Drawing.Point(75, 652);
-            this.loadingPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.loadingPictureBox.Name = "loadingPictureBox";
-            this.loadingPictureBox.Size = new System.Drawing.Size(52, 46);
-            this.loadingPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.loadingPictureBox.TabIndex = 13;
-            this.loadingPictureBox.TabStop = false;
-            this.loadingPictureBox.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,8 +292,8 @@
             this.topPanel.PerformLayout();
             this.menuPanel.ResumeLayout(false);
             this.menuPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

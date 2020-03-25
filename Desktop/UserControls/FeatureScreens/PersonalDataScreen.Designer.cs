@@ -522,7 +522,7 @@
             this.workPlaceDataPanel.Controls.Add(this.label1);
             this.workPlaceDataPanel.Location = new System.Drawing.Point(726, 0);
             this.workPlaceDataPanel.Name = "workPlaceDataPanel";
-            this.workPlaceDataPanel.Size = new System.Drawing.Size(473, 214);
+            this.workPlaceDataPanel.Size = new System.Drawing.Size(474, 214);
             this.workPlaceDataPanel.TabIndex = 1;
             // 
             // workplaceLocationLabel
@@ -605,7 +605,7 @@
             this.panel1.Controls.Add(this.label24);
             this.panel1.Location = new System.Drawing.Point(726, 220);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(473, 489);
+            this.panel1.Size = new System.Drawing.Size(474, 489);
             this.panel1.TabIndex = 19;
             // 
             // showCheckBox
@@ -780,13 +780,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label17);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.workPlaceDataPanel);
             this.Controls.Add(this.employeeDataPanel);
             this.Name = "PersonalDataScreen";
-            this.Size = new System.Drawing.Size(1198, 838);
+            this.Size = new System.Drawing.Size(1200, 840);
             this.employeeDataPanel.ResumeLayout(false);
             this.employeeDataPanel.PerformLayout();
             this.workPlaceDataPanel.ResumeLayout(false);

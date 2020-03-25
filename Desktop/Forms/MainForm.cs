@@ -119,20 +119,17 @@ namespace Desktop
 
         public void FilterOutUnauthorizedMenus()
         {
-            if (CurrentUser.User.Role == Role.HR_Worker)
-                maintenanceMenuButton.Visible = false;
+            if (CurrentUser.User.Role != Role.HR_Worker)
+                staffMenuButton.Enabled = false;
 
-            if (CurrentUser.User.Role == Role.WorkPlaceLeader)
-            {
-                maintenanceMenuButton.Visible = false;
-                staffMenuButton.Visible = false;
-            }
+            if (CurrentUser.User.Role != Role.WorkPlaceLeader)
+                workPlaceMenuButton.Enabled = false;
 
-            if (CurrentUser.User.Role == Role.Employee)
+            if (CurrentUser.User.Role == Role.SysAdmin)
             {
-                maintenanceMenuButton.Visible = false;
-                staffMenuButton.Visible = false;
-                workPlaceMenuButton.Visible = false;
+                maintenanceMenuButton.Visible = true;
+                staffMenuButton.Enabled = true;
+                workPlaceMenuButton.Enabled = true;
             }
         }
 

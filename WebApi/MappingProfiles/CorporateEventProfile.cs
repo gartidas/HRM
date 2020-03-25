@@ -31,6 +31,8 @@ namespace WebApi.MappingProfiles
                 .ForMember(dest => dest.ID, cfg => cfg.MapFrom(src => src.ID))
                 .ForMember(dest => dest.Label, cfg => cfg.MapFrom(src => src.Label))
                 .ForMember(dest => dest.Location, cfg => cfg.MapFrom(src => src.Location));
+
+            CreateMap<CorporateEvent, GetAllCorporateEventsOfEmployee.CorporateEventDto>();
         }
     }
 }
