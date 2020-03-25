@@ -25,11 +25,13 @@ namespace Desktop.UserControls.Menus
             {
                 personalDataButton.Enabled = false;
                 vacationsButton.Enabled = false;
-                corporateEventsButton.Enabled = false;
                 evaluationsButton.Enabled = false;
                 bonusesButton.Enabled = false;
                 equipmentButton.Enabled = false;
             }
+
+            if (CurrentUser.User.Role != Role.Employee)
+                corporateEventsButton.Enabled = false;
         }
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
