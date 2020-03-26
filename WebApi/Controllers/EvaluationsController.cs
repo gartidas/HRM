@@ -1,12 +1,16 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.Evaluations;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EvaluationsController : ControllerBase
     {
@@ -35,10 +39,11 @@ namespace WebApi.Controllers
                 : BadRequest("Evaluation not found or was already deleted") as ActionResult;
         }
 
+        [AllowAnonymous]
         [HttpGet(ApiRoutes.Evaluations.GetAllEvaluationsOfEmployee)]
-        public async Task<ActionResult<GetAllEvaluationsOfEmployee.EvaluationDto>> GetAllEvaluationsOfEmployee([FromRoute]string employeeId)
+        public async Task<ActionResult<GetAllEvaluationsOfEmployee.EvaluationDto>> GetAllEvaluationsOfEmployee()
         {
-            var result = await _mediator.Send(new GetAllEvaluationsOfEmployee.Query { EmployeeId = employeeId });
+            var result = await _mediator.Send(new GetAllEvaluationsOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
             return Ok(result);
         }
     }

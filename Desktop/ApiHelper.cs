@@ -1,6 +1,5 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Responses.ModelResponses;
 using Desktop.Responses.ModelResponses.Models;
 using System;
 using System.Collections.Generic;
@@ -99,16 +98,16 @@ namespace Desktop
             return content;
         }
 
-        public async Task<GetEmployeeDataResponse> GetEmployeeDataAsync()
+        public async Task<Employee> GetEmployeeDataAsync()
         {
             DoingStuff = true;
-            GetEmployeeDataResponse employee = null;
+            Employee employee = null;
 
-            var response = await _client.GetAsync("employee/");
+            var response = await _client.GetAsync("employees/employee");
 
             if (response.IsSuccessStatusCode)
             {
-                employee = await response.Content.ReadAsAsync<GetEmployeeDataResponse>();
+                employee = await response.Content.ReadAsAsync<Employee>();
             }
 
             DoingStuff = false;
@@ -120,7 +119,7 @@ namespace Desktop
             DoingStuff = true;
             IEnumerable<Vacation> vacations = null;
 
-            var response = await _client.GetAsync("vacations/");
+            var response = await _client.GetAsync("vacations/employee");
 
             if (response.IsSuccessStatusCode)
             {
@@ -175,6 +174,22 @@ namespace Desktop
 
             DoingStuff = false;
             return events;
+        }
+
+        public async Task<IEnumerable<Evaluation>> GetEmployeeEvaluationsAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<Evaluation> evaluations = null;
+
+            var response = await _client.GetAsync("evaluations/employee");
+
+            if (response.IsSuccessStatusCode)
+            {
+                evaluations = await response.Content.ReadAsAsync<IEnumerable<Evaluation>>();
+            }
+
+            DoingStuff = false;
+            return evaluations;
         }
     }
 }

@@ -7,7 +7,7 @@
         public static class Employees
         {
             public const string HireEmployee = _base + "employees/{candidateId}";
-            public const string GetEmployee = _base + "employee/";
+            public const string GetEmployee = _base + "employees/employee";
             public const string GetAllEmployees = _base + "employees";
             public const string EditEmployee = _base + "employees/{employeeId}";
             public const string FireEmployee = _base + "employees/{employeeId}";
@@ -87,7 +87,7 @@
         {
             public const string CreateVacation = _base + "vacations/";
             public const string DeleteVacation = _base + "vacations/{dateAndTime}";
-            public const string GetAllVacationsOfEmployee = _base + "vacations/";
+            public const string GetAllVacationsOfEmployee = _base + "vacations/employee";
             public const string SetApprovedStateOfVacation = _base + "vacations/{vacationId}";
         }
 
