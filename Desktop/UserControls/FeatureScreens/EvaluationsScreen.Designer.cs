@@ -65,7 +65,7 @@
             this.evaluationsListView.Location = new System.Drawing.Point(183, 97);
             this.evaluationsListView.Name = "evaluationsListView";
             this.evaluationsListView.ShowItemToolTips = true;
-            this.evaluationsListView.Size = new System.Drawing.Size(781, 494);
+            this.evaluationsListView.Size = new System.Drawing.Size(781, 465);
             this.evaluationsListView.TabIndex = 16;
             this.evaluationsListView.UseCompatibleStateImageBehavior = false;
             this.evaluationsListView.View = System.Windows.Forms.View.List;
@@ -96,7 +96,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.LightCoral;
+            this.label3.ForeColor = System.Drawing.Color.IndianRed;
             this.label3.Location = new System.Drawing.Point(44, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 39);
@@ -122,7 +122,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label5.ForeColor = System.Drawing.Color.Lime;
             this.label5.Location = new System.Drawing.Point(299, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 39);
@@ -173,6 +173,7 @@
             this.Controls.Add(this.label4);
             this.Name = "EvaluationsScreen";
             this.Size = new System.Drawing.Size(1200, 840);
+            this.Load += new System.EventHandler(this.EvaluationsScreen_LoadAsync);
             this.legendPanel.ResumeLayout(false);
             this.legendPanel.PerformLayout();
             this.ResumeLayout(false);

@@ -112,6 +112,7 @@
             this.errorLabel.TabIndex = 21;
             this.errorLabel.Text = "error";
             this.errorLabel.Visible = false;
+            this.errorLabel.TextChanged += new System.EventHandler(this.errorLabel_TextChanged);
             // 
             // label2
             // 
@@ -221,6 +222,7 @@
             this.Controls.Add(this.planVacationPanel);
             this.Name = "VacationsScreen";
             this.Size = new System.Drawing.Size(1200, 840);
+            this.Load += new System.EventHandler(this.VacationsScreen_LoadAsync);
             this.planVacationPanel.ResumeLayout(false);
             this.planVacationPanel.PerformLayout();
             this.vacationsPanel.ResumeLayout(false);

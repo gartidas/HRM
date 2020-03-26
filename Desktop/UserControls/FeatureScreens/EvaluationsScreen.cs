@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens
@@ -10,10 +11,9 @@ namespace Desktop.UserControls.FeatureScreens
         public EvaluationsScreen()
         {
             InitializeComponent();
-            LoadDataAsync();
         }
 
-        private async void LoadDataAsync()
+        private async Task LoadDataAsync()
         {
             evaluationsListView.Clear();
 
@@ -38,7 +38,7 @@ namespace Desktop.UserControls.FeatureScreens
                                 color = Color.Firebrick;
                                 break;
                             case Responses.ModelResponses.Models.EvaluationWeight.Low:
-                                color = Color.LightCoral;
+                                color = Color.IndianRed;
                                 break;
                             default:
                                 break;
@@ -49,7 +49,7 @@ namespace Desktop.UserControls.FeatureScreens
                         switch (evaluation.Weight)
                         {
                             case Responses.ModelResponses.Models.EvaluationWeight.High:
-                                color = Color.DarkGreen;
+                                color = Color.Lime;
                                 break;
                             case Responses.ModelResponses.Models.EvaluationWeight.Medium:
                                 color = Color.Green;
@@ -73,6 +73,11 @@ Email: {evaluation.HR_Worker.Email}"
                     evaluationsListView.Items.Add(item);
                 }
             }
+        }
+
+        private async void EvaluationsScreen_LoadAsync(object sender, System.EventArgs e)
+        {
+            await LoadDataAsync();
         }
     }
 }

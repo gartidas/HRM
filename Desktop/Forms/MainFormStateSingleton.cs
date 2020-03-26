@@ -143,7 +143,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new EvaluationsScreen());
                             break;
                         case 6:
-                            //ScreenPanel.Controls.Add(_changePasswordScreen);
+                            ScreenPanel.Controls.Add(new BonusesScreen());
                             break;
                         case 7:
                             //ScreenPanel.Controls.Add(_changePasswordScreen);

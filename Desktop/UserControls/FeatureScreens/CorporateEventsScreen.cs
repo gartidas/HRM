@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens
@@ -13,10 +14,9 @@ namespace Desktop.UserControls.FeatureScreens
         public CorporateEventsScreen()
         {
             InitializeComponent();
-            LoadDataAsync();
         }
 
-        public async void LoadDataAsync()
+        public async Task LoadDataAsync()
         {
             corporateEventsCalendar.LoadPresetHolidays = false;
             corporateEventsCalendar.AllowEditingEvents = false;
@@ -48,6 +48,11 @@ Location: {corpEvent.Location}",
                     corporateEventsCalendar.AddEvent(newCorpEvent);
                 }
             }
+        }
+
+        private async void CorporateEventsScreen_LoadAsync(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
         }
     }
 }

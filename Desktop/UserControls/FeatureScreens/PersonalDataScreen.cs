@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens
 {
@@ -7,10 +8,9 @@ namespace Desktop.UserControls.FeatureScreens
         public PersonalDataScreen()
         {
             InitializeComponent();
-            LoadData();
         }
 
-        public async void LoadData()
+        public async Task LoadDataAsync()
         {
             var response = await ApiHelper.Instance.GetEmployeeDataAsync();
 
@@ -111,6 +111,11 @@ namespace Desktop.UserControls.FeatureScreens
                 descriptionLabel4.Visible = false;
                 descriptionLabel5.Visible = false;
             }
+        }
+
+        private async void PersonalDataScreen_LoadAsync(object sender, System.EventArgs e)
+        {
+            await LoadDataAsync();
         }
     }
 }

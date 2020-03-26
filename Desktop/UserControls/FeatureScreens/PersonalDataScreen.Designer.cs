@@ -786,6 +786,7 @@
             this.Controls.Add(this.employeeDataPanel);
             this.Name = "PersonalDataScreen";
             this.Size = new System.Drawing.Size(1200, 840);
+            this.Load += new System.EventHandler(this.PersonalDataScreen_LoadAsync);
             this.employeeDataPanel.ResumeLayout(false);
             this.employeeDataPanel.PerformLayout();
             this.workPlaceDataPanel.ResumeLayout(false);

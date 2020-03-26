@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens
@@ -15,10 +16,9 @@ namespace Desktop.UserControls.FeatureScreens
         public VacationsScreen()
         {
             InitializeComponent();
-            LoadDataAsync();
         }
 
-        public async void LoadDataAsync()
+        public async Task LoadDataAsync()
         {
             vacationsCalendar.LoadPresetHolidays = false;
             vacationsCalendar.AllowEditingEvents = false;
@@ -56,14 +56,12 @@ namespace Desktop.UserControls.FeatureScreens
             if (planVacationTextBox.Text == "")
             {
                 errorLabel.Text = "Reason is empty";
-                errorLabel.Visible = true;
                 return;
             }
 
             if (vacationDateTimePicker.Value < DateTime.Now)
             {
                 errorLabel.Text = "Date is in the past";
-                errorLabel.Visible = true;
                 return;
             }
 
@@ -76,15 +74,13 @@ namespace Desktop.UserControls.FeatureScreens
                 {
                     errorLabel.Text += error;
                 }
-                errorLabel.Visible = true;
             }
             else
             {
                 planVacationTextBox.Text = "";
                 vacationDateTimePicker.Value = DateTime.Now;
                 errorLabel.Text = "Vacation planned successfuly";
-                errorLabel.Visible = true;
-                LoadDataAsync();
+                await LoadDataAsync();
             }
         }
 
@@ -93,7 +89,6 @@ namespace Desktop.UserControls.FeatureScreens
             if (vacationDateTimePicker.Value < DateTime.Now)
             {
                 errorLabel.Text = "Date is in the past";
-                errorLabel.Visible = true;
                 return;
             }
 
@@ -103,14 +98,21 @@ namespace Desktop.UserControls.FeatureScreens
             {
                 vacationDateTimePicker.Value = DateTime.Now;
                 errorLabel.Text = "Vacation cancelled successfuly";
-                errorLabel.Visible = true;
-                LoadDataAsync();
+                await LoadDataAsync();
+                return;
             }
-            else
-            {
-                errorLabel.Text = result.ErrorMessage;
-                errorLabel.Visible = true;
-            }
+
+            errorLabel.Text = result.ErrorMessage;
+        }
+
+        private async void VacationsScreen_LoadAsync(object sender, EventArgs e)
+        {
+            await LoadDataAsync();
+        }
+
+        private void errorLabel_TextChanged(object sender, EventArgs e)
+        {
+            errorLabel.Visible = true;
         }
     }
 }

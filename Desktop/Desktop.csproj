@@ -87,6 +87,12 @@
     <Compile Include="Responses\ModelResponses\Models\Event.cs" />
     <Compile Include="Responses\ModelResponses\Models\HR_Worker.cs" />
     <Compile Include="Responses\ModelResponses\Models\Vacation.cs" />
+    <Compile Include="UserControls\FeatureScreens\BonusesScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\BonusesScreen.Designer.cs">
+      <DependentUpon>BonusesScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\ChangePasswordScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\FeatureScreens\BonusesScreen.resx">
+      <DependentUpon>BonusesScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\ChangePasswordScreen.resx">
       <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
     </EmbeddedResource>
