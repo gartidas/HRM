@@ -1,12 +1,16 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.Bonuses;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class BonusesController : ControllerBase
     {
@@ -35,10 +39,11 @@ namespace WebApi.Controllers
                 : BadRequest("Granted bonus not found or was already deleted") as ActionResult;
         }
 
+        [AllowAnonymous]
         [HttpGet(ApiRoutes.Bonuses.GetAllBonusesOfEmployee)]
-        public async Task<ActionResult<GetAllBonusesOfEmployee.BonusDto>> GetAllBonusesOfEmployee([FromRoute]string employeeId)
+        public async Task<ActionResult<GetAllBonusesOfEmployee.BonusDto>> GetAllBonusesOfEmployee()
         {
-            var result = await _mediator.Send(new GetAllBonusesOfEmployee.Query { EmployeeId = employeeId });
+            var result = await _mediator.Send(new GetAllBonusesOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
             return Ok(result);
         }
     }

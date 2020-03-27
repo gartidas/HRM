@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
+            this.bonusesListView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label4
@@ -44,14 +45,32 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Bonuses";
             // 
+            // bonusesListView
+            // 
+            this.bonusesListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.bonusesListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bonusesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bonusesListView.ForeColor = System.Drawing.Color.White;
+            this.bonusesListView.GridLines = true;
+            this.bonusesListView.HideSelection = false;
+            this.bonusesListView.Location = new System.Drawing.Point(79, 87);
+            this.bonusesListView.Name = "bonusesListView";
+            this.bonusesListView.ShowItemToolTips = true;
+            this.bonusesListView.Size = new System.Drawing.Size(1000, 500);
+            this.bonusesListView.TabIndex = 17;
+            this.bonusesListView.UseCompatibleStateImageBehavior = false;
+            this.bonusesListView.View = System.Windows.Forms.View.List;
+            // 
             // BonusesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.bonusesListView);
             this.Controls.Add(this.label4);
             this.Name = "BonusesScreen";
             this.Size = new System.Drawing.Size(1200, 840);
+            this.Load += new System.EventHandler(this.BonusesScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -60,5 +79,6 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView bonusesListView;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using Desktop.Models;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,13 +32,13 @@ namespace Desktop.UserControls.FeatureScreens
                     {
                         switch (evaluation.Weight)
                         {
-                            case Responses.ModelResponses.Models.EvaluationWeight.High:
+                            case EvaluationWeight.High:
                                 color = Color.Red;
                                 break;
-                            case Responses.ModelResponses.Models.EvaluationWeight.Medium:
+                            case EvaluationWeight.Medium:
                                 color = Color.Firebrick;
                                 break;
-                            case Responses.ModelResponses.Models.EvaluationWeight.Low:
+                            case EvaluationWeight.Low:
                                 color = Color.IndianRed;
                                 break;
                             default:
@@ -48,13 +49,13 @@ namespace Desktop.UserControls.FeatureScreens
                     {
                         switch (evaluation.Weight)
                         {
-                            case Responses.ModelResponses.Models.EvaluationWeight.High:
+                            case EvaluationWeight.High:
                                 color = Color.Lime;
                                 break;
-                            case Responses.ModelResponses.Models.EvaluationWeight.Medium:
+                            case EvaluationWeight.Medium:
                                 color = Color.Green;
                                 break;
-                            case Responses.ModelResponses.Models.EvaluationWeight.Low:
+                            case EvaluationWeight.Low:
                                 color = Color.SeaGreen;
                                 break;
                             default:

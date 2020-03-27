@@ -65,7 +65,7 @@ namespace WebApi.Features.Bonuses
             public CommandValidator()
             {
                 RuleFor(x => x.Value).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.Description).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.Description).Must(x => x.Length > 5).WithMessage("Must be at least 6 characters long.");
             }
         }
     }

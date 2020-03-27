@@ -80,7 +80,7 @@
         {
             public const string CreateBonus = _base + "bonuses/{employeeId}/{hR_WorkerId}";
             public const string DeleteBonus = _base + "bonuses/{bonusId}";
-            public const string GetAllBonusesOfEmployee = _base + "bonuses/{employeeId}";
+            public const string GetAllBonusesOfEmployee = _base + "bonuses/employee";
         }
 
         public static class Vacations

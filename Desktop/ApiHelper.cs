@@ -1,6 +1,5 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Responses.ModelResponses.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -190,6 +189,22 @@ namespace Desktop
 
             DoingStuff = false;
             return evaluations;
+        }
+
+        public async Task<IEnumerable<Bonus>> GetEmployeeBonusesAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<Bonus> bonuses = null;
+
+            var response = await _client.GetAsync("bonuses/employee");
+
+            if (response.IsSuccessStatusCode)
+            {
+                bonuses = await response.Content.ReadAsAsync<IEnumerable<Bonus>>();
+            }
+
+            DoingStuff = false;
+            return bonuses;
         }
     }
 }

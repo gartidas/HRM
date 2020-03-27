@@ -73,6 +73,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainFormStateSingleton.cs" />
+    <Compile Include="Models\Bonus.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Program.cs" />
@@ -80,13 +81,13 @@
     <Compile Include="Responses\AlternativeGenericResponse.cs" />
     <Compile Include="Responses\GenericResponse.cs" />
     <Compile Include="Responses\LoginResponse.cs" />
-    <Compile Include="Responses\ModelResponses\Models\Employee.cs" />
-    <Compile Include="Responses\ModelResponses\Models\EmployeeData.cs" />
-    <Compile Include="Responses\ModelResponses\Models\EmployeeWorkPlaceData.cs" />
-    <Compile Include="Responses\ModelResponses\Models\Evaluation.cs" />
-    <Compile Include="Responses\ModelResponses\Models\Event.cs" />
-    <Compile Include="Responses\ModelResponses\Models\HR_Worker.cs" />
-    <Compile Include="Responses\ModelResponses\Models\Vacation.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeData.cs" />
+    <Compile Include="Models\EmployeeWorkPlaceData.cs" />
+    <Compile Include="Models\Evaluation.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\HR_Worker.cs" />
+    <Compile Include="Models\Vacation.cs" />
     <Compile Include="UserControls\FeatureScreens\BonusesScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
