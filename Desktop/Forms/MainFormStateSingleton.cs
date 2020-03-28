@@ -148,6 +148,15 @@ namespace Desktop.Forms
                         case 7:
                             ScreenPanel.Controls.Add(new EquipmentScreen());
                             break;
+                        case 8:
+                            //ScreenPanel.Controls.Add();
+                            break;
+                        case 9:
+                            //ScreenPanel.Controls.Add();
+                            break;
+                        case 10:
+                            //ScreenPanel.Controls.Add();
+                            break;
                         default:
                             break;
                     }
