@@ -1,12 +1,16 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.EquipmentItems;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EquipmentController : ControllerBase
     {
@@ -34,11 +38,28 @@ namespace WebApi.Controllers
                 : BadRequest("Item not found or was already deleted") as ActionResult;
         }
 
+        [AllowAnonymous]
         [HttpGet(ApiRoutes.Equipment.GetAllEquipmentOfEmployee)]
-        public async Task<ActionResult<GetAllEquipmentOfEmployee.EquipmentDto>> GetAllEquipmentOfEmployee([FromRoute]string employeeId)
+        public async Task<ActionResult<GetAllEquipmentOfEmployee.EquipmentDto>> GetAllEquipmentOfEmployee()
         {
-            var result = await _mediator.Send(new GetAllEquipmentOfEmployee.Query { EmployeeId = employeeId });
+            var result = await _mediator.Send(new GetAllEquipmentOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
             return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpGet(ApiRoutes.Equipment.GetEquipmentStatusOfEmployee)]
+        public async Task<ActionResult<int>> GetEquipmentStatusOfEmployee()
+        {
+            var result = await _mediator.Send(new GetEquipmentStatusOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
+            return Ok(result);
+        }
+
+        [HttpPut(ApiRoutes.Equipment.SetEquipmentStatusOfEmployee)]
+        public async Task<ActionResult<GenericResponse>> SetEquipmentStatusOfEmployee([FromRoute]string employeeId, [FromBody]SetEquipmentStatusOfEmployee.Command command)
+        {
+            command.EmployeeId = employeeId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
     }
 }

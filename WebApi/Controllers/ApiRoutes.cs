@@ -59,7 +59,9 @@
         {
             public const string CreateEquipment = _base + "equipment/{employeeId}";
             public const string DeleteEquipment = _base + "equipment/{equipmentId}";
-            public const string GetAllEquipmentOfEmployee = _base + "equipment/{employeeId}";
+            public const string GetAllEquipmentOfEmployee = _base + "equipment/employee";
+            public const string GetEquipmentStatusOfEmployee = _base + "equipment/employee/status";
+            public const string SetEquipmentStatusOfEmployee = _base + "equipment/{employeeId}/status";
         }
 
         public static class Specialties

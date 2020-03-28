@@ -206,5 +206,37 @@ namespace Desktop
             DoingStuff = false;
             return bonuses;
         }
+
+        public async Task<IEnumerable<EquipmentItem>> GetEmployeeEquipmentAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<EquipmentItem> items = null;
+
+            var response = await _client.GetAsync("equipment/employee");
+
+            if (response.IsSuccessStatusCode)
+            {
+                items = await response.Content.ReadAsAsync<IEnumerable<EquipmentItem>>();
+            }
+
+            DoingStuff = false;
+            return items;
+        }
+
+        public async Task<EquipmentStatus> GetEmployeeEquipmentStatusAsync()
+        {
+            DoingStuff = true;
+            EquipmentStatus status = default;
+
+            var response = await _client.GetAsync("equipment/employee/status");
+
+            if (response.IsSuccessStatusCode)
+            {
+                status = (EquipmentStatus)(await response.Content.ReadAsAsync<int>());
+            }
+
+            DoingStuff = false;
+            return status;
+        }
     }
 }

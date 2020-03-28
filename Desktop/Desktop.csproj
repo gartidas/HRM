@@ -75,6 +75,8 @@
     <Compile Include="Forms\MainFormStateSingleton.cs" />
     <Compile Include="Models\Bonus.cs" />
     <Compile Include="Models\CurrentUser.cs" />
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\EquipmentItem.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +107,12 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\CorporateEventsScreen.Designer.cs">
       <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\EquipmentScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\EquipmentScreen.Designer.cs">
+      <DependentUpon>EquipmentScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\EvaluationsScreen.cs">
       <SubType>UserControl</SubType>
@@ -172,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\CorporateEventsScreen.resx">
       <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\EquipmentScreen.resx">
+      <DependentUpon>EquipmentScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\EvaluationsScreen.resx">
       <DependentUpon>EvaluationsScreen.cs</DependentUpon>

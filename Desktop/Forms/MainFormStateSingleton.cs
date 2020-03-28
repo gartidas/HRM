@@ -146,7 +146,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new BonusesScreen());
                             break;
                         case 7:
-                            //ScreenPanel.Controls.Add(_changePasswordScreen);
+                            ScreenPanel.Controls.Add(new EquipmentScreen());
                             break;
                         default:
                             break;
