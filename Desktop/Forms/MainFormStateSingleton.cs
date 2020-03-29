@@ -153,10 +153,10 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new WorkPlaceDataScreen());
                             break;
                         case 9:
-                            //ScreenPanel.Controls.Add();
+                            ScreenPanel.Controls.Add(new WorkPlaceVacationsScreen());
                             break;
                         case 10:
-                            //ScreenPanel.Controls.Add();
+                            ScreenPanel.Controls.Add(new WorkPlaceCorporateEventsScreen());
                             break;
                         default:
                             break;

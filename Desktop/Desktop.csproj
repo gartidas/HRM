@@ -132,11 +132,23 @@
     <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.Designer.cs">
       <DependentUpon>VacationsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.Designer.cs">
+      <DependentUpon>WorkPlaceCorporateEventsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceDataScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceDataScreen.Designer.cs">
       <DependentUpon>WorkPlaceDataScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceVacationsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceVacationsScreen.Designer.cs">
+      <DependentUpon>WorkPlaceVacationsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Menus\MaintenanceMenu.cs">
       <SubType>UserControl</SubType>
@@ -199,8 +211,14 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.resx">
       <DependentUpon>VacationsScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.resx">
+      <DependentUpon>WorkPlaceCorporateEventsScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceDataScreen.resx">
       <DependentUpon>WorkPlaceDataScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceVacationsScreen.resx">
+      <DependentUpon>WorkPlaceVacationsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Menus\MaintenanceMenu.resx">
       <DependentUpon>MaintenanceMenu.cs</DependentUpon>
