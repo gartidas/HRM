@@ -47,18 +47,20 @@ Email: {bonus.HR_Worker.Email}"
                 }
             }
 
-            for (int i = 1; i < bonusesListView.Columns.Count; i++)
-            {
-                if (i == 2)
-                {
-                    bonusesListView.Columns[i].Width = -1;
+            bonusesListView.Columns[1].Width = -1;
 
-                    if (bonusesListView.Columns[i].Width < 100)
-                        bonusesListView.Columns[i].Width = 100;
-                    continue;
-                }
-                bonusesListView.Columns[i].Width = -1;
-            }
+            if (bonusesListView.Columns[1].Width < 100)
+                bonusesListView.Columns[1].Width = 100;
+
+            bonusesListView.Columns[2].Width = -1;
+
+            if (bonusesListView.Columns[2].Width < 100)
+                bonusesListView.Columns[2].Width = 100;
+
+            bonusesListView.Columns[3].Width = -1;
+
+            if (bonusesListView.Columns[3].Width < 100)
+                bonusesListView.Columns[3].Width = 200;
         }
 
         private async void BonusesScreen_Load(object sender, EventArgs e)
@@ -67,3 +69,4 @@ Email: {bonus.HR_Worker.Email}"
         }
     }
 }
+
