@@ -1,4 +1,5 @@
-﻿using Desktop.UserControls.FeatureScreens;
+﻿using Desktop.UserControls.FeatureScreens.PersonalMenuScreens;
+using Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens;
 using Desktop.UserControls.Menus;
 using System;
 using System.Windows.Forms;
@@ -149,7 +150,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new EquipmentScreen());
                             break;
                         case 8:
-                            //ScreenPanel.Controls.Add();
+                            ScreenPanel.Controls.Add(new WorkPlaceDataScreen());
                             break;
                         case 9:
                             //ScreenPanel.Controls.Add();
