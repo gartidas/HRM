@@ -47,7 +47,7 @@
             // 
             // planVacationPanel
             // 
-            this.planVacationPanel.BackColor = System.Drawing.Color.Gray;
+            this.planVacationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.planVacationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.planVacationPanel.Controls.Add(this.label3);
             this.planVacationPanel.Controls.Add(this.vacationDateTimePicker);
@@ -68,7 +68,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(583, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 41);
@@ -120,7 +120,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 41);
@@ -166,7 +166,7 @@
             // 
             // vacationsPanel
             // 
-            this.vacationsPanel.BackColor = System.Drawing.Color.Gray;
+            this.vacationsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.vacationsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.vacationsPanel.Controls.Add(this.label4);
             this.vacationsPanel.Controls.Add(this.vacationsCalendar);

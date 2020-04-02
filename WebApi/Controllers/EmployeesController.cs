@@ -11,7 +11,7 @@ using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EmployeesController : ControllerBase
     {

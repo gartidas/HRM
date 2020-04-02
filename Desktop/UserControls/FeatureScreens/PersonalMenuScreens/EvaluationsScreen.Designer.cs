@@ -56,7 +56,7 @@
             // 
             // evaluationsListView
             // 
-            this.evaluationsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.evaluationsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.evaluationsListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.evaluationsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.evaluationsListView.ForeColor = System.Drawing.Color.White;
@@ -75,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(44, 67);
+            this.label1.Location = new System.Drawing.Point(196, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 39);
             this.label1.TabIndex = 17;
@@ -86,7 +86,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(44, 106);
+            this.label2.Location = new System.Drawing.Point(196, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 39);
             this.label2.TabIndex = 18;
@@ -97,7 +97,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.IndianRed;
-            this.label3.Location = new System.Drawing.Point(44, 145);
+            this.label3.Location = new System.Drawing.Point(196, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 39);
             this.label3.TabIndex = 19;
@@ -105,7 +105,7 @@
             // 
             // legendPanel
             // 
-            this.legendPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.legendPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.legendPanel.Controls.Add(this.label5);
             this.legendPanel.Controls.Add(this.label6);
             this.legendPanel.Controls.Add(this.label7);
@@ -113,9 +113,9 @@
             this.legendPanel.Controls.Add(this.label1);
             this.legendPanel.Controls.Add(this.label2);
             this.legendPanel.Controls.Add(this.label3);
-            this.legendPanel.Location = new System.Drawing.Point(0, 615);
+            this.legendPanel.Location = new System.Drawing.Point(183, 588);
             this.legendPanel.Name = "legendPanel";
-            this.legendPanel.Size = new System.Drawing.Size(488, 225);
+            this.legendPanel.Size = new System.Drawing.Size(781, 225);
             this.legendPanel.TabIndex = 23;
             // 
             // label5
@@ -123,7 +123,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.Lime;
-            this.label5.Location = new System.Drawing.Point(299, 67);
+            this.label5.Location = new System.Drawing.Point(451, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 39);
             this.label5.TabIndex = 24;
@@ -134,7 +134,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.Green;
-            this.label6.Location = new System.Drawing.Point(299, 106);
+            this.label6.Location = new System.Drawing.Point(451, 107);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 39);
             this.label6.TabIndex = 25;
@@ -145,7 +145,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label7.Location = new System.Drawing.Point(299, 145);
+            this.label7.Location = new System.Drawing.Point(451, 146);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 39);
             this.label7.TabIndex = 26;
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.legendPanel);
             this.Controls.Add(this.evaluationsListView);
             this.Controls.Add(this.label4);

@@ -51,7 +51,7 @@
             // 
             // equipmentListView
             // 
-            this.equipmentListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.equipmentListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.equipmentListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.equipmentListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.equipmentListView.ForeColor = System.Drawing.Color.White;
@@ -79,12 +79,12 @@
             // 
             // statusPanel
             // 
-            this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.statusPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.statusPanel.Controls.Add(this.statusLabel);
             this.statusPanel.Controls.Add(this.label1);
             this.statusPanel.Location = new System.Drawing.Point(183, 580);
             this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(401, 135);
+            this.statusPanel.Size = new System.Drawing.Size(781, 135);
             this.statusPanel.TabIndex = 19;
             // 
             // statusLabel
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.statusPanel);
             this.Controls.Add(this.equipmentListView);
             this.Controls.Add(this.label4);

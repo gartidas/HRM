@@ -53,13 +53,15 @@ namespace WebApi.Features.Employees
             private IEnumerable<EmployeeDto> ApplyFiltering(Filter filter, IEnumerable<EmployeeDto> employeeDtos)
             {
                 if (!string.IsNullOrEmpty(filter.Email))
-                    employeeDtos = employeeDtos.Where(x => x.Data.EmailAddress.Contains(filter.Email));
+                    employeeDtos = employeeDtos.Where(x => x.Data.EmailAddress.ToLower().Contains(filter.Email.ToLower()));
                 if (!string.IsNullOrEmpty(filter.Role))
                     employeeDtos = employeeDtos.Where(x => x.Data.Role.Contains(filter.Role, StringComparison.OrdinalIgnoreCase));
                 if (!string.IsNullOrEmpty(filter.Specialty))
-                    employeeDtos = employeeDtos.Where(x => x.Data.Specialty.Contains(filter.Specialty));
+                    employeeDtos = employeeDtos.Where(x => x.Data.Specialty.ToLower().Contains(filter.Specialty.ToLower()));
                 if (!string.IsNullOrEmpty(filter.Surname))
-                    employeeDtos = employeeDtos.Where(x => x.Data.Surname.Contains(filter.Surname));
+                    employeeDtos = employeeDtos.Where(x => x.Data.Surname.ToLower().Contains(filter.Surname.ToLower()));
+                if (!string.IsNullOrEmpty(filter.WorkPlaceId))
+                    employeeDtos = employeeDtos.Where(x => x.WorkPlace.ID.Contains(filter.WorkPlaceId));
 
                 return employeeDtos;
             }
@@ -71,6 +73,7 @@ namespace WebApi.Features.Employees
             public string Role { get; set; }
             public string Specialty { get; set; }
             public string Surname { get; set; }
+            public string WorkPlaceId { get; set; }
         }
     }
 }

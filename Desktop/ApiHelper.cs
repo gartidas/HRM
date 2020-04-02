@@ -238,5 +238,16 @@ namespace Desktop
             DoingStuff = false;
             return status;
         }
+
+        public async Task<GetAllEmployeesResponse> GetAllEmployeesOfWorkPlace(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"employees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}&WorkPlaceId={workPlaceIdFilter}");
+            var result = await response.Content.ReadAsAsync<GetAllEmployeesResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

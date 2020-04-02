@@ -67,6 +67,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.showCheckBox = new System.Windows.Forms.CheckBox();
             this.accountLabel = new System.Windows.Forms.Label();
             this.descriptionLabel5 = new System.Windows.Forms.Label();
@@ -79,7 +80,6 @@
             this.descriptionLabel1 = new System.Windows.Forms.Label();
             this.descriptionLabel2 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.employeeDataPanel.SuspendLayout();
             this.workPlaceDataPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             // 
             // employeeDataPanel
             // 
-            this.employeeDataPanel.BackColor = System.Drawing.Color.Gray;
+            this.employeeDataPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.employeeDataPanel.Controls.Add(this.familyStatusLabel);
             this.employeeDataPanel.Controls.Add(this.numberOfChildrenLabel);
             this.employeeDataPanel.Controls.Add(this.numberOfVacationsLabel);
@@ -129,7 +129,7 @@
             this.familyStatusLabel.AutoSize = true;
             this.familyStatusLabel.BackColor = System.Drawing.Color.Transparent;
             this.familyStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.familyStatusLabel.ForeColor = System.Drawing.Color.Black;
+            this.familyStatusLabel.ForeColor = System.Drawing.Color.White;
             this.familyStatusLabel.Location = new System.Drawing.Point(249, 770);
             this.familyStatusLabel.Name = "familyStatusLabel";
             this.familyStatusLabel.Size = new System.Drawing.Size(202, 39);
@@ -142,7 +142,7 @@
             this.numberOfChildrenLabel.AutoSize = true;
             this.numberOfChildrenLabel.BackColor = System.Drawing.Color.Transparent;
             this.numberOfChildrenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numberOfChildrenLabel.ForeColor = System.Drawing.Color.Black;
+            this.numberOfChildrenLabel.ForeColor = System.Drawing.Color.White;
             this.numberOfChildrenLabel.Location = new System.Drawing.Point(338, 720);
             this.numberOfChildrenLabel.Name = "numberOfChildrenLabel";
             this.numberOfChildrenLabel.Size = new System.Drawing.Size(298, 39);
@@ -155,7 +155,7 @@
             this.numberOfVacationsLabel.AutoSize = true;
             this.numberOfVacationsLabel.BackColor = System.Drawing.Color.Transparent;
             this.numberOfVacationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numberOfVacationsLabel.ForeColor = System.Drawing.Color.Black;
+            this.numberOfVacationsLabel.ForeColor = System.Drawing.Color.White;
             this.numberOfVacationsLabel.Location = new System.Drawing.Point(441, 670);
             this.numberOfVacationsLabel.Name = "numberOfVacationsLabel";
             this.numberOfVacationsLabel.Size = new System.Drawing.Size(195, 39);
@@ -168,7 +168,7 @@
             this.salaryLabel.AutoSize = true;
             this.salaryLabel.BackColor = System.Drawing.Color.Transparent;
             this.salaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.salaryLabel.ForeColor = System.Drawing.Color.Black;
+            this.salaryLabel.ForeColor = System.Drawing.Color.White;
             this.salaryLabel.Location = new System.Drawing.Point(135, 620);
             this.salaryLabel.Name = "salaryLabel";
             this.salaryLabel.Size = new System.Drawing.Size(108, 39);
@@ -181,7 +181,7 @@
             this.genderLabel.AutoSize = true;
             this.genderLabel.BackColor = System.Drawing.Color.Transparent;
             this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.genderLabel.ForeColor = System.Drawing.Color.Black;
+            this.genderLabel.ForeColor = System.Drawing.Color.White;
             this.genderLabel.Location = new System.Drawing.Point(157, 570);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(123, 39);
@@ -194,7 +194,7 @@
             this.citizenshipLabel.AutoSize = true;
             this.citizenshipLabel.BackColor = System.Drawing.Color.Transparent;
             this.citizenshipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.citizenshipLabel.ForeColor = System.Drawing.Color.Black;
+            this.citizenshipLabel.ForeColor = System.Drawing.Color.White;
             this.citizenshipLabel.Location = new System.Drawing.Point(212, 520);
             this.citizenshipLabel.Name = "citizenshipLabel";
             this.citizenshipLabel.Size = new System.Drawing.Size(177, 39);
@@ -207,7 +207,7 @@
             this.addressLabel.AutoSize = true;
             this.addressLabel.BackColor = System.Drawing.Color.Transparent;
             this.addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addressLabel.ForeColor = System.Drawing.Color.Black;
+            this.addressLabel.ForeColor = System.Drawing.Color.White;
             this.addressLabel.Location = new System.Drawing.Point(168, 470);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(138, 39);
@@ -220,7 +220,7 @@
             this.specialtyLabel.AutoSize = true;
             this.specialtyLabel.BackColor = System.Drawing.Color.Transparent;
             this.specialtyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.specialtyLabel.ForeColor = System.Drawing.Color.Black;
+            this.specialtyLabel.ForeColor = System.Drawing.Color.White;
             this.specialtyLabel.Location = new System.Drawing.Point(183, 420);
             this.specialtyLabel.Name = "specialtyLabel";
             this.specialtyLabel.Size = new System.Drawing.Size(150, 39);
@@ -233,7 +233,7 @@
             this.birthPlaceLabel.AutoSize = true;
             this.birthPlaceLabel.BackColor = System.Drawing.Color.Transparent;
             this.birthPlaceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.birthPlaceLabel.ForeColor = System.Drawing.Color.Black;
+            this.birthPlaceLabel.ForeColor = System.Drawing.Color.White;
             this.birthPlaceLabel.Location = new System.Drawing.Point(212, 370);
             this.birthPlaceLabel.Name = "birthPlaceLabel";
             this.birthPlaceLabel.Size = new System.Drawing.Size(174, 39);
@@ -246,7 +246,7 @@
             this.bcnLabel.AutoSize = true;
             this.bcnLabel.BackColor = System.Drawing.Color.Transparent;
             this.bcnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bcnLabel.ForeColor = System.Drawing.Color.Black;
+            this.bcnLabel.ForeColor = System.Drawing.Color.White;
             this.bcnLabel.Location = new System.Drawing.Point(124, 320);
             this.bcnLabel.Name = "bcnLabel";
             this.bcnLabel.Size = new System.Drawing.Size(72, 39);
@@ -259,7 +259,7 @@
             this.birthDateLabel.AutoSize = true;
             this.birthDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.birthDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.birthDateLabel.ForeColor = System.Drawing.Color.Black;
+            this.birthDateLabel.ForeColor = System.Drawing.Color.White;
             this.birthDateLabel.Location = new System.Drawing.Point(193, 270);
             this.birthDateLabel.Name = "birthDateLabel";
             this.birthDateLabel.Size = new System.Drawing.Size(158, 39);
@@ -272,7 +272,7 @@
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.BackColor = System.Drawing.Color.Transparent;
             this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.phoneLabel.ForeColor = System.Drawing.Color.Black;
+            this.phoneLabel.ForeColor = System.Drawing.Color.White;
             this.phoneLabel.Location = new System.Drawing.Point(137, 220);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(112, 39);
@@ -285,7 +285,7 @@
             this.surnameLabel.AutoSize = true;
             this.surnameLabel.BackColor = System.Drawing.Color.Transparent;
             this.surnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.surnameLabel.ForeColor = System.Drawing.Color.Black;
+            this.surnameLabel.ForeColor = System.Drawing.Color.White;
             this.surnameLabel.Location = new System.Drawing.Point(183, 170);
             this.surnameLabel.Name = "surnameLabel";
             this.surnameLabel.Size = new System.Drawing.Size(149, 39);
@@ -298,7 +298,7 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nameLabel.ForeColor = System.Drawing.Color.Black;
+            this.nameLabel.ForeColor = System.Drawing.Color.White;
             this.nameLabel.Location = new System.Drawing.Point(129, 120);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(102, 39);
@@ -311,7 +311,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.titleLabel.ForeColor = System.Drawing.Color.Black;
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(103, 70);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(70, 39);
@@ -324,7 +324,7 @@
             this.label7.AutoSize = true;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 770);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(228, 41);
@@ -336,7 +336,7 @@
             this.label18.AutoSize = true;
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(0, 720);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(315, 41);
@@ -348,7 +348,7 @@
             this.label19.AutoSize = true;
             this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(0, 670);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(403, 41);
@@ -360,7 +360,7 @@
             this.label20.AutoSize = true;
             this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(0, 620);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(125, 41);
@@ -372,7 +372,7 @@
             this.label15.AutoSize = true;
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(0, 570);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(141, 41);
@@ -384,7 +384,7 @@
             this.label16.AutoSize = true;
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(0, 520);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(196, 41);
@@ -396,7 +396,7 @@
             this.label13.AutoSize = true;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(0, 470);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(153, 41);
@@ -408,7 +408,7 @@
             this.label14.AutoSize = true;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(0, 420);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(167, 41);
@@ -420,7 +420,7 @@
             this.label11.AutoSize = true;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(0, 370);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(189, 41);
@@ -432,7 +432,7 @@
             this.label12.AutoSize = true;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(0, 270);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(173, 41);
@@ -444,7 +444,7 @@
             this.label9.AutoSize = true;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(0, 320);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(114, 41);
@@ -456,7 +456,7 @@
             this.label10.AutoSize = true;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(0, 220);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 41);
@@ -468,7 +468,7 @@
             this.label8.AutoSize = true;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(0, 170);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(166, 41);
@@ -480,7 +480,7 @@
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 41);
@@ -492,7 +492,7 @@
             this.label5.AutoSize = true;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 41);
@@ -514,7 +514,7 @@
             // 
             // workPlaceDataPanel
             // 
-            this.workPlaceDataPanel.BackColor = System.Drawing.Color.Gray;
+            this.workPlaceDataPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.workPlaceDataPanel.Controls.Add(this.workplaceLocationLabel);
             this.workPlaceDataPanel.Controls.Add(this.workplaceLabelLabel);
             this.workPlaceDataPanel.Controls.Add(this.label3);
@@ -530,7 +530,7 @@
             this.workplaceLocationLabel.AutoSize = true;
             this.workplaceLocationLabel.BackColor = System.Drawing.Color.Transparent;
             this.workplaceLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.workplaceLocationLabel.ForeColor = System.Drawing.Color.Black;
+            this.workplaceLocationLabel.ForeColor = System.Drawing.Color.White;
             this.workplaceLocationLabel.Location = new System.Drawing.Point(175, 140);
             this.workplaceLocationLabel.Name = "workplaceLocationLabel";
             this.workplaceLocationLabel.Size = new System.Drawing.Size(135, 39);
@@ -543,7 +543,7 @@
             this.workplaceLabelLabel.AutoSize = true;
             this.workplaceLabelLabel.BackColor = System.Drawing.Color.Transparent;
             this.workplaceLabelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.workplaceLabelLabel.ForeColor = System.Drawing.Color.Black;
+            this.workplaceLabelLabel.ForeColor = System.Drawing.Color.White;
             this.workplaceLabelLabel.Location = new System.Drawing.Point(127, 70);
             this.workplaceLabelLabel.Name = "workplaceLabelLabel";
             this.workplaceLabelLabel.Size = new System.Drawing.Size(90, 39);
@@ -556,7 +556,7 @@
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(0, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 41);
@@ -568,7 +568,7 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 41);
@@ -590,7 +590,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.showCheckBox);
             this.panel1.Controls.Add(this.accountLabel);
             this.panel1.Controls.Add(this.descriptionLabel5);
@@ -605,8 +606,19 @@
             this.panel1.Controls.Add(this.label24);
             this.panel1.Location = new System.Drawing.Point(726, 220);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 489);
+            this.panel1.Size = new System.Drawing.Size(474, 620);
             this.panel1.TabIndex = 19;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(3, 550);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(387, 39);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "* Birth certificate number";
             // 
             // showCheckBox
             // 
@@ -626,7 +638,7 @@
             this.accountLabel.AutoSize = true;
             this.accountLabel.BackColor = System.Drawing.Color.Transparent;
             this.accountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.accountLabel.ForeColor = System.Drawing.Color.Black;
+            this.accountLabel.ForeColor = System.Drawing.Color.White;
             this.accountLabel.Location = new System.Drawing.Point(3, 431);
             this.accountLabel.Name = "accountLabel";
             this.accountLabel.Size = new System.Drawing.Size(120, 36);
@@ -639,7 +651,7 @@
             this.descriptionLabel5.AutoSize = true;
             this.descriptionLabel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descriptionLabel5.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel5.ForeColor = System.Drawing.Color.White;
             this.descriptionLabel5.Location = new System.Drawing.Point(0, 390);
             this.descriptionLabel5.Name = "descriptionLabel5";
             this.descriptionLabel5.Size = new System.Drawing.Size(243, 38);
@@ -652,7 +664,7 @@
             this.bankLabel.AutoSize = true;
             this.bankLabel.BackColor = System.Drawing.Color.Transparent;
             this.bankLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bankLabel.ForeColor = System.Drawing.Color.Black;
+            this.bankLabel.ForeColor = System.Drawing.Color.White;
             this.bankLabel.Location = new System.Drawing.Point(3, 351);
             this.bankLabel.Name = "bankLabel";
             this.bankLabel.Size = new System.Drawing.Size(80, 36);
@@ -665,7 +677,7 @@
             this.descriptionLabel4.AutoSize = true;
             this.descriptionLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descriptionLabel4.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel4.ForeColor = System.Drawing.Color.White;
             this.descriptionLabel4.Location = new System.Drawing.Point(0, 310);
             this.descriptionLabel4.Name = "descriptionLabel4";
             this.descriptionLabel4.Size = new System.Drawing.Size(257, 38);
@@ -678,7 +690,7 @@
             this.healthInsuranceLabel.AutoSize = true;
             this.healthInsuranceLabel.BackColor = System.Drawing.Color.Transparent;
             this.healthInsuranceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.healthInsuranceLabel.ForeColor = System.Drawing.Color.Black;
+            this.healthInsuranceLabel.ForeColor = System.Drawing.Color.White;
             this.healthInsuranceLabel.Location = new System.Drawing.Point(3, 271);
             this.healthInsuranceLabel.Name = "healthInsuranceLabel";
             this.healthInsuranceLabel.Size = new System.Drawing.Size(234, 36);
@@ -691,7 +703,7 @@
             this.descriptionLabel3.AutoSize = true;
             this.descriptionLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descriptionLabel3.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel3.ForeColor = System.Drawing.Color.White;
             this.descriptionLabel3.Location = new System.Drawing.Point(0, 230);
             this.descriptionLabel3.Name = "descriptionLabel3";
             this.descriptionLabel3.Size = new System.Drawing.Size(376, 38);
@@ -704,7 +716,7 @@
             this.idCardNumberLabel.AutoSize = true;
             this.idCardNumberLabel.BackColor = System.Drawing.Color.Transparent;
             this.idCardNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.idCardNumberLabel.ForeColor = System.Drawing.Color.Black;
+            this.idCardNumberLabel.ForeColor = System.Drawing.Color.White;
             this.idCardNumberLabel.Location = new System.Drawing.Point(3, 111);
             this.idCardNumberLabel.Name = "idCardNumberLabel";
             this.idCardNumberLabel.Size = new System.Drawing.Size(105, 36);
@@ -717,7 +729,7 @@
             this.drivingLicenceLabel.AutoSize = true;
             this.drivingLicenceLabel.BackColor = System.Drawing.Color.Transparent;
             this.drivingLicenceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.drivingLicenceLabel.ForeColor = System.Drawing.Color.Black;
+            this.drivingLicenceLabel.ForeColor = System.Drawing.Color.White;
             this.drivingLicenceLabel.Location = new System.Drawing.Point(3, 191);
             this.drivingLicenceLabel.Name = "drivingLicenceLabel";
             this.drivingLicenceLabel.Size = new System.Drawing.Size(206, 36);
@@ -730,7 +742,7 @@
             this.descriptionLabel1.AutoSize = true;
             this.descriptionLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descriptionLabel1.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel1.ForeColor = System.Drawing.Color.White;
             this.descriptionLabel1.Location = new System.Drawing.Point(0, 70);
             this.descriptionLabel1.Name = "descriptionLabel1";
             this.descriptionLabel1.Size = new System.Drawing.Size(228, 38);
@@ -743,7 +755,7 @@
             this.descriptionLabel2.AutoSize = true;
             this.descriptionLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.descriptionLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.descriptionLabel2.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel2.ForeColor = System.Drawing.Color.White;
             this.descriptionLabel2.Location = new System.Drawing.Point(0, 150);
             this.descriptionLabel2.Name = "descriptionLabel2";
             this.descriptionLabel2.Size = new System.Drawing.Size(328, 38);
@@ -757,30 +769,18 @@
             this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label24.Dock = System.Windows.Forms.DockStyle.Top;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label24.ForeColor = System.Drawing.Color.DarkRed;
+            this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(0, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(233, 41);
             this.label24.TabIndex = 0;
             this.label24.Text = "Sensitive data";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(729, 756);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(387, 39);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "* Birth certificate number";
-            // 
             // PersonalDataScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.workPlaceDataPanel);
             this.Controls.Add(this.employeeDataPanel);
@@ -794,7 +794,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -77,7 +77,7 @@
             this.minimizeButton.Location = new System.Drawing.Point(1411, 5);
             this.minimizeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.minimizeButton.Name = "minimizeButton";
-            this.minimizeButton.Size = new System.Drawing.Size(51, 50);
+            this.minimizeButton.Size = new System.Drawing.Size(50, 50);
             this.minimizeButton.TabIndex = 2;
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
@@ -102,7 +102,7 @@
             this.closeButton.Location = new System.Drawing.Point(1477, 5);
             this.closeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(51, 50);
+            this.closeButton.Size = new System.Drawing.Size(50, 50);
             this.closeButton.TabIndex = 1;
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);

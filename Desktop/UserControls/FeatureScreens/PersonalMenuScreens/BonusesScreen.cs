@@ -11,7 +11,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             InitializeComponent();
         }
 
-        public async Task LoadDataAsync()
+        private async Task LoadDataAsync()
         {
             bonusesListView.Clear();
 
