@@ -239,12 +239,12 @@ namespace Desktop
             return status;
         }
 
-        public async Task<GetAllEmployeesResponse> GetAllEmployeesOfWorkPlace(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesOfWorkPlace(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
         {
             DoingStuff = true;
 
             var response = await _client.GetAsync($"employees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}&WorkPlaceId={workPlaceIdFilter}");
-            var result = await response.Content.ReadAsAsync<GetAllEmployeesResponse>();
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Employee>>();
 
             DoingStuff = false;
             return result;

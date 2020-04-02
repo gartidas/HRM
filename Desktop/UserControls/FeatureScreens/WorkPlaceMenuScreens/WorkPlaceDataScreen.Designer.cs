@@ -69,6 +69,7 @@
             this.workPlaceEmployeesListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.workPlaceEmployeesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.workPlaceEmployeesListView.ForeColor = System.Drawing.Color.White;
+            this.workPlaceEmployeesListView.FullRowSelect = true;
             this.workPlaceEmployeesListView.GridLines = true;
             this.workPlaceEmployeesListView.HideSelection = false;
             this.workPlaceEmployeesListView.Location = new System.Drawing.Point(79, 56);

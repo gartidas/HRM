@@ -70,7 +70,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async Task LoadEmployeesAsync()
         {
-            GetAllEmployeesResponse response = null;
+            GenericGetAllResponse<Employee> response = null;
 
             if (emailFilterRadioButton.Checked)
                 response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlace(_id, _currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text);
@@ -81,7 +81,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             _numberOfPages = response.Pages;
             _currentPageNumber = response.PageNumber;
-            pagingLabel.Text = $"{response.PageNumber.ToString()}/{response.Pages.ToString()}";
+            pagingLabel.Text = $"{response.PageNumber}/{response.Pages}";
             LoadListView(response.Content);
         }
 
