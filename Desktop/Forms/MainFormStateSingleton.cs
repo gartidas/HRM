@@ -158,6 +158,9 @@ namespace Desktop.Forms
                         case 10:
                             ScreenPanel.Controls.Add(new WorkPlaceCorporateEventsScreen());
                             break;
+                        case 11:
+                            ScreenPanel.Controls.Add(new WorkPlaceSpecialtiesScreen());
+                            break;
                         default:
                             break;
                     }

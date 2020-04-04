@@ -239,12 +239,92 @@ namespace Desktop
             return status;
         }
 
-        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesOfWorkPlace(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesOfWorkPlaceAsync(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
         {
             DoingStuff = true;
 
             var response = await _client.GetAsync($"employees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}&WorkPlaceId={workPlaceIdFilter}");
             var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Employee>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<IEnumerable<Vacation>> GetSelectedEmployeeVacationsAsync(string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<Vacation> vacations = null;
+
+            var response = await _client.GetAsync($"vacations/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                vacations = await response.Content.ReadAsAsync<IEnumerable<Vacation>>();
+            }
+
+            DoingStuff = false;
+            return vacations;
+        }
+
+        public async Task<GenericResponse> SetEmployeeVacationApprovedStateAsync(string vacationId, bool approved)
+        {
+            DoingStuff = true;
+
+            var data = new
+            {
+                approved
+            };
+
+            var response = await _client.PutAsJsonAsync("vacations/" + vacationId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<IEnumerable<Specialty>> GetAllSpecialtiesOfWorkplaceAsync(string workPlaceId)
+        {
+            DoingStuff = true;
+            IEnumerable<Specialty> specialties = null;
+
+            var response = await _client.GetAsync("specialties/" + workPlaceId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                specialties = await response.Content.ReadAsAsync<IEnumerable<Specialty>>();
+            }
+
+            DoingStuff = false;
+            return specialties;
+        }
+
+        public async Task<GenericResponse> AddSpecialtyOfWorkPlaceAsync(string workPlaceId, string name, int numberOfEmployees)
+        {
+            DoingStuff = true;
+            bool type = true;
+            var data = new
+            {
+                name,
+                numberOfEmployees,
+                type
+            };
+
+            var response = await _client.PostAsJsonAsync("specialties/" + workPlaceId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> DeleteSpecialtyOfWorkPlaceAsync(string workPlaceId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("specialties/" + workPlaceId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
 
             DoingStuff = false;
             return result;

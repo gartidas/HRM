@@ -50,6 +50,13 @@ namespace WebApi.Controllers
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 
+        [HttpGet(ApiRoutes.Vacations.GetAllVacationsOfSelectedEmployee)]
+        public async Task<ActionResult<GetAllVacationsOfEmployee.VacationDto>> GetAllVacationsOfSelectedEmployee([FromRoute] string employeeId)
+        {
+            var result = await _mediator.Send(new GetAllVacationsOfEmployee.Query { EmployeeId = employeeId });
+            return result is null ? NotFound() : Ok(result) as ActionResult;
+        }
+
         [HttpPut(ApiRoutes.Vacations.SetApprovedStateOfVacation)]
         public async Task<ActionResult<GenericResponse>> SetApprovedStateOfVacation([FromRoute]string vacationId, [FromBody]SetApprovedStateOfVacation.Command command)
         {
