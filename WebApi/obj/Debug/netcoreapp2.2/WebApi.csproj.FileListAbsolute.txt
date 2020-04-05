@@ -14,3 +14,5 @@ C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\
 C:\Users\garam\source\repos\HumanResourcesModule\WebApi\bin\Debug\netcoreapp2.2\WebApi.pdb
 C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.dll
 C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.pdb
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\garam\source\repos\HumanResourcesModule\WebApi\obj\Debug\netcoreapp2.2\WebApi.genruntimeconfig.cache

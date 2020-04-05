@@ -103,6 +103,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                         {
                             specialtiesListView.SelectedItems.Clear();
                             await LoadDataAsync();
+                            return;
                         }
                     }
                 }
