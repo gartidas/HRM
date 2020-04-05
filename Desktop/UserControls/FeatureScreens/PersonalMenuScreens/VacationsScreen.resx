@@ -120,15 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cancelVacationButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACpJREFUWEft
-        zCEOADAMA7H8/9MbCS/ZpAIbny4AwErnk+5n7Z/rHgDYJLnX669RQoJDIAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAApSURBVFhH7cuxDQAwCASx339psgAFBZEobOnKCwBwVX1qrJs3AgCuSR5AUSvV/L2OhwAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="planVacationButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAEFJREFUWEft
-        0jEKACAUw9De/9K6ZHewfBDzNkFqBiM9bYHjPN43wAADDOgHsFvH/Bn365jvYddPaIABBnwcIN1LNhlF
-        TsBTg9AAAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAA/SURBVFhH7c4xCgAgDATB/P/T2mhnIZgQhFm4MmFC+r2x1hYAAABAGWA/zt51p+OMpVf2+DYA
+        AACAdoD0WMQEVNxTrTEmtnkAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

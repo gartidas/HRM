@@ -11,7 +11,6 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
         private string _id;
         private ToolTip _toolTip = new ToolTip();
         private List<Specialty> _specialties = new List<Specialty>();
-        private bool _found = false;
 
         public WorkPlaceSpecialtiesScreen()
         {
@@ -34,7 +33,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             {
                 _specialties = response.ToList();
 
-                foreach (var specialty in response)
+                foreach (var specialty in _specialties)
                 {
                     var item = new ListViewItem
                     {
@@ -61,6 +60,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void addSpecialtyButton_Click(object sender, System.EventArgs e)
         {
+            bool found = false;
+
             if (countTextBox.Text != "" && countTextBox.Text != "")
             {
                 if (int.TryParse(countTextBox.Text, out int result))
@@ -68,9 +69,9 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                     foreach (var specialty in _specialties)
                     {
                         if (specialty.Name.ToLower() == nameTextBox.Text.ToLower())
-                            _found = true;
+                            found = true;
                     }
-                    if (!_found)
+                    if (!found)
                     {
                         var response = await ApiHelper.Instance.AddSpecialtyOfWorkPlaceAsync(_id, nameTextBox.Text, result);
                         if (response.Success)
@@ -99,7 +100,10 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                         var response = await ApiHelper.Instance.DeleteSpecialtyOfWorkPlaceAsync(specialty.ID);
 
                         if (response.Success)
+                        {
+                            specialtiesListView.SelectedItems.Clear();
                             await LoadDataAsync();
+                        }
                     }
                 }
             }

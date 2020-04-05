@@ -79,6 +79,7 @@
     <Compile Include="Models\EquipmentItem.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Specialty.cs" />
+    <Compile Include="Models\WorkPlaceVacation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\AlternativeGenericResponse.cs" />

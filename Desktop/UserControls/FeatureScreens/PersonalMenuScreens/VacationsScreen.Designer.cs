@@ -89,7 +89,7 @@
             // 
             // cancelVacationButton
             // 
-            this.cancelVacationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cancelVacationButton.BackColor = System.Drawing.Color.White;
             this.cancelVacationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cancelVacationButton.ForeColor = System.Drawing.Color.White;
             this.cancelVacationButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelVacationButton.Image")));
@@ -142,7 +142,7 @@
             // 
             // planVacationButton
             // 
-            this.planVacationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.planVacationButton.BackColor = System.Drawing.Color.White;
             this.planVacationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.planVacationButton.ForeColor = System.Drawing.Color.White;
             this.planVacationButton.Image = ((System.Drawing.Image)(resources.GetObject("planVacationButton.Image")));

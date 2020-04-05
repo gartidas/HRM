@@ -14,6 +14,26 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
         private List<Employee> _employees = new List<Employee>();
         private List<Vacation> _vacations = new List<Vacation>();
         private List<CustomEvent> _events = new List<CustomEvent>();
+        private List<Specialty> _neededSpecialties = new List<Specialty>();
+        private List<Specialty> _realSpecialties = new List<Specialty>();
+        private List<WorkPlaceVacation> _employeeVacations = new List<WorkPlaceVacation>();
+        private ToolTip _toolTip = new ToolTip();
+        private string _errorMessage;
+        private string errorMessage
+        {
+            get { return _errorMessage; }
+            set
+            {
+                if (_errorMessage != value)
+                {
+                    _errorMessage = value;
+                    if (value != $"Missing employees:{Environment.NewLine}")
+                        warningPictureBox.Visible = true;
+                }
+            }
+        }
+        private string _id;
+
 
         public WorkPlaceVacationsScreen()
         {
@@ -22,20 +42,27 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceVacationsScreen_Load(object sender, EventArgs e)
         {
+            _id = (await ApiHelper.Instance.GetEmployeeDataAsync()).WorkPlace.ID;
             vacationsCalendar.LoadPresetHolidays = false;
             vacationsCalendar.AllowEditingEvents = false;
             vacationsCalendar.CalendarDate = DateTime.Now;
-            await LoadEmployeesComboBoxAsync();
+
+            if (_id != default)
+            {
+                _neededSpecialties = (await ApiHelper.Instance.GetAllSpecialtiesOfWorkplaceAsync(_id)).ToList();
+                if (_neededSpecialties != null)
+                    await LoadEmployeesComboBoxAsync();
+            }
         }
 
         private async Task LoadEmployeesComboBoxAsync()
         {
-            var id = (await ApiHelper.Instance.GetEmployeeDataAsync()).WorkPlace.ID;
-            var response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(id);
+            bool found = false;
+            var response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id);
 
             for (int i = 1; i <= response.Pages; i++)
             {
-                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(id, i)).Content);
+                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, i)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
             }
 
             employeeComboBox.Items.Add("All");
@@ -43,7 +70,22 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             foreach (var employee in _employees)
             {
                 employeeComboBox.Items.Add(employee.Data.EmailAddress);
+                foreach (var specialty in _realSpecialties)
+                {
+                    if (specialty.Name.ToLower() == employee.Data.Specialty.ToLower())
+                    {
+                        found = true;
+                        specialty.NumberOfEmployees++;
+                    }
+                }
+
+                if (!found)
+                    _realSpecialties.Add(new Specialty { Name = employee.Data.Specialty, NumberOfEmployees = 1 });
+
+                found = false;
             }
+
+            CheckWorkPlaceStatus();
         }
 
         private async void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,27 +99,61 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async Task LoadVacationsComboBoxAsync(string employeeEmail)
         {
+            bool foundDate = false;
+            bool foundSpecialty = false;
             if (employeeEmail == "All")
             {
+                _employeeVacations = new List<WorkPlaceVacation>();
+
                 foreach (var employee in _employees)
                 {
                     var vacationsIE = (await ApiHelper.Instance.GetSelectedEmployeeVacationsAsync(employee.ID));
 
                     if (vacationsIE != null)
                     {
-                        _vacations = vacationsIE.ToList();
+                        var vacations = vacationsIE.Where(x => x.Approved).ToList();
+
+                        foreach (var employeeVacation in vacations)
+                        {
+
+                            foreach (var workPlaceVacation in _employeeVacations)
+                            {
+                                if (workPlaceVacation.Date == employeeVacation.DateAndTime)
+                                {
+                                    foundDate = true;
+                                    foreach (var specialty in workPlaceVacation.Specialties)
+                                    {
+                                        if (specialty.Name.ToLower() == employee.Data.Specialty.ToLower())
+                                        {
+                                            foundSpecialty = true;
+                                            specialty.NumberOfEmployees++;
+                                        }
+                                    }
+
+                                    if (!foundSpecialty)
+                                        workPlaceVacation.Specialties.Add(new Specialty { Name = employee.Data.Specialty, NumberOfEmployees = 1 });
+
+                                    foundSpecialty = false;
+                                }
+                            }
+
+                            if (!foundDate)
+                            {
+                                var specialty = new Specialty { Name = employee.Data.Specialty, NumberOfEmployees = 1 };
+                                var vacation = new WorkPlaceVacation { Date = employeeVacation.DateAndTime };
+                                vacation.Specialties = new List<Specialty>();
+                                vacation.Specialties.Add(specialty);
+                                _employeeVacations.Add(vacation);
+                            }
+
+                            foundDate = false;
+                        }
                     }
                 }
 
-                if (_vacations != null)
+                if (_employeeVacations != null)
                 {
-                    foreach (var vacation in _vacations)
-                    {
-                        if (vacation.Approved)
-                        {
-                            //<--TU
-                        }
-                    }
+                    LoadWorkPlaceVacationsCalendar(_employeeVacations);
                 }
             }
             else
@@ -91,7 +167,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                         if (vacationsIE != null)
                         {
                             _vacations = vacationsIE.ToList();
-                            LoadVacationsCalendar(_vacations);
+                            LoadEmployeeVacationsCalendar(_vacations);
 
                             foreach (var vacation in _vacations)
                             {
@@ -111,7 +187,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             }
         }
 
-        private void LoadVacationsCalendar(List<Vacation> vacations)
+        private void LoadEmployeeVacationsCalendar(List<Vacation> vacations)
         {
             vacationsCalendar.LoadPresetHolidays = false;
             vacationsCalendar.AllowEditingEvents = false;
@@ -132,6 +208,41 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                     EventColor = vacation.Approved ? Color.DarkGreen : Color.DarkRed,
                     EventTextColor = Color.White,
                     EventText = vacation.Reason,
+                    IgnoreTimeComponent = true
+                };
+
+                _events.Add(newVacation);
+                vacationsCalendar.AddEvent(newVacation);
+            }
+        }
+
+        private void LoadWorkPlaceVacationsCalendar(List<WorkPlaceVacation> vacations)
+        {
+            vacationsCalendar.LoadPresetHolidays = false;
+            vacationsCalendar.AllowEditingEvents = false;
+            vacationsCalendar.CalendarDate = DateTime.Now;
+
+            foreach (var vacation in _events)
+            {
+                vacationsCalendar.RemoveEvent(vacation);
+            }
+            _events.Clear();
+
+            foreach (var vacation in vacations)
+            {
+                string specialties = $"Vacations:{Environment.NewLine}";
+
+                foreach (var specialty in vacation.Specialties)
+                {
+                    specialties += $"Spec.:{specialty.Name} ({specialty.NumberOfEmployees}){Environment.NewLine}";
+                }
+
+                var newVacation = new CustomEvent
+                {
+                    Date = vacation.Date,
+                    EventColor = Color.Gray,
+                    EventTextColor = Color.White,
+                    EventText = specialties,
                     IgnoreTimeComponent = true
                 };
 
@@ -168,6 +279,40 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                     }
                 }
             }
+        }
+
+        private void CheckWorkPlaceStatus()
+        {
+            errorMessage = $"Missing employees:{Environment.NewLine}";
+            bool found = false;
+
+            foreach (var neededSpecialty in _neededSpecialties)
+            {
+                foreach (var realSpecialty in _realSpecialties)
+                {
+                    if (neededSpecialty.Name == realSpecialty.Name)
+                    {
+                        found = true;
+                        if (neededSpecialty.NumberOfEmployees > realSpecialty.NumberOfEmployees)
+                            errorMessage += $"Specialty:{neededSpecialty.Name} ({neededSpecialty.NumberOfEmployees - realSpecialty.NumberOfEmployees}){Environment.NewLine}";
+                    }
+                }
+
+                if (!found)
+                    errorMessage += $"Specialty:{neededSpecialty.Name} ({neededSpecialty.NumberOfEmployees}){Environment.NewLine}";
+
+                found = false;
+            }
+        }
+
+        private void warningPictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            _toolTip.Show(errorMessage, warningPictureBox, 1000000000);
+        }
+
+        private void warningPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            _toolTip.Hide(warningPictureBox);
         }
     }
 }

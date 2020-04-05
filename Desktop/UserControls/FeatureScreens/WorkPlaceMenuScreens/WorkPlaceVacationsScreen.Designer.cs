@@ -31,14 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkPlaceVacationsScreen));
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.warningPictureBox = new System.Windows.Forms.PictureBox();
             this.vacationsCalendar = new Calendar.NET.Calendar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.vacationsComboBox = new System.Windows.Forms.ComboBox();
             this.cancelVacationButton = new System.Windows.Forms.Button();
             this.approveVacationButton = new System.Windows.Forms.Button();
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,12 +61,26 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel1.Controls.Add(this.warningPictureBox);
             this.panel1.Controls.Add(this.vacationsCalendar);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 545);
             this.panel1.TabIndex = 18;
+            // 
+            // warningPictureBox
+            // 
+            this.warningPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("warningPictureBox.Image")));
+            this.warningPictureBox.Location = new System.Drawing.Point(1051, 3);
+            this.warningPictureBox.Name = "warningPictureBox";
+            this.warningPictureBox.Size = new System.Drawing.Size(50, 50);
+            this.warningPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warningPictureBox.TabIndex = 19;
+            this.warningPictureBox.TabStop = false;
+            this.warningPictureBox.Visible = false;
+            this.warningPictureBox.MouseEnter += new System.EventHandler(this.warningPictureBox_MouseEnter);
+            this.warningPictureBox.MouseLeave += new System.EventHandler(this.warningPictureBox_MouseLeave);
             // 
             // vacationsCalendar
             // 
@@ -93,6 +111,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.vacationsComboBox);
             this.panel2.Controls.Add(this.cancelVacationButton);
             this.panel2.Controls.Add(this.approveVacationButton);
@@ -103,13 +123,35 @@
             this.panel2.Size = new System.Drawing.Size(1200, 289);
             this.panel2.TabIndex = 19;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(488, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 39);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(22, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(178, 39);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Employee:";
+            // 
             // vacationsComboBox
             // 
             this.vacationsComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.vacationsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vacationsComboBox.ForeColor = System.Drawing.Color.White;
             this.vacationsComboBox.FormattingEnabled = true;
-            this.vacationsComboBox.Location = new System.Drawing.Point(491, 69);
+            this.vacationsComboBox.Location = new System.Drawing.Point(495, 133);
             this.vacationsComboBox.Name = "vacationsComboBox";
             this.vacationsComboBox.Size = new System.Drawing.Size(436, 46);
             this.vacationsComboBox.TabIndex = 27;
@@ -146,7 +188,7 @@
             this.employeeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.employeeComboBox.ForeColor = System.Drawing.Color.White;
             this.employeeComboBox.FormattingEnabled = true;
-            this.employeeComboBox.Location = new System.Drawing.Point(25, 69);
+            this.employeeComboBox.Location = new System.Drawing.Point(29, 133);
             this.employeeComboBox.Name = "employeeComboBox";
             this.employeeComboBox.Size = new System.Drawing.Size(354, 46);
             this.employeeComboBox.TabIndex = 19;
@@ -176,6 +218,7 @@
             this.Load += new System.EventHandler(this.WorkPlaceVacationsScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPictureBox)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -193,5 +236,8 @@
         private System.Windows.Forms.Button cancelVacationButton;
         private System.Windows.Forms.Button approveVacationButton;
         private System.Windows.Forms.ComboBox vacationsComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox warningPictureBox;
     }
 }

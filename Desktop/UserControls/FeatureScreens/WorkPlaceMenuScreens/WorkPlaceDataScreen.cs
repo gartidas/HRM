@@ -85,7 +85,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             LoadListView(response.Content);
         }
 
-        private void LoadListView(IEnumerable<Employee> employees) //<-- TU
+        private void LoadListView(IEnumerable<Employee> employees)
         {
             workPlaceEmployeesListView.Clear();
 
@@ -101,20 +101,22 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             {
                 foreach (var employee in employees)
                 {
-
-                    var item = new ListViewItem
+                    if (employee.Data.EmailAddress != CurrentUser.User.Email)
                     {
-                        ToolTipText = $@"Email: {employee.Data.EmailAddress}
+                        var item = new ListViewItem
+                        {
+                            ToolTipText = $@"Email: {employee.Data.EmailAddress}
 Phone: {employee.Data.PhoneNumber}"
-                    };
+                        };
 
-                    item.SubItems.Clear();
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Title));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.BirthDate.Date.ToString()));
+                        item.SubItems.Clear();
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Title));
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.BirthDate.Date.ToString()));
 
-                    workPlaceEmployeesListView.Items.Add(item);
+                        workPlaceEmployeesListView.Items.Add(item);
+                    }
                 }
             }
 

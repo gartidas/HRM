@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkPlaceSpecialtiesScreen));
             this.label1 = new System.Windows.Forms.Label();
             this.legendPanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.specialtiesListView = new System.Windows.Forms.ListView();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.countTextBox = new System.Windows.Forms.TextBox();
             this.removeSpecialtyButton = new System.Windows.Forms.Button();
             this.addSpecialtyButton = new System.Windows.Forms.Button();
-            this.countTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.specialtiesListView = new System.Windows.Forms.ListView();
             this.legendPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,74 @@
             this.legendPanel.Size = new System.Drawing.Size(781, 225);
             this.legendPanel.TabIndex = 25;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(36, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(117, 39);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(426, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 39);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Count:";
+            // 
+            // countTextBox
+            // 
+            this.countTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.countTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.countTextBox.ForeColor = System.Drawing.Color.White;
+            this.countTextBox.Location = new System.Drawing.Point(433, 112);
+            this.countTextBox.Name = "countTextBox";
+            this.countTextBox.Size = new System.Drawing.Size(138, 45);
+            this.countTextBox.TabIndex = 27;
+            // 
+            // removeSpecialtyButton
+            // 
+            this.removeSpecialtyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.removeSpecialtyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.removeSpecialtyButton.ForeColor = System.Drawing.Color.White;
+            this.removeSpecialtyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeSpecialtyButton.Image")));
+            this.removeSpecialtyButton.Location = new System.Drawing.Point(693, 109);
+            this.removeSpecialtyButton.Name = "removeSpecialtyButton";
+            this.removeSpecialtyButton.Size = new System.Drawing.Size(50, 50);
+            this.removeSpecialtyButton.TabIndex = 26;
+            this.removeSpecialtyButton.UseVisualStyleBackColor = false;
+            this.removeSpecialtyButton.Click += new System.EventHandler(this.removeSpecialtyButton_Click);
+            // 
+            // addSpecialtyButton
+            // 
+            this.addSpecialtyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.addSpecialtyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addSpecialtyButton.ForeColor = System.Drawing.Color.White;
+            this.addSpecialtyButton.Image = ((System.Drawing.Image)(resources.GetObject("addSpecialtyButton.Image")));
+            this.addSpecialtyButton.Location = new System.Drawing.Point(637, 109);
+            this.addSpecialtyButton.Name = "addSpecialtyButton";
+            this.addSpecialtyButton.Size = new System.Drawing.Size(50, 50);
+            this.addSpecialtyButton.TabIndex = 25;
+            this.addSpecialtyButton.UseVisualStyleBackColor = false;
+            this.addSpecialtyButton.Click += new System.EventHandler(this.addSpecialtyButton_Click);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nameTextBox.ForeColor = System.Drawing.Color.White;
+            this.nameTextBox.Location = new System.Drawing.Point(43, 112);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(302, 45);
+            this.nameTextBox.TabIndex = 24;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -99,74 +167,6 @@
             this.specialtiesListView.TabIndex = 24;
             this.specialtiesListView.UseCompatibleStateImageBehavior = false;
             this.specialtiesListView.View = System.Windows.Forms.View.List;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nameTextBox.ForeColor = System.Drawing.Color.White;
-            this.nameTextBox.Location = new System.Drawing.Point(43, 112);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(302, 45);
-            this.nameTextBox.TabIndex = 24;
-            // 
-            // removeSpecialtyButton
-            // 
-            this.removeSpecialtyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.removeSpecialtyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.removeSpecialtyButton.ForeColor = System.Drawing.Color.White;
-            this.removeSpecialtyButton.Image = ((System.Drawing.Image)(resources.GetObject("removeSpecialtyButton.Image")));
-            this.removeSpecialtyButton.Location = new System.Drawing.Point(693, 109);
-            this.removeSpecialtyButton.Name = "removeSpecialtyButton";
-            this.removeSpecialtyButton.Size = new System.Drawing.Size(50, 50);
-            this.removeSpecialtyButton.TabIndex = 26;
-            this.removeSpecialtyButton.UseVisualStyleBackColor = false;
-            this.removeSpecialtyButton.Click += new System.EventHandler(this.removeSpecialtyButton_Click);
-            // 
-            // addSpecialtyButton
-            // 
-            this.addSpecialtyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.addSpecialtyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addSpecialtyButton.ForeColor = System.Drawing.Color.White;
-            this.addSpecialtyButton.Image = ((System.Drawing.Image)(resources.GetObject("addSpecialtyButton.Image")));
-            this.addSpecialtyButton.Location = new System.Drawing.Point(637, 109);
-            this.addSpecialtyButton.Name = "addSpecialtyButton";
-            this.addSpecialtyButton.Size = new System.Drawing.Size(50, 50);
-            this.addSpecialtyButton.TabIndex = 25;
-            this.addSpecialtyButton.UseVisualStyleBackColor = false;
-            this.addSpecialtyButton.Click += new System.EventHandler(this.addSpecialtyButton_Click);
-            // 
-            // countTextBox
-            // 
-            this.countTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.countTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.countTextBox.ForeColor = System.Drawing.Color.White;
-            this.countTextBox.Location = new System.Drawing.Point(433, 112);
-            this.countTextBox.Name = "countTextBox";
-            this.countTextBox.Size = new System.Drawing.Size(138, 45);
-            this.countTextBox.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(433, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 39);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Count:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(43, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 39);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Name:";
             // 
             // WorkPlaceSpecialtiesScreen
             // 

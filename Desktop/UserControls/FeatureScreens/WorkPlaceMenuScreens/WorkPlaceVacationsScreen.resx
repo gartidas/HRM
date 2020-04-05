@@ -118,6 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="warningPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAdpJREFUWEft
+        lj9IlHEYx19FJCVECRLkEIIW/yxOUjS0uChoYw651lBjujroqoOtBbU41ByCgyiODgo61CASDaEGQUWU
+        lH4e/XD4cmee3r0XwX34feG9z/P8nue94cSkxn/NYZL0RPxYXVhcR1bJkqq6sHiEHJphdXVgYTP5cOoF
+        tskVy9nDsnEXr5MNn59azhYWdZLv5A+5RW77/JV02JYdLHlF4hvPq8LN616qsoEFd0h8228kpw6f00Wt
+        X11ZGFxP1kh800l1nnDWoqdeXTkYOuaCHdKkzhPOWvQ8UFcGBraQTw6/ry6A2qg9H8lVdfkwbNrBy6pj
+        dJwTeIi/jiv6KXV5MOgm+Ul+kz71MXxOvUAQPSR6f5Ab6svDkDckFj1X5dFz0iBeWHutuhwMGHDQF3Jd
+        nccaJw2incSdqN9VXwwuNpBNh4yrU1jjFIKcsB4zGtSlw6VHDnhHGtUprHMKiTvkvT0P1aXBhWvks5dH
+        1BeGu/ecsUta1edD86wXF1RFsYdzNjHDvhnV36GxlxyQX6RLXRTqpbxAN4lZMfP8f99oWiQxeE5VNsx6
+        5sy3quLQMGTjHmlTl03MIvvOHlSnoRA/uy2bskzxnyXyyammrPPYtTVq/GuS5AhLbHntdUZipAAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
   <data name="cancelVacationButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAASBJREFUWEft
