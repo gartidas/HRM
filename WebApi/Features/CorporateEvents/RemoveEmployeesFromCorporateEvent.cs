@@ -2,7 +2,6 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,7 +12,7 @@ using WebApi.Entities.Joins;
 
 namespace WebApi.Features.CorporateEvents
 {
-    public class AssignEmployeesToCorporateEvent
+    public class RemoveEmployeesFromCorporateEvent
     {
         public class Command : IRequest<GenericResponse>
         {
@@ -33,22 +32,19 @@ namespace WebApi.Features.CorporateEvents
 
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var corporateEvent = await _context.CorporateEvents.Include(x => x.EmployeeCorporateEvent).ThenInclude(x => x.Employee).SingleOrDefaultAsync(x => x.ID == request.CorporateEventId);
+                List<EmployeeCorporateEvent> events = new List<EmployeeCorporateEvent>();
 
-                if (corporateEvent is null) return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist." } };
-
-
-                var employees = _context.Employees.Where(x => request.EmployeeIds.Contains(x.ID));
-
-                foreach (var employee in employees)
+                foreach (var employee in request.EmployeeIds)
                 {
-                    var join = new EmployeeCorporateEvent
-                    {
-                        CorporateEvent = corporateEvent,
-                        Employee = employee
-                    };
+                    events.Add(_context.EmployeeCorporateEvents.Include(x => x.Employee).Include(x => x.CorporateEvent).SingleOrDefault(x => x.EmployeeID == employee && x.CorporateEventID == request.CorporateEventId));
+                }
 
-                    await _context.AddAsync(join);
+                if (events != null)
+                {
+                    foreach (var corpEv in events)
+                    {
+                        _context.EmployeeCorporateEvents.Remove(corpEv);
+                    }
                 }
 
                 await _context.SaveChangesAsync();

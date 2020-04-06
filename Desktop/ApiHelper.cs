@@ -329,5 +329,71 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<IEnumerable<Event>> GetCorporateEventsOfWorkPlaceAsync()
+        {
+            DoingStuff = true;
+            IEnumerable<Event> events = null;
+
+            var response = await _client.GetAsync("corporateEvents/workPlace");
+
+            if (response.IsSuccessStatusCode)
+            {
+                events = await response.Content.ReadAsAsync<IEnumerable<Event>>();
+            }
+
+            DoingStuff = false;
+            return events;
+        }
+
+        public async Task<Event> GetCorporateEventOfWorkPlaceAsync(string eventId)
+        {
+            DoingStuff = true;
+            Event corpEvent = null;
+
+            var response = await _client.GetAsync("corporateEvents/" + eventId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                corpEvent = await response.Content.ReadAsAsync<Event>();
+            }
+
+            DoingStuff = false;
+            return corpEvent;
+        }
+
+        public async Task<GenericResponse> AssignEmployeeToCorporateEventAsync(string corporateEventId, string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<string> employeeIds = new List<string>() { employeeId };
+
+            var data = new
+            {
+                employeeIds
+            };
+
+            var response = await _client.PutAsJsonAsync("corporateEvents/employees/assign/" + corporateEventId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> RemoveEmployeeFromCorporateEventAsync(string corporateEventId, string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<string> employeeIds = new List<string>() { employeeId };
+
+            var data = new
+            {
+                employeeIds
+            };
+
+            var response = await _client.PutAsJsonAsync("corporateEvents/employees/remove/" + corporateEventId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

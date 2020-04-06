@@ -101,22 +101,19 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             {
                 foreach (var employee in employees)
                 {
-                    if (employee.Data.EmailAddress != CurrentUser.User.Email)
+                    var item = new ListViewItem
                     {
-                        var item = new ListViewItem
-                        {
-                            ToolTipText = $@"Email: {employee.Data.EmailAddress}
+                        ToolTipText = $@"Email: {employee.Data.EmailAddress}
 Phone: {employee.Data.PhoneNumber}"
-                        };
+                    };
 
-                        item.SubItems.Clear();
-                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Title));
-                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
-                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
-                        item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.BirthDate.Date.ToString()));
+                    item.SubItems.Clear();
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Title));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.BirthDate.Day}.{employee.Data.BirthDate.Month}.{employee.Data.BirthDate.Year}"));
 
-                        workPlaceEmployeesListView.Items.Add(item);
-                    }
+                    workPlaceEmployeesListView.Items.Add(item);
                 }
             }
 

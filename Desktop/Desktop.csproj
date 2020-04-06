@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Forms\MainFormStateSingleton.cs" />
     <Compile Include="Models\Bonus.cs" />
+    <Compile Include="Models\CorporateEventSubject.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentItem.cs" />

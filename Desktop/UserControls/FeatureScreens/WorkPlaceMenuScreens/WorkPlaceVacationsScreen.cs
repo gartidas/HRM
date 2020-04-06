@@ -263,19 +263,22 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async Task SetVacationApprovedState(bool approved)
         {
-            foreach (var vacation in _vacations)
+            if (vacationsComboBox.SelectedIndex != -1)
             {
-                if (vacation.DateAndTime == (DateTime)vacationsComboBox.SelectedItem && (DateTime)vacationsComboBox.SelectedItem > DateTime.Now.Date)
+                foreach (var vacation in _vacations)
                 {
-                    var response = await ApiHelper.Instance.SetEmployeeVacationApprovedStateAsync(vacation.ID, approved);
-
-                    if (response.Success == true)
+                    if (vacation.DateAndTime == (DateTime)vacationsComboBox.SelectedItem && (DateTime)vacationsComboBox.SelectedItem > DateTime.Now.Date)
                     {
-                        vacationsComboBox.Items.Clear();
-                        vacationsComboBox.ResetText();
-                        vacationsComboBox.SelectedIndex = -1;
+                        var response = await ApiHelper.Instance.SetEmployeeVacationApprovedStateAsync(vacation.ID, approved);
 
-                        await LoadVacationsComboBoxAsync(employeeComboBox.SelectedItem.ToString());
+                        if (response.Success == true)
+                        {
+                            vacationsComboBox.Items.Clear();
+                            vacationsComboBox.ResetText();
+                            vacationsComboBox.SelectedIndex = -1;
+
+                            await LoadVacationsComboBoxAsync(employeeComboBox.SelectedItem.ToString());
+                        }
                     }
                 }
             }

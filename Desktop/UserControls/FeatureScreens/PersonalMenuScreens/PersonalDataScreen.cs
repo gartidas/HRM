@@ -17,10 +17,13 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             if (response != null)
             {
                 #region Workplace
-                workplaceLabelLabel.Text = response.WorkPlace.Label;
-                workplaceLocationLabel.Text = response.WorkPlace.Location;
-                workplaceLabelLabel.Visible = true;
-                workplaceLocationLabel.Visible = true;
+                if (response.WorkPlace != null)
+                {
+                    workplaceLabelLabel.Text = response.WorkPlace.Label;
+                    workplaceLocationLabel.Text = response.WorkPlace.Location;
+                    workplaceLabelLabel.Visible = true;
+                    workplaceLocationLabel.Visible = true;
+                }
                 #endregion
 
                 #region PersonalData

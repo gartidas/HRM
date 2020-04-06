@@ -12,12 +12,12 @@ using WebApi.Entities;
 
 namespace WebApi.Features.CorporateEvents
 {
-    public class GetAllCorporateEventsOfEmployee
+    public class GetAllCorporateEventsOfWorkPlace
     {
         public class Query : IRequest<List<CorporateEventDto>>
         {
             [JsonIgnore]
-            public string EmployeeId { get; set; }
+            public string WorkPlaceLeaderId { get; set; }
         }
 
         public class QueryHandler : IRequestHandler<Query, List<CorporateEventDto>>
@@ -33,7 +33,7 @@ namespace WebApi.Features.CorporateEvents
 
             public async Task<List<CorporateEventDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var empcorpev = _context.EmployeeCorporateEvents.Where(x => x.EmployeeID == request.EmployeeId).Include(x => x.CorporateEvent).Include(x => x.Employee);
+                var empcorpev = _context.WorkPlaceLeaderCorporateEvents.Where(x => x.WorkPlaceLeaderID == request.WorkPlaceLeaderId && x.CorporateEvent.DateAndTime > DateTime.Now).Include(x => x.CorporateEvent).Include(x => x.WorkPlaceLeader);
 
                 if (empcorpev.Count() == 0)
                     return null;

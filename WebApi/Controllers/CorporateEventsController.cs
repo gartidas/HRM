@@ -11,7 +11,7 @@ using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class CorporateEventsController : ControllerBase
     {
@@ -68,6 +68,14 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [HttpPut(ApiRoutes.CorporateEvents.RemoveEmployeesFromCorporateEvent)]
+        public async Task<ActionResult<GenericResponse>> RemoveEmployeesFromCorporateEvent([FromRoute]string corporateEventId, [FromBody]RemoveEmployeesFromCorporateEvent.Command command)
+        {
+            command.CorporateEventId = corporateEventId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
         [HttpPut(ApiRoutes.CorporateEvents.AssignWorkPlaceLeadersToCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> AssignWorkPlaceLeadersToCorporateEvent([FromRoute]string corporateEventId, [FromBody]AssignWorkPlaceLeadersToCorporateEvent.Command command)
         {
@@ -82,6 +90,16 @@ namespace WebApi.Controllers
         {
             var employeeId = User.Claims.Single(x => x.Type == "id").Value;
             var result = await _mediator.Send(new GetAllCorporateEventsOfEmployee.Query { EmployeeId = employeeId });
+
+            return result is null ? NotFound() : Ok(result) as ActionResult;
+        }
+
+
+        [HttpGet(ApiRoutes.CorporateEvents.GetAllCorporateEventsOfWorkPlace)]
+        public async Task<ActionResult<GetAllCorporateEventsOfWorkPlace.CorporateEventDto>> GetAllCorporateEventsOfWorkPlace()
+        {
+            var workPlaceLeaderId = User.Claims.Single(x => x.Type == "id").Value;
+            var result = await _mediator.Send(new GetAllCorporateEventsOfWorkPlace.Query { WorkPlaceLeaderId = workPlaceLeaderId });
 
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
