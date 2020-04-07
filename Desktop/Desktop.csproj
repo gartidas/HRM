@@ -148,6 +148,12 @@
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceDataScreen.Designer.cs">
       <DependentUpon>WorkPlaceDataScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceEvaluationsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceEvaluationsScreen.Designer.cs">
+      <DependentUpon>WorkPlaceEvaluationsScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceSpecialtiesScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceDataScreen.resx">
       <DependentUpon>WorkPlaceDataScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceEvaluationsScreen.resx">
+      <DependentUpon>WorkPlaceEvaluationsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceSpecialtiesScreen.resx">
       <DependentUpon>WorkPlaceSpecialtiesScreen.cs</DependentUpon>

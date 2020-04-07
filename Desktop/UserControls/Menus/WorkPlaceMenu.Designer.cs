@@ -32,6 +32,7 @@
             this.workPlaceVacationsButton = new System.Windows.Forms.Button();
             this.workPlaceDataButton = new System.Windows.Forms.Button();
             this.workPlaceSpecialtiesButton = new System.Windows.Forms.Button();
+            this.workPlaceEvaluationsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // workPlaceCorporateEventsButton
@@ -86,12 +87,26 @@
             this.workPlaceSpecialtiesButton.UseVisualStyleBackColor = false;
             this.workPlaceSpecialtiesButton.Click += new System.EventHandler(this.workPlaceSpecialtiesButton_Click);
             // 
+            // workPlaceEvaluationsButton
+            // 
+            this.workPlaceEvaluationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.workPlaceEvaluationsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.workPlaceEvaluationsButton.ForeColor = System.Drawing.Color.White;
+            this.workPlaceEvaluationsButton.Location = new System.Drawing.Point(0, 264);
+            this.workPlaceEvaluationsButton.Name = "workPlaceEvaluationsButton";
+            this.workPlaceEvaluationsButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceEvaluationsButton.TabIndex = 9;
+            this.workPlaceEvaluationsButton.Text = "Evaluations";
+            this.workPlaceEvaluationsButton.UseVisualStyleBackColor = false;
+            this.workPlaceEvaluationsButton.Click += new System.EventHandler(this.workPlaceEvaluationsButton_Click);
+            // 
             // WorkPlaceMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.workPlaceEvaluationsButton);
             this.Controls.Add(this.workPlaceSpecialtiesButton);
             this.Controls.Add(this.workPlaceCorporateEventsButton);
             this.Controls.Add(this.workPlaceVacationsButton);
@@ -107,5 +122,6 @@
         private System.Windows.Forms.Button workPlaceVacationsButton;
         private System.Windows.Forms.Button workPlaceDataButton;
         private System.Windows.Forms.Button workPlaceSpecialtiesButton;
+        private System.Windows.Forms.Button workPlaceEvaluationsButton;
     }
 }

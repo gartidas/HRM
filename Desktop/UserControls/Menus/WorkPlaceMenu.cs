@@ -35,6 +35,11 @@ namespace Desktop.UserControls.Menus
             LoadScreen(11);
         }
 
+        private void workPlaceEvaluationsButton_Click(object sender, System.EventArgs e)
+        {
+            LoadScreen(12);
+        }
+
         private void LoadScreen(int screenNumber)
         {
             if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)

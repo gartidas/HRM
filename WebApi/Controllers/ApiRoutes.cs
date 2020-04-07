@@ -75,7 +75,8 @@
         {
             public const string CreateEvaluation = _base + "evaluations/{employeeId}/{hR_WorkerId}";
             public const string DeleteEvaluation = _base + "evaluations/{evaluationId}";
-            public const string GetAllEvaluationsOfEmployee = _base + "evaluations/{employeeId}";
+            public const string GetAllEvaluationsOfSelectedEmployee = _base + "evaluations/{employeeId}";
+            public const string GetAllEvaluationsOfEmployee = _base + "evaluations/employee";
         }
 
         public static class Bonuses

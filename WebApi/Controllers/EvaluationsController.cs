@@ -46,5 +46,13 @@ namespace WebApi.Controllers
             var result = await _mediator.Send(new GetAllEvaluationsOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
             return Ok(result);
         }
+
+        [AllowAnonymous]
+        [HttpGet(ApiRoutes.Evaluations.GetAllEvaluationsOfSelectedEmployee)]
+        public async Task<ActionResult<GetAllEvaluationsOfEmployee.EvaluationDto>> GetAllEvaluationsOfSelectedEmployee([FromRoute]string employeeId)
+        {
+            var result = await _mediator.Send(new GetAllEvaluationsOfEmployee.Query { EmployeeId = employeeId });
+            return Ok(result);
+        }
     }
 }

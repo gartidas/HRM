@@ -161,6 +161,9 @@ namespace Desktop.Forms
                         case 11:
                             ScreenPanel.Controls.Add(new WorkPlaceSpecialtiesScreen());
                             break;
+                        case 12:
+                            ScreenPanel.Controls.Add(new WorkPlaceEvaluationsScreen());
+                            break;
                         default:
                             break;
                     }

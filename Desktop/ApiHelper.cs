@@ -395,5 +395,21 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<IEnumerable<Evaluation>> GetAllEvaluationsOfEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<Evaluation> evaluations = null;
+
+            var response = await _client.GetAsync("evaluations/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                evaluations = await response.Content.ReadAsAsync<IEnumerable<Evaluation>>();
+            }
+
+            DoingStuff = false;
+            return evaluations;
+        }
     }
 }
