@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Forms\MainFormStateSingleton.cs" />
     <Compile Include="Models\Bonus.cs" />
+    <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\CorporateEventSubject.cs" />
     <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\Equipment.cs" />
@@ -135,6 +136,24 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.Designer.cs">
       <DependentUpon>VacationsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.Designer.cs">
+      <DependentUpon>CandidatesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.Designer.cs">
+      <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.Designer.cs">
+      <DependentUpon>DocumentationScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.cs">
       <SubType>UserControl</SubType>
@@ -227,6 +246,15 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.resx">
       <DependentUpon>VacationsScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.resx">
+      <DependentUpon>CandidatesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.resx">
+      <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.resx">
+      <DependentUpon>DocumentationScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.resx">
       <DependentUpon>WorkPlaceCorporateEventsScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,8 +308,6 @@
   <ItemGroup>
     <Content Include="HRM.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\FeatureScreens\StaffMenuScreens\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

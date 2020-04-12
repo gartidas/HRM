@@ -173,7 +173,7 @@
             // 
             this.maintenanceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.maintenanceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("maintenanceMenuButton.BackgroundImage")));
-            this.maintenanceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.maintenanceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.maintenanceMenuButton.Location = new System.Drawing.Point(-1, 198);
             this.maintenanceMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.maintenanceMenuButton.Name = "maintenanceMenuButton";
@@ -214,7 +214,7 @@
             // 
             this.personalMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.personalMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("personalMenuButton.BackgroundImage")));
-            this.personalMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.personalMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.personalMenuButton.Location = new System.Drawing.Point(-1, 0);
             this.personalMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.personalMenuButton.Name = "personalMenuButton";
@@ -227,7 +227,7 @@
             // 
             this.workPlaceMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.workPlaceMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("workPlaceMenuButton.BackgroundImage")));
-            this.workPlaceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.workPlaceMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.workPlaceMenuButton.Location = new System.Drawing.Point(-1, 66);
             this.workPlaceMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.workPlaceMenuButton.Name = "workPlaceMenuButton";
@@ -240,7 +240,7 @@
             // 
             this.staffMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.staffMenuButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("staffMenuButton.BackgroundImage")));
-            this.staffMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.staffMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.staffMenuButton.Location = new System.Drawing.Point(-1, 132);
             this.staffMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.staffMenuButton.Name = "staffMenuButton";

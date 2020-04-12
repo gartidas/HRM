@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
+using WebApi.Entities;
 using WebApi.Paging;
 using static WebApi.Features.Candidates.GetCandidate;
 
@@ -31,7 +32,7 @@ namespace WebApi.Features.Candidates
 
             public async Task<PagingResponse<CandidateDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var candidates = _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider);
+                var candidates = _context.Candidates.Where(x => x.Status != Status.Hired).ProjectTo<CandidateDto>(_mapper.ConfigurationProvider);
                 candidates = ApplyFiltering(request.Filter, candidates);
 
                 var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, cancellationToken);
@@ -44,9 +45,9 @@ namespace WebApi.Features.Candidates
                 if (!string.IsNullOrEmpty(filter.Email))
                     query = query.Where(x => x.Email.Contains(filter.Email));
                 if (!string.IsNullOrEmpty(filter.Specialty))
-                    query = query.Where(x => x.Specialty.Contains(filter.Specialty));
+                    query = query.Where(x => x.Specialty.ToLower().Contains(filter.Specialty.ToLower()));
                 if (!string.IsNullOrEmpty(filter.Surname))
-                    query = query.Where(x => x.Surname.Contains(filter.Surname));
+                    query = query.Where(x => x.Surname.ToLower().Contains(filter.Surname.ToLower()));
 
                 return query;
             }

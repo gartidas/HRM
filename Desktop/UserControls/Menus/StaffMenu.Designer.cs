@@ -30,7 +30,7 @@
         {
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CandidatesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button3
@@ -53,17 +53,18 @@
             this.button2.TabIndex = 10;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // CandidatesButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 60);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Staff menu";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CandidatesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.CandidatesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CandidatesButton.ForeColor = System.Drawing.Color.White;
+            this.CandidatesButton.Location = new System.Drawing.Point(0, 0);
+            this.CandidatesButton.Name = "CandidatesButton";
+            this.CandidatesButton.Size = new System.Drawing.Size(197, 60);
+            this.CandidatesButton.TabIndex = 9;
+            this.CandidatesButton.Text = "Candidates";
+            this.CandidatesButton.UseVisualStyleBackColor = false;
+            this.CandidatesButton.Click += new System.EventHandler(this.CandidatesButton_Click);
             // 
             // StaffMenu
             // 
@@ -73,7 +74,7 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CandidatesButton);
             this.Name = "StaffMenu";
             this.Size = new System.Drawing.Size(198, 838);
             this.ResumeLayout(false);
@@ -84,6 +85,6 @@
 
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CandidatesButton;
     }
 }

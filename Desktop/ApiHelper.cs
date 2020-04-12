@@ -411,5 +411,98 @@ namespace Desktop
             DoingStuff = false;
             return evaluations;
         }
+
+        public async Task<GenericGetAllResponse<Candidate>> GetAllCandidates(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"candidates?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Candidate>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<Candidate> GetSelectedCandidate(string candidateId)
+        {
+            DoingStuff = true;
+            Candidate candidate = null;
+
+            var response = await _client.GetAsync("candidates/" + candidateId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                candidate = await response.Content.ReadAsAsync<Candidate>();
+            }
+
+            DoingStuff = false;
+            return candidate;
+        }
+
+        public async Task<GenericResponse> AddCandidateAsync(string title, string name, string surname, string education, string specialty, string phoneNumber, string email, string address, double requestedSalary, int evaluation, Status status, string additionalInfo)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                title,
+                name,
+                surname,
+                education,
+                specialty,
+                phoneNumber,
+                email,
+                address,
+                requestedSalary,
+                evaluation,
+                status,
+                additionalInfo
+            };
+
+            var response = await _client.PostAsJsonAsync("candidates/", data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> EditCandidateAsync(string candidateId, string title, string name, string surname, string education, string specialty, string phoneNumber, string email, string address, double requestedSalary, int evaluation, Status status, string additionalInfo)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                title,
+                name,
+                surname,
+                education,
+                specialty,
+                phoneNumber,
+                email,
+                address,
+                requestedSalary,
+                evaluation,
+                status,
+                additionalInfo
+            };
+
+            var response = await _client.PutAsJsonAsync("candidates/" + candidateId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveCandidateAsync(string candidateId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("candidates/" + candidateId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

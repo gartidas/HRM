@@ -1,4 +1,7 @@
 ﻿using Desktop.UserControls.FeatureScreens.PersonalMenuScreens;
+using Desktop.UserControls.FeatureScreens.StaffMenuScreens;
+using Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl;
+using Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView;
 using Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens;
 using Desktop.UserControls.Menus;
 using System;
@@ -21,6 +24,8 @@ namespace Desktop.Forms
         }
 
         #region ScreenState
+        public int ScreenContentType { get; set; }
+        public string ScreenContentId { get; set; }
         public Timer ScreenTimer { get; set; }
         public bool ScreensChanging { get; set; }
         public bool ScreenHidden { get; set; }
@@ -163,6 +168,15 @@ namespace Desktop.Forms
                             break;
                         case 12:
                             ScreenPanel.Controls.Add(new WorkPlaceEvaluationsScreen());
+                            break;
+                        case 13:
+                            ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId));
+                            break;
+                        case 14:
+                            ScreenPanel.Controls.Add(new CandidatesScreen());
+                            break;
+                        case 15:
+                            ScreenPanel.Controls.Add(new CandidatesControl(ScreenContentId));
                             break;
                         default:
                             break;
