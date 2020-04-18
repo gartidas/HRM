@@ -174,7 +174,7 @@
             this.Controls.Add(this.newPasswordTextBox);
             this.Controls.Add(this.confirmPasswordTextBox);
             this.Name = "ChangePasswordScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.ResumeLayout(false);
             this.PerformLayout();
 

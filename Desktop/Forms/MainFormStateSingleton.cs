@@ -3,6 +3,7 @@ using Desktop.UserControls.FeatureScreens.StaffMenuScreens;
 using Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl;
 using Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView;
 using Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens;
+using Desktop.UserControls.FileHandling;
 using Desktop.UserControls.Menus;
 using System;
 using System.Windows.Forms;
@@ -24,7 +25,6 @@ namespace Desktop.Forms
         }
 
         #region ScreenState
-        public int ScreenContentType { get; set; }
         public string ScreenContentId { get; set; }
         public Timer ScreenTimer { get; set; }
         public bool ScreensChanging { get; set; }
@@ -170,13 +170,28 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new WorkPlaceEvaluationsScreen());
                             break;
                         case 13:
-                            ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId));
+                            ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
                             break;
                         case 14:
-                            ScreenPanel.Controls.Add(new CandidatesScreen());
+                            //ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
                             break;
                         case 15:
+                            //ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
+                            break;
+                        case 16:
+                            ScreenPanel.Controls.Add(new CandidatesScreen());
+                            break;
+                        case 17:
                             ScreenPanel.Controls.Add(new CandidatesControl(ScreenContentId));
+                            break;
+                        case 18:
+                            ScreenPanel.Controls.Add(new EmployeesScreen());
+                            break;
+                        case 19:
+                            ScreenPanel.Controls.Add(new EmployeesControl(ScreenContentId));
+                            break;
+                        case 20:
+                            ScreenPanel.Controls.Add(new HireEmployeeControl(ScreenContentId));
                             break;
                         default:
                             break;

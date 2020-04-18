@@ -8,6 +8,7 @@
         {
             public const string HireEmployee = _base + "employees/{candidateId}";
             public const string GetEmployee = _base + "employees/employee";
+            public const string GetSelectedEmployee = _base + "employees/{employeeId}";
             public const string GetAllEmployees = _base + "employees";
             public const string EditEmployee = _base + "employees/{employeeId}";
             public const string FireEmployee = _base + "employees/{employeeId}";
@@ -46,8 +47,8 @@
 
         public static class Documentation
         {
-            public const string CreateDocumentForEmployee = _base + "documentation/{employeeId}";
-            public const string CreateDocumentForCandidate = _base + "documentation/{candidateId}";
+            public const string CreateDocumentForEmployee = _base + "documentation/employee/{employeeId}";
+            public const string CreateDocumentForCandidate = _base + "documentation/candidate/{candidateId}";
             public const string DeleteDocument = _base + "documentation/{documentId}";
             public const string GetAllDocumentsOfEmployee = _base + "documentation/employee/{employeeId}";
             public const string GetAllDocumentsOfCandidate = _base + "documentation/candidate/{candidateId}";

@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
-    partial class CandidatesScreen
+    partial class EmployeesScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,41 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CandidatesScreen));
-            this.label4 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesScreen));
             this.dataPanel = new System.Windows.Forms.Panel();
             this.pagingLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.surnameFilterRadioButton = new System.Windows.Forms.RadioButton();
             this.specialtyFilterRadioButton = new System.Windows.Forms.RadioButton();
             this.emailFilterRadioButton = new System.Windows.Forms.RadioButton();
             this.filterTextBox = new System.Windows.Forms.TextBox();
-            this.candidatesListView = new System.Windows.Forms.ListView();
+            this.employeesListView = new System.Windows.Forms.ListView();
             this.pagingNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.previousPageButton = new System.Windows.Forms.Button();
             this.nextPageButton = new System.Windows.Forms.Button();
             this.controlPanel = new System.Windows.Forms.Panel();
             this.errorLabel = new System.Windows.Forms.Label();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.hireButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
+            this.fireButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagingNumericUpDown)).BeginInit();
             this.controlPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 41);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Candidates";
             // 
             // dataPanel
             // 
@@ -73,14 +59,14 @@
             this.dataPanel.Controls.Add(this.specialtyFilterRadioButton);
             this.dataPanel.Controls.Add(this.emailFilterRadioButton);
             this.dataPanel.Controls.Add(this.filterTextBox);
-            this.dataPanel.Controls.Add(this.candidatesListView);
+            this.dataPanel.Controls.Add(this.employeesListView);
             this.dataPanel.Controls.Add(this.pagingNumericUpDown);
             this.dataPanel.Controls.Add(this.previousPageButton);
             this.dataPanel.Controls.Add(this.nextPageButton);
             this.dataPanel.Location = new System.Drawing.Point(0, 0);
             this.dataPanel.Name = "dataPanel";
-            this.dataPanel.Size = new System.Drawing.Size(1156, 579);
-            this.dataPanel.TabIndex = 24;
+            this.dataPanel.Size = new System.Drawing.Size(1156, 622);
+            this.dataPanel.TabIndex = 25;
             // 
             // pagingLabel
             // 
@@ -92,6 +78,18 @@
             this.pagingLabel.Size = new System.Drawing.Size(64, 39);
             this.pagingLabel.TabIndex = 26;
             this.pagingLabel.Text = "0/1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(188, 41);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Employees";
             // 
             // surnameFilterRadioButton
             // 
@@ -142,22 +140,23 @@
             this.filterTextBox.TabIndex = 22;
             this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
-            // candidatesListView
+            // employeesListView
             // 
-            this.candidatesListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.candidatesListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.candidatesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.candidatesListView.ForeColor = System.Drawing.Color.White;
-            this.candidatesListView.FullRowSelect = true;
-            this.candidatesListView.GridLines = true;
-            this.candidatesListView.HideSelection = false;
-            this.candidatesListView.Location = new System.Drawing.Point(79, 56);
-            this.candidatesListView.Name = "candidatesListView";
-            this.candidatesListView.ShowItemToolTips = true;
-            this.candidatesListView.Size = new System.Drawing.Size(1000, 418);
-            this.candidatesListView.TabIndex = 18;
-            this.candidatesListView.UseCompatibleStateImageBehavior = false;
-            this.candidatesListView.View = System.Windows.Forms.View.List;
+            this.employeesListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.employeesListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.employeesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.employeesListView.ForeColor = System.Drawing.Color.White;
+            this.employeesListView.FullRowSelect = true;
+            this.employeesListView.GridLines = true;
+            this.employeesListView.HideSelection = false;
+            this.employeesListView.Location = new System.Drawing.Point(79, 56);
+            this.employeesListView.MultiSelect = false;
+            this.employeesListView.Name = "employeesListView";
+            this.employeesListView.ShowItemToolTips = true;
+            this.employeesListView.Size = new System.Drawing.Size(1000, 418);
+            this.employeesListView.TabIndex = 18;
+            this.employeesListView.UseCompatibleStateImageBehavior = false;
+            this.employeesListView.View = System.Windows.Forms.View.List;
             // 
             // pagingNumericUpDown
             // 
@@ -212,15 +211,13 @@
             // 
             this.controlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.controlPanel.Controls.Add(this.errorLabel);
-            this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Controls.Add(this.editButton);
-            this.controlPanel.Controls.Add(this.hireButton);
-            this.controlPanel.Controls.Add(this.addButton);
+            this.controlPanel.Controls.Add(this.fireButton);
             this.controlPanel.Controls.Add(this.label1);
-            this.controlPanel.Location = new System.Drawing.Point(0, 585);
+            this.controlPanel.Location = new System.Drawing.Point(0, 628);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(1156, 255);
-            this.controlPanel.TabIndex = 25;
+            this.controlPanel.Size = new System.Drawing.Size(1156, 212);
+            this.controlPanel.TabIndex = 26;
             // 
             // errorLabel
             // 
@@ -234,25 +231,12 @@
             this.errorLabel.Text = "error";
             this.errorLabel.Visible = false;
             // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.deleteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("deleteButton.BackgroundImage")));
-            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.deleteButton.Location = new System.Drawing.Point(895, 116);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(200, 60);
-            this.deleteButton.TabIndex = 23;
-            this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
             // editButton
             // 
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.editButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editButton.BackgroundImage")));
             this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editButton.Location = new System.Drawing.Point(615, 116);
+            this.editButton.Location = new System.Drawing.Point(615, 100);
             this.editButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(200, 60);
@@ -260,31 +244,18 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // hireButton
+            // fireButton
             // 
-            this.hireButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.hireButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hireButton.BackgroundImage")));
-            this.hireButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.hireButton.Location = new System.Drawing.Point(335, 116);
-            this.hireButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.hireButton.Name = "hireButton";
-            this.hireButton.Size = new System.Drawing.Size(200, 60);
-            this.hireButton.TabIndex = 21;
-            this.hireButton.UseVisualStyleBackColor = false;
-            this.hireButton.Click += new System.EventHandler(this.hireButton_Click);
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addButton.BackgroundImage")));
-            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addButton.Location = new System.Drawing.Point(55, 116);
-            this.addButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(200, 60);
-            this.addButton.TabIndex = 20;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.fireButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.fireButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fireButton.BackgroundImage")));
+            this.fireButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.fireButton.Location = new System.Drawing.Point(335, 100);
+            this.fireButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fireButton.Name = "fireButton";
+            this.fireButton.Size = new System.Drawing.Size(200, 60);
+            this.fireButton.TabIndex = 21;
+            this.fireButton.UseVisualStyleBackColor = false;
+            this.fireButton.Click += new System.EventHandler(this.fireButton_Click);
             // 
             // label1
             // 
@@ -294,20 +265,20 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 41);
+            this.label1.Size = new System.Drawing.Size(299, 41);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Candidates control";
+            this.label1.Text = "Employees control";
             // 
-            // CandidatesScreen
+            // EmployeesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.dataPanel);
-            this.Name = "CandidatesScreen";
+            this.Name = "EmployeesScreen";
             this.Size = new System.Drawing.Size(1156, 840);
-            this.Load += new System.EventHandler(this.CandidatesScreen_Load);
+            this.Load += new System.EventHandler(this.EmployeesScreen_Load);
             this.dataPanel.ResumeLayout(false);
             this.dataPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pagingNumericUpDown)).EndInit();
@@ -319,23 +290,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel dataPanel;
         private System.Windows.Forms.Label pagingLabel;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton surnameFilterRadioButton;
         private System.Windows.Forms.RadioButton specialtyFilterRadioButton;
         private System.Windows.Forms.RadioButton emailFilterRadioButton;
         private System.Windows.Forms.TextBox filterTextBox;
-        private System.Windows.Forms.ListView candidatesListView;
+        private System.Windows.Forms.ListView employeesListView;
         private System.Windows.Forms.NumericUpDown pagingNumericUpDown;
         private System.Windows.Forms.Button previousPageButton;
         private System.Windows.Forms.Button nextPageButton;
         private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.Button hireButton;
-        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button fireButton;
+        private System.Windows.Forms.Label label1;
     }
 }

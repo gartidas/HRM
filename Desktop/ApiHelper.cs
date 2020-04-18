@@ -504,5 +504,121 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<Employee> GetSelectedEmployeeDataAsync(string employeeId)
+        {
+            DoingStuff = true;
+            Employee employee = null;
+
+            var response = await _client.GetAsync("employees/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                employee = await response.Content.ReadAsAsync<Employee>();
+            }
+
+            DoingStuff = false;
+            return employee;
+        }
+
+
+        public async Task<List<Document>> GetAllDocumentsOfCandidate(string candidateId)
+        {
+            DoingStuff = true;
+            List<Document> documents = null;
+
+            var response = await _client.GetAsync(" documentation/candidate/" + candidateId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                documents = await response.Content.ReadAsAsync<List<Document>>();
+            }
+
+            DoingStuff = false;
+            return documents;
+        }
+
+        public async Task<GenericResponse> CreateDocumentAsync(string subjectType, string subjectId, byte[] content, string name)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                name,
+                content
+            };
+
+            var response = await _client.PostAsJsonAsync("documentation/" + subjectType + "/" + subjectId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveDocumentAsync(string documentId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("documentation/" + documentId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesAsync(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"employees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Employee>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericGetAllResponse<EmployeeWorkPlaceData>> GetAllWorkPlacesAsync(int pageNumber = 1, int pageSize = 11, string labelFilter = "", string locationFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"workPlaces?PageNumber={pageNumber}&PageSize={pageSize}&Label={labelFilter}&Location={locationFilter}");
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<EmployeeWorkPlaceData>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> HireEmployeeAsync(string candidateId, string password, string birthCertificateNumber, DateTime birthDate, string birthPlace, string citizenship, bool gender, double salary, int numberOfVacationDays, string workPlaceID, Role role, string idCardNumber, string drivingLicenceNumber, string healthInsuranceCompany, int numberOfChildren, FamilyStatus familyStatus, string nameOfTheBank, string accountNumber)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                password,
+                birthCertificateNumber,
+                birthDate,
+                birthPlace,
+                citizenship,
+                gender,
+                salary,
+                numberOfVacationDays,
+                workPlaceID,
+                role,
+                idCardNumber,
+                drivingLicenceNumber,
+                healthInsuranceCompany,
+                numberOfChildren,
+                familyStatus,
+                nameOfTheBank,
+                accountNumber
+            };
+
+            var response = await _client.PostAsJsonAsync("employees/" + candidateId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

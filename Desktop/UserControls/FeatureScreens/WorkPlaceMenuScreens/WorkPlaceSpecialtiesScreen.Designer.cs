@@ -177,7 +177,7 @@
             this.Controls.Add(this.specialtiesListView);
             this.Controls.Add(this.label1);
             this.Name = "WorkPlaceSpecialtiesScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.WorkPlaceSpecialtiesScreen_Load);
             this.legendPanel.ResumeLayout(false);
             this.legendPanel.PerformLayout();

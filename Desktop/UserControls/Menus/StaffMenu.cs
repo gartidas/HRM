@@ -10,9 +10,14 @@ namespace Desktop.UserControls.Menus
             InitializeComponent();
         }
 
-        private void CandidatesButton_Click(object sender, System.EventArgs e)
+        private void candidatesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(14);
+            LoadScreen(16);
+        }
+
+        private void employeesButton_Click(object sender, System.EventArgs e)
+        {
+            LoadScreen(18);
         }
 
         private void LoadScreen(int screenNumber)

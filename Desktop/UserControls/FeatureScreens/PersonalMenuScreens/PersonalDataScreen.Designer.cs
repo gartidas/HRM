@@ -522,7 +522,7 @@
             this.workPlaceDataPanel.Controls.Add(this.label1);
             this.workPlaceDataPanel.Location = new System.Drawing.Point(726, 0);
             this.workPlaceDataPanel.Name = "workPlaceDataPanel";
-            this.workPlaceDataPanel.Size = new System.Drawing.Size(474, 214);
+            this.workPlaceDataPanel.Size = new System.Drawing.Size(430, 214);
             this.workPlaceDataPanel.TabIndex = 1;
             // 
             // workplaceLocationLabel
@@ -606,7 +606,7 @@
             this.panel1.Controls.Add(this.label24);
             this.panel1.Location = new System.Drawing.Point(726, 220);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 620);
+            this.panel1.Size = new System.Drawing.Size(430, 620);
             this.panel1.TabIndex = 19;
             // 
             // label17
@@ -785,7 +785,7 @@
             this.Controls.Add(this.workPlaceDataPanel);
             this.Controls.Add(this.employeeDataPanel);
             this.Name = "PersonalDataScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.PersonalDataScreen_LoadAsync);
             this.employeeDataPanel.ResumeLayout(false);
             this.employeeDataPanel.PerformLayout();

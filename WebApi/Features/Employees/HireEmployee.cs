@@ -103,7 +103,7 @@ namespace WebApi.Features.Employees
                 RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
                 RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
                 RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.NumberOfChildren).Must(x => x > 0).WithMessage("Must be positive number.");
+                RuleFor(x => x.NumberOfChildren).Must(x => x >= 0).WithMessage("Must be positive number.");
                 RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number.");
             }
         }

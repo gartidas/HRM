@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 545);
+            this.panel1.Size = new System.Drawing.Size(1156, 545);
             this.panel1.TabIndex = 18;
             // 
             // warningPictureBox
@@ -120,7 +120,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(0, 551);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 289);
+            this.panel2.Size = new System.Drawing.Size(1156, 289);
             this.panel2.TabIndex = 19;
             // 
             // label3
@@ -214,7 +214,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "WorkPlaceVacationsScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.WorkPlaceVacationsScreen_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

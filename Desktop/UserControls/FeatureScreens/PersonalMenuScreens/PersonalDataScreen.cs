@@ -37,22 +37,22 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                 specialtyLabel.Text = response.Data.Specialty;
                 addressLabel.Text = response.Data.AddressOfPermanentResidence;
                 citizenshipLabel.Text = response.Data.Citizenship;
-                genderLabel.Text = response.Data.Gender ? "female" : "male";
+                genderLabel.Text = response.Data.Gender ? "Female" : "Male";
                 salaryLabel.Text = response.Data.Salary.ToString();
                 numberOfVacationsLabel.Text = response.Data.NumberOfVacationDays.ToString();
                 numberOfChildrenLabel.Text = response.Data.NumberOfChildren.ToString();
                 switch (response.Data.FamilyStatus)
                 {
-                    case 0:
+                    case Models.FamilyStatus.Single:
                         familyStatusLabel.Text = "Single";
                         break;
-                    case 1:
+                    case Models.FamilyStatus.Married:
                         familyStatusLabel.Text = "Married";
                         break;
-                    case 2:
+                    case Models.FamilyStatus.Divorced:
                         familyStatusLabel.Text = "Divorced";
                         break;
-                    case 3:
+                    case Models.FamilyStatus.Widowed:
                         familyStatusLabel.Text = "Widowed";
                         break;
                     default:

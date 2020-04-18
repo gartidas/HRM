@@ -351,7 +351,7 @@
             this.mainPanel.Controls.Add(this.manageFilesButton);
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1200, 840);
+            this.mainPanel.Size = new System.Drawing.Size(1153, 840);
             this.mainPanel.TabIndex = 48;
             // 
             // errorLabel
@@ -413,7 +413,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mainPanel);
             this.Name = "CandidatesControl";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.CandidatesControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EvaluationNumericUpDown)).EndInit();
             this.mainPanel.ResumeLayout(false);

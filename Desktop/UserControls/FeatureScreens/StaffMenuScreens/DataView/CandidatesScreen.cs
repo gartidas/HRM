@@ -126,8 +126,8 @@ Phone: {candidate.PhoneNumber}"
 
             candidatesListView.Columns[2].Width = -1;
 
-            if (candidatesListView.Columns[2].Width < 100)
-                candidatesListView.Columns[2].Width = 100;
+            if (candidatesListView.Columns[2].Width < 200)
+                candidatesListView.Columns[2].Width = 200;
 
             candidatesListView.Columns[3].Width = -1;
 
@@ -141,18 +141,18 @@ Phone: {candidate.PhoneNumber}"
 
             candidatesListView.Columns[5].Width = -1;
 
-            if (candidatesListView.Columns[5].Width < 100)
+            if (candidatesListView.Columns[5].Width < 200)
                 candidatesListView.Columns[5].Width = 200;
 
             candidatesListView.Columns[6].Width = -1;
 
-            if (candidatesListView.Columns[6].Width < 300)
-                candidatesListView.Columns[6].Width = 300;
+            if (candidatesListView.Columns[6].Width < 400)
+                candidatesListView.Columns[6].Width = 400;
 
             candidatesListView.Columns[7].Width = -1;
 
-            if (candidatesListView.Columns[7].Width < 100)
-                candidatesListView.Columns[7].Width = 200;
+            if (candidatesListView.Columns[7].Width < 250)
+                candidatesListView.Columns[7].Width = 250;
 
             candidatesListView.Columns[8].Width = -1;
 
@@ -170,12 +170,23 @@ Phone: {candidate.PhoneNumber}"
         private void addButton_Click(object sender, System.EventArgs e)
         {
             MainFormStateSingleton.Instance.ScreenContentId = default;
-            LoadScreen(15);
+            LoadScreen(17);
         }
 
         private void hireButton_Click(object sender, System.EventArgs e)
         {
-
+            if (candidatesListView.SelectedIndices.Count > 0)
+            {
+                foreach (var candidate in _candidates)
+                {
+                    if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
+                    {
+                        MainFormStateSingleton.Instance.ScreenContentId = candidate.Id;
+                        LoadScreen(20);
+                        return;
+                    }
+                }
+            }
         }
 
         private void editButton_Click(object sender, System.EventArgs e)
@@ -187,7 +198,7 @@ Phone: {candidate.PhoneNumber}"
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
                         MainFormStateSingleton.Instance.ScreenContentId = candidate.Id;
-                        LoadScreen(15);
+                        LoadScreen(17);
                         return;
                     }
                 }

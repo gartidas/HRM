@@ -106,7 +106,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             if (response.Success)
             {
-                LoadScreen(14);
+                LoadScreen(16);
             }
             else
             {
@@ -121,7 +121,6 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageFilesButton_Click(object sender, EventArgs e)
         {
-            //<--TU
             LoadScreen(13);
         }
 

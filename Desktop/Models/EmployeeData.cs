@@ -22,9 +22,17 @@ namespace Desktop.Models
         public string DrivingLicenceNumber { get; set; }
         public string HealthInsuranceCompany { get; set; }
         public int NumberOfChildren { get; set; }
-        public int FamilyStatus { get; set; }
+        public FamilyStatus FamilyStatus { get; set; }
         public string NameOfTheBank { get; set; }
         public string AccountNumber { get; set; }
-        public string Role { get; set; }
+        public Role Role { get; set; }
+    }
+
+    public enum FamilyStatus
+    {
+        Single = 0,
+        Married = 1,
+        Divorced = 2,
+        Widowed = 3
     }
 }

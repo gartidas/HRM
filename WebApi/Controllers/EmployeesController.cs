@@ -35,8 +35,15 @@ namespace WebApi.Controllers
         [HttpGet(ApiRoutes.Employees.GetEmployee)]
         public async Task<ActionResult<GetEmployee.Query>> GetEmployee()
         {
-            var userId = User.Claims.Single(x => x.Type == "id").Value;
-            var result = await _mediator.Send(new GetEmployee.Query { EmployeeId = userId });
+            var employeeId = User.Claims.Single(x => x.Type == "id").Value;
+            var result = await _mediator.Send(new GetEmployee.Query { EmployeeId = employeeId });
+            return result is null ? NotFound() : Ok(result) as ActionResult;
+        }
+
+        [HttpGet(ApiRoutes.Employees.GetSelectedEmployee)]
+        public async Task<ActionResult<GetEmployee.Query>> GetSelectedEmployee([FromRoute]string employeeId)
+        {
+            var result = await _mediator.Send(new GetEmployee.Query { EmployeeId = employeeId });
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 

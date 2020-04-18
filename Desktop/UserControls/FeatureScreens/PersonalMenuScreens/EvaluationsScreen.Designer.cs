@@ -172,7 +172,7 @@
             this.Controls.Add(this.evaluationsListView);
             this.Controls.Add(this.label4);
             this.Name = "EvaluationsScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.EvaluationsScreen_LoadAsync);
             this.legendPanel.ResumeLayout(false);
             this.legendPanel.PerformLayout();

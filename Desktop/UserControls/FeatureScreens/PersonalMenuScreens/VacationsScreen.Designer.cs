@@ -59,7 +59,7 @@
             this.planVacationPanel.Controls.Add(this.planVacationTextBox);
             this.planVacationPanel.Location = new System.Drawing.Point(0, 559);
             this.planVacationPanel.Name = "planVacationPanel";
-            this.planVacationPanel.Size = new System.Drawing.Size(1197, 281);
+            this.planVacationPanel.Size = new System.Drawing.Size(1156, 281);
             this.planVacationPanel.TabIndex = 11;
             // 
             // label3
@@ -172,7 +172,7 @@
             this.vacationsPanel.Controls.Add(this.vacationsCalendar);
             this.vacationsPanel.Location = new System.Drawing.Point(0, 0);
             this.vacationsPanel.Name = "vacationsPanel";
-            this.vacationsPanel.Size = new System.Drawing.Size(1197, 553);
+            this.vacationsPanel.Size = new System.Drawing.Size(1156, 553);
             this.vacationsPanel.TabIndex = 12;
             // 
             // label4
@@ -221,7 +221,7 @@
             this.Controls.Add(this.vacationsPanel);
             this.Controls.Add(this.planVacationPanel);
             this.Name = "VacationsScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.VacationsScreen_LoadAsync);
             this.planVacationPanel.ResumeLayout(false);
             this.planVacationPanel.PerformLayout();

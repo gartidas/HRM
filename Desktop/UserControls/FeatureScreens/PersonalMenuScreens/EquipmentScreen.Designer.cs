@@ -109,7 +109,7 @@
             this.Controls.Add(this.equipmentListView);
             this.Controls.Add(this.label4);
             this.Name = "EquipmentScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.EquipmentScreen_Load);
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();

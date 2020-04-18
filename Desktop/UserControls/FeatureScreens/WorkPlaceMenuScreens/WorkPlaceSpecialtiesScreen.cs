@@ -54,8 +54,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             specialtiesListView.Columns[2].Width = -1;
 
-            if (specialtiesListView.Columns[2].Width < 100)
-                specialtiesListView.Columns[2].Width = 100;
+            if (specialtiesListView.Columns[2].Width < 200)
+                specialtiesListView.Columns[2].Width = 200;
         }
 
         private async void addSpecialtyButton_Click(object sender, System.EventArgs e)

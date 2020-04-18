@@ -139,7 +139,7 @@
             this.workPlaceDataPanel.Controls.Add(this.label1);
             this.workPlaceDataPanel.Location = new System.Drawing.Point(0, 0);
             this.workPlaceDataPanel.Name = "workPlaceDataPanel";
-            this.workPlaceDataPanel.Size = new System.Drawing.Size(1200, 255);
+            this.workPlaceDataPanel.Size = new System.Drawing.Size(1156, 255);
             this.workPlaceDataPanel.TabIndex = 22;
             // 
             // locationLabel
@@ -218,7 +218,7 @@
             this.panel1.Controls.Add(this.nextPageButton);
             this.panel1.Location = new System.Drawing.Point(0, 261);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1197, 579);
+            this.panel1.Size = new System.Drawing.Size(1156, 579);
             this.panel1.TabIndex = 23;
             // 
             // pagingLabel
@@ -289,7 +289,7 @@
             this.Controls.Add(this.workPlaceDataPanel);
             this.Controls.Add(this.panel1);
             this.Name = "WorkPlaceDataScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.WorkPlaceDataScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pagingNumericUpDown)).EndInit();
             this.workPlaceDataPanel.ResumeLayout(false);

@@ -49,7 +49,7 @@
             this.personalDataButton.ForeColor = System.Drawing.Color.White;
             this.personalDataButton.Location = new System.Drawing.Point(0, 0);
             this.personalDataButton.Name = "personalDataButton";
-            this.personalDataButton.Size = new System.Drawing.Size(197, 60);
+            this.personalDataButton.Size = new System.Drawing.Size(198, 60);
             this.personalDataButton.TabIndex = 0;
             this.personalDataButton.Text = "Personal data";
             this.personalDataButton.UseVisualStyleBackColor = false;
@@ -62,7 +62,7 @@
             this.changePasswordButton.ForeColor = System.Drawing.Color.White;
             this.changePasswordButton.Location = new System.Drawing.Point(0, 66);
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(197, 60);
+            this.changePasswordButton.Size = new System.Drawing.Size(198, 60);
             this.changePasswordButton.TabIndex = 1;
             this.changePasswordButton.Text = "Change password";
             this.changePasswordButton.UseVisualStyleBackColor = false;
@@ -75,7 +75,7 @@
             this.vacationsButton.ForeColor = System.Drawing.Color.White;
             this.vacationsButton.Location = new System.Drawing.Point(0, 132);
             this.vacationsButton.Name = "vacationsButton";
-            this.vacationsButton.Size = new System.Drawing.Size(197, 60);
+            this.vacationsButton.Size = new System.Drawing.Size(198, 60);
             this.vacationsButton.TabIndex = 2;
             this.vacationsButton.Text = "Vacations";
             this.vacationsButton.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@
             this.corporateEventsButton.ForeColor = System.Drawing.Color.White;
             this.corporateEventsButton.Location = new System.Drawing.Point(0, 198);
             this.corporateEventsButton.Name = "corporateEventsButton";
-            this.corporateEventsButton.Size = new System.Drawing.Size(197, 60);
+            this.corporateEventsButton.Size = new System.Drawing.Size(198, 60);
             this.corporateEventsButton.TabIndex = 3;
             this.corporateEventsButton.Text = "Corporate events";
             this.corporateEventsButton.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             this.evaluationsButton.ForeColor = System.Drawing.Color.White;
             this.evaluationsButton.Location = new System.Drawing.Point(0, 264);
             this.evaluationsButton.Name = "evaluationsButton";
-            this.evaluationsButton.Size = new System.Drawing.Size(197, 60);
+            this.evaluationsButton.Size = new System.Drawing.Size(198, 60);
             this.evaluationsButton.TabIndex = 4;
             this.evaluationsButton.Text = "Evaluations";
             this.evaluationsButton.UseVisualStyleBackColor = false;
@@ -114,7 +114,7 @@
             this.bonusesButton.ForeColor = System.Drawing.Color.White;
             this.bonusesButton.Location = new System.Drawing.Point(0, 330);
             this.bonusesButton.Name = "bonusesButton";
-            this.bonusesButton.Size = new System.Drawing.Size(197, 60);
+            this.bonusesButton.Size = new System.Drawing.Size(198, 60);
             this.bonusesButton.TabIndex = 5;
             this.bonusesButton.Text = "Bonuses";
             this.bonusesButton.UseVisualStyleBackColor = false;
@@ -127,7 +127,7 @@
             this.equipmentButton.ForeColor = System.Drawing.Color.White;
             this.equipmentButton.Location = new System.Drawing.Point(0, 396);
             this.equipmentButton.Name = "equipmentButton";
-            this.equipmentButton.Size = new System.Drawing.Size(197, 60);
+            this.equipmentButton.Size = new System.Drawing.Size(198, 60);
             this.equipmentButton.TabIndex = 6;
             this.equipmentButton.Text = "Equipment";
             this.equipmentButton.UseVisualStyleBackColor = false;
@@ -208,7 +208,7 @@
             this.Controls.Add(this.changePasswordButton);
             this.Controls.Add(this.personalDataButton);
             this.Name = "PersonalMenu";
-            this.Size = new System.Drawing.Size(198, 838);
+            this.Size = new System.Drawing.Size(200, 824);
             this.ResumeLayout(false);
             this.PerformLayout();
 

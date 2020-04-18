@@ -79,7 +79,7 @@
             this.Controls.Add(this.corporateEventsCalendar);
             this.Controls.Add(this.label4);
             this.Name = "CorporateEventsScreen";
-            this.Size = new System.Drawing.Size(1200, 840);
+            this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.CorporateEventsScreen_LoadAsync);
             this.ResumeLayout(false);
             this.PerformLayout();

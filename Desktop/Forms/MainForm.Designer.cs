@@ -124,7 +124,7 @@
             this.mainPanel.Location = new System.Drawing.Point(400, 60);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1200, 839);
+            this.mainPanel.Size = new System.Drawing.Size(1156, 824);
             this.mainPanel.TabIndex = 1;
             // 
             // subMenuPanel
@@ -132,10 +132,10 @@
             this.subMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.subMenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.subMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.subMenuPanel.Location = new System.Drawing.Point(199, 60);
+            this.subMenuPanel.Location = new System.Drawing.Point(200, 60);
             this.subMenuPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subMenuPanel.Name = "subMenuPanel";
-            this.subMenuPanel.Size = new System.Drawing.Size(199, 824);
+            this.subMenuPanel.Size = new System.Drawing.Size(200, 824);
             this.subMenuPanel.TabIndex = 3;
             // 
             // menuPanel
@@ -153,7 +153,7 @@
             this.menuPanel.Location = new System.Drawing.Point(0, 60);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(199, 824);
+            this.menuPanel.Size = new System.Drawing.Size(200, 824);
             this.menuPanel.TabIndex = 2;
             // 
             // loadingPictureBox
@@ -186,11 +186,11 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.timeLabel.ForeColor = System.Drawing.Color.White;
-            this.timeLabel.Location = new System.Drawing.Point(7, 738);
+            this.timeLabel.Location = new System.Drawing.Point(10, 738);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(182, 20);
+            this.timeLabel.Size = new System.Drawing.Size(203, 24);
             this.timeLabel.TabIndex = 11;
             this.timeLabel.Text = "dd.MM.yyyy HH:mm:ss";
             this.timeLabel.Visible = false;

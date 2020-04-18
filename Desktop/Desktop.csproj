@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +50,16 @@
   <PropertyGroup>
     <ApplicationIcon>HRM.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -45,6 +69,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +102,7 @@
     <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\CorporateEventSubject.cs" />
     <Compile Include="Models\CurrentUser.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\EquipmentItem.cs" />
     <Compile Include="Models\Role.cs" />
@@ -143,11 +169,29 @@
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.Designer.cs">
       <DependentUpon>CandidatesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.Designer.cs">
+      <DependentUpon>EmployeesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.Designer.cs">
+      <DependentUpon>HireEmployeeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.Designer.cs">
       <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.Designer.cs">
+      <DependentUpon>EmployeesScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.cs">
       <SubType>UserControl</SubType>
@@ -185,6 +229,8 @@
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceVacationsScreen.Designer.cs">
       <DependentUpon>WorkPlaceVacationsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FileHandling\CandidatesFileHandler.cs" />
+    <Compile Include="UserControls\FileHandling\IFileHandler.cs" />
     <Compile Include="UserControls\Menus\MaintenanceMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -249,8 +295,17 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.resx">
       <DependentUpon>CandidatesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.resx">
+      <DependentUpon>EmployeesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.resx">
+      <DependentUpon>HireEmployeeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.resx">
       <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.resx">
+      <DependentUpon>EmployeesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.resx">
       <DependentUpon>DocumentationScreen.cs</DependentUpon>
@@ -282,6 +337,7 @@
     <EmbeddedResource Include="UserControls\Menus\WorkPlaceMenu.resx">
       <DependentUpon>WorkPlaceMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -307,6 +363,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HRM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

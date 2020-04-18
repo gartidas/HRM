@@ -42,7 +42,7 @@
             this.workPlaceCorporateEventsButton.ForeColor = System.Drawing.Color.White;
             this.workPlaceCorporateEventsButton.Location = new System.Drawing.Point(0, 132);
             this.workPlaceCorporateEventsButton.Name = "workPlaceCorporateEventsButton";
-            this.workPlaceCorporateEventsButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceCorporateEventsButton.Size = new System.Drawing.Size(198, 60);
             this.workPlaceCorporateEventsButton.TabIndex = 7;
             this.workPlaceCorporateEventsButton.Text = "Corporate events";
             this.workPlaceCorporateEventsButton.UseVisualStyleBackColor = false;
@@ -55,7 +55,7 @@
             this.workPlaceVacationsButton.ForeColor = System.Drawing.Color.White;
             this.workPlaceVacationsButton.Location = new System.Drawing.Point(0, 66);
             this.workPlaceVacationsButton.Name = "workPlaceVacationsButton";
-            this.workPlaceVacationsButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceVacationsButton.Size = new System.Drawing.Size(198, 60);
             this.workPlaceVacationsButton.TabIndex = 6;
             this.workPlaceVacationsButton.Text = "Vacations";
             this.workPlaceVacationsButton.UseVisualStyleBackColor = false;
@@ -68,7 +68,7 @@
             this.workPlaceDataButton.ForeColor = System.Drawing.Color.White;
             this.workPlaceDataButton.Location = new System.Drawing.Point(0, 0);
             this.workPlaceDataButton.Name = "workPlaceDataButton";
-            this.workPlaceDataButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceDataButton.Size = new System.Drawing.Size(198, 60);
             this.workPlaceDataButton.TabIndex = 5;
             this.workPlaceDataButton.Text = "Workplace";
             this.workPlaceDataButton.UseVisualStyleBackColor = false;
@@ -81,7 +81,7 @@
             this.workPlaceSpecialtiesButton.ForeColor = System.Drawing.Color.White;
             this.workPlaceSpecialtiesButton.Location = new System.Drawing.Point(0, 198);
             this.workPlaceSpecialtiesButton.Name = "workPlaceSpecialtiesButton";
-            this.workPlaceSpecialtiesButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceSpecialtiesButton.Size = new System.Drawing.Size(198, 60);
             this.workPlaceSpecialtiesButton.TabIndex = 8;
             this.workPlaceSpecialtiesButton.Text = "Specialties";
             this.workPlaceSpecialtiesButton.UseVisualStyleBackColor = false;
@@ -94,7 +94,7 @@
             this.workPlaceEvaluationsButton.ForeColor = System.Drawing.Color.White;
             this.workPlaceEvaluationsButton.Location = new System.Drawing.Point(0, 264);
             this.workPlaceEvaluationsButton.Name = "workPlaceEvaluationsButton";
-            this.workPlaceEvaluationsButton.Size = new System.Drawing.Size(197, 60);
+            this.workPlaceEvaluationsButton.Size = new System.Drawing.Size(198, 60);
             this.workPlaceEvaluationsButton.TabIndex = 9;
             this.workPlaceEvaluationsButton.Text = "Evaluations";
             this.workPlaceEvaluationsButton.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             this.Controls.Add(this.workPlaceVacationsButton);
             this.Controls.Add(this.workPlaceDataButton);
             this.Name = "WorkPlaceMenu";
-            this.Size = new System.Drawing.Size(198, 838);
+            this.Size = new System.Drawing.Size(200, 824);
             this.ResumeLayout(false);
 
         }
