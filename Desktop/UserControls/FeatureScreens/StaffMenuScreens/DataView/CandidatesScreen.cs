@@ -209,6 +209,11 @@ Phone: {candidate.PhoneNumber}"
         {
             if (candidatesListView.SelectedIndices.Count > 0)
             {
+                ConfirmForm confirmForm = new ConfirmForm(MainFormStateSingleton.Instance.MainForm, false);
+
+                if (confirmForm.ShowDialog() != DialogResult.OK)
+                    return;
+
                 foreach (var candidate in _candidates)
                 {
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)

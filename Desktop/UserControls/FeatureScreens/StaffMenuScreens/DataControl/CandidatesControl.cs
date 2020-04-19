@@ -55,7 +55,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             {
                 manageFilesButton.Visible = true;
                 var result = await ApiHelper.Instance.GetSelectedCandidate(_id);
-                LoadData(result);
+                if (result != null)
+                    LoadData(result);
             }
         }
 

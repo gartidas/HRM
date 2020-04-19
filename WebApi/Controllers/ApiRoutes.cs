@@ -6,12 +6,12 @@
 
         public static class Employees
         {
-            public const string HireEmployee = _base + "employees/{candidateId}";
+            public const string HireEmployee = _base + "employees/hire/{candidateId}";
             public const string GetEmployee = _base + "employees/employee";
             public const string GetSelectedEmployee = _base + "employees/{employeeId}";
             public const string GetAllEmployees = _base + "employees";
             public const string EditEmployee = _base + "employees/{employeeId}";
-            public const string FireEmployee = _base + "employees/{employeeId}";
+            public const string FireEmployee = _base + "employees/fire/{employeeId}";
         }
 
         public static class Users

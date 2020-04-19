@@ -522,7 +522,7 @@ namespace Desktop
         }
 
 
-        public async Task<List<Document>> GetAllDocumentsOfCandidate(string candidateId)
+        public async Task<List<Document>> GetAllDocumentsOfCandidateAsync(string candidateId)
         {
             DoingStuff = true;
             List<Document> documents = null;
@@ -614,7 +614,76 @@ namespace Desktop
                 accountNumber
             };
 
-            var response = await _client.PostAsJsonAsync("employees/" + candidateId, data);
+            var response = await _client.PostAsJsonAsync("employees/hire/" + candidateId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> FireEmployeeAsync(string employeeId, string terminationReason, DateTime terminationDate)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                terminationReason,
+                terminationDate
+            };
+
+            var response = await _client.PostAsJsonAsync("employees/fire/" + employeeId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<List<Document>> GetAllDocumentsOfEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            List<Document> documents = null;
+
+            var response = await _client.GetAsync(" documentation/employee/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                documents = await response.Content.ReadAsAsync<List<Document>>();
+            }
+
+            DoingStuff = false;
+            return documents;
+        }
+
+        public async Task<GenericResponse> EditEmployeeAsync(string employeeId, string title, string name, string surname, string emailAddress, string phoneNumber, string specialty, string addressOfPermanentResidence, string birthCertificateNumber, DateTime birthDate, string birthPlace, string citizenship, bool gender, double salary, int numberOfVacationDays, string workPlaceID, Role role, string idCardNumber, string drivingLicenceNumber, string healthInsuranceCompany, int numberOfChildren, FamilyStatus familyStatus, string nameOfTheBank, string accountNumber)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                title,
+                name,
+                surname,
+                emailAddress,
+                phoneNumber,
+                birthCertificateNumber,
+                birthDate,
+                birthPlace,
+                specialty,
+                addressOfPermanentResidence,
+                citizenship,
+                gender,
+                salary,
+                numberOfVacationDays,
+                workPlaceID,
+                role,
+                idCardNumber,
+                drivingLicenceNumber,
+                healthInsuranceCompany,
+                numberOfChildren,
+                familyStatus,
+                nameOfTheBank,
+                accountNumber
+            };
+
+            var response = await _client.PutAsJsonAsync("employees/" + employeeId, data);
             var result = await response.Content.ReadAsAsync<GenericResponse>();
 
             DoingStuff = false;

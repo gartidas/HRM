@@ -1,5 +1,7 @@
-﻿using Desktop.Models;
+﻿using Desktop.Forms;
+using Desktop.Models;
 using Desktop.Responses;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +47,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             employeesListView.Columns.Add(new ColumnHeader { Name = "Specialty", TextAlign = HorizontalAlignment.Center, Text = "Specialty" });
             employeesListView.Columns.Add(new ColumnHeader { Name = "Birthday", TextAlign = HorizontalAlignment.Center, Text = "Birthday" });
             employeesListView.Columns.Add(new ColumnHeader { Name = "Address", TextAlign = HorizontalAlignment.Center, Text = "Address" });
+            employeesListView.Columns.Add(new ColumnHeader { Name = "Email", TextAlign = HorizontalAlignment.Center, Text = "Email" });
 
             employeesListView.View = View.Details;
 
@@ -66,6 +69,7 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.BirthDate.Day}.{employee.Data.BirthDate.Month}.{employee.Data.BirthDate.Year}"));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.AddressOfPermanentResidence));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.EmailAddress));
 
                     employeesListView.Items.Add(item);
                 }
@@ -95,6 +99,8 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
 
             if (employeesListView.Columns[5].Width < 200)
                 employeesListView.Columns[5].Width = 200;
+
+            employeesListView.Columns[6].Width = 0;
         }
 
         private async void pagingNumericUpDown_ValueChanged(object sender, System.EventArgs e)
@@ -130,11 +136,46 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
             await LoadEmployeesAsync();
         }
 
-        private void fireButton_Click(object sender, System.EventArgs e)
+        private async void fireButton_Click(object sender, System.EventArgs e)
         {
             if (employeesListView.SelectedIndices.Count > 0)
             {
+                string employeeId = default;
 
+                foreach (var employee in _employees)
+                {
+                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text)
+                        employeeId = employee.ID;
+                }
+
+                if (employeeId == default)
+                    return;
+
+                string reason = default;
+                ConfirmForm confirmForm = new ConfirmForm(MainFormStateSingleton.Instance.MainForm, true);
+
+                if (confirmForm.ShowDialog() == DialogResult.OK)
+                    reason = confirmForm.Input;
+
+
+                if (reason == default)
+                    return;
+
+                var result = await ApiHelper.Instance.FireEmployeeAsync(employeeId, reason, DateTime.Now);
+
+                if (result.Success)
+                {
+                    errorLabel.Visible = false;
+                    _currentPageNumber = 1;
+                    await LoadEmployeesAsync();
+                }
+
+                errorLabel.Text = "";
+                foreach (var error in result.Errors)
+                {
+                    errorLabel.Text += error;
+                }
+                errorLabel.Visible = true;
             }
         }
 
@@ -142,7 +183,33 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
         {
             if (employeesListView.SelectedIndices.Count > 0)
             {
+                foreach (var employee in _employees)
+                {
+                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text)
+                    {
+                        MainFormStateSingleton.Instance.ScreenContentId = employee.ID;
+                        LoadScreen(19);
+                        return;
+                    }
+                }
+            }
+        }
 
+        private void LoadScreen(int screenNumber)
+        {
+            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
+            {
+                if (MainFormStateSingleton.Instance.ScreenHidden)
+                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
+
+                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
+                    MainFormStateSingleton.Instance.ScreenTimer.Start();
+                else
+                {
+                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
+                    MainFormStateSingleton.Instance.ScreensChanging = true;
+                    MainFormStateSingleton.Instance.ScreenTimer.Start();
+                }
             }
         }
     }

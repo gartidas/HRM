@@ -25,6 +25,8 @@ namespace Desktop.Forms
         }
 
         #region ScreenState
+        public int LastLoadedScreen { get; set; }
+        public Form MainForm { get; set; }
         public string ScreenContentId { get; set; }
         public Timer ScreenTimer { get; set; }
         public bool ScreensChanging { get; set; }
@@ -173,7 +175,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
                             break;
                         case 14:
-                            //ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
+                            ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new EmployeesFileHandler()));
                             break;
                         case 15:
                             //ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
@@ -182,12 +184,14 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new CandidatesScreen());
                             break;
                         case 17:
+                            LastLoadedScreen = 17;
                             ScreenPanel.Controls.Add(new CandidatesControl(ScreenContentId));
                             break;
                         case 18:
                             ScreenPanel.Controls.Add(new EmployeesScreen());
                             break;
                         case 19:
+                            LastLoadedScreen = 19;
                             ScreenPanel.Controls.Add(new EmployeesControl(ScreenContentId));
                             break;
                         case 20:

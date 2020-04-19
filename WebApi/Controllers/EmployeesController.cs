@@ -62,14 +62,13 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
-        [HttpDelete(ApiRoutes.Employees.FireEmployee)]
-        public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromRoute]string hR_WorkerId, [FromBody]FireEmployee.Command command)
+        [HttpPost(ApiRoutes.Employees.FireEmployee)]
+        public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromBody]FireEmployee.Command command)
         {
             command.EmployeeId = employeeId;
-            command.HR_WorkerID = hR_WorkerId;
+            command.HR_WorkerID = User.Claims.Single(x => x.Type == "id").Value;
             var result = await _mediator.Send(command);
-            if (!result.Success) return BadRequest(result);
-            return Ok(result);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
     }
 }

@@ -34,8 +34,6 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 }
             }
 
-
-
             birthDateMonthCalendar.MaxDate = DateTime.Now.Date.AddDays(-1);
             birthDateMonthCalendar.SetDate(DateTime.Now.Date.AddDays(-1));
         }

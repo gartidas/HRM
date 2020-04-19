@@ -5,24 +5,24 @@ using System.Threading.Tasks;
 
 namespace Desktop.UserControls.FileHandling
 {
-    class CandidatesFileHandler : IFileHandler
+    class EmployeesFileHandler : IFileHandler
     {
+        public async Task<List<Document>> LoadFilesAsync(string subjectId)
+        {
+            var result = await ApiHelper.Instance.GetAllDocumentsOfEmployeeAsync(subjectId);
+            return result;
+        }
+
         public async Task<string> LoadSubjectEmailAsync(string subjectId)
         {
-            var result = await ApiHelper.Instance.GetSelectedCandidate(subjectId);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(subjectId);
 
             if (result != null)
             {
-                return result.Email;
+                return result.Data.EmailAddress;
             }
 
             return default;
-        }
-
-        public async Task<List<Document>> LoadFilesAsync(string subjectId)
-        {
-            var result = await ApiHelper.Instance.GetAllDocumentsOfCandidateAsync(subjectId);
-            return result;
         }
 
         public async Task<AlternativeGenericResponse> RemoveFileAsync(string documentId)
@@ -33,7 +33,7 @@ namespace Desktop.UserControls.FileHandling
 
         public async Task<GenericResponse> UploadFileAsync(string subjectId, byte[] content, string name)
         {
-            var result = await ApiHelper.Instance.CreateDocumentAsync("candidate", subjectId, content, name);
+            var result = await ApiHelper.Instance.CreateDocumentAsync("employee", subjectId, content, name);
             return result;
         }
     }

@@ -43,6 +43,7 @@ namespace Desktop
             _toolTip.SetToolTip(logOutButton, "Log out");
             _toolTip.SetToolTip(minimizeButton, "Minimize");
             _toolTip.SetToolTip(closeButton, "Close");
+            MainFormStateSingleton.Instance.MainForm = this;
             MainFormStateSingleton.Instance.MenuPanel = subMenuPanel;
             MainFormStateSingleton.Instance.ScreenPanel = mainPanel;
             MainFormStateSingleton.Instance.MenuWidth = subMenuPanel.Width;

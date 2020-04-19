@@ -93,6 +93,11 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
         {
             if (documentationListView.SelectedIndices.Count > 0)
             {
+                ConfirmForm confirmForm = new ConfirmForm(MainFormStateSingleton.Instance.MainForm, false);
+
+                if (confirmForm.ShowDialog() != DialogResult.OK)
+                    return;
+
                 var response = await _fileHandler.RemoveFileAsync(documentationListView.SelectedItems[0].SubItems[1].Text);
 
                 if (response.Success)
@@ -158,7 +163,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
         private void doneButton_Click(object sender, EventArgs e)
         {
-            LoadScreen(17);
+            LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
         }
 
         private void LoadScreen(int screenNumber)
