@@ -168,6 +168,7 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
                     errorLabel.Visible = false;
                     _currentPageNumber = 1;
                     await LoadEmployeesAsync();
+                    return;
                 }
 
                 errorLabel.Text = "";

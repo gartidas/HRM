@@ -412,11 +412,11 @@ namespace Desktop
             return evaluations;
         }
 
-        public async Task<GenericGetAllResponse<Candidate>> GetAllCandidates(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "")
+        public async Task<GenericGetAllResponse<Candidate>> GetAllCandidates(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", bool hiredFilter = false)
         {
             DoingStuff = true;
 
-            var response = await _client.GetAsync($"candidates?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
+            var response = await _client.GetAsync($"candidates?PageNumber={pageNumber}&PageSize={pageSize}&Hired={hiredFilter}&Email={emailFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
             var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Candidate>>();
 
             DoingStuff = false;
@@ -688,6 +688,63 @@ namespace Desktop
 
             DoingStuff = false;
             return result;
+        }
+
+        public async Task<GenericGetAllResponse<FormerEmployee>> GetAllFormerEmployeesAsync(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"formerEmployees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<FormerEmployee>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<FormerEmployee> GetSelectedFormerEmployeeAsync(string formerEmployeeId)
+        {
+            DoingStuff = true;
+            FormerEmployee employee = null;
+
+            var response = await _client.GetAsync("formerEmployees/" + formerEmployeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                employee = await response.Content.ReadAsAsync<FormerEmployee>();
+            }
+
+            DoingStuff = false;
+            return employee;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveFormerEmployeeAsync(string formerEmployeeId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("formerEmployees/" + formerEmployeeId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<List<Document>> GetAllDocumentsOfFormerEmployeeAsync(string formerEmployeeId)
+        {
+            DoingStuff = true;
+            List<Document> documents = null;
+
+            var response = await _client.GetAsync(" documentation/formerEmployee/" + formerEmployeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                documents = await response.Content.ReadAsAsync<List<Document>>();
+            }
+
+            DoingStuff = false;
+            return documents;
         }
     }
 }

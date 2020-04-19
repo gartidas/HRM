@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
@@ -36,10 +36,15 @@ namespace WebApi.Features.Employees
 
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var employee = await _userManager.FindByIdAsync(request.EmployeeId);
+                var employee = await _context.Users.FindAsync(request.EmployeeId);
                 var hr_worker = await _context.HR_Workers.FindAsync(request.HR_WorkerID);
-                var roleString = (await _userManager.GetRolesAsync(employee)).Single();
-                var emp = await _context.Employees.FindAsync(request.EmployeeId);
+                var emp = await _context.Employees.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
+
+                if (employee == null)
+                    return new GenericResponse { Success = false, Errors = new[] { "Employee not found." } };
+                if (hr_worker == null)
+                    return new GenericResponse { Success = false, Errors = new[] { "HR worker not found." } };
+
                 var documentation = emp.Documentation;
 
                 var formerEmployee = new FormerEmployee
@@ -64,14 +69,26 @@ namespace WebApi.Features.Employees
                     TerminationReason = request.TerminationReason,
                     TerminationDate = request.TerminationDate
                 };
-                await _context.AddAsync(formerEmployee, cancellationToken);
-                var result = await _userManager.DeleteAsync(employee);
+
+                _context.FormerEmployees.Add(formerEmployee);
+                _context.SaveChanges();
+
+                if (documentation != null)
+                {
+                    foreach (var document in documentation)
+                    {
+                        document.EmployeeID = null;
+                    }
+                }
+
+                _context.Employees.Remove(emp);
+                _context.SaveChanges();
 
                 return new GenericResponse
                 {
-                    Success = result.Succeeded,
-                    Errors = result.Errors?.Select(x => x.Description)
+                    Success = true
                 };
+
             }
         }
     }

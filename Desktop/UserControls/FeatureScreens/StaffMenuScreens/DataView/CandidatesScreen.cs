@@ -25,11 +25,11 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             GenericGetAllResponse<Candidate> response = null;
 
             if (emailFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
             else if (specialtyFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
             else if (surnameFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
 
             _numberOfPages = response.Pages;
             _currentPageNumber = response.PageNumber;
@@ -63,6 +63,12 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             if (_currentPageNumber >= _numberOfPages) return;
 
             _currentPageNumber++;
+            await LoadCandidatesAsync();
+        }
+
+        private async void hiredCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _currentPageNumber = 1;
             await LoadCandidatesAsync();
         }
 
@@ -113,8 +119,11 @@ Phone: {candidate.PhoneNumber}"
 
                     if (!string.IsNullOrEmpty(candidate.AdditionalInfo))
                         item.SubItems.Add(new ListViewItem.ListViewSubItem(item, candidate.AdditionalInfo));
+                    else
+                        item.SubItems.Add("");
 
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, candidate.Email));
+
                     candidatesListView.Items.Add(item);
                 }
             }
@@ -156,7 +165,7 @@ Phone: {candidate.PhoneNumber}"
 
             candidatesListView.Columns[8].Width = -1;
 
-            if (candidatesListView.Columns[8].Width < 100)
+            if (candidatesListView.Columns[8].Width < 200)
                 candidatesListView.Columns[8].Width = 200;
 
             candidatesListView.Columns[9].Width = -1;

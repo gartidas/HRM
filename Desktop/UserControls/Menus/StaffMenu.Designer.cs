@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
+            this.formerEmployeesButton = new System.Windows.Forms.Button();
             this.employeesButton = new System.Windows.Forms.Button();
             this.candidatesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button3
+            // formerEmployeesButton
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(0, 132);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(198, 60);
-            this.button3.TabIndex = 11;
-            this.button3.UseVisualStyleBackColor = false;
+            this.formerEmployeesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.formerEmployeesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.formerEmployeesButton.ForeColor = System.Drawing.Color.White;
+            this.formerEmployeesButton.Location = new System.Drawing.Point(0, 132);
+            this.formerEmployeesButton.Name = "formerEmployeesButton";
+            this.formerEmployeesButton.Size = new System.Drawing.Size(198, 60);
+            this.formerEmployeesButton.TabIndex = 11;
+            this.formerEmployeesButton.Text = "Former employees";
+            this.formerEmployeesButton.UseVisualStyleBackColor = false;
+            this.formerEmployeesButton.Click += new System.EventHandler(this.formerEmployeesButton_Click);
             // 
             // employeesButton
             // 
@@ -75,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.formerEmployeesButton);
             this.Controls.Add(this.employeesButton);
             this.Controls.Add(this.candidatesButton);
             this.Name = "StaffMenu";
@@ -86,7 +89,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button formerEmployeesButton;
         private System.Windows.Forms.Button employeesButton;
         private System.Windows.Forms.Button candidatesButton;
     }

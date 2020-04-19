@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.documentationListView = new System.Windows.Forms.ListView();
             this.controlPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.sizeLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
             this.downloadButton = new System.Windows.Forms.Button();
@@ -76,8 +76,7 @@
             // controlPanel
             // 
             this.controlPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.controlPanel.Controls.Add(this.label3);
-            this.controlPanel.Controls.Add(this.errorLabel);
+            this.controlPanel.Controls.Add(this.sizeLabel);
             this.controlPanel.Controls.Add(this.deleteButton);
             this.controlPanel.Controls.Add(this.downloadButton);
             this.controlPanel.Controls.Add(this.uploadButton);
@@ -87,23 +86,23 @@
             this.controlPanel.Size = new System.Drawing.Size(700, 255);
             this.controlPanel.TabIndex = 26;
             // 
-            // label3
+            // sizeLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(44, 207);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(609, 39);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "(size of a file can\'t be bigger than 2 GB)";
+            this.sizeLabel.AutoSize = true;
+            this.sizeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sizeLabel.ForeColor = System.Drawing.Color.White;
+            this.sizeLabel.Location = new System.Drawing.Point(44, 207);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(609, 39);
+            this.sizeLabel.TabIndex = 28;
+            this.sizeLabel.Text = "(size of a file can\'t be bigger than 2 GB)";
             // 
             // errorLabel
             // 
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(3, 53);
+            this.errorLabel.Location = new System.Drawing.Point(264, 0);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(88, 39);
             this.errorLabel.TabIndex = 24;
@@ -194,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.doneButton);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.controlPanel);
             this.Controls.Add(this.documentationListView);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.Button uploadButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label sizeLabel;
         private System.Windows.Forms.Button doneButton;
     }
 }

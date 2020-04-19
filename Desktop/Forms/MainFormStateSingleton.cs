@@ -178,7 +178,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new EmployeesFileHandler()));
                             break;
                         case 15:
-                            //ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
+                            ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new FormerEmployeesFileHandler()));
                             break;
                         case 16:
                             ScreenPanel.Controls.Add(new CandidatesScreen());
@@ -196,6 +196,13 @@ namespace Desktop.Forms
                             break;
                         case 20:
                             ScreenPanel.Controls.Add(new HireEmployeeControl(ScreenContentId));
+                            break;
+                        case 21:
+                            ScreenPanel.Controls.Add(new FormerEmployeesScreen());
+                            break;
+                        case 22:
+                            LastLoadedScreen = 22;
+                            ScreenPanel.Controls.Add(new FormerEmployeeLookUpScreen(ScreenContentId));
                             break;
                         default:
                             break;

@@ -32,7 +32,7 @@ namespace WebApi.Features.Candidates
 
             public async Task<PagingResponse<CandidateDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var candidates = _context.Candidates.Where(x => x.Status != Status.Hired).ProjectTo<CandidateDto>(_mapper.ConfigurationProvider);
+                var candidates = _context.Candidates.ProjectTo<CandidateDto>(_mapper.ConfigurationProvider);
                 candidates = ApplyFiltering(request.Filter, candidates);
 
                 var pagedContent = await PagingLogic.GetPagedContent(candidates, request.PagingReferences, cancellationToken);
@@ -42,6 +42,8 @@ namespace WebApi.Features.Candidates
 
             private IQueryable<CandidateDto> ApplyFiltering(Filter filter, IQueryable<CandidateDto> query)
             {
+                if (!filter.Hired)
+                    query = query.Where(x => x.Status != Status.Hired);
                 if (!string.IsNullOrEmpty(filter.Email))
                     query = query.Where(x => x.Email.Contains(filter.Email));
                 if (!string.IsNullOrEmpty(filter.Specialty))
@@ -55,6 +57,7 @@ namespace WebApi.Features.Candidates
 
         public class Filter
         {
+            public bool Hired { get; set; }
             public string Email { get; set; }
             public string Specialty { get; set; }
             public string Surname { get; set; }

@@ -20,6 +20,11 @@ namespace Desktop.UserControls.Menus
             LoadScreen(18);
         }
 
+        private void formerEmployeesButton_Click(object sender, System.EventArgs e)
+        {
+            LoadScreen(21);
+        }
+
         private void LoadScreen(int screenNumber)
         {
             if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)

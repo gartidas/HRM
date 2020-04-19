@@ -21,6 +21,12 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
             InitializeComponent();
             _subjectId = subjectId;
             _fileHandler = fileHandler;
+            if (_fileHandler is FormerEmployeesFileHandler)
+            {
+                uploadButton.Visible = false;
+                deleteButton.Visible = false;
+                sizeLabel.Visible = false;
+            }
             _filter = @"All Files|*.txt;*.docx;*.doc;*.pdf*.xls;*.xlsx;*.pptx;*.ppt|Text File (.txt)|*.txt|Word File (.docx ,.doc)|*.docx;*.doc|PDF (.pdf)|*.pdf|Spreadsheet (.xls ,.xlsx)|  *.xls ;*.xlsx|Presentation (.pptx ,.ppt)|*.pptx;*.ppt";
         }
 
