@@ -82,6 +82,7 @@ namespace WebApi.Features.Employees
                 }
 
                 _context.Employees.Remove(emp);
+                _context.Users.Remove(employee);
                 _context.SaveChanges();
 
                 return new GenericResponse

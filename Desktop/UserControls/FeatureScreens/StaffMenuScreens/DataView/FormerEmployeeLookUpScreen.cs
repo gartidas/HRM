@@ -49,6 +49,12 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             _toolTipText = $@"Terminated by: {formerEmployee.HR_Worker.Email}
 Terminated on: {formerEmployee.TerminationDate}
 Termination reason: {formerEmployee.TerminationReason}";
+
+            foreach (var control in mainPanel.Controls)
+            {
+                if (control is Label)
+                    ((Label)control).Visible = true;
+            }
         }
 
         private void terminatedLabel_MouseEnter(object sender, System.EventArgs e)

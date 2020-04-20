@@ -60,8 +60,8 @@
             this.addressLabel = new System.Windows.Forms.Label();
             this.genderLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             this.terminatedLabel.Size = new System.Drawing.Size(189, 39);
             this.terminatedLabel.TabIndex = 22;
             this.terminatedLabel.Text = "Terminated";
+            this.terminatedLabel.Visible = false;
             this.terminatedLabel.MouseEnter += new System.EventHandler(this.terminatedLabel_MouseEnter);
             this.terminatedLabel.MouseLeave += new System.EventHandler(this.terminatedLabel_MouseLeave);
             // 
@@ -257,6 +258,7 @@
             this.titleLabel.Size = new System.Drawing.Size(53, 29);
             this.titleLabel.TabIndex = 94;
             this.titleLabel.Text = "title";
+            this.titleLabel.Visible = false;
             // 
             // nameLabel
             // 
@@ -268,6 +270,7 @@
             this.nameLabel.Size = new System.Drawing.Size(77, 29);
             this.nameLabel.TabIndex = 95;
             this.nameLabel.Text = "name";
+            this.nameLabel.Visible = false;
             // 
             // surnameLabel
             // 
@@ -279,6 +282,7 @@
             this.surnameLabel.Size = new System.Drawing.Size(112, 29);
             this.surnameLabel.TabIndex = 96;
             this.surnameLabel.Text = "surname";
+            this.surnameLabel.Visible = false;
             // 
             // emailLabel
             // 
@@ -290,6 +294,7 @@
             this.emailLabel.Size = new System.Drawing.Size(75, 29);
             this.emailLabel.TabIndex = 97;
             this.emailLabel.Text = "email";
+            this.emailLabel.Visible = false;
             // 
             // phoneLabel
             // 
@@ -301,6 +306,7 @@
             this.phoneLabel.Size = new System.Drawing.Size(83, 29);
             this.phoneLabel.TabIndex = 98;
             this.phoneLabel.Text = "phone";
+            this.phoneLabel.Visible = false;
             // 
             // specialtyLabel
             // 
@@ -312,6 +318,7 @@
             this.specialtyLabel.Size = new System.Drawing.Size(113, 29);
             this.specialtyLabel.TabIndex = 99;
             this.specialtyLabel.Text = "specialty";
+            this.specialtyLabel.Visible = false;
             // 
             // birthdateLabel
             // 
@@ -323,6 +330,7 @@
             this.birthdateLabel.Size = new System.Drawing.Size(111, 29);
             this.birthdateLabel.TabIndex = 100;
             this.birthdateLabel.Text = "birthdate";
+            this.birthdateLabel.Visible = false;
             // 
             // BCRLabel
             // 
@@ -334,6 +342,7 @@
             this.BCRLabel.Size = new System.Drawing.Size(66, 29);
             this.BCRLabel.TabIndex = 101;
             this.BCRLabel.Text = "BCR";
+            this.BCRLabel.Visible = false;
             // 
             // birthplaceLabel
             // 
@@ -345,6 +354,7 @@
             this.birthplaceLabel.Size = new System.Drawing.Size(123, 29);
             this.birthplaceLabel.TabIndex = 102;
             this.birthplaceLabel.Text = "birthplace";
+            this.birthplaceLabel.Visible = false;
             // 
             // citizenshipLabel
             // 
@@ -356,6 +366,7 @@
             this.citizenshipLabel.Size = new System.Drawing.Size(133, 29);
             this.citizenshipLabel.TabIndex = 103;
             this.citizenshipLabel.Text = "citizenship";
+            this.citizenshipLabel.Visible = false;
             // 
             // salaryLabel
             // 
@@ -367,6 +378,7 @@
             this.salaryLabel.Size = new System.Drawing.Size(81, 29);
             this.salaryLabel.TabIndex = 104;
             this.salaryLabel.Text = "salary";
+            this.salaryLabel.Visible = false;
             // 
             // numberofvacationdaysLabel
             // 
@@ -378,6 +390,7 @@
             this.numberofvacationdaysLabel.Size = new System.Drawing.Size(269, 29);
             this.numberofvacationdaysLabel.TabIndex = 105;
             this.numberofvacationdaysLabel.Text = "numberofvacationdays";
+            this.numberofvacationdaysLabel.Visible = false;
             // 
             // addressLabel
             // 
@@ -389,6 +402,7 @@
             this.addressLabel.Size = new System.Drawing.Size(103, 29);
             this.addressLabel.TabIndex = 106;
             this.addressLabel.Text = "address";
+            this.addressLabel.Visible = false;
             // 
             // genderLabel
             // 
@@ -400,6 +414,7 @@
             this.genderLabel.Size = new System.Drawing.Size(91, 29);
             this.genderLabel.TabIndex = 107;
             this.genderLabel.Text = "gender";
+            this.genderLabel.Visible = false;
             // 
             // mainPanel
             // 
@@ -441,6 +456,18 @@
             this.mainPanel.Size = new System.Drawing.Size(1156, 840);
             this.mainPanel.TabIndex = 23;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(836, 2);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(122, 39);
+            this.label9.TabIndex = 109;
+            this.label9.Text = "Status:";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -454,18 +481,6 @@
             this.label8.Size = new System.Drawing.Size(285, 41);
             this.label8.TabIndex = 108;
             this.label8.Text = "Former employee";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(836, 2);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(122, 39);
-            this.label9.TabIndex = 109;
-            this.label9.Text = "Status:";
             // 
             // FormerEmployeeLookUpScreen
             // 
