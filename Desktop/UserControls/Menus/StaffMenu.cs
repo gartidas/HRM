@@ -1,4 +1,4 @@
-﻿using Desktop.Forms;
+﻿using Desktop.Utils;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.Menus
@@ -12,35 +12,22 @@ namespace Desktop.UserControls.Menus
 
         private void candidatesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(16);
+            ScreenLoading.LoadScreen(16);
         }
 
         private void employeesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(18);
+            ScreenLoading.LoadScreen(18);
         }
 
         private void formerEmployeesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(21);
+            ScreenLoading.LoadScreen(21);
         }
 
-        private void LoadScreen(int screenNumber)
+        private void corporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(23);
         }
     }
 }

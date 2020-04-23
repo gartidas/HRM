@@ -1,5 +1,5 @@
-﻿using Desktop.Forms;
-using Desktop.Models;
+﻿using Desktop.Models;
+using Desktop.Utils;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -69,25 +69,7 @@ Termination reason: {formerEmployee.TerminationReason}";
 
         private void manageFilesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(15);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(15);
         }
     }
 }

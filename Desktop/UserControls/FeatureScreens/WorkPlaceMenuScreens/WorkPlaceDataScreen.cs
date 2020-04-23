@@ -73,11 +73,11 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             GenericGetAllResponse<Employee> response = null;
 
             if (emailFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, _currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllEmployeesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text, workPlaceIdFilter: _id);
             else if (specialtyFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, _currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllEmployeesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text, workPlaceIdFilter: _id);
             else if (surnameFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, _currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text);
+                response = await ApiHelper.Instance.GetAllEmployeesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text, workPlaceIdFilter: _id);
 
             _numberOfPages = response.Pages;
             _currentPageNumber = response.PageNumber;

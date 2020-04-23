@@ -1,6 +1,7 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.UserControls.FileHandling;
+using Desktop.Utils;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -169,25 +170,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
         private void doneButton_Click(object sender, EventArgs e)
         {
-            LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
         }
     }
 }

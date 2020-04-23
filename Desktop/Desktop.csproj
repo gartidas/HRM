@@ -176,6 +176,12 @@
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.Designer.cs">
       <DependentUpon>CandidatesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CorporateEventsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CorporateEventsControl.Designer.cs">
+      <DependentUpon>CorporateEventsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,12 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.Designer.cs">
       <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CorporateEventsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CorporateEventsScreen.Designer.cs">
+      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.cs">
       <SubType>UserControl</SubType>
@@ -276,6 +288,7 @@
     <Compile Include="UserControls\Menus\WorkPlaceMenu.Designer.cs">
       <DependentUpon>WorkPlaceMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ScreenLoading.cs" />
     <EmbeddedResource Include="Forms\ConfirmForm.resx">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -319,6 +332,9 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.resx">
       <DependentUpon>CandidatesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CorporateEventsControl.resx">
+      <DependentUpon>CorporateEventsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.resx">
       <DependentUpon>EmployeesControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.resx">
       <DependentUpon>CandidatesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CorporateEventsScreen.resx">
+      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.resx">
       <DependentUpon>EmployeesScreen.cs</DependentUpon>

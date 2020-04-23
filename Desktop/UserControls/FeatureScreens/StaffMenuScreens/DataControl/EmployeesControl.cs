@@ -1,5 +1,5 @@
-﻿using Desktop.Forms;
-using Desktop.Models;
+﻿using Desktop.Models;
+using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -129,29 +129,6 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             birthDateMonthCalendar.SelectionStart = employee.Data.BirthDate;
         }
 
-        private void manageFilesButton_Click(object sender, EventArgs e)
-        {
-            LoadScreen(14);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
-        }
-
         private async void submitButton_Click(object sender, EventArgs e)
         {
             if (_id == default)
@@ -226,7 +203,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             if (result.Success)
             {
                 errorLabel.Visible = false;
-                LoadScreen(18);
+                ScreenLoading.LoadScreen(18);
                 return;
             }
 
@@ -235,6 +212,55 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 errorLabel.Text += error;
             }
             errorLabel.Visible = true;
+        }
+
+        private void manageBonusesButton_Click(object sender, EventArgs e)
+        {
+            //LoadScreen(14);
+        }
+
+        private void manageEvaluationsButton_Click(object sender, EventArgs e)
+        {
+            //LoadScreen(14);
+        }
+
+        private void manageEquipmentButton_Click(object sender, EventArgs e)
+        {
+            //LoadScreen(14);
+        }
+
+        private void manageFilesButton_Click(object sender, EventArgs e)
+        {
+            ScreenLoading.LoadScreen(14);
+        }
+
+        private void changePasswordButton_Click(object sender, EventArgs e)
+        {
+            //LoadScreen(14);
+        }
+
+        private void menuLabel_Click(object sender, EventArgs e)
+        {
+            if (manageBonusesButton.Visible == true)
+            {
+                if (CurrentUser.User.Role == Role.SysAdmin)
+                    changePasswordButton.Visible = false;
+
+                manageBonusesButton.Visible = false;
+                manageEquipmentButton.Visible = false;
+                manageEvaluationsButton.Visible = false;
+                manageFilesButton.Visible = false;
+            }
+            else
+            {
+                if (CurrentUser.User.Role == Role.SysAdmin)
+                    changePasswordButton.Visible = true;
+
+                manageBonusesButton.Visible = true;
+                manageEquipmentButton.Visible = true;
+                manageEvaluationsButton.Visible = true;
+                manageFilesButton.Visible = true;
+            }
         }
     }
 }

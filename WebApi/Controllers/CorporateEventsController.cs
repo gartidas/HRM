@@ -84,6 +84,14 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [HttpPut(ApiRoutes.CorporateEvents.RemoveWorkPlaceLeadersFromCorporateEvent)]
+        public async Task<ActionResult<GenericResponse>> RemoveWorkPlaceLeadersFromCorporateEvent([FromRoute]string corporateEventId, [FromBody]RemoveWorkPlaceLeadersFromCorporateEvent.Command command)
+        {
+            command.CorporateEventId = corporateEventId;
+            var result = await _mediator.Send(command);
+            return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
+        }
+
         [AllowAnonymous]
         [HttpGet(ApiRoutes.CorporateEvents.GetAllCorporateEventsOfEmployee)]
         public async Task<ActionResult<GetAllCorporateEventsOfEmployee.CorporateEventDto>> GetAllCorporateEventsOfEmployee()

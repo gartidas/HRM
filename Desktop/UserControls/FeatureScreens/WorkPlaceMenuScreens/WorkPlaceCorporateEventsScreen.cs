@@ -20,11 +20,11 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async Task LoadEmployeesComboBoxAsync()
         {
-            var response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id);
+            var response = await ApiHelper.Instance.GetAllEmployeesAsync(workPlaceIdFilter: _id);
 
             for (int i = 1; i <= response.Pages; i++)
             {
-                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, i)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
+                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesAsync(i, workPlaceIdFilter: _id)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
             }
 
             foreach (var employee in _employees)
@@ -86,8 +86,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             corporateEventsListView.Columns[2].Width = -1;
 
-            if (corporateEventsListView.Columns[2].Width < 100)
-                corporateEventsListView.Columns[2].Width = 100;
+            if (corporateEventsListView.Columns[2].Width < 200)
+                corporateEventsListView.Columns[2].Width = 200;
 
             corporateEventsListView.Columns[3].Width = -1;
 
@@ -96,8 +96,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             corporateEventsListView.Columns[4].Width = -1;
 
-            if (corporateEventsListView.Columns[4].Width < 100)
-                corporateEventsListView.Columns[4].Width = 200;
+            if (corporateEventsListView.Columns[4].Width < 250)
+                corporateEventsListView.Columns[4].Width = 250;
         }
 
         private async void corporateEventsListView_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -118,7 +118,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                 {
                     if (corpEv.DateAndTime.ToString() == corporateEventsListView.SelectedItems[0].SubItems[1].Text && corpEv.Name == corporateEventsListView.SelectedItems[0].SubItems[2].Text && corpEv.Location == corporateEventsListView.SelectedItems[0].SubItems[3].Text)
                     {
-                        var response = await ApiHelper.Instance.GetCorporateEventOfWorkPlaceAsync(corpEv.ID);
+                        var response = await ApiHelper.Instance.GetCorporateEventAsync(corpEv.ID);
                         if (response != null && response.InvitedEmployees != null)
                         {
                             foreach (var employee in response.InvitedEmployees)

@@ -1,6 +1,7 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
+using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Title));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
-                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.BirthDate.Day}.{employee.Data.BirthDate.Month}.{employee.Data.BirthDate.Year}"));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.BirthDate.ToString("dd.MM.yyyy")));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.AddressOfPermanentResidence));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.EmailAddress));
 
@@ -188,28 +189,10 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
                 {
                     if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text)
                     {
-                        MainFormStateSingleton.Instance.ScreenContentId = employee.ID;
-                        LoadScreen(19);
+                        ScreenLoading.SetScreenContent(employee.ID);
+                        ScreenLoading.LoadScreen(19);
                         return;
                     }
-                }
-            }
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
                 }
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
+using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -178,8 +179,8 @@ Phone: {candidate.PhoneNumber}"
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            MainFormStateSingleton.Instance.ScreenContentId = default;
-            LoadScreen(17);
+            ScreenLoading.SetScreenContent(default);
+            ScreenLoading.LoadScreen(17);
         }
 
         private void hireButton_Click(object sender, System.EventArgs e)
@@ -190,8 +191,8 @@ Phone: {candidate.PhoneNumber}"
                 {
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        MainFormStateSingleton.Instance.ScreenContentId = candidate.Id;
-                        LoadScreen(20);
+                        ScreenLoading.SetScreenContent(candidate.Id);
+                        ScreenLoading.LoadScreen(20);
                         return;
                     }
                 }
@@ -206,8 +207,8 @@ Phone: {candidate.PhoneNumber}"
                 {
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        MainFormStateSingleton.Instance.ScreenContentId = candidate.Id;
-                        LoadScreen(17);
+                        ScreenLoading.SetScreenContent(candidate.Id);
+                        ScreenLoading.LoadScreen(17);
                         return;
                     }
                 }
@@ -243,24 +244,6 @@ Phone: {candidate.PhoneNumber}"
 
                         return;
                     }
-                }
-            }
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
                 }
             }
         }

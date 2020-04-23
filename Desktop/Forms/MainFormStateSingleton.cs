@@ -145,7 +145,7 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new VacationsScreen());
                             break;
                         case 4:
-                            ScreenPanel.Controls.Add(new CorporateEventsScreen());
+                            ScreenPanel.Controls.Add(new UserControls.FeatureScreens.PersonalMenuScreens.CorporateEventsScreen());
                             break;
                         case 5:
                             ScreenPanel.Controls.Add(new EvaluationsScreen());
@@ -203,6 +203,12 @@ namespace Desktop.Forms
                         case 22:
                             LastLoadedScreen = 22;
                             ScreenPanel.Controls.Add(new FormerEmployeeLookUpScreen(ScreenContentId));
+                            break;
+                        case 23:
+                            ScreenPanel.Controls.Add(new UserControls.FeatureScreens.StaffMenuScreens.DataView.CorporateEventsScreen());
+                            break;
+                        case 24:
+                            ScreenPanel.Controls.Add(new CorporateEventsControl(ScreenContentId));
                             break;
                         default:
                             break;

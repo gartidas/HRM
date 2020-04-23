@@ -239,7 +239,7 @@ namespace Desktop
             return status;
         }
 
-        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesOfWorkPlaceAsync(string workPlaceIdFilter, int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
+        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesAsync(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "", string workPlaceIdFilter = "")
         {
             DoingStuff = true;
 
@@ -346,7 +346,7 @@ namespace Desktop
             return events;
         }
 
-        public async Task<Event> GetCorporateEventOfWorkPlaceAsync(string eventId)
+        public async Task<Event> GetCorporateEventAsync(string eventId)
         {
             DoingStuff = true;
             Event corpEvent = null;
@@ -568,17 +568,6 @@ namespace Desktop
             return result;
         }
 
-        public async Task<GenericGetAllResponse<Employee>> GetAllEmployeesAsync(int pageNumber = 1, int pageSize = 11, string specialtyFilter = "", string emailFilter = "", string surnameFilter = "", string roleFilter = "")
-        {
-            DoingStuff = true;
-
-            var response = await _client.GetAsync($"employees?PageNumber={pageNumber}&PageSize={pageSize}&Email={emailFilter}&Role={roleFilter}&Specialty={specialtyFilter}&Surname={surnameFilter}");
-            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Employee>>();
-
-            DoingStuff = false;
-            return result;
-        }
-
         public async Task<GenericGetAllResponse<EmployeeWorkPlaceData>> GetAllWorkPlacesAsync(int pageNumber = 1, int pageSize = 11, string labelFilter = "", string locationFilter = "")
         {
             DoingStuff = true;
@@ -736,7 +725,7 @@ namespace Desktop
             DoingStuff = true;
             List<Document> documents = null;
 
-            var response = await _client.GetAsync(" documentation/formerEmployee/" + formerEmployeeId);
+            var response = await _client.GetAsync("documentation/formerEmployee/" + formerEmployeeId);
 
             if (response.IsSuccessStatusCode)
             {
@@ -745,6 +734,101 @@ namespace Desktop
 
             DoingStuff = false;
             return documents;
+        }
+
+        public async Task<GenericGetAllResponse<Event>> GetAllCorporateEventsAsync(int pageNumber = 1, int pageSize = 11, string nameFilter = "", string locationFilter = "")
+        {
+            DoingStuff = true;
+
+            var response = await _client.GetAsync($"corporateEvents?PageNumber={pageNumber}&PageSize={pageSize}&Name={nameFilter}&Location={locationFilter}");
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<Event>>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveCorporateEventAsync(string corporateEventId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("corporateEvents/" + corporateEventId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> AssignWorkPlaceLeaderToCorporateEventAsync(string corporateEventId, string workPlaceLeaderId)
+        {
+            DoingStuff = true;
+            IEnumerable<string> workPlaceLeaderIds = new List<string>() { workPlaceLeaderId };
+
+            var data = new
+            {
+                workPlaceLeaderIds
+            };
+
+            var response = await _client.PutAsJsonAsync("corporateEvents/workPlaceLeaders/assign/" + corporateEventId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> RemoveWorkPlaceLeaderFromCorporateEventAsync(string corporateEventId, string workPlaceLeaderId)
+        {
+            DoingStuff = true;
+            IEnumerable<string> workPlaceLeaderIds = new List<string>() { workPlaceLeaderId };
+
+            var data = new
+            {
+                workPlaceLeaderIds
+            };
+
+            var response = await _client.PutAsJsonAsync("corporateEvents/workPlaceLeaders/remove/" + corporateEventId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> AddCorporateEventAsync(string name, string location, DateTime dateAndTime, string requestDescription)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                name,
+                location,
+                dateAndTime,
+                requestDescription
+            };
+
+            var response = await _client.PostAsJsonAsync("corporateEvents/", data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> EditCorporateEventAsync(string corporateEventId, string name, string location, DateTime dateAndTime, string requestDescription)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                name,
+                location,
+                dateAndTime,
+                requestDescription
+            };
+
+            var response = await _client.PutAsJsonAsync("corporateEvents/" + corporateEventId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
         }
     }
 }

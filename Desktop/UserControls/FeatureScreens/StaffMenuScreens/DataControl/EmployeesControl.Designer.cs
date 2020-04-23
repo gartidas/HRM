@@ -64,6 +64,11 @@
             this.birthCertificateNumberTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.menuLabel = new System.Windows.Forms.Label();
+            this.changePasswordButton = new System.Windows.Forms.Button();
+            this.manageEquipmentButton = new System.Windows.Forms.Button();
+            this.manageEvaluationsButton = new System.Windows.Forms.Button();
+            this.manageBonusesButton = new System.Windows.Forms.Button();
             this.manageFilesButton = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.TextBox();
@@ -107,7 +112,7 @@
             // 
             // birthDateMonthCalendar
             // 
-            this.birthDateMonthCalendar.Location = new System.Drawing.Point(426, 606);
+            this.birthDateMonthCalendar.Location = new System.Drawing.Point(426, 607);
             this.birthDateMonthCalendar.MaxSelectionCount = 1;
             this.birthDateMonthCalendar.Name = "birthDateMonthCalendar";
             this.birthDateMonthCalendar.TabIndex = 72;
@@ -117,7 +122,7 @@
             this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.submitButton.ForeColor = System.Drawing.Color.White;
-            this.submitButton.Location = new System.Drawing.Point(905, 727);
+            this.submitButton.Location = new System.Drawing.Point(905, 752);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(187, 62);
             this.submitButton.TabIndex = 69;
@@ -130,7 +135,7 @@
             this.female_RB.AutoSize = true;
             this.female_RB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.female_RB.ForeColor = System.Drawing.Color.White;
-            this.female_RB.Location = new System.Drawing.Point(973, 606);
+            this.female_RB.Location = new System.Drawing.Point(973, 607);
             this.female_RB.Name = "female_RB";
             this.female_RB.Size = new System.Drawing.Size(119, 33);
             this.female_RB.TabIndex = 68;
@@ -143,7 +148,7 @@
             this.male_RB.Checked = true;
             this.male_RB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.male_RB.ForeColor = System.Drawing.Color.White;
-            this.male_RB.Location = new System.Drawing.Point(792, 606);
+            this.male_RB.Location = new System.Drawing.Point(792, 607);
             this.male_RB.Name = "male_RB";
             this.male_RB.Size = new System.Drawing.Size(89, 33);
             this.male_RB.TabIndex = 67;
@@ -463,6 +468,11 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.menuLabel);
+            this.mainPanel.Controls.Add(this.changePasswordButton);
+            this.mainPanel.Controls.Add(this.manageEquipmentButton);
+            this.mainPanel.Controls.Add(this.manageEvaluationsButton);
+            this.mainPanel.Controls.Add(this.manageBonusesButton);
             this.mainPanel.Controls.Add(this.manageFilesButton);
             this.mainPanel.Controls.Add(this.label23);
             this.mainPanel.Controls.Add(this.addressTextBox);
@@ -517,17 +527,86 @@
             this.mainPanel.Size = new System.Drawing.Size(1156, 840);
             this.mainPanel.TabIndex = 21;
             // 
+            // menuLabel
+            // 
+            this.menuLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.menuLabel.ForeColor = System.Drawing.Color.White;
+            this.menuLabel.Location = new System.Drawing.Point(12, 590);
+            this.menuLabel.Name = "menuLabel";
+            this.menuLabel.Size = new System.Drawing.Size(37, 224);
+            this.menuLabel.TabIndex = 95;
+            this.menuLabel.Text = "MENU";
+            this.menuLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.menuLabel.Click += new System.EventHandler(this.menuLabel_Click);
+            // 
+            // changePasswordButton
+            // 
+            this.changePasswordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.changePasswordButton.ForeColor = System.Drawing.Color.White;
+            this.changePasswordButton.Location = new System.Drawing.Point(64, 682);
+            this.changePasswordButton.Name = "changePasswordButton";
+            this.changePasswordButton.Size = new System.Drawing.Size(300, 40);
+            this.changePasswordButton.TabIndex = 94;
+            this.changePasswordButton.Text = "Change password";
+            this.changePasswordButton.UseVisualStyleBackColor = false;
+            this.changePasswordButton.Visible = false;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
+            // 
+            // manageEquipmentButton
+            // 
+            this.manageEquipmentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.manageEquipmentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.manageEquipmentButton.ForeColor = System.Drawing.Color.White;
+            this.manageEquipmentButton.Location = new System.Drawing.Point(64, 774);
+            this.manageEquipmentButton.Name = "manageEquipmentButton";
+            this.manageEquipmentButton.Size = new System.Drawing.Size(300, 40);
+            this.manageEquipmentButton.TabIndex = 93;
+            this.manageEquipmentButton.Text = "Manage equipment";
+            this.manageEquipmentButton.UseVisualStyleBackColor = false;
+            this.manageEquipmentButton.Visible = false;
+            this.manageEquipmentButton.Click += new System.EventHandler(this.manageEquipmentButton_Click);
+            // 
+            // manageEvaluationsButton
+            // 
+            this.manageEvaluationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.manageEvaluationsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.manageEvaluationsButton.ForeColor = System.Drawing.Color.White;
+            this.manageEvaluationsButton.Location = new System.Drawing.Point(64, 636);
+            this.manageEvaluationsButton.Name = "manageEvaluationsButton";
+            this.manageEvaluationsButton.Size = new System.Drawing.Size(300, 40);
+            this.manageEvaluationsButton.TabIndex = 92;
+            this.manageEvaluationsButton.Text = "Manage evaluations";
+            this.manageEvaluationsButton.UseVisualStyleBackColor = false;
+            this.manageEvaluationsButton.Visible = false;
+            this.manageEvaluationsButton.Click += new System.EventHandler(this.manageEvaluationsButton_Click);
+            // 
+            // manageBonusesButton
+            // 
+            this.manageBonusesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.manageBonusesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.manageBonusesButton.ForeColor = System.Drawing.Color.White;
+            this.manageBonusesButton.Location = new System.Drawing.Point(64, 590);
+            this.manageBonusesButton.Name = "manageBonusesButton";
+            this.manageBonusesButton.Size = new System.Drawing.Size(300, 40);
+            this.manageBonusesButton.TabIndex = 91;
+            this.manageBonusesButton.Text = "Manage bonuses";
+            this.manageBonusesButton.UseVisualStyleBackColor = false;
+            this.manageBonusesButton.Visible = false;
+            this.manageBonusesButton.Click += new System.EventHandler(this.manageBonusesButton_Click);
+            // 
             // manageFilesButton
             // 
             this.manageFilesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.manageFilesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.manageFilesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.manageFilesButton.ForeColor = System.Drawing.Color.White;
-            this.manageFilesButton.Location = new System.Drawing.Point(64, 727);
+            this.manageFilesButton.Location = new System.Drawing.Point(64, 728);
             this.manageFilesButton.Name = "manageFilesButton";
-            this.manageFilesButton.Size = new System.Drawing.Size(210, 62);
+            this.manageFilesButton.Size = new System.Drawing.Size(300, 40);
             this.manageFilesButton.TabIndex = 90;
             this.manageFilesButton.Text = "Manage files";
             this.manageFilesButton.UseVisualStyleBackColor = false;
+            this.manageFilesButton.Visible = false;
             this.manageFilesButton.Click += new System.EventHandler(this.manageFilesButton_Click);
             // 
             // label23
@@ -747,5 +826,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Button manageFilesButton;
+        private System.Windows.Forms.Button manageEquipmentButton;
+        private System.Windows.Forms.Button manageEvaluationsButton;
+        private System.Windows.Forms.Button manageBonusesButton;
+        private System.Windows.Forms.Button changePasswordButton;
+        private System.Windows.Forms.Label menuLabel;
     }
 }

@@ -58,11 +58,11 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
         private async Task LoadEmployeesComboBoxAsync()
         {
             bool found = false;
-            var response = await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id);
+            var response = await ApiHelper.Instance.GetAllEmployeesAsync(workPlaceIdFilter: _id);
 
             for (int i = 1; i <= response.Pages; i++)
             {
-                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesOfWorkPlaceAsync(_id, i)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
+                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesAsync(i, workPlaceIdFilter: _id)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
             }
 
             employeeComboBox.Items.Add("All");

@@ -1,6 +1,6 @@
-﻿using Desktop.Forms;
-using Desktop.Models;
+﻿using Desktop.Models;
 using Desktop.Responses;
+using Desktop.Utils;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -98,7 +98,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             Status enumStat = (Status)(Enum.Parse(typeof(Status), status));
 
-            GenericResponse response;
+            GenericResponse response = null;
 
             if (_id == default)
                 response = await ApiHelper.Instance.AddCandidateAsync(titleTextBox.Text, nameTextBox.Text, surnameTextBox.Text, educationTextBox.Text, specialtyTextBox.Text, phoneTextBox.Text, emailTextBox.Text, addressTextBox.Text, double.Parse(requestedSalaryTextBox.Text), (int)EvaluationNumericUpDown.Value, enumStat, additionalInfoTextBox.Text);
@@ -107,7 +107,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             if (response.Success)
             {
-                LoadScreen(16);
+                ScreenLoading.LoadScreen(16);
             }
             else
             {
@@ -122,25 +122,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageFilesButton_Click(object sender, EventArgs e)
         {
-            LoadScreen(13);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(13);
         }
     }
 }

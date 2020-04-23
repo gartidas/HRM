@@ -14,6 +14,7 @@ namespace Desktop.Forms
         public ConfirmForm(Form subjectForm, bool showTextBox)
         {
             InitializeComponent();
+
             if (showTextBox)
             {
                 textBoxLabel.Visible = true;

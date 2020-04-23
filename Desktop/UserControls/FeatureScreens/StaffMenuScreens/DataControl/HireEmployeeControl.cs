@@ -1,5 +1,5 @@
-﻿using Desktop.Forms;
-using Desktop.Models;
+﻿using Desktop.Models;
+using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -150,7 +150,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             if (result.Success)
             {
                 errorLabel.Visible = false;
-                LoadScreen(16);
+                ScreenLoading.LoadScreen(16);
                 return;
             }
 
@@ -159,24 +159,6 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 errorLabel.Text += error;
             }
             errorLabel.Visible = true;
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
         }
     }
 }

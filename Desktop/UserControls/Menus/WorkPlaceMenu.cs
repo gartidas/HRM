@@ -1,4 +1,4 @@
-﻿using Desktop.Forms;
+﻿using Desktop.Utils;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.Menus
@@ -17,45 +17,27 @@ namespace Desktop.UserControls.Menus
 
         private void workPlaceDataButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(8);
+            ScreenLoading.LoadScreen(8);
         }
 
         private void workPlaceVacationsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(9);
+            ScreenLoading.LoadScreen(9);
         }
 
         private void workPlaceCorporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(10);
+            ScreenLoading.LoadScreen(10);
         }
 
         private void workPlaceSpecialtiesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(11);
+            ScreenLoading.LoadScreen(11);
         }
 
         private void workPlaceEvaluationsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(12);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(12);
         }
     }
 }

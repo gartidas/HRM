@@ -106,7 +106,8 @@
             public const string GetCorporateEvent = _base + "corporateEvents/{corporateEventId}";
             public const string AssignEmployeesToCorporateEvent = _base + "corporateEvents/employees/assign/{corporateEventId}";
             public const string RemoveEmployeesFromCorporateEvent = _base + "corporateEvents/employees/remove/{corporateEventId}";
-            public const string AssignWorkPlaceLeadersToCorporateEvent = _base + "corporateEvents/workPlaceLeaders/{corporateEventId}";
+            public const string AssignWorkPlaceLeadersToCorporateEvent = _base + "corporateEvents/workPlaceLeaders/assign/{corporateEventId}";
+            public const string RemoveWorkPlaceLeadersFromCorporateEvent = _base + "corporateEvents/workPlaceLeaders/remove/{corporateEventId}";
             public const string GetAllCorporateEventsOfEmployee = _base + "corporateEvents/employee";
             public const string GetAllCorporateEventsOfWorkPlace = _base + "corporateEvents/workPlace";
         }

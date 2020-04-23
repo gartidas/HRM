@@ -1,6 +1,7 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
+using Desktop.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -141,8 +142,8 @@ Phone: {employee.PhoneNumber}"
                 {
                     if (formerEmployee.Email == formerEmployeesListView.SelectedItems[0].SubItems[formerEmployeesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        MainFormStateSingleton.Instance.ScreenContentId = formerEmployee.ID;
-                        LoadScreen(22);
+                        ScreenLoading.SetScreenContent(formerEmployee.ID);
+                        ScreenLoading.LoadScreen(22);
                         return;
                     }
                 }
@@ -178,24 +179,6 @@ Phone: {employee.PhoneNumber}"
 
                         return;
                     }
-                }
-            }
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
                 }
             }
         }

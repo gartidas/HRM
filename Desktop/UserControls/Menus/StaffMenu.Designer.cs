@@ -31,6 +31,7 @@
             this.formerEmployeesButton = new System.Windows.Forms.Button();
             this.employeesButton = new System.Windows.Forms.Button();
             this.candidatesButton = new System.Windows.Forms.Button();
+            this.corporateEventsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // formerEmployeesButton
@@ -72,12 +73,26 @@
             this.candidatesButton.UseVisualStyleBackColor = false;
             this.candidatesButton.Click += new System.EventHandler(this.candidatesButton_Click);
             // 
+            // corporateEventsButton
+            // 
+            this.corporateEventsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.corporateEventsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.corporateEventsButton.ForeColor = System.Drawing.Color.White;
+            this.corporateEventsButton.Location = new System.Drawing.Point(0, 198);
+            this.corporateEventsButton.Name = "corporateEventsButton";
+            this.corporateEventsButton.Size = new System.Drawing.Size(198, 60);
+            this.corporateEventsButton.TabIndex = 12;
+            this.corporateEventsButton.Text = "Corporate events";
+            this.corporateEventsButton.UseVisualStyleBackColor = false;
+            this.corporateEventsButton.Click += new System.EventHandler(this.corporateEventsButton_Click);
+            // 
             // StaffMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.corporateEventsButton);
             this.Controls.Add(this.formerEmployeesButton);
             this.Controls.Add(this.employeesButton);
             this.Controls.Add(this.candidatesButton);
@@ -92,5 +107,6 @@
         private System.Windows.Forms.Button formerEmployeesButton;
         private System.Windows.Forms.Button employeesButton;
         private System.Windows.Forms.Button candidatesButton;
+        private System.Windows.Forms.Button corporateEventsButton;
     }
 }

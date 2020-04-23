@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace WebApi.Features.CorporateEvents
 
             public async Task<PagingResponse<CorporateEventDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var corporateEvents = _context.CorporateEvents.ProjectTo<CorporateEventDto>(_mapper.ConfigurationProvider);
+                var corporateEvents = _context.CorporateEvents.Where(x => x.DateAndTime > DateTime.Now).ProjectTo<CorporateEventDto>(_mapper.ConfigurationProvider);
                 corporateEvents = ApplyFiltering(request.Filter, corporateEvents);
 
                 var pagedContent = await PagingLogic.GetPagedContent(corporateEvents, request.PagingReferences, cancellationToken);

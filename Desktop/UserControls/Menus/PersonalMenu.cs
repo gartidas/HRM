@@ -1,5 +1,5 @@
-﻿using Desktop.Forms;
-using Desktop.Models;
+﻿using Desktop.Models;
+using Desktop.Utils;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.Menus
@@ -36,55 +36,37 @@ namespace Desktop.UserControls.Menus
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(1);
+            ScreenLoading.LoadScreen(1);
         }
 
         private void changePasswordButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(2);
+            ScreenLoading.LoadScreen(2);
         }
 
         private void vacationsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(3);
+            ScreenLoading.LoadScreen(3);
         }
 
         private void corporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(4);
+            ScreenLoading.LoadScreen(4);
         }
 
         private void evaluationsButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(5);
+            ScreenLoading.LoadScreen(5);
         }
 
         private void bonusesButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(6);
+            ScreenLoading.LoadScreen(6);
         }
 
         private void equipmentButton_Click(object sender, System.EventArgs e)
         {
-            LoadScreen(7);
-        }
-
-        private void LoadScreen(int screenNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden)
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-
-                if (MainFormStateSingleton.Instance.ScreenOpened == screenNumber)
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                else
-                {
-                    MainFormStateSingleton.Instance.ScreenOpened = screenNumber;
-                    MainFormStateSingleton.Instance.ScreensChanging = true;
-                    MainFormStateSingleton.Instance.ScreenTimer.Start();
-                }
-            }
+            ScreenLoading.LoadScreen(7);
         }
     }
 }
