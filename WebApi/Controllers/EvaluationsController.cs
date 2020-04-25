@@ -22,10 +22,9 @@ namespace WebApi.Controllers
         }
 
         [HttpPost(ApiRoutes.Evaluations.CreateEvaluation)]
-        public async Task<ActionResult<GenericResponse>> CreateEvaluation([FromRoute]string employeeId, [FromRoute]string hR_WorkerId, [FromBody]CreateEvaluation.Command command)
+        public async Task<ActionResult<GenericResponse>> CreateEvaluation([FromRoute]string employeeId, [FromBody]CreateEvaluation.Command command)
         {
             command.EmployeeID = employeeId;
-            command.HR_WorkerID = hR_WorkerId;
             var result = await _mediator.Send(command);
             if (!result.Success) return BadRequest(result);
             return Ok(result);

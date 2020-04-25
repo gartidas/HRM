@@ -216,6 +216,12 @@ namespace Desktop.Forms
                         case 26:
                             ScreenPanel.Controls.Add(new BonusesControl(ScreenContentId));
                             break;
+                        case 27:
+                            ScreenPanel.Controls.Add(new EvaluationsScreen(ScreenContentId));
+                            break;
+                        case 28:
+                            ScreenPanel.Controls.Add(new EvaluationsControl(ScreenContentId));
+                            break;
                         default:
                             break;
                     }

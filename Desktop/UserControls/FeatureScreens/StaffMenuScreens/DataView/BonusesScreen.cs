@@ -35,7 +35,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             var column1 = new ColumnHeader { Name = "Empty", TextAlign = HorizontalAlignment.Center, Text = "" };
             var column2 = new ColumnHeader { Name = "Date", TextAlign = HorizontalAlignment.Center, Text = "Date" };
             var column3 = new ColumnHeader { Name = "Value", TextAlign = HorizontalAlignment.Center, Text = "Value" };
-            var column4 = new ColumnHeader { Name = "Description", TextAlign = HorizontalAlignment.Center, Text = "Reason" };
+            var column4 = new ColumnHeader { Name = "Reason", TextAlign = HorizontalAlignment.Center, Text = "Reason" };
 
             bonusesListView.Columns.Add(column1);
             bonusesListView.Columns.Add(column2);
@@ -128,6 +128,11 @@ Email: {bonus.HR_Worker.Email}"
                     }
                 }
             }
+        }
+
+        private void doneButton_Click(object sender, System.EventArgs e)
+        {
+            ScreenLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
         }
     }
 }

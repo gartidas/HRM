@@ -878,5 +878,53 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<IEnumerable<Evaluation>> GetEvaluationsOfSelectedEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<Evaluation> evaluations = null;
+
+            var response = await _client.GetAsync("evaluations/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                evaluations = await response.Content.ReadAsAsync<IEnumerable<Evaluation>>();
+            }
+
+            DoingStuff = false;
+            return evaluations;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveEvaluationAsync(string evaluationId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("evaluations/" + evaluationId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> AddEvaluationForEmployeeAsync(string employeeId, string hR_WorkerId, EvaluationWeight weight, bool type, string description)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                hR_WorkerId,
+                description,
+                weight,
+                type
+            };
+
+            var response = await _client.PostAsJsonAsync("evaluations/" + employeeId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

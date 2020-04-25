@@ -221,7 +221,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageEvaluationsButton_Click(object sender, EventArgs e)
         {
-            //LoadScreen(14);
+            ScreenLoading.LoadScreen(27);
         }
 
         private void manageEquipmentButton_Click(object sender, EventArgs e)

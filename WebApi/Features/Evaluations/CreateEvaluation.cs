@@ -15,7 +15,6 @@ namespace WebApi.Features.Evaluations
         {
             [JsonIgnore]
             public string EmployeeID { get; set; }
-            [JsonIgnore]
             public string HR_WorkerID { get; set; }
             public string Description { get; set; }
             public EvaluationWeight Weight { get; set; }

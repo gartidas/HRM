@@ -194,6 +194,12 @@
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.Designer.cs">
       <DependentUpon>EmployeesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EvaluationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EvaluationsControl.Designer.cs">
+      <DependentUpon>EvaluationsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +229,12 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.Designer.cs">
       <DependentUpon>EmployeesScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EvaluationsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EvaluationsScreen.Designer.cs">
+      <DependentUpon>EvaluationsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\FormerEmployeeLookUpScreen.cs">
       <SubType>UserControl</SubType>
@@ -353,6 +365,9 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EmployeesControl.resx">
       <DependentUpon>EmployeesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\EvaluationsControl.resx">
+      <DependentUpon>EvaluationsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.resx">
       <DependentUpon>HireEmployeeControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EmployeesScreen.resx">
       <DependentUpon>EmployeesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\EvaluationsScreen.resx">
+      <DependentUpon>EvaluationsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\FormerEmployeeLookUpScreen.resx">
       <DependentUpon>FormerEmployeeLookUpScreen.cs</DependentUpon>

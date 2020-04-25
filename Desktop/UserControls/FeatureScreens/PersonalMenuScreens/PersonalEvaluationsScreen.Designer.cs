@@ -163,7 +163,7 @@
             this.label8.TabIndex = 23;
             this.label8.Text = "Legend";
             // 
-            // EvaluationsScreen
+            // PersonalEvaluationsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.Controls.Add(this.legendPanel);
             this.Controls.Add(this.evaluationsListView);
             this.Controls.Add(this.label4);
-            this.Name = "EvaluationsScreen";
+            this.Name = "PersonalEvaluationsScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.EvaluationsScreen_LoadAsync);
             this.legendPanel.ResumeLayout(false);
