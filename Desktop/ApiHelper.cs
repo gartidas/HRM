@@ -830,5 +830,53 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<IEnumerable<Bonus>> GetBonusesOfSelectedEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<Bonus> bonuses = null;
+
+            var response = await _client.GetAsync("bonuses/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                bonuses = await response.Content.ReadAsAsync<IEnumerable<Bonus>>();
+            }
+
+            DoingStuff = false;
+            return bonuses;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveBonusAsync(string bonusId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("bonuses/" + bonusId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> AddBonusForEmployeeAsync(string employeeId, string hR_WorkerId, DateTime grantedDate, int value, string description)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                hR_WorkerId,
+                description,
+                value,
+                grantedDate
+            };
+
+            var response = await _client.PostAsJsonAsync("bonuses/" + employeeId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

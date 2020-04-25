@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class EvaluationsScreen : UserControl
+    public partial class PersonalEvaluationsScreen : UserControl
     {
         ToolTip _toolTip = new ToolTip();
 
-        public EvaluationsScreen()
+        public PersonalEvaluationsScreen()
         {
             InitializeComponent();
         }

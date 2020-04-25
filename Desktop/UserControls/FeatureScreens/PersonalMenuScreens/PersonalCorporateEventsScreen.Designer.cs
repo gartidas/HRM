@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class CorporateEventsScreen
+    partial class PersonalCorporateEventsScreen
     {
         /// <summary> 
         /// Required designer variable.

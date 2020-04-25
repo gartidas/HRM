@@ -139,22 +139,22 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new PersonalDataScreen());
                             break;
                         case 2:
-                            ScreenPanel.Controls.Add(new ChangePasswordScreen());
+                            ScreenPanel.Controls.Add(new PersonalChangePasswordScreen());
                             break;
                         case 3:
-                            ScreenPanel.Controls.Add(new VacationsScreen());
+                            ScreenPanel.Controls.Add(new PersonalVacationsScreen());
                             break;
                         case 4:
-                            ScreenPanel.Controls.Add(new UserControls.FeatureScreens.PersonalMenuScreens.CorporateEventsScreen());
+                            ScreenPanel.Controls.Add(new PersonalCorporateEventsScreen());
                             break;
                         case 5:
-                            ScreenPanel.Controls.Add(new EvaluationsScreen());
+                            ScreenPanel.Controls.Add(new PersonalEvaluationsScreen());
                             break;
                         case 6:
-                            ScreenPanel.Controls.Add(new BonusesScreen());
+                            ScreenPanel.Controls.Add(new PersonalBonusesScreen());
                             break;
                         case 7:
-                            ScreenPanel.Controls.Add(new EquipmentScreen());
+                            ScreenPanel.Controls.Add(new PersonalEquipmentScreen());
                             break;
                         case 8:
                             ScreenPanel.Controls.Add(new WorkPlaceDataScreen());
@@ -205,10 +205,16 @@ namespace Desktop.Forms
                             ScreenPanel.Controls.Add(new FormerEmployeeLookUpScreen(ScreenContentId));
                             break;
                         case 23:
-                            ScreenPanel.Controls.Add(new UserControls.FeatureScreens.StaffMenuScreens.DataView.CorporateEventsScreen());
+                            ScreenPanel.Controls.Add(new CorporateEventsScreen());
                             break;
                         case 24:
                             ScreenPanel.Controls.Add(new CorporateEventsControl(ScreenContentId));
+                            break;
+                        case 25:
+                            ScreenPanel.Controls.Add(new BonusesScreen(ScreenContentId));
+                            break;
+                        case 26:
+                            ScreenPanel.Controls.Add(new BonusesControl(ScreenContentId));
                             break;
                         default:
                             break;

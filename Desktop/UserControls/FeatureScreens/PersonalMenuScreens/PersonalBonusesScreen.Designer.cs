@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class BonusesScreen
+    partial class PersonalBonusesScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -61,14 +61,14 @@
             this.bonusesListView.UseCompatibleStateImageBehavior = false;
             this.bonusesListView.View = System.Windows.Forms.View.List;
             // 
-            // BonusesScreen
+            // PersonalBonusesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.bonusesListView);
             this.Controls.Add(this.label4);
-            this.Name = "BonusesScreen";
+            this.Name = "PersonalBonusesScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.BonusesScreen_Load);
             this.ResumeLayout(false);

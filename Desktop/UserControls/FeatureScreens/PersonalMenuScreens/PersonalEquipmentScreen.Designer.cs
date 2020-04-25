@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class EquipmentScreen
+    partial class PersonalEquipmentScreen
     {
         /// <summary> 
         /// Required designer variable.

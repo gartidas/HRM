@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class ChangePasswordScreen : UserControl
+    public partial class PersonalChangePasswordScreen : UserControl
     {
-        public ChangePasswordScreen()
+        public PersonalChangePasswordScreen()
         {
             InitializeComponent();
         }

@@ -128,35 +128,35 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\HR_Worker.cs" />
     <Compile Include="Models\Vacation.cs" />
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\BonusesScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalBonusesScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\BonusesScreen.Designer.cs">
-      <DependentUpon>BonusesScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalBonusesScreen.Designer.cs">
+      <DependentUpon>PersonalBonusesScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\ChangePasswordScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalChangePasswordScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\ChangePasswordScreen.Designer.cs">
-      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalChangePasswordScreen.Designer.cs">
+      <DependentUpon>PersonalChangePasswordScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\CorporateEventsScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalCorporateEventsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\CorporateEventsScreen.Designer.cs">
-      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalCorporateEventsScreen.Designer.cs">
+      <DependentUpon>PersonalCorporateEventsScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\EquipmentScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEquipmentScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\EquipmentScreen.Designer.cs">
-      <DependentUpon>EquipmentScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEquipmentScreen.Designer.cs">
+      <DependentUpon>PersonalEquipmentScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\EvaluationsScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEvaluationsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\EvaluationsScreen.Designer.cs">
-      <DependentUpon>EvaluationsScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEvaluationsScreen.Designer.cs">
+      <DependentUpon>PersonalEvaluationsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalDataScreen.cs">
       <SubType>UserControl</SubType>
@@ -164,11 +164,17 @@
     <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalDataScreen.Designer.cs">
       <DependentUpon>PersonalDataScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.cs">
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalVacationsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.Designer.cs">
-      <DependentUpon>VacationsScreen.cs</DependentUpon>
+    <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalVacationsScreen.Designer.cs">
+      <DependentUpon>PersonalVacationsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\BonusesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\BonusesControl.Designer.cs">
+      <DependentUpon>BonusesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.cs">
       <SubType>UserControl</SubType>
@@ -193,6 +199,12 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.Designer.cs">
       <DependentUpon>HireEmployeeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\BonusesScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\BonusesScreen.Designer.cs">
+      <DependentUpon>BonusesScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.cs">
       <SubType>UserControl</SubType>
@@ -308,26 +320,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\BonusesScreen.resx">
-      <DependentUpon>BonusesScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalBonusesScreen.resx">
+      <DependentUpon>PersonalBonusesScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\ChangePasswordScreen.resx">
-      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalChangePasswordScreen.resx">
+      <DependentUpon>PersonalChangePasswordScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\CorporateEventsScreen.resx">
-      <DependentUpon>CorporateEventsScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalCorporateEventsScreen.resx">
+      <DependentUpon>PersonalCorporateEventsScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\EquipmentScreen.resx">
-      <DependentUpon>EquipmentScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEquipmentScreen.resx">
+      <DependentUpon>PersonalEquipmentScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\EvaluationsScreen.resx">
-      <DependentUpon>EvaluationsScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalEvaluationsScreen.resx">
+      <DependentUpon>PersonalEvaluationsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalDataScreen.resx">
       <DependentUpon>PersonalDataScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\VacationsScreen.resx">
-      <DependentUpon>VacationsScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalVacationsScreen.resx">
+      <DependentUpon>PersonalVacationsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\BonusesControl.resx">
+      <DependentUpon>BonusesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\CandidatesControl.resx">
       <DependentUpon>CandidatesControl.cs</DependentUpon>
@@ -340,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.resx">
       <DependentUpon>HireEmployeeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\BonusesScreen.resx">
+      <DependentUpon>BonusesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\CandidatesScreen.resx">
       <DependentUpon>CandidatesScreen.cs</DependentUpon>

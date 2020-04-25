@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class VacationsScreen
+    partial class PersonalVacationsScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VacationsScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalVacationsScreen));
             this.planVacationPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.vacationDateTimePicker = new System.Windows.Forms.DateTimePicker();

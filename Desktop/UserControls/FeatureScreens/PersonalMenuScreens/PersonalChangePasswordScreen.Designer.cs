@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class ChangePasswordScreen
+    partial class PersonalChangePasswordScreen
     {
         /// <summary> 
         /// Required designer variable.
@@ -158,7 +158,7 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Change password";
             // 
-            // ChangePasswordScreen
+            // PersonalChangePasswordScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +173,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.newPasswordTextBox);
             this.Controls.Add(this.confirmPasswordTextBox);
-            this.Name = "ChangePasswordScreen";
+            this.Name = "PersonalChangePasswordScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.ResumeLayout(false);
             this.PerformLayout();

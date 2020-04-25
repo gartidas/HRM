@@ -82,9 +82,10 @@
 
         public static class Bonuses
         {
-            public const string CreateBonus = _base + "bonuses/{employeeId}/{hR_WorkerId}";
+            public const string CreateBonus = _base + "bonuses/{employeeId}";
             public const string DeleteBonus = _base + "bonuses/{bonusId}";
             public const string GetAllBonusesOfEmployee = _base + "bonuses/employee";
+            public const string GetAllBonusesOfSelectedEmployee = _base + "bonuses/{employeeId}";
         }
 
         public static class Vacations

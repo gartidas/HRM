@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class CorporateEventsScreen : UserControl
+    public partial class PersonalCorporateEventsScreen : UserControl
     {
         private List<CustomEvent> _events = new List<CustomEvent>();
 
-        public CorporateEventsScreen()
+        public PersonalCorporateEventsScreen()
         {
             InitializeComponent();
         }

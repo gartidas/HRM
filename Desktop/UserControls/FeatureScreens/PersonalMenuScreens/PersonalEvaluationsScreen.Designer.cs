@@ -1,6 +1,6 @@
 ﻿namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    partial class EvaluationsScreen
+    partial class PersonalEvaluationsScreen
     {
         /// <summary> 
         /// Required designer variable.

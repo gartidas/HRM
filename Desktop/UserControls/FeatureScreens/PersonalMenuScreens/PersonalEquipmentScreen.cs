@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class EquipmentScreen : UserControl
+    public partial class PersonalEquipmentScreen : UserControl
     {
-        public EquipmentScreen()
+        public PersonalEquipmentScreen()
         {
             InitializeComponent();
         }

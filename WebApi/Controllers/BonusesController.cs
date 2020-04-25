@@ -22,10 +22,9 @@ namespace WebApi.Controllers
         }
 
         [HttpPost(ApiRoutes.Bonuses.CreateBonus)]
-        public async Task<ActionResult<GenericResponse>> CreateBonus([FromRoute]string employeeId, [FromRoute]string hR_WorkerId, [FromBody]CreateBonus.Command command)
+        public async Task<ActionResult<GenericResponse>> CreateBonus([FromRoute]string employeeId, [FromBody]CreateBonus.Command command)
         {
             command.EmployeeID = employeeId;
-            command.HR_WorkerID = hR_WorkerId;
             var result = await _mediator.Send(command);
             if (!result.Success) return BadRequest(result);
             return Ok(result);
@@ -44,6 +43,14 @@ namespace WebApi.Controllers
         public async Task<ActionResult<GetAllBonusesOfEmployee.BonusDto>> GetAllBonusesOfEmployee()
         {
             var result = await _mediator.Send(new GetAllBonusesOfEmployee.Query { EmployeeId = User.Claims.Single(x => x.Type == "id").Value });
+            return Ok(result);
+        }
+
+        [AllowAnonymous]
+        [HttpGet(ApiRoutes.Bonuses.GetAllBonusesOfSelectedEmployee)]
+        public async Task<ActionResult<GetAllBonusesOfEmployee.BonusDto>> GetAllBonusesOfSelectedEmployee([FromRoute]string employeeId)
+        {
+            var result = await _mediator.Send(new GetAllBonusesOfEmployee.Query { EmployeeId = employeeId });
             return Ok(result);
         }
     }

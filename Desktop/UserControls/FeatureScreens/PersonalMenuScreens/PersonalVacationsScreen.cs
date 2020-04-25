@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class VacationsScreen : UserControl
+    public partial class PersonalVacationsScreen : UserControl
     {
         //source: https://www.codeproject.com/Articles/378900/Calendar-NET
 
         private List<CustomEvent> _events = new List<CustomEvent>();
 
-        public VacationsScreen()
+        public PersonalVacationsScreen()
         {
             InitializeComponent();
         }

@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
-    public partial class BonusesScreen : UserControl
+    public partial class PersonalBonusesScreen : UserControl
     {
-        public BonusesScreen()
+        public PersonalBonusesScreen()
         {
             InitializeComponent();
         }

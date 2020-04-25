@@ -16,7 +16,6 @@ namespace WebApi.Features.Bonuses
         {
             [JsonIgnore]
             public string EmployeeID { get; set; }
-            [JsonIgnore]
             public string HR_WorkerID { get; set; }
             public string Description { get; set; }
             public int Value { get; set; }
