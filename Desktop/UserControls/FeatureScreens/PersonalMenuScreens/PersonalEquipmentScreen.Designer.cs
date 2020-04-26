@@ -100,7 +100,7 @@
             this.statusLabel.Visible = false;
             this.statusLabel.TextChanged += new System.EventHandler(this.statusLabel_TextChanged);
             // 
-            // EquipmentScreen
+            // PersonalEquipmentScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.statusPanel);
             this.Controls.Add(this.equipmentListView);
             this.Controls.Add(this.label4);
-            this.Name = "EquipmentScreen";
+            this.Name = "PersonalEquipmentScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.EquipmentScreen_Load);
             this.statusPanel.ResumeLayout(false);

@@ -222,6 +222,9 @@ namespace Desktop.Forms
                         case 28:
                             ScreenPanel.Controls.Add(new EvaluationsControl(ScreenContentId));
                             break;
+                        case 29:
+                            ScreenPanel.Controls.Add(new EquipmentScreen(ScreenContentId));
+                            break;
                         default:
                             break;
                     }

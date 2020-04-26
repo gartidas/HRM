@@ -228,7 +228,7 @@ namespace Desktop
             DoingStuff = true;
             EquipmentStatus status = default;
 
-            var response = await _client.GetAsync("equipment/employee/status");
+            var response = await _client.GetAsync("equipment/status/employee");
 
             if (response.IsSuccessStatusCode)
             {
@@ -527,7 +527,7 @@ namespace Desktop
             DoingStuff = true;
             List<Document> documents = null;
 
-            var response = await _client.GetAsync(" documentation/candidate/" + candidateId);
+            var response = await _client.GetAsync("documentation/candidate/" + candidateId);
 
             if (response.IsSuccessStatusCode)
             {
@@ -921,6 +921,82 @@ namespace Desktop
             };
 
             var response = await _client.PostAsJsonAsync("evaluations/" + employeeId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<IEnumerable<EquipmentItem>> GetEquipmentOfSelectedEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            IEnumerable<EquipmentItem> items = null;
+
+            var response = await _client.GetAsync("equipment/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                items = await response.Content.ReadAsAsync<IEnumerable<EquipmentItem>>();
+            }
+
+            DoingStuff = false;
+            return items;
+        }
+
+        public async Task<EquipmentStatus> GetEquipmentStatusOfSelectedEmployeeAsync(string employeeId)
+        {
+            DoingStuff = true;
+            EquipmentStatus status = default;
+
+            var response = await _client.GetAsync("equipment/status/" + employeeId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                status = (EquipmentStatus)(await response.Content.ReadAsAsync<int>());
+            }
+
+            DoingStuff = false;
+            return status;
+        }
+
+        public async Task<GenericResponse> AddEquipmentItemForEmployeeAsync(string employeeId, string label)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                label
+            };
+
+            var response = await _client.PostAsJsonAsync("equipment/" + employeeId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveEquipmentItemAsync(string equipmentItemId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("equipment/" + equipmentItemId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> SetEquipmentStatusOfEmployeeAsync(string employeeId, EquipmentStatus equipmentStatus)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                equipmentStatus
+            };
+
+            var response = await _client.PutAsJsonAsync("equipment/status/" + employeeId, data);
             var result = await response.Content.ReadAsAsync<GenericResponse>();
 
             DoingStuff = false;

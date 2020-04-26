@@ -22,8 +22,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             foreach (var status in Enum.GetValues(typeof(FamilyStatus)))
             {
-                var str = (string.Concat(status.ToString().Select(x => Char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' '));
-                familyStatusComboBox.Items.Add(str[0] + str.Substring(1).ToLower());
+                familyStatusComboBox.Items.Add(status);
             }
 
             foreach (var role in Enum.GetValues(typeof(Role)))
@@ -226,7 +225,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageEquipmentButton_Click(object sender, EventArgs e)
         {
-            //LoadScreen(14);
+            ScreenLoading.LoadScreen(29);
         }
 
         private void manageFilesButton_Click(object sender, EventArgs e)

@@ -254,6 +254,12 @@
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.Designer.cs">
       <DependentUpon>DocumentationScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\EquipmentScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\EquipmentScreen.Designer.cs">
+      <DependentUpon>EquipmentScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -394,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.resx">
       <DependentUpon>DocumentationScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\EquipmentScreen.resx">
+      <DependentUpon>EquipmentScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\WorkPlaceMenuScreens\WorkPlaceCorporateEventsScreen.resx">
       <DependentUpon>WorkPlaceCorporateEventsScreen.cs</DependentUpon>

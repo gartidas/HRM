@@ -61,5 +61,19 @@ namespace WebApi.Controllers
             var result = await _mediator.Send(command);
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
+
+        [HttpGet(ApiRoutes.Equipment.GetEquipmentStatusOfSelectedEmployee)]
+        public async Task<ActionResult<int>> GetEquipmentStatusOfSelectedEmployee([FromRoute]string employeeId)
+        {
+            var result = await _mediator.Send(new GetEquipmentStatusOfEmployee.Query { EmployeeId = employeeId });
+            return Ok(result);
+        }
+
+        [HttpGet(ApiRoutes.Equipment.GetAllEquipmentOfSelectedEmployee)]
+        public async Task<ActionResult<GetAllEquipmentOfEmployee.EquipmentDto>> GetAllEquipmentOfSelectedEmployee([FromRoute]string employeeId)
+        {
+            var result = await _mediator.Send(new GetAllEquipmentOfEmployee.Query { EmployeeId = employeeId });
+            return Ok(result);
+        }
     }
 }
