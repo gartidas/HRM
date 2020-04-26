@@ -235,7 +235,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
-            //LoadScreen(14);
+            ScreenLoading.LoadScreen(30);
         }
 
         private void menuLabel_Click(object sender, EventArgs e)

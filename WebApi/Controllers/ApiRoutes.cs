@@ -18,6 +18,7 @@
         {
             public const string Login = _base + "users/login";
             public const string ChangePassword = _base + "users/password";
+            public const string ResetPassword = _base + "users/password/{userId}";
         }
 
         public static class Candidates

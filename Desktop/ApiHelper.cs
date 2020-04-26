@@ -1002,5 +1002,20 @@ namespace Desktop
             DoingStuff = false;
             return result;
         }
+
+        public async Task<GenericResponse> ResetPasswordAsync(string userId, string newPassword)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                newPassword
+            };
+
+            var response = await _client.PostAsJsonAsync("users/password/" + userId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
     }
 }

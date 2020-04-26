@@ -32,7 +32,16 @@ namespace WebApi.Controllers
         [HttpPost(ApiRoutes.Users.ChangePassword)]
         public async Task<ActionResult<GenericResponse>> ChangePassword([FromBody]ChangePassword.Command command)
         {
-            var userId = User.Claims.Single(x => x.Type == "id").Value;
+            command.UserId = User.Claims.Single(x => x.Type == "id").Value;
+            var result = await _mediator.Send(command);
+
+            if (!result.Success) return BadRequest(result);
+            return Ok(result);
+        }
+
+        [HttpPost(ApiRoutes.Users.ResetPassword)]
+        public async Task<ActionResult<GenericResponse>> ResetPassword([FromRoute]string userId, [FromBody]ResetPassword.Command command)
+        {
             command.UserId = userId;
             var result = await _mediator.Send(command);
 

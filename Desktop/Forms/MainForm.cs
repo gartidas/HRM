@@ -130,7 +130,6 @@ namespace Desktop
             {
                 maintenanceMenuButton.Visible = true;
                 staffMenuButton.Enabled = true;
-                workPlaceMenuButton.Enabled = true;
             }
         }
 

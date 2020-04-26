@@ -42,7 +42,12 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceVacationsScreen_Load(object sender, EventArgs e)
         {
-            _id = (await ApiHelper.Instance.GetEmployeeDataAsync()).WorkPlace.ID;
+            var result = await ApiHelper.Instance.GetEmployeeDataAsync();
+
+            if (result == null)
+                return;
+
+            _id = result.WorkPlace.ID;
             vacationsCalendar.LoadPresetHolidays = false;
             vacationsCalendar.AllowEditingEvents = false;
             vacationsCalendar.CalendarDate = DateTime.Now;
@@ -62,14 +67,16 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             for (int i = 1; i <= response.Pages; i++)
             {
-                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesAsync(i, workPlaceIdFilter: _id)).Content.Where(x => x.Data.EmailAddress != CurrentUser.User.Email));
+                _employees.AddRange((await ApiHelper.Instance.GetAllEmployeesAsync(i, workPlaceIdFilter: _id)).Content);
             }
 
             employeeComboBox.Items.Add("All");
 
             foreach (var employee in _employees)
             {
-                employeeComboBox.Items.Add(employee.Data.EmailAddress);
+                if (employee.Data.EmailAddress != CurrentUser.User.Email)
+                    employeeComboBox.Items.Add(employee.Data.EmailAddress);
+
                 foreach (var specialty in _realSpecialties)
                 {
                     if (specialty.Name.ToLower() == employee.Data.Specialty.ToLower())

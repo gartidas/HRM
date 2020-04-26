@@ -1,4 +1,5 @@
-﻿using Desktop.Utils;
+﻿using Desktop.Models;
+using Desktop.Utils;
 using System.Windows.Forms;
 
 namespace Desktop.UserControls.Menus
@@ -8,6 +9,9 @@ namespace Desktop.UserControls.Menus
         public StaffMenu()
         {
             InitializeComponent();
+
+            if (CurrentUser.User.Role == Role.SysAdmin)
+                corporateEventsButton.Enabled = false;
         }
 
         private void candidatesButton_Click(object sender, System.EventArgs e)

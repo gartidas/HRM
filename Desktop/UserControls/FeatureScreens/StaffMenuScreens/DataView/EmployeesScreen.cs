@@ -145,7 +145,7 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
 
                 foreach (var employee in _employees)
                 {
-                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text)
+                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text && CurrentUser.User.Email != employeesListView.SelectedItems[0].SubItems[6].Text)
                         employeeId = employee.ID;
                 }
 
@@ -187,7 +187,7 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
             {
                 foreach (var employee in _employees)
                 {
-                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text)
+                    if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text && CurrentUser.User.Email != employeesListView.SelectedItems[0].SubItems[6].Text)
                     {
                         ScreenLoading.SetScreenContent(employee.ID);
                         ScreenLoading.LoadScreen(19);

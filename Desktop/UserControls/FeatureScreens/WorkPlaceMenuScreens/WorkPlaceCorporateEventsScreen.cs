@@ -33,7 +33,12 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceCorporateEventsScreen_Load(object sender, System.EventArgs e)
         {
-            _id = (await ApiHelper.Instance.GetEmployeeDataAsync()).WorkPlace.ID;
+            var result = await ApiHelper.Instance.GetEmployeeDataAsync();
+
+            if (result == null)
+                return;
+
+            _id = result.WorkPlace.ID;
 
             if (_id != default)
             {

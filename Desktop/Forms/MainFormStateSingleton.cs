@@ -225,6 +225,9 @@ namespace Desktop.Forms
                         case 29:
                             ScreenPanel.Controls.Add(new EquipmentScreen(ScreenContentId));
                             break;
+                        case 30:
+                            ScreenPanel.Controls.Add(new ChangePasswordScreen(ScreenContentId));
+                            break;
                         default:
                             break;
                     }

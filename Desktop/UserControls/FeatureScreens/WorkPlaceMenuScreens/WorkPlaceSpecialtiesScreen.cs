@@ -113,6 +113,10 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
         private async void WorkPlaceSpecialtiesScreen_Load(object sender, System.EventArgs e)
         {
             var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+
+            if (response == null)
+                return;
+
             _id = response.WorkPlace.ID;
 
             await LoadDataAsync();

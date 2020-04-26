@@ -170,6 +170,12 @@
     <Compile Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalVacationsScreen.Designer.cs">
       <DependentUpon>PersonalVacationsScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\ChangePasswordScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\ChangePasswordScreen.Designer.cs">
+      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\BonusesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\PersonalMenuScreens\PersonalVacationsScreen.resx">
       <DependentUpon>PersonalVacationsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\ChangePasswordScreen.resx">
+      <DependentUpon>ChangePasswordScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\BonusesControl.resx">
       <DependentUpon>BonusesControl.cs</DependentUpon>
