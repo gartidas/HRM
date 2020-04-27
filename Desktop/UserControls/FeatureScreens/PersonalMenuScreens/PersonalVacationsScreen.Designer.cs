@@ -41,6 +41,8 @@
             this.vacationsPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.vacationsCalendar = new Calendar.NET.Calendar();
+            this.vacationsCountLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.planVacationPanel.SuspendLayout();
             this.vacationsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +51,8 @@
             // 
             this.planVacationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.planVacationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.planVacationPanel.Controls.Add(this.vacationsCountLabel);
+            this.planVacationPanel.Controls.Add(this.label5);
             this.planVacationPanel.Controls.Add(this.label3);
             this.planVacationPanel.Controls.Add(this.vacationDateTimePicker);
             this.planVacationPanel.Controls.Add(this.cancelVacationButton);
@@ -213,14 +217,38 @@
             this.vacationsCalendar.TabIndex = 13;
             this.vacationsCalendar.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             // 
-            // VacationsScreen
+            // vacationsCountLabel
+            // 
+            this.vacationsCountLabel.AutoSize = true;
+            this.vacationsCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vacationsCountLabel.ForeColor = System.Drawing.Color.White;
+            this.vacationsCountLabel.Location = new System.Drawing.Point(840, -1);
+            this.vacationsCountLabel.Name = "vacationsCountLabel";
+            this.vacationsCountLabel.Size = new System.Drawing.Size(161, 39);
+            this.vacationsCountLabel.TabIndex = 33;
+            this.vacationsCountLabel.Text = "vacations";
+            this.vacationsCountLabel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(583, -1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(251, 41);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Free vacations:";
+            // 
+            // PersonalVacationsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.vacationsPanel);
             this.Controls.Add(this.planVacationPanel);
-            this.Name = "VacationsScreen";
+            this.Name = "PersonalVacationsScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.VacationsScreen_LoadAsync);
             this.planVacationPanel.ResumeLayout(false);
@@ -244,5 +272,7 @@
         private System.Windows.Forms.DateTimePicker vacationDateTimePicker;
         private System.Windows.Forms.Button cancelVacationButton;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label vacationsCountLabel;
+        private System.Windows.Forms.Label label5;
     }
 }

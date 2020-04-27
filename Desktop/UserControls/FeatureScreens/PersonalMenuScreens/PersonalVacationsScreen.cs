@@ -1,7 +1,9 @@
 ﻿using Calendar.NET;
+using Desktop.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +14,8 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
         //source: https://www.codeproject.com/Articles/378900/Calendar-NET
 
         private List<CustomEvent> _events = new List<CustomEvent>();
+        private List<Vacation> _vacations = new List<Vacation>();
+        private int _numberOfVacations;
 
         public PersonalVacationsScreen()
         {
@@ -34,6 +38,8 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 
             if (response != null)
             {
+                _vacations = response.ToList();
+
                 foreach (var vacation in response)
                 {
                     var newVacation = new CustomEvent
@@ -48,11 +54,20 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                     _events.Add(newVacation);
                     vacationsCalendar.AddEvent(newVacation);
                 }
+
+                vacationsCountLabel.Text = (_numberOfVacations - _vacations.Where(x => x.Approved).Count()).ToString();
+                vacationsCountLabel.Visible = true;
             }
         }
 
         private async void planVacationButton_ClickAsync(object sender, EventArgs e)
         {
+            if (int.Parse(vacationsCountLabel.Text) == 0 && CurrentUser.User.Role == Role.WorkPlaceLeader)
+            {
+                errorLabel.Text = "There are no free vacations left";
+                return;
+            }
+
             if (planVacationTextBox.Text == "")
             {
                 errorLabel.Text = "Reason is empty";
@@ -107,6 +122,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 
         private async void VacationsScreen_LoadAsync(object sender, EventArgs e)
         {
+            _numberOfVacations = (await ApiHelper.Instance.GetEmployeeDataAsync()).Data.NumberOfVacationDays;
             await LoadDataAsync();
         }
 

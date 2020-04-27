@@ -94,6 +94,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             workPlaceEmployeesListView.Columns.Add(new ColumnHeader { Name = "Name", TextAlign = HorizontalAlignment.Center, Text = "Name" });
             workPlaceEmployeesListView.Columns.Add(new ColumnHeader { Name = "Specialty", TextAlign = HorizontalAlignment.Center, Text = "Specialty" });
             workPlaceEmployeesListView.Columns.Add(new ColumnHeader { Name = "Birthday", TextAlign = HorizontalAlignment.Center, Text = "Birthday" });
+            workPlaceEmployeesListView.Columns.Add(new ColumnHeader { Name = "Vacations", TextAlign = HorizontalAlignment.Center, Text = "Vacations" });
 
             workPlaceEmployeesListView.View = View.Details;
 
@@ -112,6 +113,7 @@ Phone: {employee.Data.PhoneNumber}"
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.Name} {employee.Data.Surname}"));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.Specialty));
                     item.SubItems.Add(new ListViewItem.ListViewSubItem(item, $"{employee.Data.BirthDate.Day}.{employee.Data.BirthDate.Month}.{employee.Data.BirthDate.Year}"));
+                    item.SubItems.Add(new ListViewItem.ListViewSubItem(item, employee.Data.NumberOfVacationDays.ToString()));
 
                     workPlaceEmployeesListView.Items.Add(item);
                 }
@@ -134,8 +136,13 @@ Phone: {employee.Data.PhoneNumber}"
 
             workPlaceEmployeesListView.Columns[4].Width = -1;
 
-            if (workPlaceEmployeesListView.Columns[4].Width < 100)
+            if (workPlaceEmployeesListView.Columns[4].Width < 200)
                 workPlaceEmployeesListView.Columns[4].Width = 200;
+
+            workPlaceEmployeesListView.Columns[5].Width = -1;
+
+            if (workPlaceEmployeesListView.Columns[5].Width < 200)
+                workPlaceEmployeesListView.Columns[5].Width = 200;
         }
     }
 }

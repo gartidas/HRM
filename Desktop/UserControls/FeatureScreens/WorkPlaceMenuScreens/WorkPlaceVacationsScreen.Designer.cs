@@ -34,6 +34,8 @@
             this.warningPictureBox = new System.Windows.Forms.PictureBox();
             this.vacationsCalendar = new Calendar.NET.Calendar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.vacationsCountLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.vacationsComboBox = new System.Windows.Forms.ComboBox();
@@ -41,6 +43,7 @@
             this.approveVacationButton = new System.Windows.Forms.Button();
             this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningPictureBox)).BeginInit();
             this.panel2.SuspendLayout();
@@ -111,6 +114,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.errorLabel);
+            this.panel2.Controls.Add(this.vacationsCountLabel);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.vacationsComboBox);
@@ -122,6 +128,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1156, 289);
             this.panel2.TabIndex = 19;
+            // 
+            // vacationsCountLabel
+            // 
+            this.vacationsCountLabel.AutoSize = true;
+            this.vacationsCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vacationsCountLabel.ForeColor = System.Drawing.Color.White;
+            this.vacationsCountLabel.Location = new System.Drawing.Point(743, 2);
+            this.vacationsCountLabel.Name = "vacationsCountLabel";
+            this.vacationsCountLabel.Size = new System.Drawing.Size(161, 39);
+            this.vacationsCountLabel.TabIndex = 31;
+            this.vacationsCountLabel.Text = "vacations";
+            this.vacationsCountLabel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(488, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 39);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Free vacations:";
             // 
             // label3
             // 
@@ -206,6 +235,20 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Vacations control";
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.BackColor = System.Drawing.Color.Transparent;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.errorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLabel.Location = new System.Drawing.Point(22, 194);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(88, 39);
+            this.errorLabel.TabIndex = 32;
+            this.errorLabel.Text = "error";
+            this.errorLabel.Visible = false;
+            this.errorLabel.TextChanged += new System.EventHandler(this.errorLabel_TextChanged);
+            // 
             // WorkPlaceVacationsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,5 +282,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox warningPictureBox;
+        private System.Windows.Forms.Label vacationsCountLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

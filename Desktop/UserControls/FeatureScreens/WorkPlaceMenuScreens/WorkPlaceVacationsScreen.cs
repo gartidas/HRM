@@ -110,6 +110,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             bool foundSpecialty = false;
             if (employeeEmail == "All")
             {
+                vacationsCountLabel.Visible = false;
+
                 _employeeVacations = new List<WorkPlaceVacation>();
 
                 foreach (var employee in _employees)
@@ -180,6 +182,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                             {
                                 vacationsComboBox.Items.Add(vacation.DateAndTime);
                             }
+
+                            vacationsCountLabel.Text = (employee.Data.NumberOfVacationDays - _vacations.Where(x => x.Approved).Count()).ToString();
                         }
                         else
                         {
@@ -188,7 +192,11 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                                 vacationsCalendar.RemoveEvent(vacation);
                             }
                             _events.Clear();
+
+                            vacationsCountLabel.Text = employee.Data.NumberOfVacationDays.ToString();
                         }
+
+                        vacationsCountLabel.Visible = true;
                     }
                 }
             }
@@ -260,6 +268,12 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void approveVacationButton_Click(object sender, EventArgs e)
         {
+            if (int.Parse(vacationsCountLabel.Text) == 0)
+            {
+                errorLabel.Text = "There are no free vacations left";
+                return;
+            }
+
             await SetVacationApprovedState(true);
         }
 
@@ -285,6 +299,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                             vacationsComboBox.SelectedIndex = -1;
 
                             await LoadVacationsComboBoxAsync(employeeComboBox.SelectedItem.ToString());
+                            return;
                         }
                     }
                 }
@@ -323,6 +338,11 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
         private void warningPictureBox_MouseLeave(object sender, EventArgs e)
         {
             _toolTip.Hide(warningPictureBox);
+        }
+
+        private void errorLabel_TextChanged(object sender, EventArgs e)
+        {
+            errorLabel.Visible = true;
         }
     }
 }
