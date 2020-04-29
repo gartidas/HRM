@@ -33,6 +33,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                 vacationsCalendar.RemoveEvent(vacation);
             }
             _events.Clear();
+            _vacations.Clear();
 
             var response = await ApiHelper.Instance.GetEmployeeVacationsAsync();
 
@@ -54,10 +55,11 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                     _events.Add(newVacation);
                     vacationsCalendar.AddEvent(newVacation);
                 }
-
-                vacationsCountLabel.Text = (_numberOfVacations - _vacations.Where(x => x.Approved).Count()).ToString();
-                vacationsCountLabel.Visible = true;
             }
+
+            int freeVacations = _numberOfVacations - _vacations.Where(x => x.Approved).Count();
+            vacationsCountLabel.Text = (freeVacations <= 0) ? "0" : freeVacations.ToString();
+            vacationsCountLabel.Visible = true;
         }
 
         private async void planVacationButton_ClickAsync(object sender, EventArgs e)

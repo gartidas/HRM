@@ -171,6 +171,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                 {
                     if (employee.Data.EmailAddress == employeeEmail)
                     {
+                        _vacations.Clear();
                         var vacationsIE = (await ApiHelper.Instance.GetSelectedEmployeeVacationsAsync(employee.ID));
 
                         if (vacationsIE != null)
@@ -183,7 +184,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                                 vacationsComboBox.Items.Add(vacation.DateAndTime);
                             }
 
-                            vacationsCountLabel.Text = (employee.Data.NumberOfVacationDays - _vacations.Where(x => x.Approved).Count()).ToString();
+                            int freeVacations = employee.Data.NumberOfVacationDays - _vacations.Where(x => x.Approved).Count();
+                            vacationsCountLabel.Text = (freeVacations <= 0) ? "0" : freeVacations.ToString();
                         }
                         else
                         {

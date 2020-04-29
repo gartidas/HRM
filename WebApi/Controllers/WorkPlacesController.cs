@@ -1,13 +1,16 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
+using WebApi.Domain.IdentityModels;
 using WebApi.Features.WorkPlaces;
 using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    //[Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class WorkPlacesController : ControllerBase
     {
@@ -50,7 +53,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet(ApiRoutes.WorkPlaces.GetAllWorkPlaces)]
-        public async Task<ActionResult<PagingResponse<GetWorkPlace.WorkPlaceDto>>> GetAllWorkPlaces([FromQuery]GetAllWorkPlaces.Filter filter, [FromQuery]PagingReferences pagingReferences)
+        public async Task<ActionResult<PagingResponse<GetAllWorkPlaces.WorkPlaceDto>>> GetAllWorkPlaces([FromQuery]GetAllWorkPlaces.Filter filter, [FromQuery]PagingReferences pagingReferences)
         {
             var result = await _mediator.Send(new GetAllWorkPlaces.Query { Filter = filter, PagingReferences = pagingReferences });
             return Ok(result);

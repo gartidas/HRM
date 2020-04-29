@@ -13,6 +13,8 @@ namespace Desktop.UserControls.Menus
             _toolTip.SetToolTip(workPlaceDataButton, "Workplace");
             _toolTip.SetToolTip(workPlaceVacationsButton, "Vacations");
             _toolTip.SetToolTip(workPlaceCorporateEventsButton, "Corporate events");
+            _toolTip.SetToolTip(workPlaceSpecialtiesButton, "Specialties");
+            _toolTip.SetToolTip(workPlaceEvaluationsButton, "Evaluations");
         }
 
         private void workPlaceDataButton_Click(object sender, System.EventArgs e)

@@ -6,9 +6,15 @@ namespace Desktop.UserControls.Menus
 {
     public partial class StaffMenu : UserControl
     {
+        private ToolTip _toolTip = new ToolTip();
+
         public StaffMenu()
         {
             InitializeComponent();
+            _toolTip.SetToolTip(candidatesButton, "Candidates");
+            _toolTip.SetToolTip(employeesButton, "Employees");
+            _toolTip.SetToolTip(formerEmployeesButton, "Former employees");
+            _toolTip.SetToolTip(corporateEventsButton, "Corporate Events");
 
             if (CurrentUser.User.Role == Role.SysAdmin)
                 corporateEventsButton.Enabled = false;

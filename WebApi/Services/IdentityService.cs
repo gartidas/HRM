@@ -108,7 +108,7 @@ namespace WebApi.Services
                     break;
                 case Role.WorkPlaceLeader:
                     _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
-                    _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser, WorkPlace = workPlace });
+                    _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser });
                     break;
                 case Role.HR_Worker:
                     _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });

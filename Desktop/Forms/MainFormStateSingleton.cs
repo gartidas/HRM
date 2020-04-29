@@ -228,6 +228,12 @@ namespace Desktop.Forms
                         case 30:
                             ScreenPanel.Controls.Add(new ChangePasswordScreen(ScreenContentId));
                             break;
+                        case 31:
+                            ScreenPanel.Controls.Add(new WorkPlacesScreen());
+                            break;
+                        case 32:
+                            ScreenPanel.Controls.Add(new WorkPlacesControl(ScreenContentId));
+                            break;
                         default:
                             break;
                     }

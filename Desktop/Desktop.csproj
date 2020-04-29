@@ -123,7 +123,7 @@
     <Compile Include="Responses\LoginResponse.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeData.cs" />
-    <Compile Include="Models\EmployeeWorkPlaceData.cs" />
+    <Compile Include="Models\WorkPlace.cs" />
     <Compile Include="Models\Evaluation.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\HR_Worker.cs" />
@@ -212,6 +212,12 @@
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.Designer.cs">
       <DependentUpon>HireEmployeeControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\WorkPlacesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\WorkPlacesControl.Designer.cs">
+      <DependentUpon>WorkPlacesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\BonusesScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +259,12 @@
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\FormerEmployeesScreen.Designer.cs">
       <DependentUpon>FormerEmployeesScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\WorkPlacesScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\WorkPlacesScreen.Designer.cs">
+      <DependentUpon>WorkPlacesScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.cs">
       <SubType>UserControl</SubType>
@@ -386,6 +398,9 @@
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\HireEmployeeControl.resx">
       <DependentUpon>HireEmployeeControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataControl\WorkPlacesControl.resx">
+      <DependentUpon>WorkPlacesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\BonusesScreen.resx">
       <DependentUpon>BonusesScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\FormerEmployeesScreen.resx">
       <DependentUpon>FormerEmployeesScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DataView\WorkPlacesScreen.resx">
+      <DependentUpon>WorkPlacesScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FeatureScreens\StaffMenuScreens\DocumentationScreen.resx">
       <DependentUpon>DocumentationScreen.cs</DependentUpon>

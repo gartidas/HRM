@@ -118,7 +118,7 @@ namespace Desktop
             }
         }
 
-        public void FilterOutUnauthorizedMenus()
+        public async void FilterOutUnauthorizedMenus()
         {
             if (CurrentUser.User.Role != Role.HR_Worker)
                 staffMenuButton.Enabled = false;
@@ -130,6 +130,14 @@ namespace Desktop
             {
                 maintenanceMenuButton.Visible = true;
                 staffMenuButton.Enabled = true;
+            }
+
+            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+
+            if (response != null)
+            {
+                if (!response.Data.IsAssignedWorkplaceLeader)
+                    workPlaceMenuButton.Enabled = false;
             }
         }
 

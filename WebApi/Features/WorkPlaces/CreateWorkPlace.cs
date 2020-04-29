@@ -33,22 +33,28 @@ namespace WebApi.Features.WorkPlaces
                 if (await _context.Workplaces.AnyAsync(x => x.Label == request.Label && x.Location == request.Location))
                     return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}." } };
 
-                var workPlaceLeader = await _context.WorkPlaceLeaders.Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceLeaderID);
-                if (workPlaceLeader == null)
-                    return new GenericResponse { Errors = new[] { "Work place leader not found." } };
-                if (workPlaceLeader.WorkPlace != null)
-                    return new GenericResponse { Errors = new[] { "Work place leader already assigned to another work place." } };
-
-                var employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
-
                 var workPlace = new WorkPlace
                 {
                     Label = request.Label,
                     Location = request.Location,
-                    WorkPlaceLeaderID = request.WorkPlaceLeaderID,
-                    WorkPlaceLeader = workPlaceLeader,
-                    Employees = employees
                 };
+
+                if (request.WorkPlaceLeaderID != default)
+                {
+                    var workPlaceLeader = await _context.WorkPlaceLeaders.Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceLeaderID);
+
+                    var employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
+
+                    if (workPlaceLeader == null)
+                        return new GenericResponse { Errors = new[] { "Work place leader not found." } };
+
+                    if (workPlaceLeader.WorkPlace != null)
+                        return new GenericResponse { Errors = new[] { "Work place leader already assigned to another work place." } };
+
+                    workPlace.WorkPlaceLeaderID = request.WorkPlaceLeaderID;
+                    workPlace.WorkPlaceLeader = workPlaceLeader;
+                    workPlace.Employees = employees;
+                }
 
                 await _context.Workplaces.AddAsync(workPlace);
                 await _context.SaveChangesAsync();

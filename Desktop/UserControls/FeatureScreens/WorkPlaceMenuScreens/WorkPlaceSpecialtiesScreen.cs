@@ -49,8 +49,8 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
             specialtiesListView.Columns[1].Width = -1;
 
-            if (specialtiesListView.Columns[1].Width < 100)
-                specialtiesListView.Columns[1].Width = 100;
+            if (specialtiesListView.Columns[1].Width < 200)
+                specialtiesListView.Columns[1].Width = 200;
 
             specialtiesListView.Columns[2].Width = -1;
 

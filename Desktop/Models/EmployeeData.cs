@@ -26,6 +26,7 @@ namespace Desktop.Models
         public string NameOfTheBank { get; set; }
         public string AccountNumber { get; set; }
         public Role Role { get; set; }
+        public bool IsAssignedWorkplaceLeader { get; set; }
     }
 
     public enum FamilyStatus

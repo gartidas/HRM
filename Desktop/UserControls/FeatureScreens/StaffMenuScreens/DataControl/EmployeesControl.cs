@@ -11,7 +11,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
     public partial class EmployeesControl : UserControl
     {
         private string _id;
-        private List<EmployeeWorkPlaceData> _workplaces = new List<EmployeeWorkPlaceData>();
+        private List<WorkPlace> _workplaces = new List<WorkPlace>();
         private ToolTip _toolTip = new ToolTip();
 
         public EmployeesControl(string id)

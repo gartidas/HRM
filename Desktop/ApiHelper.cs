@@ -568,12 +568,12 @@ namespace Desktop
             return result;
         }
 
-        public async Task<GenericGetAllResponse<EmployeeWorkPlaceData>> GetAllWorkPlacesAsync(int pageNumber = 1, int pageSize = 11, string labelFilter = "", string locationFilter = "")
+        public async Task<GenericGetAllResponse<WorkPlace>> GetAllWorkPlacesAsync(int pageNumber = 1, int pageSize = 11, string labelFilter = "", string locationFilter = "")
         {
             DoingStuff = true;
 
             var response = await _client.GetAsync($"workPlaces?PageNumber={pageNumber}&PageSize={pageSize}&Label={labelFilter}&Location={locationFilter}");
-            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<EmployeeWorkPlaceData>>();
+            var result = await response.Content.ReadAsAsync<GenericGetAllResponse<WorkPlace>>();
 
             DoingStuff = false;
             return result;
@@ -1012,6 +1012,70 @@ namespace Desktop
             };
 
             var response = await _client.PostAsJsonAsync("users/password/" + userId, data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<AlternativeGenericResponse> RemoveWorkPlaceAsync(string workPlaceId)
+        {
+            DoingStuff = true;
+            var response = await _client.DeleteAsync("workPlaces/" + workPlaceId);
+
+            if (response.IsSuccessStatusCode) return new AlternativeGenericResponse { Success = true };
+
+            var message = await response.Content.ReadAsAsync<string>();
+            var result = new AlternativeGenericResponse { ErrorMessage = message };
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<WorkPlace> GetSelectedWorkPlaceAsync(string workPlaceId)
+        {
+            DoingStuff = true;
+            WorkPlace workPlace = null;
+
+            var response = await _client.GetAsync("workPlaces/" + workPlaceId);
+
+            if (response.IsSuccessStatusCode)
+            {
+                workPlace = await response.Content.ReadAsAsync<WorkPlace>();
+            }
+
+            DoingStuff = false;
+            return workPlace;
+        }
+
+        public async Task<GenericResponse> AddWorkPlaceAsync(string label, string location, string workPlaceLeaderId)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                label,
+                location,
+                workPlaceLeaderId
+            };
+
+            var response = await _client.PostAsJsonAsync("workPlaces/", data);
+            var result = await response.Content.ReadAsAsync<GenericResponse>();
+
+            DoingStuff = false;
+            return result;
+        }
+
+        public async Task<GenericResponse> EditWorkPlaceAsync(string workPlaceId, string label, string location, string workPlaceLeaderId)
+        {
+            DoingStuff = true;
+            var data = new
+            {
+                label,
+                location,
+                workPlaceLeaderId
+            };
+
+            var response = await _client.PutAsJsonAsync("workPlaces/" + workPlaceId, data);
             var result = await response.Content.ReadAsAsync<GenericResponse>();
 
             DoingStuff = false;

@@ -41,6 +41,7 @@ namespace WebApi.Features.Employees
                 var employeeDto = _mapper.Map<EmployeeDto>(employee);
                 employeeDto.Data = _mapper.Map<EmployeeData>(employee.IdentityUser);
                 employeeDto.Data.Role = (await _userManager.GetRolesAsync(employee.IdentityUser)).Single();
+                employeeDto.Data.IsAssignedWorkplaceLeader = await _context.Workplaces.AnyAsync(x => x.WorkPlaceLeaderID == request.EmployeeId);
 
                 return employeeDto;
             }
@@ -70,7 +71,7 @@ namespace WebApi.Features.Employees
             public string NameOfTheBank { get; set; }
             public string AccountNumber { get; set; }
             public string Role { get; set; }
-
+            public bool IsAssignedWorkplaceLeader { get; set; }
         }
         public class EmployeeDto
         {

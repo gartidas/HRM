@@ -6,7 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Data;
 using WebApi.Paging;
-using static WebApi.Features.WorkPlaces.GetWorkPlace;
 
 namespace WebApi.Features.WorkPlaces
 {
@@ -52,6 +51,13 @@ namespace WebApi.Features.WorkPlaces
 
         public class Filter
         {
+            public string Label { get; set; }
+            public string Location { get; set; }
+        }
+
+        public class WorkPlaceDto
+        {
+            public string ID { get; set; }
             public string Label { get; set; }
             public string Location { get; set; }
         }
