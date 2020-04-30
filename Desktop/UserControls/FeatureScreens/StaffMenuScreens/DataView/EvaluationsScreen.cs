@@ -38,7 +38,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             evaluationsListView.Columns.Add(new ColumnHeader { Name = "ID", TextAlign = HorizontalAlignment.Center, Text = "ID" });
             evaluationsListView.View = View.Details;
 
-            var response = await ApiHelper.Instance.GetAllEvaluationsOfEmployeeAsync(_id);
+            var response = await ApiHelper.Instance.GetAllEvaluationsOfSelectedEmployeeAsync(_id);
             Color color = Color.White;
 
             if (response != null)
@@ -105,7 +105,7 @@ Email: {evaluation.HR_Worker.Email}"
 
         private async Task LoadEmailLabelAsync()
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(_id);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(_id);
 
             if (result != null)
             {

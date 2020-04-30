@@ -78,7 +78,7 @@ namespace Desktop
             logInButton.Enabled = false;
             _loggingIn = true;
 
-            var response = await ApiHelper.Instance.Login(loginTextBox.Text, passwordTextBox.Text);
+            var response = await ApiHelper.Instance.LoginUser(loginTextBox.Text, passwordTextBox.Text);
 
             if (response.Success)
             {

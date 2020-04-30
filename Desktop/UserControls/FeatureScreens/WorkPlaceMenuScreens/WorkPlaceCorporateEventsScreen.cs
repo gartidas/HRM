@@ -33,7 +33,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceCorporateEventsScreen_Load(object sender, System.EventArgs e)
         {
-            var result = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var result = await ApiHelper.Instance.GetMeAsync();
 
             if (result == null)
                 return;
@@ -123,7 +123,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                 {
                     if (corpEv.DateAndTime.ToString() == corporateEventsListView.SelectedItems[0].SubItems[1].Text && corpEv.Name == corporateEventsListView.SelectedItems[0].SubItems[2].Text && corpEv.Location == corporateEventsListView.SelectedItems[0].SubItems[3].Text)
                     {
-                        var response = await ApiHelper.Instance.GetCorporateEventAsync(corpEv.ID);
+                        var response = await ApiHelper.Instance.GetSelectedCorporateEventAsync(corpEv.ID);
                         if (response != null && response.InvitedEmployees != null)
                         {
                             foreach (var employee in response.InvitedEmployees)

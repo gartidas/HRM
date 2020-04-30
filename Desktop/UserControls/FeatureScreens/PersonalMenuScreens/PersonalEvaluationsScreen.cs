@@ -22,7 +22,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             evaluationsListView.Columns.Add(column);
             evaluationsListView.View = View.Details;
 
-            var response = await ApiHelper.Instance.GetEmployeeEvaluationsAsync();
+            var response = await ApiHelper.Instance.GetMeEvaluationsAsync();
             Color color = Color.White;
             if (response != null)
             {

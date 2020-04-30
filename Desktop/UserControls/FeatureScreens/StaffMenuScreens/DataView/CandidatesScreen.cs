@@ -28,11 +28,11 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             GenericGetAllResponse<Candidate> response = null;
 
             if (emailFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
+                response = await ApiHelper.Instance.GetAllCandidatesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, emailFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
             else if (specialtyFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
+                response = await ApiHelper.Instance.GetAllCandidatesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, specialtyFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
             else if (surnameFilterRadioButton.Checked)
-                response = await ApiHelper.Instance.GetAllCandidates(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
+                response = await ApiHelper.Instance.GetAllCandidatesAsync(_currentPageNumber, pageSize: (int)pagingNumericUpDown.Value, surnameFilter: filterTextBox.Text, hiredFilter: hiredCheckBox.Checked ? true : false);
 
             _numberOfPages = response.Pages;
             _currentPageNumber = response.PageNumber;

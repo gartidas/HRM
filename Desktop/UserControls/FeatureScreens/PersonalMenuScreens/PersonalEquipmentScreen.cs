@@ -18,7 +18,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             equipmentListView.Columns.Add(column);
             equipmentListView.View = View.Details;
 
-            var statusResponse = await ApiHelper.Instance.GetEmployeeEquipmentStatusAsync();
+            var statusResponse = await ApiHelper.Instance.GetMeEquipmentStatusAsync();
 
             switch (statusResponse)
             {
@@ -38,7 +38,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                     break;
             }
 
-            var response = await ApiHelper.Instance.GetEmployeeEquipmentAsync();
+            var response = await ApiHelper.Instance.GetMeEquipmentAsync();
 
             if (response != null)
             {

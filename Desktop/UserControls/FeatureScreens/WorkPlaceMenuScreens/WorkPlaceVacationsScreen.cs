@@ -42,7 +42,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceVacationsScreen_Load(object sender, EventArgs e)
         {
-            var result = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var result = await ApiHelper.Instance.GetMeAsync();
 
             if (result == null)
                 return;
@@ -116,7 +116,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
                 foreach (var employee in _employees)
                 {
-                    var vacationsIE = (await ApiHelper.Instance.GetSelectedEmployeeVacationsAsync(employee.ID));
+                    var vacationsIE = (await ApiHelper.Instance.GetAllVacationsOfSelectedEmployeeAsync(employee.ID));
 
                     if (vacationsIE != null)
                     {
@@ -172,7 +172,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                     if (employee.Data.EmailAddress == employeeEmail)
                     {
                         _vacations.Clear();
-                        var vacationsIE = (await ApiHelper.Instance.GetSelectedEmployeeVacationsAsync(employee.ID));
+                        var vacationsIE = (await ApiHelper.Instance.GetAllVacationsOfSelectedEmployeeAsync(employee.ID));
 
                         if (vacationsIE != null)
                         {
@@ -292,7 +292,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                 {
                     if (vacation.DateAndTime == (DateTime)vacationsComboBox.SelectedItem && (DateTime)vacationsComboBox.SelectedItem > DateTime.Now.Date)
                     {
-                        var response = await ApiHelper.Instance.SetEmployeeVacationApprovedStateAsync(vacation.ID, approved);
+                        var response = await ApiHelper.Instance.SetApprovedStateOfSelectedVacationAsync(vacation.ID, approved);
 
                         if (response.Success == true)
                         {

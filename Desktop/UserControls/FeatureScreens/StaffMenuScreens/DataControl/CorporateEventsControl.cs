@@ -31,7 +31,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             eventsControlPanel.Visible = true;
             workPlaceLeadersListView.Visible = true;
 
-            var eventResult = await ApiHelper.Instance.GetCorporateEventAsync(_id);
+            var eventResult = await ApiHelper.Instance.GetSelectedCorporateEventAsync(_id);
 
             if (eventResult != null)
                 LoadComponents(eventResult);
@@ -73,7 +73,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             workPlaceLeadersListView.View = View.Details;
 
 
-            var response = await ApiHelper.Instance.GetCorporateEventAsync(_id);
+            var response = await ApiHelper.Instance.GetSelectedCorporateEventAsync(_id);
 
             if (response != null && response.InvitedWorkPlaceLeaders != null)
             {

@@ -84,7 +84,7 @@ Email: {bonus.HR_Worker.Email}"
 
         private async Task LoadEmailLabelAsync()
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(_id);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(_id);
 
             if (result != null)
             {

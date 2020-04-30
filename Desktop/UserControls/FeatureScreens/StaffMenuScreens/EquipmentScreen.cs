@@ -70,7 +70,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
         private async Task LoadEmailLabelAsync()
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(_id);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(_id);
 
             if (result != null)
             {
@@ -97,7 +97,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
                 return;
             }
 
-            var response = await ApiHelper.Instance.AddEquipmentItemForEmployeeAsync(_id, labelTextBox.Text);
+            var response = await ApiHelper.Instance.AddEquipmentItemAsync(_id, labelTextBox.Text);
 
             if (response.Success)
             {
@@ -164,7 +164,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
             EquipmentStatus enumStat = (EquipmentStatus)(Enum.Parse(typeof(EquipmentStatus), status));
 
-            var response = await ApiHelper.Instance.SetEquipmentStatusOfEmployeeAsync(_id, enumStat);
+            var response = await ApiHelper.Instance.SetEquipmentStatusAsync(_id, enumStat);
 
             if (response.Success)
             {

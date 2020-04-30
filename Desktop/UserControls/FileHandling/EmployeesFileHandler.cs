@@ -15,7 +15,7 @@ namespace Desktop.UserControls.FileHandling
 
         public async Task<string> LoadSubjectEmailAsync(string subjectId)
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(subjectId);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(subjectId);
 
             if (result != null)
             {

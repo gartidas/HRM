@@ -73,7 +73,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                     }
                     if (!found)
                     {
-                        var response = await ApiHelper.Instance.AddSpecialtyOfWorkPlaceAsync(_id, nameTextBox.Text, result);
+                        var response = await ApiHelper.Instance.AddSpecialtyAsync(_id, nameTextBox.Text, result);
                         if (response.Success)
                         {
                             await LoadDataAsync();
@@ -97,7 +97,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                 {
                     if (specialty.Name == specialtiesListView.SelectedItems[0].SubItems[1].Text)
                     {
-                        var response = await ApiHelper.Instance.DeleteSpecialtyOfWorkPlaceAsync(specialty.ID);
+                        var response = await ApiHelper.Instance.RemoveSpecialtyAsync(specialty.ID);
 
                         if (response.Success)
                         {
@@ -112,7 +112,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceSpecialtiesScreen_Load(object sender, System.EventArgs e)
         {
-            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var response = await ApiHelper.Instance.GetMeAsync();
 
             if (response == null)
                 return;

@@ -27,7 +27,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 
             bonusesListView.View = View.Details;
 
-            var response = await ApiHelper.Instance.GetEmployeeBonusesAsync();
+            var response = await ApiHelper.Instance.GetMeBonusesAsync();
 
             if (response != null)
             {

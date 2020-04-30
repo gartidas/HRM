@@ -37,7 +37,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 return;
             }
 
-            var response = await ApiHelper.Instance.AddEvaluationForEmployeeAsync(_id, _hR_WorkerId, (EvaluationWeight)Enum.Parse(typeof(EvaluationWeight), weightComboBox.SelectedItem.ToString()), positiveRadioButton.Checked ? true : false, descriptionTextBox.Text);
+            var response = await ApiHelper.Instance.AddEvaluationAsync(_id, _hR_WorkerId, (EvaluationWeight)Enum.Parse(typeof(EvaluationWeight), weightComboBox.SelectedItem.ToString()), positiveRadioButton.Checked ? true : false, descriptionTextBox.Text);
 
             if (response.Success)
             {
@@ -56,7 +56,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private async void EvaluationsControl_Load(object sender, EventArgs e)
         {
-            _hR_WorkerId = (await ApiHelper.Instance.GetEmployeeDataAsync()).ID;
+            _hR_WorkerId = (await ApiHelper.Instance.GetMeAsync()).ID;
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async Task LoadWorkPlaceDataAsync()
         {
-            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var response = await ApiHelper.Instance.GetMeAsync();
 
             if (response != null)
             {

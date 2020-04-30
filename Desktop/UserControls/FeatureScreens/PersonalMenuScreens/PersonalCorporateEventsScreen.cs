@@ -28,7 +28,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             }
             _events.Clear();
 
-            var response = await ApiHelper.Instance.GetEmployeeCorporateEventsAsync();
+            var response = await ApiHelper.Instance.GetMeCorporateEventsAsync();
 
             if (response != null)
             {

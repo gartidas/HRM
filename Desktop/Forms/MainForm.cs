@@ -132,7 +132,7 @@ namespace Desktop
                 staffMenuButton.Enabled = true;
             }
 
-            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var response = await ApiHelper.Instance.GetMeAsync();
 
             if (response != null)
             {

@@ -12,7 +12,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 
         private async Task LoadDataAsync()
         {
-            var response = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var response = await ApiHelper.Instance.GetMeAsync();
 
             if (response != null)
             {

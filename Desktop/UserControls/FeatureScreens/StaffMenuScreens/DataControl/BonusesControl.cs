@@ -20,7 +20,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private async void BonusesControl_Load(object sender, System.EventArgs e)
         {
-            _hR_WorkerId = (await ApiHelper.Instance.GetEmployeeDataAsync()).ID;
+            _hR_WorkerId = (await ApiHelper.Instance.GetMeAsync()).ID;
         }
 
         private async void submitButton_Click(object sender, System.EventArgs e)
@@ -44,7 +44,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 return;
             }
 
-            var response = await ApiHelper.Instance.AddBonusForEmployeeAsync(_subjectId, _hR_WorkerId, DateTime.Now.Date, result, descriptionTextBox.Text);
+            var response = await ApiHelper.Instance.AddBonusAsync(_subjectId, _hR_WorkerId, DateTime.Now.Date, result, descriptionTextBox.Text);
 
             if (response.Success)
             {

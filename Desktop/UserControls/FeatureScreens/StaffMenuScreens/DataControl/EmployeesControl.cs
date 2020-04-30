@@ -63,7 +63,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private async Task LoadData()
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(_id);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(_id);
 
             if (result != null)
             {

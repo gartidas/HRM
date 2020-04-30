@@ -35,7 +35,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
 
         private async void WorkPlaceEvaluationsScreen_Load(object sender, System.EventArgs e)
         {
-            var result = await ApiHelper.Instance.GetEmployeeDataAsync();
+            var result = await ApiHelper.Instance.GetMeAsync();
 
             if (result == null)
                 return;
@@ -68,7 +68,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
             evaluationsListView.Columns.Add(column);
             evaluationsListView.View = View.Details;
 
-            var response = await ApiHelper.Instance.GetAllEvaluationsOfEmployeeAsync(id);
+            var response = await ApiHelper.Instance.GetAllEvaluationsOfSelectedEmployeeAsync(id);
             Color color = Color.White;
             if (response != null)
             {

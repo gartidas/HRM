@@ -35,7 +35,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
             _events.Clear();
             _vacations.Clear();
 
-            var response = await ApiHelper.Instance.GetEmployeeVacationsAsync();
+            var response = await ApiHelper.Instance.GetMeVacationsAsync();
 
             if (response != null)
             {
@@ -109,7 +109,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                 return;
             }
 
-            var result = await ApiHelper.Instance.DeleteVacationAsync(vacationDateTimePicker.Value.Date);
+            var result = await ApiHelper.Instance.RemoveVacationAsync(vacationDateTimePicker.Value.Date);
 
             if (result.Success == true)
             {
@@ -124,7 +124,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 
         private async void VacationsScreen_LoadAsync(object sender, EventArgs e)
         {
-            _numberOfVacations = (await ApiHelper.Instance.GetEmployeeDataAsync()).Data.NumberOfVacationDays;
+            _numberOfVacations = (await ApiHelper.Instance.GetMeAsync()).Data.NumberOfVacationDays;
             await LoadDataAsync();
         }
 

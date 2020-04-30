@@ -9,7 +9,7 @@ namespace Desktop.UserControls.FileHandling
     {
         public async Task<string> LoadSubjectEmailAsync(string subjectId)
         {
-            var result = await ApiHelper.Instance.GetSelectedCandidate(subjectId);
+            var result = await ApiHelper.Instance.GetSelectedCandidateAsync(subjectId);
 
             if (result != null)
             {

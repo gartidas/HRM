@@ -27,7 +27,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
         private async Task LoadEmailLabelAsync()
         {
-            var result = await ApiHelper.Instance.GetSelectedEmployeeDataAsync(_id);
+            var result = await ApiHelper.Instance.GetSelectedEmployeeAsync(_id);
 
             if (result != null)
             {
@@ -44,7 +44,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
                 return;
             }
 
-            var response = await ApiHelper.Instance.ResetPasswordAsync(_id, passwordTextBox.Text);
+            var response = await ApiHelper.Instance.ResetPasswordOfSelectedUserAsync(_id, passwordTextBox.Text);
 
             errorLabel.Text = "";
 

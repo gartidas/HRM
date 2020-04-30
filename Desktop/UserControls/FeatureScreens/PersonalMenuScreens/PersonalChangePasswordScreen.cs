@@ -54,7 +54,7 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
                     return;
                 }
 
-                var response = await ApiHelper.Instance.ChangePasswordAsync(currentPasswordTextBox.Text, newPasswordTextBox.Text);
+                var response = await ApiHelper.Instance.ChangeMePasswordAsync(currentPasswordTextBox.Text, newPasswordTextBox.Text);
 
                 if (response.Success)
                 {
