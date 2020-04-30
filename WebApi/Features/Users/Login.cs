@@ -47,7 +47,7 @@ namespace WebApi.Features.Users
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Email).EmailAddress().WithMessage("Email has invalid format.");
+                RuleFor(x => x.Email).EmailAddress().WithMessage("Email has invalid format");
                 RuleFor(x => x.Password).Must(x => x.Length > 7).Must(x => x.Any(char.IsDigit));
             }
         }

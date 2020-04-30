@@ -35,10 +35,18 @@ namespace WebApi.Features.CorporateEvents
             {
                 var corporateEvent = await _context.CorporateEvents.Include(x => x.EmployeeCorporateEvent).ThenInclude(x => x.Employee).SingleOrDefaultAsync(x => x.ID == request.CorporateEventId);
 
-                if (corporateEvent is null) return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist." } };
-
+                if (corporateEvent is null) return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist" } };
 
                 var employees = _context.Employees.Where(x => request.EmployeeIds.Contains(x.ID));
+
+                foreach (var corpEv in corporateEvent.EmployeeCorporateEvent)
+                {
+                    foreach (var id in request.EmployeeIds)
+                    {
+                        if (corpEv.EmployeeID == id)
+                            return new GenericResponse { Errors = new[] { $"Employee already assigned" } };
+                    }
+                }
 
                 foreach (var employee in employees)
                 {
@@ -48,7 +56,7 @@ namespace WebApi.Features.CorporateEvents
                         Employee = employee
                     };
 
-                    await _context.AddAsync(join);
+                    await _context.EmployeeCorporateEvents.AddAsync(join);
                 }
 
                 await _context.SaveChangesAsync();

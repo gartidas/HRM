@@ -27,13 +27,13 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
         {
             if (descriptionTextBox.Text == "")
             {
-                _toolTip.Show("Description is empty.", descriptionTextBox);
+                _toolTip.Show("Description is empty", descriptionTextBox);
                 return;
             }
 
             if (weightComboBox.SelectedItem == default)
             {
-                _toolTip.Show("There is nothing selected.", weightComboBox);
+                _toolTip.Show("There is nothing selected", weightComboBox);
                 return;
             }
 

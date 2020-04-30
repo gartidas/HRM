@@ -159,6 +159,7 @@ namespace Desktop.UserControls.FeatureScreens.WorkPlaceMenuScreens
                                 {
                                     employeesComboBox.SelectedIndex = -1;
                                     await LoadEmployeesListViewAsync();
+                                    return;
                                 }
                             }
                         }

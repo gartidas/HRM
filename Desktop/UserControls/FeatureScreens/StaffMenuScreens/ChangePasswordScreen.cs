@@ -40,7 +40,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
         {
             if (passwordTextBox.Text == "")
             {
-                _toolTip.Show("New password is empty.", passwordTextBox);
+                _toolTip.Show("New password is empty", passwordTextBox);
                 return;
             }
 
@@ -51,7 +51,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
             if (response.Success)
             {
                 passwordTextBox.Text = "";
-                errorLabel.Text = "Password successfuly changed.";
+                errorLabel.Text = "Password successfuly changed";
             }
             else
             {

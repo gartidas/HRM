@@ -37,7 +37,7 @@ namespace WebApi.Features.Vacations
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Vacations.AnyAsync(x => x.DateAndTime == request.DateAndTime && x.EmployeeID == request.EmployeeId))
-                    return new GenericResponse { Errors = new[] { "Vacation already planned for this date." } };
+                    return new GenericResponse { Errors = new[] { "Vacation already planned for this date" } };
                 var role = (await _userManager.GetRolesAsync((await _userManager.FindByIdAsync(request.EmployeeId)))).SingleOrDefault();
 
                 var vacation = new Vacation

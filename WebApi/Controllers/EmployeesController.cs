@@ -22,6 +22,7 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost(ApiRoutes.Employees.HireEmployee)]
         public async Task<ActionResult<GenericResponse>> HireEmployee([FromRoute]string candidateId, [FromBody]HireEmployee.Command request)
         {
@@ -54,6 +55,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.Employees.EditEmployee)]
         public async Task<ActionResult<GenericResponse>> EditEmployee([FromRoute]string employeeId, [FromBody]EditEmployee.Command command)
         {
@@ -62,6 +64,7 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost(ApiRoutes.Employees.FireEmployee)]
         public async Task<ActionResult<GenericResponse>> FireEmployee([FromRoute]string employeeId, [FromBody]FireEmployee.Command command)
         {

@@ -35,17 +35,18 @@ namespace WebApi.Features.CorporateEvents
             {
                 var corporateEvent = await _context.CorporateEvents.Include(x => x.WorkPlaceLeaderCorporateEvent).ThenInclude(x => x.WorkPlaceLeader).SingleOrDefaultAsync(x => x.ID == request.CorporateEventId);
 
-                if (corporateEvent is null) return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist." } };
-
+                if (corporateEvent is null) return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist" } };
 
                 var workPlaceLeaders = _context.WorkPlaceLeaders.Where(x => request.WorkPlaceLeaderIds.Contains(x.ID));
 
-                foreach (var join in corporateEvent.WorkPlaceLeaderCorporateEvent)
+                foreach (var corpEv in corporateEvent.WorkPlaceLeaderCorporateEvent)
                 {
-                    _context.Remove(join);
+                    foreach (var id in request.WorkPlaceLeaderIds)
+                    {
+                        if (corpEv.WorkPlaceLeaderID == id)
+                            return new GenericResponse { Errors = new[] { $"Workplace leader already assigned" } };
+                    }
                 }
-
-                await _context.SaveChangesAsync();
 
                 foreach (var workPlaceLeader in workPlaceLeaders)
                 {
@@ -55,7 +56,7 @@ namespace WebApi.Features.CorporateEvents
                         WorkPlaceLeader = workPlaceLeader
                     };
 
-                    await _context.AddAsync(join);
+                    await _context.WorkPlaceLeaderCorporateEvents.AddAsync(join);
                 }
 
                 await _context.SaveChangesAsync();

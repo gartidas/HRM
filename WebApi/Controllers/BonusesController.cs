@@ -46,7 +46,6 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [AllowAnonymous]
         [HttpGet(ApiRoutes.Bonuses.GetAllBonusesOfSelectedEmployee)]
         public async Task<ActionResult<GetAllBonusesOfEmployee.BonusDto>> GetAllBonusesOfSelectedEmployee([FromRoute]string employeeId)
         {

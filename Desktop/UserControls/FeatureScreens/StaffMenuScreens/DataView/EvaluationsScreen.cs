@@ -38,7 +38,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
             evaluationsListView.Columns.Add(new ColumnHeader { Name = "ID", TextAlign = HorizontalAlignment.Center, Text = "ID" });
             evaluationsListView.View = View.Details;
 
-            var response = await ApiHelper.Instance.GetEvaluationsOfSelectedEmployeeAsync(_id);
+            var response = await ApiHelper.Instance.GetAllEvaluationsOfEmployeeAsync(_id);
             Color color = Color.White;
 
             if (response != null)

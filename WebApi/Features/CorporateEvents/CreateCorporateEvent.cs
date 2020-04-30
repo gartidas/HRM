@@ -32,7 +32,7 @@ namespace WebApi.Features.CorporateEvents
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.CorporateEvents.AnyAsync(x => x.Name == request.Name && x.Location == request.Location && x.DateAndTime == request.DateAndTime))
-                    return new GenericResponse { Errors = new[] { $"Event already exists." } };
+                    return new GenericResponse { Errors = new[] { $"Event already exists" } };
 
                 var corporateEvent = new CorporateEvent
                 {
@@ -54,8 +54,8 @@ namespace WebApi.Features.CorporateEvents
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required");
                 RuleFor(x => x.DateAndTime).Must(x => x > DateTime.UtcNow).WithMessage("Date must be in the future");
             }
         }

@@ -30,7 +30,7 @@ namespace WebApi.Features.WorkPlaces
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Workplaces.AnyAsync(x => x.Label == request.Label && x.Location == request.Location))
-                    return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}." } };
+                    return new GenericResponse { Errors = new[] { $"Work place labeled {request.Label} already exists at {request.Location}" } };
 
                 var workPlace = new WorkPlace
                 {
@@ -45,7 +45,7 @@ namespace WebApi.Features.WorkPlaces
                     if (workPlaceLeader == null)
                         return new GenericResponse
                         {
-                            Errors = new[] { "Work place leader not found." }
+                            Errors = new[] { "Work place leader not found" }
                         };
 
                     var leaderEmployee = await _context.Employees.Include(x => x.WorkPlace).ThenInclude(x => x.Employees).SingleOrDefaultAsync(x => x.ID == workPlaceLeader.ID);
@@ -75,8 +75,8 @@ namespace WebApi.Features.WorkPlaces
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Label).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.Label).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required");
             }
         }
     }

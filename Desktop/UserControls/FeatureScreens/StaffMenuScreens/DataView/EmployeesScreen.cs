@@ -18,6 +18,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
         public EmployeesScreen()
         {
             InitializeComponent();
+            if (CurrentUser.User.Role == Role.SysAdmin)
+                fireButton.Enabled = false;
         }
 
         private async Task LoadEmployeesAsync()

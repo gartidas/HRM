@@ -10,7 +10,7 @@ using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class WorkPlacesController : ControllerBase
     {
@@ -52,6 +52,7 @@ namespace WebApi.Controllers
                 : BadRequest("Error occured while deleting workplace") as ActionResult;
         }
 
+        [AllowAnonymous]
         [HttpGet(ApiRoutes.WorkPlaces.GetAllWorkPlaces)]
         public async Task<ActionResult<PagingResponse<GetAllWorkPlaces.WorkPlaceDto>>> GetAllWorkPlaces([FromQuery]GetAllWorkPlaces.Filter filter, [FromQuery]PagingReferences pagingReferences)
         {

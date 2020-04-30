@@ -31,7 +31,7 @@ namespace WebApi.Features.Vacations
                 var vacation = await _context.Vacations.SingleOrDefaultAsync(x => x.ID == request.VacationId, cancellationToken);
 
                 if (vacation is null)
-                    return new GenericResponse { Errors = new[] { $"Vacation with id {request.VacationId} does not exist." } };
+                    return new GenericResponse { Errors = new[] { $"Vacation with id {request.VacationId} does not exist" } };
 
                 vacation.Approved = request.Approved;
 

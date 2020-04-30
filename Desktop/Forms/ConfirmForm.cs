@@ -63,7 +63,7 @@ namespace Desktop.Forms
             {
                 if (textBox.Text == "")
                 {
-                    _toolTip.Show("Text box is empty.", textBox);
+                    _toolTip.Show("Text box is empty", textBox);
                     return;
                 }
 

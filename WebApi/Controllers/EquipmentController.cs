@@ -10,7 +10,7 @@ using WebApi.Features.EquipmentItems;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EquipmentController : ControllerBase
     {
@@ -21,6 +21,7 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost(ApiRoutes.Equipment.CreateEquipment)]
         public async Task<ActionResult<GenericResponse>> CreateEquipment([FromRoute]string employeeId, [FromBody]CreateEquipment.Command command)
         {
@@ -30,6 +31,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete(ApiRoutes.Equipment.DeleteEquipment)]
         public async Task<ActionResult> DeleteEquipment([FromRoute]string equipmentId)
         {
@@ -54,6 +56,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.Equipment.SetEquipmentStatusOfEmployee)]
         public async Task<ActionResult<GenericResponse>> SetEquipmentStatusOfEmployee([FromRoute]string employeeId, [FromBody]SetEquipmentStatusOfEmployee.Command command)
         {

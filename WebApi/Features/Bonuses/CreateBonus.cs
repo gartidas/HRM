@@ -37,11 +37,11 @@ namespace WebApi.Features.Bonuses
                 var employee = await _context.Employees.FindAsync(request.EmployeeID);
 
                 if (employee == null)
-                    return new GenericResponse { Errors = new[] { "Employee not found." } };
+                    return new GenericResponse { Errors = new[] { "Employee not found" } };
                 if (hr_worker == null)
-                    return new GenericResponse { Errors = new[] { "HR worker not found." } };
+                    return new GenericResponse { Errors = new[] { "HR worker not found" } };
                 if (hr_worker.ID == employee.ID)
-                    return new GenericResponse { Errors = new[] { "Cant grant bonus to yourself." } };
+                    return new GenericResponse { Errors = new[] { "Cant grant bonus to yourself" } };
 
                 var bonus = new Bonus
                 {
@@ -63,8 +63,8 @@ namespace WebApi.Features.Bonuses
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Value).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.Description).Must(x => x.Length > 5).WithMessage("Must be at least 6 characters long.");
+                RuleFor(x => x.Value).Must(x => x > 0).WithMessage("Must be positive number");
+                RuleFor(x => x.Description).Must(x => x.Length > 5).WithMessage("Must be at least 6 characters long");
             }
         }
     }

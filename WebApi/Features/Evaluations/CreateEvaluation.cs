@@ -36,11 +36,11 @@ namespace WebApi.Features.Evaluations
                 var employee = await _context.Employees.FindAsync(request.EmployeeID);
 
                 if (employee == null)
-                    return new GenericResponse { Errors = new[] { "Employee not found." } };
+                    return new GenericResponse { Errors = new[] { "Employee not found" } };
                 if (hr_worker == null)
-                    return new GenericResponse { Errors = new[] { "HR worker not found." } };
+                    return new GenericResponse { Errors = new[] { "HR worker not found" } };
                 if (hr_worker.ID == employee.ID)
-                    return new GenericResponse { Errors = new[] { "Cant evaluate yourself." } };
+                    return new GenericResponse { Errors = new[] { "Cant evaluate yourself" } };
 
                 var evaluation = new Evaluation
                 {
@@ -62,8 +62,8 @@ namespace WebApi.Features.Evaluations
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Weight).Must(x => (int)x >= 1 && (int)x <= 3).WithMessage("Must be between 1 and 3.");
-                RuleFor(x => x.Description).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.Weight).Must(x => (int)x >= 1 && (int)x <= 3).WithMessage("Must be between 1 and 3");
+                RuleFor(x => x.Description).Must(x => x.Length > 0).WithMessage("Is Required");
             }
         }
     }

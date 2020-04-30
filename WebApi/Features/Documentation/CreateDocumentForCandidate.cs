@@ -31,7 +31,7 @@ namespace WebApi.Features.Documentation
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Documents.AnyAsync(x => x.Name == request.Name && x.CandidateID == request.CandidateId))
-                    return new GenericResponse { Errors = new[] { $"File with name {request.Name} is already assigned to this subject." } };
+                    return new GenericResponse { Errors = new[] { $"File with name {request.Name} is already assigned to this subject" } };
 
                 var document = new Document
                 {

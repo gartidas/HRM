@@ -59,7 +59,7 @@ Email: {bonus.HR_Worker.Email}"
 
             bonusesListView.Columns[3].Width = -1;
 
-            if (bonusesListView.Columns[3].Width < 100)
+            if (bonusesListView.Columns[3].Width < 200)
                 bonusesListView.Columns[3].Width = 200;
         }
 

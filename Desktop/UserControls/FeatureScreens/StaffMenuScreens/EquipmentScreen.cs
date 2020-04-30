@@ -93,7 +93,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
         {
             if (labelTextBox.Text == "")
             {
-                _toolTip.Show("Label is empty.", labelTextBox);
+                _toolTip.Show("Label is empty", labelTextBox);
                 return;
             }
 

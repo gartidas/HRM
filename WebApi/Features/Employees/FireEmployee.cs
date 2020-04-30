@@ -41,9 +41,9 @@ namespace WebApi.Features.Employees
                 var emp = await _context.Employees.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
 
                 if (employee == null)
-                    return new GenericResponse { Success = false, Errors = new[] { "Employee not found." } };
+                    return new GenericResponse { Success = false, Errors = new[] { "Employee not found" } };
                 if (hr_worker == null)
-                    return new GenericResponse { Success = false, Errors = new[] { "HR worker not found." } };
+                    return new GenericResponse { Success = false, Errors = new[] { "HR worker not found" } };
 
                 var documentation = emp.Documentation;
 

@@ -40,7 +40,7 @@ namespace WebApi.Features.Candidates
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Candidates.AnyAsync(x => x.Email == request.Email))
-                    return new GenericResponse { Errors = new[] { $"Candidate with email {request.Email} already exists." } };
+                    return new GenericResponse { Errors = new[] { $"Candidate with email {request.Email} already exists" } };
 
                 var candidate = new Candidate
                 {
@@ -69,17 +69,17 @@ namespace WebApi.Features.Candidates
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Email).EmailAddress().WithMessage("Invalid email address.");
-                RuleFor(x => x.Name).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Surname).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Title).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Specialty).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Address).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.RequestedSalary).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.PhoneNumber).Must(IsEmptyOrPhoneNumber).WithMessage("Invalid phone number.");
-                RuleFor(x => x.Status).Must(x => x >= 0 && (int)x <= 5).WithMessage("Invalid status.");
-                RuleFor(x => x.Evaluation).Must(x => x >= 0 && (int)x <= 10).WithMessage("Must be between 0 and 10.");
-                RuleFor(x => x.Education).Must(x => x.Length > 9 && x.Length < 201).WithMessage("Must have minimum of 10 chars and maximum of 200 chars.");
+                RuleFor(x => x.Email).EmailAddress().WithMessage("Invalid email address");
+                RuleFor(x => x.Name).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Surname).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Title).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Specialty).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Address).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.RequestedSalary).Must(x => x > 0).WithMessage("Must be positive number");
+                RuleFor(x => x.PhoneNumber).Must(IsEmptyOrPhoneNumber).WithMessage("Invalid phone number");
+                RuleFor(x => x.Status).Must(x => x >= 0 && (int)x <= 5).WithMessage("Invalid status");
+                RuleFor(x => x.Evaluation).Must(x => x >= 0 && (int)x <= 10).WithMessage("Must be between 0 and 10");
+                RuleFor(x => x.Education).Must(x => x.Length > 9 && x.Length < 201).WithMessage("Must have minimum of 10 chars and maximum of 200 chars");
             }
 
             private bool IsEmptyOrPhoneNumber(string value)

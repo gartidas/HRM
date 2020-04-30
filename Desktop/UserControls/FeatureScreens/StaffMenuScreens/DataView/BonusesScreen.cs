@@ -78,7 +78,7 @@ Email: {bonus.HR_Worker.Email}"
 
             bonusesListView.Columns[3].Width = -1;
 
-            if (bonusesListView.Columns[3].Width < 100)
+            if (bonusesListView.Columns[3].Width < 200)
                 bonusesListView.Columns[3].Width = 200;
         }
 
@@ -109,7 +109,7 @@ Email: {bonus.HR_Worker.Email}"
 
                 foreach (var bonus in _bonuses)
                 {
-                    if (bonus.GrantedDate.ToString() == bonusesListView.SelectedItems[0].SubItems[1].Text && bonus.Value.ToString() == bonusesListView.SelectedItems[0].SubItems[2].Text && bonus.Description == bonusesListView.SelectedItems[0].SubItems[3].Text)
+                    if (bonus.GrantedDate.ToString("dd.MM.yyyy") == bonusesListView.SelectedItems[0].SubItems[1].Text && bonus.Value.ToString() == bonusesListView.SelectedItems[0].SubItems[2].Text && bonus.Description == bonusesListView.SelectedItems[0].SubItems[3].Text)
                     {
                         var response = await ApiHelper.Instance.RemoveBonusAsync(bonus.ID);
 

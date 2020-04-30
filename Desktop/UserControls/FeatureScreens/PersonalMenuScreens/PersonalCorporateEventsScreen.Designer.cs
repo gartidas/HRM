@@ -71,14 +71,14 @@
             this.corporateEventsCalendar.TabIndex = 15;
             this.corporateEventsCalendar.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             // 
-            // CorporateEventsScreen
+            // PersonalCorporateEventsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.corporateEventsCalendar);
             this.Controls.Add(this.label4);
-            this.Name = "CorporateEventsScreen";
+            this.Name = "PersonalCorporateEventsScreen";
             this.Size = new System.Drawing.Size(1156, 840);
             this.Load += new System.EventHandler(this.CorporateEventsScreen_LoadAsync);
             this.ResumeLayout(false);

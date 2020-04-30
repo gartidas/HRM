@@ -57,7 +57,7 @@ namespace WebApi.Features.CorporateEvents
         {
             public CommandValidator()
             {
-                RuleFor(x => x.WorkPlaceLeaderIds).Must(x => x.Any()).WithMessage("Must contain at least one workplace leader.");
+                RuleFor(x => x.WorkPlaceLeaderIds).Must(x => x.Any()).WithMessage("Must contain at least one workplace leader");
             }
         }
     }

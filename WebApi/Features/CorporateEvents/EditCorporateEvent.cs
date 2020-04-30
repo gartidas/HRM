@@ -36,10 +36,10 @@ namespace WebApi.Features.CorporateEvents
                 var corporateEvent = await _context.CorporateEvents.SingleOrDefaultAsync(x => x.ID == request.CorporateEventId, cancellationToken);
 
                 if (corporateEvent is null)
-                    return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist." } };
+                    return new GenericResponse { Errors = new[] { $"Event with id {request.CorporateEventId} does not exist" } };
 
-                if (await _context.CorporateEvents.AnyAsync(x => x.Name == request.Name && x.Location == request.Location && x.DateAndTime == request.DateAndTime))
-                    return new GenericResponse { Errors = new[] { $"Event already exists." } };
+                if (await _context.CorporateEvents.AnyAsync(x => x.Name == request.Name && x.Location == request.Location && x.DateAndTime == request.DateAndTime && x.ID != request.CorporateEventId))
+                    return new GenericResponse { Errors = new[] { $"Event already exists" } };
 
 
                 corporateEvent.Name = request.Name;
@@ -57,8 +57,8 @@ namespace WebApi.Features.CorporateEvents
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Location).Must(x => x.Length > 0).WithMessage("Is Required");
                 RuleFor(x => x.DateAndTime).Must(x => x > DateTime.UtcNow).WithMessage("Date must be in the future");
             }
         }

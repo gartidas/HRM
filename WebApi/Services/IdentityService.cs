@@ -37,7 +37,7 @@ namespace WebApi.Services
             var user = await _userManager.FindByEmailAsync(email);
 
             if (user == null)
-                return new AuthenticationResult { Errors = new[] { "User does not exist." } };
+                return new AuthenticationResult { Errors = new[] { "User does not exist" } };
 
             var hasUserValidPassword = await _userManager.CheckPasswordAsync(user, password);
 
@@ -53,14 +53,14 @@ namespace WebApi.Services
         {
             var existingUser = await _userManager.FindByEmailAsync(model.EmailAddress);
             if (existingUser != null)
-                return new OperationResult { Errors = new[] { $"Employee with email address {model.EmailAddress} already exists." } };
+                return new OperationResult { Errors = new[] { $"Employee with email address {model.EmailAddress} already exists" } };
 
             WorkPlace workPlace = null;
             if (model.WorkPlaceID != null)
             {
                 workPlace = await _context.Workplaces.FindAsync(model.WorkPlaceID);
                 if (workPlace == null)
-                    return new OperationResult { Errors = new[] { "Work place does not exist." } };
+                    return new OperationResult { Errors = new[] { "Work place does not exist" } };
             }
 
             var newUser = new ApplicationUser
@@ -115,7 +115,7 @@ namespace WebApi.Services
                     _context.HR_Workers.Add(new HR_Worker { IdentityUser = createdUser });
                     break;
                 default:
-                    throw new ArgumentException($"{model.Role} role registration not supported.");
+                    throw new ArgumentException($"{model.Role} role registration not supported");
             }
 
             await _context.SaveChangesAsync();

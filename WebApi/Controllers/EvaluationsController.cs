@@ -10,7 +10,7 @@ using WebApi.Features.Evaluations;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class EvaluationsController : ControllerBase
     {
@@ -21,6 +21,7 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost(ApiRoutes.Evaluations.CreateEvaluation)]
         public async Task<ActionResult<GenericResponse>> CreateEvaluation([FromRoute]string employeeId, [FromBody]CreateEvaluation.Command command)
         {
@@ -30,6 +31,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete(ApiRoutes.Evaluations.DeleteEvaluation)]
         public async Task<ActionResult> DeleteEvaluation([FromRoute]string evaluationId)
         {
@@ -46,7 +48,6 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
-        [AllowAnonymous]
         [HttpGet(ApiRoutes.Evaluations.GetAllEvaluationsOfSelectedEmployee)]
         public async Task<ActionResult<GetAllEvaluationsOfEmployee.EvaluationDto>> GetAllEvaluationsOfSelectedEmployee([FromRoute]string employeeId)
         {

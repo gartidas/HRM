@@ -122,7 +122,7 @@ namespace WebApi.Features.Employees
                 var currentRole = (await _userManager.GetRolesAsync(employee)).Single();
 
                 if (currentRole != role.ToString() && currentRole == Role.SysAdmin.ToString())
-                    return new OperationResult { Errors = new[] { "SysAdmin cannot change his own role." } };
+                    return new OperationResult { Errors = new[] { "SysAdmin cannot change his own role" } };
 
                 if (currentRole == role.ToString()) return new OperationResult { Success = true };
 
@@ -163,7 +163,7 @@ namespace WebApi.Features.Employees
                             _context.HR_Workers.Add(new HR_Worker { IdentityUser = employee });
                         break;
                     default:
-                        throw new ArgumentException($"Cant switch to role {role}.");
+                        throw new ArgumentException($"Cant switch to role {role}");
 
                 }
 
@@ -175,19 +175,19 @@ namespace WebApi.Features.Employees
         {
             public CommandValidator()
             {
-                RuleFor(x => x.EmailAddress).EmailAddress().WithMessage("Invalid email address.");
-                RuleFor(x => x.Name).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Surname).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Title).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Specialty).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.AddressOfPermanentResidence).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.PhoneNumber).Must(IsEmptyOrPhoneNumber).WithMessage("Invalid phone number.");
-                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role.");
-                RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number.");
+                RuleFor(x => x.EmailAddress).EmailAddress().WithMessage("Invalid email address");
+                RuleFor(x => x.Name).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Surname).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Title).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Specialty).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.AddressOfPermanentResidence).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.PhoneNumber).Must(IsEmptyOrPhoneNumber).WithMessage("Invalid phone number");
+                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role");
+                RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number");
+                RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number");
             }
             private bool IsEmptyOrPhoneNumber(string value)
             {

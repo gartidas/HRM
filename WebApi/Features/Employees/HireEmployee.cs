@@ -55,7 +55,7 @@ namespace WebApi.Features.Employees
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 var candidate = await _context.Candidates.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.CandidateId);
-                if (candidate is null) return new GenericResponse { Errors = new[] { "Candidate does not exist." } };
+                if (candidate is null) return new GenericResponse { Errors = new[] { "Candidate does not exist" } };
 
 
                 var employee = new RegisterModel
@@ -97,14 +97,14 @@ namespace WebApi.Features.Employees
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role.");
-                RuleFor(x => x.FamilyStatus).Must(x => x >= 0 && (int)x < 4).WithMessage("Invalid family status.");
-                RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required.");
-                RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars.");
-                RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.NumberOfChildren).Must(x => x >= 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number.");
+                RuleFor(x => x.Role).Must(x => x > 0 && (int)x < 4).WithMessage("Invalid role");
+                RuleFor(x => x.FamilyStatus).Must(x => x >= 0 && (int)x < 4).WithMessage("Invalid family status");
+                RuleFor(x => x.BirthCertificateNumber).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.BirthPlace).Must(x => x.Length > 0).WithMessage("Is Required");
+                RuleFor(x => x.Citizenship).Must(x => x.Length > 1 && x.Length < 30).WithMessage("Must have minimum of 2 chars and maximum of 29 chars");
+                RuleFor(x => x.Salary).Must(x => x > 0).WithMessage("Must be positive number");
+                RuleFor(x => x.NumberOfChildren).Must(x => x >= 0).WithMessage("Must be positive number");
+                RuleFor(x => x.NumberOfVacationDays).Must(x => x > 0).WithMessage("Must be positive number");
             }
         }
     }

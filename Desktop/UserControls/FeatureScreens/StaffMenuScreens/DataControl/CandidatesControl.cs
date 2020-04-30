@@ -70,20 +70,20 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                     name = (string.Concat(name.Select(x => Char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' '));
                     name = Char.ToUpper(name[0]) + name.Substring(1).ToLower();
 
-                    _toolTip.Show($"{name} is empty.", (TextBox)control);
+                    _toolTip.Show($"{name} is empty", (TextBox)control);
                     return;
                 }
             }
 
             if (statusComboBox.SelectedItem == default)
             {
-                _toolTip.Show("There is nothing selected.", statusComboBox);
+                _toolTip.Show("There is nothing selected", statusComboBox);
                 return;
             }
 
             if (!double.TryParse(requestedSalaryTextBox.Text, out double result))
             {
-                _toolTip.Show("Number in wrong format.", requestedSalaryTextBox);
+                _toolTip.Show("Number in wrong format", requestedSalaryTextBox);
                 return;
             }
 

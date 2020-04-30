@@ -143,44 +143,44 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                     name = (string.Concat(name.Select(x => Char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' '));
                     name = Char.ToUpper(name[0]) + name.Substring(1).ToLower();
 
-                    _toolTip.Show($"{name} is empty.", (TextBox)control);
+                    _toolTip.Show($"{name} is empty", (TextBox)control);
                     return;
                 }
             }
 
             if (familyStatusComboBox.SelectedItem == default)
             {
-                _toolTip.Show("There is nothing selected.", familyStatusComboBox);
+                _toolTip.Show("There is nothing selected", familyStatusComboBox);
                 return;
             }
 
             if (workplaceComboBox.SelectedItem == default)
             {
-                _toolTip.Show("There is nothing selected.", workplaceComboBox);
+                _toolTip.Show("There is nothing selected", workplaceComboBox);
                 return;
             }
 
             if (roleComboBox.SelectedItem == default)
             {
-                _toolTip.Show("There is nothing selected.", roleComboBox);
+                _toolTip.Show("There is nothing selected", roleComboBox);
                 return;
             }
 
             if ((!double.TryParse(salaryTextBox.Text, out double salaryResult)) || salaryResult < 0)
             {
-                _toolTip.Show("Number in wrong format.", salaryTextBox);
+                _toolTip.Show("Number in wrong format", salaryTextBox);
                 return;
             }
 
             if ((!int.TryParse(numberOfVacationDaysTextBox.Text, out int vacationsResult)) || vacationsResult < 0)
             {
-                _toolTip.Show("Number in wrong format.", numberOfVacationDaysTextBox);
+                _toolTip.Show("Number in wrong format", numberOfVacationDaysTextBox);
                 return;
             }
 
             if ((!int.TryParse(numberOfChildrenTextBox.Text, out int childrenResult)) || childrenResult < 0)
             {
-                _toolTip.Show("Number in wrong format.", numberOfChildrenTextBox);
+                _toolTip.Show("Number in wrong format", numberOfChildrenTextBox);
                 return;
             }
 

@@ -33,7 +33,7 @@ namespace WebApi.Features.Specialties
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Specialties.AnyAsync(x => x.Name == request.Name && x.Type == request.Type && x.WorkplaceID == request.WorkplaceID))
-                    return new GenericResponse { Errors = new[] { "This set of specialtes already exists in this workplace." } };
+                    return new GenericResponse { Errors = new[] { "This set of specialtes already exists in this workplace" } };
 
                 var specialty = new Specialty
                 {
@@ -54,8 +54,8 @@ namespace WebApi.Features.Specialties
         {
             public CommandValidator()
             {
-                RuleFor(x => x.NumberOfEmployees).Must(x => x > 0).WithMessage("Must be positive number.");
-                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required.");
+                RuleFor(x => x.NumberOfEmployees).Must(x => x > 0).WithMessage("Must be positive number");
+                RuleFor(x => x.Name).Must(x => x.Length > 0).WithMessage("Is Required");
             }
         }
     }

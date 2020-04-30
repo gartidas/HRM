@@ -11,7 +11,7 @@ using WebApi.Paging;
 
 namespace WebApi.Controllers
 {
-    [Authorize(Roles = Roles.SysAdmin + "," + Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = Roles.HR_Worker + "," + Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class CorporateEventsController : ControllerBase
     {
@@ -22,6 +22,7 @@ namespace WebApi.Controllers
             _mediator = mediator;
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost(ApiRoutes.CorporateEvents.CreateCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> CreateCorporateEvent([FromBody]CreateCorporateEvent.Command command)
         {
@@ -30,6 +31,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.CorporateEvents.EditCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> EditCorporateEvent([FromRoute]string corporateEventId, [FromBody]EditCorporateEvent.Command command)
         {
@@ -38,6 +40,7 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete(ApiRoutes.CorporateEvents.DeleteCorporateEvent)]
         public async Task<ActionResult> DeleteCorporateEvent([FromRoute]string corporateEventId)
         {
@@ -53,6 +56,7 @@ namespace WebApi.Controllers
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet(ApiRoutes.CorporateEvents.GetAllCorporateEvents)]
         public async Task<ActionResult<PagingResponse<GetCorporateEvent.CorporateEventDto>>> GetAllCorporateEvents([FromQuery]GetAllCorporateEvents.Filter filter, [FromQuery]PagingReferences pagingReferences)
         {
@@ -60,6 +64,7 @@ namespace WebApi.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.CorporateEvents.AssignEmployeesToCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> AssignEmployeesToCorporateEvent([FromRoute]string corporateEventId, [FromBody]AssignEmployeesToCorporateEvent.Command command)
         {
@@ -68,6 +73,7 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.CorporateEvents.RemoveEmployeesFromCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> RemoveEmployeesFromCorporateEvent([FromRoute]string corporateEventId, [FromBody]RemoveEmployeesFromCorporateEvent.Command command)
         {
@@ -76,6 +82,7 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.CorporateEvents.AssignWorkPlaceLeadersToCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> AssignWorkPlaceLeadersToCorporateEvent([FromRoute]string corporateEventId, [FromBody]AssignWorkPlaceLeadersToCorporateEvent.Command command)
         {
@@ -84,6 +91,7 @@ namespace WebApi.Controllers
             return result.Success ? Ok(result) : BadRequest(result) as ActionResult;
         }
 
+        [Authorize(Roles = Roles.HR_Worker, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut(ApiRoutes.CorporateEvents.RemoveWorkPlaceLeadersFromCorporateEvent)]
         public async Task<ActionResult<GenericResponse>> RemoveWorkPlaceLeadersFromCorporateEvent([FromRoute]string corporateEventId, [FromBody]RemoveWorkPlaceLeadersFromCorporateEvent.Command command)
         {
@@ -102,7 +110,7 @@ namespace WebApi.Controllers
             return result is null ? NotFound() : Ok(result) as ActionResult;
         }
 
-
+        [Authorize(Roles = Roles.WorkPlaceLeader, AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet(ApiRoutes.CorporateEvents.GetAllCorporateEventsOfWorkPlace)]
         public async Task<ActionResult<GetAllCorporateEventsOfWorkPlace.CorporateEventDto>> GetAllCorporateEventsOfWorkPlace()
         {

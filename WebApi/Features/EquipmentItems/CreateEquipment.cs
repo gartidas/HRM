@@ -30,7 +30,7 @@ namespace WebApi.Features.EquipmentItems
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
                 if (await _context.Equipment.AnyAsync(x => x.Label == request.Label && x.EmployeeID == request.EmployeeId))
-                    return new GenericResponse { Errors = new[] { $"Item with label {request.Label} already listed." } };
+                    return new GenericResponse { Errors = new[] { $"Item with label {request.Label} already listed" } };
 
                 var equipment = new Equipment
                 {
