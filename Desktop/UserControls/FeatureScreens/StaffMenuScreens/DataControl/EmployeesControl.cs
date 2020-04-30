@@ -1,10 +1,10 @@
 ﻿using Desktop.Models;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 {
@@ -202,7 +202,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             if (result.Success)
             {
                 errorLabel.Visible = false;
-                ScreenLoading.LoadScreen(18);
+                LoadScreen(ScreenName.EmployeesScreen);
                 return;
             }
 
@@ -215,27 +215,27 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageBonusesButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(25);
+            LoadScreen(ScreenName.BonusesScreen);
         }
 
         private void manageEvaluationsButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(27);
+            LoadScreen(ScreenName.EvaluationsScreen);
         }
 
         private void manageEquipmentButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(29);
+            LoadScreen(ScreenName.EquipmentScreen);
         }
 
         private void manageFilesButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(14);
+            LoadScreen(ScreenName.DocumentationScreenEmployees);
         }
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(30);
+            LoadScreen(ScreenName.ChangePasswordScreen);
         }
 
         private void menuLabel_Click(object sender, EventArgs e)

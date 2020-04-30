@@ -1,9 +1,9 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 {
@@ -107,7 +107,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             if (response.Success)
             {
-                ScreenLoading.LoadScreen(16);
+                LoadScreen(ScreenName.CandidatesScreen);
             }
             else
             {
@@ -122,7 +122,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
         private void manageFilesButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(13);
+            LoadScreen(ScreenName.DocumentationScreenCandidates);
         }
     }
 }

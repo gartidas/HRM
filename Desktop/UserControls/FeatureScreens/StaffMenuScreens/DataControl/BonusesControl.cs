@@ -1,7 +1,7 @@
-﻿using Desktop.Utils;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 {
@@ -48,7 +48,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             if (response.Success)
             {
-                ScreenLoading.LoadScreen(25);
+                LoadScreen(ScreenName.BonusesScreen);
             }
             else
             {

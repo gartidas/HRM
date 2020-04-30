@@ -1,10 +1,10 @@
 ﻿using Desktop.Models;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 {
@@ -150,7 +150,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
             if (result.Success)
             {
                 errorLabel.Visible = false;
-                ScreenLoading.LoadScreen(16);
+                LoadScreen(ScreenName.CandidatesScreen);
                 return;
             }
 

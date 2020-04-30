@@ -1,6 +1,6 @@
-﻿using Desktop.Utils;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.Menus
 {
@@ -16,7 +16,7 @@ namespace Desktop.UserControls.Menus
 
         private void workplacesButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(31);
+            LoadScreen(ScreenName.WorkPlacesScreen);
         }
     }
 }

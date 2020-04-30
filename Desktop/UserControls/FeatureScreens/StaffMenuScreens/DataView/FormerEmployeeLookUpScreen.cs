@@ -1,7 +1,7 @@
 ﻿using Desktop.Models;
-using Desktop.Utils;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -69,7 +69,7 @@ Termination reason: {formerEmployee.TerminationReason}";
 
         private void manageFilesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(15);
+            LoadScreen(ScreenName.DocumentationScreenFormerEmployees);
         }
     }
 }

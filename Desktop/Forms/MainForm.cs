@@ -4,6 +4,7 @@ using Desktop.UserControls.Menus;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop
 {
@@ -143,58 +144,22 @@ namespace Desktop
 
         private void personalMenuButton_Click(object sender, EventArgs e)
         {
-            LoadMenu(1);
+            LoadMenu(MenuName.PersonalMenu);
         }
 
         private void workPlaceMenuButton_Click(object sender, EventArgs e)
         {
-            LoadMenu(2);
+            LoadMenu(MenuName.WorkPlaceMenu);
         }
 
         private void staffMenuButton_Click(object sender, EventArgs e)
         {
-            LoadMenu(3);
+            LoadMenu(MenuName.StaffMenu);
         }
 
         private void maintenanceMenuButton_Click(object sender, EventArgs e)
         {
-            LoadMenu(4);
-        }
-
-        private void LoadMenu(int menuNumber)
-        {
-            if (!MainFormStateSingleton.Instance.ScreenMoving && !MainFormStateSingleton.Instance.MenuMoving)
-            {
-                if (MainFormStateSingleton.Instance.ScreenHidden == true)
-                {
-                    if (MainFormStateSingleton.Instance.MenuHidden)
-                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
-
-                    if (MainFormStateSingleton.Instance.MenuOpened == menuNumber)
-                        MainFormStateSingleton.Instance.MenuTimer.Start();
-                    else
-                    {
-                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
-                        MainFormStateSingleton.Instance.MenusChanging = true;
-                        MainFormStateSingleton.Instance.MenuTimer.Start();
-                    }
-                }
-                else
-                {
-                    if (MainFormStateSingleton.Instance.MenuOpened == menuNumber)
-                    {
-                        MainFormStateSingleton.Instance.MenuClosing = true;
-                        MainFormStateSingleton.Instance.ScreenTimer.Start();
-                    }
-                    else
-                    {
-                        MainFormStateSingleton.Instance.MenuClosing = true;
-                        MainFormStateSingleton.Instance.MenuOpened = menuNumber;
-                        MainFormStateSingleton.Instance.MenusChanging = true;
-                        MainFormStateSingleton.Instance.ScreenTimer.Start();
-                    }
-                }
-            }
+            LoadMenu(MenuName.MaintenanceMenu);
         }
 
         private void timeTimer_Tick(object sender, EventArgs e)

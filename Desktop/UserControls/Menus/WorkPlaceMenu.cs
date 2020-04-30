@@ -1,5 +1,5 @@
-﻿using Desktop.Utils;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.Menus
 {
@@ -19,27 +19,27 @@ namespace Desktop.UserControls.Menus
 
         private void workPlaceDataButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(8);
+            LoadScreen(ScreenName.WorkPlaceDataScreen);
         }
 
         private void workPlaceVacationsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(9);
+            LoadScreen(ScreenName.WorkPlaceVacationsScreen);
         }
 
         private void workPlaceCorporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(10);
+            LoadScreen(ScreenName.WorkPlaceCorporateEventsScreen);
         }
 
         private void workPlaceSpecialtiesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(11);
+            LoadScreen(ScreenName.WorkPlaceSpecialtiesScreen);
         }
 
         private void workPlaceEvaluationsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(12);
+            LoadScreen(ScreenName.WorkPlaceEvaluationsScreen);
         }
     }
 }

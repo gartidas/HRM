@@ -7,6 +7,7 @@ using Desktop.UserControls.FileHandling;
 using Desktop.UserControls.Menus;
 using System;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.Forms
 {
@@ -25,14 +26,14 @@ namespace Desktop.Forms
         }
 
         #region ScreenState
-        public int LastLoadedScreen { get; set; }
+        public ScreenName LastLoadedScreen { get; set; }
         public Form MainForm { get; set; }
         public string ScreenContentId { get; set; }
         public Timer ScreenTimer { get; set; }
         public bool ScreensChanging { get; set; }
         public bool ScreenHidden { get; set; }
         public bool ScreenMoving { get; set; }
-        public int ScreenOpened { get; set; }
+        public ScreenName ScreenOpened { get; set; }
         public int ScreenWidth { get; set; }
         public Panel ScreenPanel { get; set; }
         private bool _screenLoaded;
@@ -43,7 +44,7 @@ namespace Desktop.Forms
         public bool MenusChanging { get; set; }
         public bool MenuHidden { get; set; }
         public bool MenuMoving { get; set; }
-        public int MenuOpened { get; set; }
+        public MenuName MenuOpened { get; set; }
         public int MenuWidth { get; set; }
         public bool MenuClosing { get; set; }
         public Panel MenuPanel { get; set; }
@@ -78,16 +79,16 @@ namespace Desktop.Forms
             {
                 switch (MenuOpened)
                 {
-                    case 1:
+                    case MenuName.PersonalMenu:
                         MenuPanel.Controls.Add(PersonalMenu);
                         break;
-                    case 2:
+                    case MenuName.WorkPlaceMenu:
                         MenuPanel.Controls.Add(WorkPlaceMenu);
                         break;
-                    case 3:
+                    case MenuName.StaffMenu:
                         MenuPanel.Controls.Add(StaffMenu);
                         break;
-                    case 4:
+                    case MenuName.MaintenanceMenu:
                         MenuPanel.Controls.Add(MaintenanceMenu);
                         break;
                     default:
@@ -135,103 +136,103 @@ namespace Desktop.Forms
                 {
                     switch (ScreenOpened)
                     {
-                        case 1:
+                        case ScreenName.PersonalDataScreen:
                             ScreenPanel.Controls.Add(new PersonalDataScreen());
                             break;
-                        case 2:
+                        case ScreenName.PersonalChangePasswordScreen:
                             ScreenPanel.Controls.Add(new PersonalChangePasswordScreen());
                             break;
-                        case 3:
+                        case ScreenName.PersonalVacationsScreen:
                             ScreenPanel.Controls.Add(new PersonalVacationsScreen());
                             break;
-                        case 4:
+                        case ScreenName.PersonalCorporateEventsScreen:
                             ScreenPanel.Controls.Add(new PersonalCorporateEventsScreen());
                             break;
-                        case 5:
+                        case ScreenName.PersonalEvaluationsScreen:
                             ScreenPanel.Controls.Add(new PersonalEvaluationsScreen());
                             break;
-                        case 6:
+                        case ScreenName.PersonalBonusesScreen:
                             ScreenPanel.Controls.Add(new PersonalBonusesScreen());
                             break;
-                        case 7:
+                        case ScreenName.PersonalEquipmentScreen:
                             ScreenPanel.Controls.Add(new PersonalEquipmentScreen());
                             break;
-                        case 8:
+                        case ScreenName.WorkPlaceDataScreen:
                             ScreenPanel.Controls.Add(new WorkPlaceDataScreen());
                             break;
-                        case 9:
+                        case ScreenName.WorkPlaceVacationsScreen:
                             ScreenPanel.Controls.Add(new WorkPlaceVacationsScreen());
                             break;
-                        case 10:
+                        case ScreenName.WorkPlaceCorporateEventsScreen:
                             ScreenPanel.Controls.Add(new WorkPlaceCorporateEventsScreen());
                             break;
-                        case 11:
+                        case ScreenName.WorkPlaceSpecialtiesScreen:
                             ScreenPanel.Controls.Add(new WorkPlaceSpecialtiesScreen());
                             break;
-                        case 12:
+                        case ScreenName.WorkPlaceEvaluationsScreen:
                             ScreenPanel.Controls.Add(new WorkPlaceEvaluationsScreen());
                             break;
-                        case 13:
+                        case ScreenName.DocumentationScreenCandidates:
                             ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new CandidatesFileHandler()));
                             break;
-                        case 14:
+                        case ScreenName.DocumentationScreenEmployees:
                             ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new EmployeesFileHandler()));
                             break;
-                        case 15:
+                        case ScreenName.DocumentationScreenFormerEmployees:
                             ScreenPanel.Controls.Add(new DocumentationScreen(ScreenContentId, new FormerEmployeesFileHandler()));
                             break;
-                        case 16:
+                        case ScreenName.CandidatesScreen:
                             ScreenPanel.Controls.Add(new CandidatesScreen());
                             break;
-                        case 17:
-                            LastLoadedScreen = 17;
+                        case ScreenName.CandidatesControl:
+                            LastLoadedScreen = ScreenName.CandidatesControl;
                             ScreenPanel.Controls.Add(new CandidatesControl(ScreenContentId));
                             break;
-                        case 18:
+                        case ScreenName.EmployeesScreen:
                             ScreenPanel.Controls.Add(new EmployeesScreen());
                             break;
-                        case 19:
-                            LastLoadedScreen = 19;
+                        case ScreenName.EmployeesControl:
+                            LastLoadedScreen = ScreenName.EmployeesControl;
                             ScreenPanel.Controls.Add(new EmployeesControl(ScreenContentId));
                             break;
-                        case 20:
+                        case ScreenName.HireEmployeeControl:
                             ScreenPanel.Controls.Add(new HireEmployeeControl(ScreenContentId));
                             break;
-                        case 21:
+                        case ScreenName.FormerEmployeesScreen:
                             ScreenPanel.Controls.Add(new FormerEmployeesScreen());
                             break;
-                        case 22:
-                            LastLoadedScreen = 22;
+                        case ScreenName.FormerEmployeeLookUpScreen:
+                            LastLoadedScreen = ScreenName.FormerEmployeeLookUpScreen;
                             ScreenPanel.Controls.Add(new FormerEmployeeLookUpScreen(ScreenContentId));
                             break;
-                        case 23:
+                        case ScreenName.CorporateEventsScreen:
                             ScreenPanel.Controls.Add(new CorporateEventsScreen());
                             break;
-                        case 24:
+                        case ScreenName.CorporateEventsControl:
                             ScreenPanel.Controls.Add(new CorporateEventsControl(ScreenContentId));
                             break;
-                        case 25:
+                        case ScreenName.BonusesScreen:
                             ScreenPanel.Controls.Add(new BonusesScreen(ScreenContentId));
                             break;
-                        case 26:
+                        case ScreenName.BonusesControl:
                             ScreenPanel.Controls.Add(new BonusesControl(ScreenContentId));
                             break;
-                        case 27:
+                        case ScreenName.EvaluationsScreen:
                             ScreenPanel.Controls.Add(new EvaluationsScreen(ScreenContentId));
                             break;
-                        case 28:
+                        case ScreenName.EvaluationsControl:
                             ScreenPanel.Controls.Add(new EvaluationsControl(ScreenContentId));
                             break;
-                        case 29:
+                        case ScreenName.EquipmentScreen:
                             ScreenPanel.Controls.Add(new EquipmentScreen(ScreenContentId));
                             break;
-                        case 30:
+                        case ScreenName.ChangePasswordScreen:
                             ScreenPanel.Controls.Add(new ChangePasswordScreen(ScreenContentId));
                             break;
-                        case 31:
+                        case ScreenName.WorkPlacesScreen:
                             ScreenPanel.Controls.Add(new WorkPlacesScreen());
                             break;
-                        case 32:
+                        case ScreenName.WorkPlacesControl:
                             ScreenPanel.Controls.Add(new WorkPlacesControl(ScreenContentId));
                             break;
                         default:

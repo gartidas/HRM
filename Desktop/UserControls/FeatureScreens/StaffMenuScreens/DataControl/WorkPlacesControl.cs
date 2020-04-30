@@ -1,11 +1,11 @@
 ﻿using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 {
@@ -99,7 +99,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
 
             if (response.Success)
             {
-                ScreenLoading.LoadScreen(31);
+                LoadScreen(ScreenName.WorkPlacesScreen);
             }
             else
             {

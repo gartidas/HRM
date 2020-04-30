@@ -1,11 +1,11 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -191,8 +191,8 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
                 {
                     if (employee.Data.EmailAddress == employeesListView.SelectedItems[0].SubItems[6].Text && CurrentUser.User.Email != employeesListView.SelectedItems[0].SubItems[6].Text)
                     {
-                        ScreenLoading.SetScreenContent(employee.ID);
-                        ScreenLoading.LoadScreen(19);
+                        SetScreenContent(employee.ID);
+                        LoadScreen(ScreenName.EmployeesControl);
                         return;
                     }
                 }

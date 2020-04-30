@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -116,7 +117,7 @@ Email: {evaluation.HR_Worker.Email}"
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(28);
+            LoadScreen(ScreenName.EvaluationsControl);
         }
 
         private async void deleteButton_Click(object sender, System.EventArgs e)
@@ -153,7 +154,7 @@ Email: {evaluation.HR_Worker.Email}"
 
         private void doneButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
+            ContentLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
         }
     }
 }

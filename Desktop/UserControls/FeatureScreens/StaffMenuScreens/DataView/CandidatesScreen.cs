@@ -1,12 +1,12 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -181,8 +181,8 @@ Phone: {candidate.PhoneNumber}"
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.SetScreenContent(default);
-            ScreenLoading.LoadScreen(17);
+            SetScreenContent(default);
+            LoadScreen(ScreenName.CandidatesControl);
         }
 
         private void hireButton_Click(object sender, System.EventArgs e)
@@ -193,8 +193,8 @@ Phone: {candidate.PhoneNumber}"
                 {
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        ScreenLoading.SetScreenContent(candidate.Id);
-                        ScreenLoading.LoadScreen(20);
+                        SetScreenContent(candidate.Id);
+                        LoadScreen(ScreenName.HireEmployeeControl);
                         return;
                     }
                 }
@@ -209,8 +209,8 @@ Phone: {candidate.PhoneNumber}"
                 {
                     if (candidate.Email == candidatesListView.SelectedItems[0].SubItems[candidatesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        ScreenLoading.SetScreenContent(candidate.Id);
-                        ScreenLoading.LoadScreen(17);
+                        SetScreenContent(candidate.Id);
+                        LoadScreen(ScreenName.CandidatesControl);
                         return;
                     }
                 }

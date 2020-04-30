@@ -336,7 +336,7 @@
     <Compile Include="UserControls\Menus\WorkPlaceMenu.Designer.cs">
       <DependentUpon>WorkPlaceMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ScreenLoading.cs" />
+    <Compile Include="Utils\ContentLoading.cs" />
     <EmbeddedResource Include="Forms\ConfirmForm.resx">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
     </EmbeddedResource>

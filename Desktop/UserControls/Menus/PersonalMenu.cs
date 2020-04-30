@@ -1,6 +1,6 @@
 ﻿using Desktop.Models;
-using Desktop.Utils;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.Menus
 {
@@ -36,37 +36,37 @@ namespace Desktop.UserControls.Menus
 
         private void personalDataButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(1);
+            LoadScreen(ScreenName.PersonalDataScreen);
         }
 
         private void changePasswordButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(2);
+            LoadScreen(ScreenName.PersonalChangePasswordScreen);
         }
 
         private void vacationsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(3);
+            LoadScreen(ScreenName.PersonalVacationsScreen);
         }
 
         private void corporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(4);
+            LoadScreen(ScreenName.PersonalCorporateEventsScreen);
         }
 
         private void evaluationsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(5);
+            LoadScreen(ScreenName.PersonalEvaluationsScreen);
         }
 
         private void bonusesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(6);
+            LoadScreen(ScreenName.PersonalBonusesScreen);
         }
 
         private void equipmentButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(7);
+            LoadScreen(ScreenName.PersonalEquipmentScreen);
         }
     }
 }

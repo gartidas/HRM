@@ -1,10 +1,10 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -124,8 +124,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 
         private void addButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.SetScreenContent(default);
-            ScreenLoading.LoadScreen(24);
+            SetScreenContent(default);
+            LoadScreen(ScreenName.CorporateEventsControl);
         }
 
         private void editButton_Click(object sender, System.EventArgs e)
@@ -136,8 +136,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
                 {
                     if (corporateEvent.Name == corporateEventsListView.SelectedItems[0].SubItems[2].Text && corporateEvent.Location == corporateEventsListView.SelectedItems[0].SubItems[3].Text && corporateEvent.DateAndTime.ToString() == corporateEventsListView.SelectedItems[0].SubItems[1].Text)
                     {
-                        ScreenLoading.SetScreenContent(corporateEvent.ID);
-                        ScreenLoading.LoadScreen(24);
+                        SetScreenContent(corporateEvent.ID);
+                        LoadScreen(ScreenName.CorporateEventsControl);
                         return;
                     }
                 }

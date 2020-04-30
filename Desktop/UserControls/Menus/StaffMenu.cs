@@ -1,6 +1,6 @@
 ﻿using Desktop.Models;
-using Desktop.Utils;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.Menus
 {
@@ -22,22 +22,22 @@ namespace Desktop.UserControls.Menus
 
         private void candidatesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(16);
+            LoadScreen(ScreenName.CandidatesScreen);
         }
 
         private void employeesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(18);
+            LoadScreen(ScreenName.EmployeesScreen);
         }
 
         private void formerEmployeesButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(21);
+            LoadScreen(ScreenName.FormerEmployeesScreen);
         }
 
         private void corporateEventsButton_Click(object sender, System.EventArgs e)
         {
-            ScreenLoading.LoadScreen(23);
+            LoadScreen(ScreenName.CorporateEventsScreen);
         }
     }
 }

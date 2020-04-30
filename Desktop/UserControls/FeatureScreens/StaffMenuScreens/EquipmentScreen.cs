@@ -145,7 +145,7 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens
 
         private void doneButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
+            ContentLoading.LoadScreen(MainFormStateSingleton.Instance.LastLoadedScreen);
 
         }
 

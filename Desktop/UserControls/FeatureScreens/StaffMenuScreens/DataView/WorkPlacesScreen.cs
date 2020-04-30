@@ -1,11 +1,11 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -109,8 +109,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ScreenLoading.SetScreenContent(default);
-            ScreenLoading.LoadScreen(32);
+            SetScreenContent(default);
+            LoadScreen(ScreenName.WorkPlacesControl);
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -121,8 +121,8 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
                 {
                     if (workPlace.Label == workplacesListView.SelectedItems[0].SubItems[1].Text && workPlace.Location == workplacesListView.SelectedItems[0].SubItems[2].Text)
                     {
-                        ScreenLoading.SetScreenContent(workPlace.ID);
-                        ScreenLoading.LoadScreen(32);
+                        SetScreenContent(workPlace.ID);
+                        LoadScreen(ScreenName.WorkPlacesControl);
                         return;
                     }
                 }

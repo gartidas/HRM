@@ -1,10 +1,10 @@
 ﻿using Desktop.Forms;
 using Desktop.Models;
 using Desktop.Responses;
-using Desktop.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Desktop.Utils.ContentLoading;
 
 namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
 {
@@ -142,8 +142,8 @@ Phone: {employee.PhoneNumber}"
                 {
                     if (formerEmployee.Email == formerEmployeesListView.SelectedItems[0].SubItems[formerEmployeesListView.SelectedItems[0].SubItems.Count - 1].Text)
                     {
-                        ScreenLoading.SetScreenContent(formerEmployee.ID);
-                        ScreenLoading.LoadScreen(22);
+                        SetScreenContent(formerEmployee.ID);
+                        LoadScreen(ScreenName.FormerEmployeeLookUpScreen);
                         return;
                     }
                 }
