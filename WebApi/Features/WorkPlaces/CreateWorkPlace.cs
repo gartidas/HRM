@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApi.Controllers.Responses;
@@ -36,24 +35,33 @@ namespace WebApi.Features.WorkPlaces
                 var workPlace = new WorkPlace
                 {
                     Label = request.Label,
-                    Location = request.Location,
+                    Location = request.Location
                 };
 
                 if (request.WorkPlaceLeaderID != default)
                 {
-                    var workPlaceLeader = await _context.WorkPlaceLeaders.Include(x => x.WorkPlace).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceLeaderID);
-
-                    var employees = new List<Employee>() { await _context.Employees.FindAsync(request.WorkPlaceLeaderID) };
+                    var workPlaceLeader = await _context.WorkPlaceLeaders.Include(x => x.WorkPlace).ThenInclude(x => x.WorkPlaceLeader).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceLeaderID);
 
                     if (workPlaceLeader == null)
-                        return new GenericResponse { Errors = new[] { "Work place leader not found." } };
+                        return new GenericResponse
+                        {
+                            Errors = new[] { "Work place leader not found." }
+                        };
+
+                    var leaderEmployee = await _context.Employees.Include(x => x.WorkPlace).ThenInclude(x => x.Employees).SingleOrDefaultAsync(x => x.ID == workPlaceLeader.ID);
+
+                    if (leaderEmployee.WorkPlace != null)
+                        leaderEmployee.WorkPlace.Employees.Remove(leaderEmployee);
+
 
                     if (workPlaceLeader.WorkPlace != null)
-                        return new GenericResponse { Errors = new[] { "Work place leader already assigned to another work place." } };
+                    {
+                        workPlaceLeader.WorkPlace.WorkPlaceLeader = null;
+                    }
 
-                    workPlace.WorkPlaceLeaderID = request.WorkPlaceLeaderID;
                     workPlace.WorkPlaceLeader = workPlaceLeader;
-                    workPlace.Employees = employees;
+                    workPlace.WorkPlaceLeaderID = request.WorkPlaceLeaderID;
+                    workPlace.Employees = new System.Collections.Generic.List<Employee>() { leaderEmployee };
                 }
 
                 await _context.Workplaces.AddAsync(workPlace);

@@ -24,9 +24,11 @@ namespace WebApi.Features.WorkPlaces
 
             public async Task<bool> Handle(Command request, CancellationToken cancellationToken)
             {
-                var workPlace = await _context.Workplaces.Include(x=>x.Employees).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceId);
+                var workPlace = await _context.Workplaces.Include(x => x.Employees).SingleOrDefaultAsync(x => x.ID == request.WorkPlaceId);
 
                 if (workPlace is null) return false;
+
+                if (workPlace.Employees != null) return false;
 
                 _context.Remove(workPlace);
                 await _context.SaveChangesAsync();

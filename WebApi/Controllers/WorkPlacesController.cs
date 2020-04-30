@@ -49,7 +49,7 @@ namespace WebApi.Controllers
         {
             return await _mediator.Send(new DeleteWorkPlace.Command { WorkPlaceId = workPlaceId })
                 ? Ok()
-                : BadRequest("Work place not found or was already deleted") as ActionResult;
+                : BadRequest("Error occured while deleting workplace") as ActionResult;
         }
 
         [HttpGet(ApiRoutes.WorkPlaces.GetAllWorkPlaces)]
