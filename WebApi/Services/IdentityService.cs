@@ -104,14 +104,14 @@ namespace WebApi.Services
             switch (model.Role)
             {
                 case Role.Employee:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation, HasChangedRole = true });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, HasChangedRole = true });
                     break;
                 case Role.WorkPlaceLeader:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace });
                     _context.WorkPlaceLeaders.Add(new WorkPlaceLeader { IdentityUser = createdUser });
                     break;
                 case Role.HR_Worker:
-                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace, Documentation = model.Documentation });
+                    _context.Employees.Add(new Employee { IdentityUser = createdUser, WorkPlace = workPlace });
                     _context.HR_Workers.Add(new HR_Worker { IdentityUser = createdUser });
                     break;
                 default:

@@ -54,7 +54,7 @@ namespace WebApi.Features.Employees
 
             public async Task<GenericResponse> Handle(Command request, CancellationToken cancellationToken)
             {
-                var candidate = await _context.Candidates.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.CandidateId);
+                var candidate = await _context.Candidates.SingleOrDefaultAsync(x => x.ID == request.CandidateId);
                 if (candidate is null) return new GenericResponse { Errors = new[] { "Candidate does not exist" } };
 
 
@@ -84,7 +84,6 @@ namespace WebApi.Features.Employees
                     FamilyStatus = request.FamilyStatus,
                     NameOfTheBank = request.NameOfTheBank,
                     AccountNumber = request.AccountNumber,
-                    Documentation = candidate.Documentation
                 };
                 var result = await _identityService.RegisterAsync(_mapper.Map<RegisterModel>(employee));
                 candidate.Status = Entities.Status.Hired;

@@ -38,14 +38,12 @@ namespace WebApi.Features.Employees
             {
                 var employee = await _context.Users.FindAsync(request.EmployeeId);
                 var hr_worker = await _context.HR_Workers.FindAsync(request.HR_WorkerID);
-                var emp = await _context.Employees.Include(x => x.Documentation).SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
+                var emp = await _context.Employees.SingleOrDefaultAsync(x => x.ID == request.EmployeeId);
 
                 if (employee == null)
                     return new GenericResponse { Success = false, Errors = new[] { "Employee not found" } };
                 if (hr_worker == null)
                     return new GenericResponse { Success = false, Errors = new[] { "HR worker not found" } };
-
-                var documentation = emp.Documentation;
 
                 var formerEmployee = new FormerEmployee
                 {
@@ -64,7 +62,6 @@ namespace WebApi.Features.Employees
                     Salary = employee.Salary,
                     NumberOfVacationDays = employee.NumberOfVacationDays,
                     NumberOfWorkedOffDays = employee.NumberOfWorkedOffDays,
-                    Documentation = documentation,
                     HR_Worker = hr_worker,
                     TerminationReason = request.TerminationReason,
                     TerminationDate = request.TerminationDate
@@ -72,14 +69,6 @@ namespace WebApi.Features.Employees
 
                 _context.FormerEmployees.Add(formerEmployee);
                 _context.SaveChanges();
-
-                if (documentation != null)
-                {
-                    foreach (var document in documentation)
-                    {
-                        document.EmployeeID = null;
-                    }
-                }
 
                 _context.Employees.Remove(emp);
                 _context.Users.Remove(employee);

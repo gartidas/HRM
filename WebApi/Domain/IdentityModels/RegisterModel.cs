@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using WebApi.Entities;
 
 namespace WebApi.Domain.IdentityModels
@@ -30,7 +29,6 @@ namespace WebApi.Domain.IdentityModels
         public FamilyStatus FamilyStatus { get; set; }
         public string NameOfTheBank { get; set; }
         public string AccountNumber { get; set; }
-        public List<Document> Documentation { get; set; }
     }
     public enum Role
     {
