@@ -48,7 +48,7 @@ namespace WebApi
 
             if (existingUser is null)
             {
-                await userManager.CreateAsync(user, "Baklazan666");
+                await userManager.CreateAsync(user, "admin123");
                 await userManager.AddToRoleAsync(user, Roles.SysAdmin);
             }
         }

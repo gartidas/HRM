@@ -19,8 +19,6 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataView
         public CandidatesScreen()
         {
             InitializeComponent();
-            if (CurrentUser.User.Role == Role.SysAdmin)
-                hireButton.Enabled = false;
         }
 
         private async Task LoadCandidatesAsync()

@@ -16,7 +16,7 @@ namespace Desktop
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             loginTextBox.Text = "admin@test.com";
-            passwordTextBox.Text = "Baklazan666";
+            passwordTextBox.Text = "admin123";
             _toolTip.SetToolTip(logInButton, "Log in");
             _toolTip.SetToolTip(minimizeButton, "Minimize");
             _toolTip.SetToolTip(closeButton, "Close");

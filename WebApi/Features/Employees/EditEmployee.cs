@@ -109,8 +109,9 @@ namespace WebApi.Features.Employees
                 employee.FamilyStatus = request.FamilyStatus;
                 employee.NameOfTheBank = request.NameOfTheBank;
                 employee.AccountNumber = request.AccountNumber;
-                employeeConnections.WorkPlaceID = request.WorkPlaceID;
-                employeeConnections.WorkPlace = await _context.Workplaces.FindAsync(request.WorkPlaceID);
+
+                if (request.WorkPlaceID != default && request.WorkPlaceID != employeeConnections.WorkPlaceID)
+                    employeeConnections.WorkPlaceID = request.WorkPlaceID;
 
                 await _context.SaveChangesAsync(cancellationToken);
 

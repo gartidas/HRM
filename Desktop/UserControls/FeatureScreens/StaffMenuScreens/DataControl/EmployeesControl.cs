@@ -184,12 +184,12 @@ namespace Desktop.UserControls.FeatureScreens.StaffMenuScreens.DataControl
                 return;
             }
 
-            var strAr = workplaceComboBox.SelectedItem.ToString().Split(' ');
+            var strAr = workplaceComboBox.SelectedItem.ToString().Split(new string[] { " at " }, StringSplitOptions.None);
             string workPlaceId = "";
 
             foreach (var workPlace in _workplaces)
             {
-                if (workPlace.Label == strAr[0] && workPlace.Location == strAr[2])
+                if (workPlace.Label == strAr[0] && workPlace.Location == strAr[1])
                 {
                     workPlaceId = workPlace.ID;
                 }

@@ -85,8 +85,8 @@ WorkPlace: {employee.WorkPlace.Label} at {employee.WorkPlace.Location}"
 
             employeesListView.Columns[2].Width = -1;
 
-            if (employeesListView.Columns[2].Width < 100)
-                employeesListView.Columns[2].Width = 100;
+            if (employeesListView.Columns[2].Width < 200)
+                employeesListView.Columns[2].Width = 200;
 
             employeesListView.Columns[3].Width = -1;
 
