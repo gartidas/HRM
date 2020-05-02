@@ -20,7 +20,6 @@ namespace WebApi.Entities
         public bool Gender { get; set; }
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
-        public int NumberOfWorkedOffDays { get; set; }
         public List<Document> Documentation { get; set; }
         public HR_Worker HR_Worker { get; set; }
         public string HR_WorkerID { get; set; }
