@@ -61,7 +61,6 @@ namespace WebApi.Features.Employees
                     Gender = employee.Gender,
                     Salary = employee.Salary,
                     NumberOfVacationDays = employee.NumberOfVacationDays,
-                    NumberOfWorkedOffDays = employee.NumberOfWorkedOffDays,
                     HR_Worker = hr_worker,
                     TerminationReason = request.TerminationReason,
                     TerminationDate = request.TerminationDate

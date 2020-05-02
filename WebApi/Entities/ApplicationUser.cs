@@ -17,7 +17,6 @@ namespace WebApi.Entities
         public bool Gender { get; set; }
         public double Salary { get; set; }
         public int NumberOfVacationDays { get; set; }
-        public int NumberOfWorkedOffDays { get; set; }
         public string IdCardNumber { get; set; }
         public string DrivingLicenceNumber { get; set; }
         public string HealthInsuranceCompany { get; set; }
