@@ -529,11 +529,11 @@
             // 
             this.workplaceLocationLabel.AutoSize = true;
             this.workplaceLocationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.workplaceLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.workplaceLocationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.workplaceLocationLabel.ForeColor = System.Drawing.Color.White;
-            this.workplaceLocationLabel.Location = new System.Drawing.Point(175, 140);
+            this.workplaceLocationLabel.Location = new System.Drawing.Point(164, 156);
             this.workplaceLocationLabel.Name = "workplaceLocationLabel";
-            this.workplaceLocationLabel.Size = new System.Drawing.Size(135, 39);
+            this.workplaceLocationLabel.Size = new System.Drawing.Size(79, 25);
             this.workplaceLocationLabel.TabIndex = 4;
             this.workplaceLocationLabel.Text = "location";
             this.workplaceLocationLabel.Visible = false;
@@ -542,11 +542,11 @@
             // 
             this.workplaceLabelLabel.AutoSize = true;
             this.workplaceLabelLabel.BackColor = System.Drawing.Color.Transparent;
-            this.workplaceLabelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.workplaceLabelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.workplaceLabelLabel.ForeColor = System.Drawing.Color.White;
-            this.workplaceLabelLabel.Location = new System.Drawing.Point(127, 70);
+            this.workplaceLabelLabel.Location = new System.Drawing.Point(118, 86);
             this.workplaceLabelLabel.Name = "workplaceLabelLabel";
-            this.workplaceLabelLabel.Size = new System.Drawing.Size(90, 39);
+            this.workplaceLabelLabel.Size = new System.Drawing.Size(53, 25);
             this.workplaceLabelLabel.TabIndex = 3;
             this.workplaceLabelLabel.Text = "label";
             this.workplaceLabelLabel.Visible = false;
@@ -637,11 +637,11 @@
             // 
             this.accountLabel.AutoSize = true;
             this.accountLabel.BackColor = System.Drawing.Color.Transparent;
-            this.accountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.accountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.accountLabel.ForeColor = System.Drawing.Color.White;
             this.accountLabel.Location = new System.Drawing.Point(3, 431);
             this.accountLabel.Name = "accountLabel";
-            this.accountLabel.Size = new System.Drawing.Size(120, 36);
+            this.accountLabel.Size = new System.Drawing.Size(102, 29);
             this.accountLabel.TabIndex = 10;
             this.accountLabel.Text = "account";
             this.accountLabel.Visible = false;
