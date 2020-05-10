@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using WebApi.Entities.Joins;
 
 namespace WebApi.Entities
 {
@@ -8,5 +10,7 @@ namespace WebApi.Entities
         {
             Name = name;
         }
+
+        public List<UserRole> UserRole { get; set; }
     }
 }

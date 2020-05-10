@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.Collections.Generic;
+using WebApi.Entities.Joins;
 
 namespace WebApi.Entities
 {
@@ -25,6 +27,7 @@ namespace WebApi.Entities
         public string NameOfTheBank { get; set; }
         public string AccountNumber { get; set; }
         public EquipmentStatus EquipmentStatus { get; set; }
+        public List<UserRole> UserRole { get; set; }
     }
     public enum EquipmentStatus
     {

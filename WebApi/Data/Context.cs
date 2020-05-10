@@ -24,6 +24,7 @@ namespace WebApi.Data
         public DbSet<WorkPlace> Workplaces { get; set; }
         public DbSet<WorkPlaceLeaderCorporateEvent> WorkPlaceLeaderCorporateEvents { get; set; }
         public DbSet<EmployeeCorporateEvent> EmployeeCorporateEvents { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +33,10 @@ namespace WebApi.Data
 
             modelBuilder.Entity<ApplicationUser>().ToTable("Users");
             modelBuilder.Entity<ApplicationRole>().ToTable("Roles");
+
+            modelBuilder.Entity<UserRole>().HasKey(s => new { s.UserID, s.RoleID });
+            modelBuilder.Entity<UserRole>().HasOne(x => x.User).WithMany(x => x.UserRole).HasForeignKey(x => x.UserID);
+            modelBuilder.Entity<UserRole>().HasOne(x => x.Role).WithMany(x => x.UserRole).HasForeignKey(x => x.RoleID);
 
             modelBuilder.Entity<Employee>().HasOne(x => x.IdentityUser).WithMany().IsRequired().OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<WorkPlaceLeader>().HasOne(x => x.IdentityUser).WithMany().IsRequired().OnDelete(DeleteBehavior.Cascade);

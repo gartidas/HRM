@@ -11,8 +11,6 @@ namespace Desktop.UserControls.FeatureScreens.PersonalMenuScreens
 {
     public partial class PersonalVacationsScreen : UserControl
     {
-        //source: https://www.codeproject.com/Articles/378900/Calendar-NET
-
         private List<CustomEvent> _events = new List<CustomEvent>();
         private List<Vacation> _vacations = new List<Vacation>();
         private int _numberOfVacations;
